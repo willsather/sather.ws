@@ -35,7 +35,7 @@ jobs:
       - name: Deploy
         uses: netlify/actions/cli@master
         with:
-          args: deploy --site dev-will-sather
+          args: deploy --dir=.next --build --prod
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_DEV_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
