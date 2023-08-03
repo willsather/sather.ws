@@ -1,0 +1,14 @@
+import { render, screen } from "@testing-library/react";
+import Home from "@/app/about/page";
+
+describe("About", () => {
+  beforeEach(async () => {
+    render(<Home />);
+  });
+
+  it("should render", () => {
+    expect(screen.getByRole("img", { name: "About" })).toBeInTheDocument();
+
+    expect(screen.getByText("hi, i'm will")).toBeInTheDocument();
+  });
+});
