@@ -24,3 +24,18 @@ jobs:
 
       - name: Test
         run: npm run test:ci
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [ build ]
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Deploy
+        uses: netlify/actions/cli@master
+        with:
+          args: deploy --site dev-will-sather
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_DEV_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
