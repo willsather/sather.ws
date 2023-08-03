@@ -32,15 +32,18 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
-      - name: debug
+      - name: Debug CI
         run: |
           pwd
           ls -la
 
+      - name: Install Netlify
+        run: npm install -g netlify-cli @netlify/plugin-nextjs@appdi
+
+      - name: Build Artifact
+        run: |
+          npm install
+          npm run build
+
       - name: Deploy
-        uses: netlify/actions/cli@master
-        with:
-          args: deploy --dir=.next --build --prod
-        env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_DEV_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: deploy --site ${{ secrets.NETLIFY_DEV_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --dir=.next --prod
