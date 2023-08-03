@@ -1,5 +1,4 @@
 module.exports = {
-  output: "export",
   eslint: {
     dirs: ["pages", "src", "app", "__mocks__", "__tests__", "types"],
   },
