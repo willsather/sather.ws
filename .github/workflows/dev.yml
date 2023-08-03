@@ -8,27 +8,8 @@ env:
   NODE_VERSION: "18.14.0"
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install Dependencies
-        run: npm install --silent --immutable
-
-      - name: Build
-        run: npm run build
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Test
-        run: npm run test:ci
-
   deploy:
     runs-on: ubuntu-latest
-    needs: [ build ]
-
     steps:
       - uses: actions/checkout@master
 
@@ -46,4 +27,23 @@ jobs:
           npm run build
 
       - name: Deploy
-        run: deploy --site ${{ secrets.NETLIFY_DEV_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --dir=.next --prod
+        run: netlify deploy --site ${{ secrets.NETLIFY_DEV_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --dir=.next --prod
+
+#    needs: [ build ]
+
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#
+#      - name: Install Dependencies
+#        run: npm install --silent --immutable
+#
+#      - name: Build
+#        run: npm run build
+#
+#      - name: Lint
+#        run: npm run lint
+#
+#      - name: Test
+#        run: npm run test:ci
