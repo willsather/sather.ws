@@ -51,4 +51,4 @@ jobs:
           ls -la
 
       - name: Deploy
-        run: netlify deploy --site ${{ secrets.NETLIFY_DEV_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --dir=.next --prod
+        run: netlify deploy --site ${{ secrets.NETLIFY_DEV_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --dir=.next --build --prod
