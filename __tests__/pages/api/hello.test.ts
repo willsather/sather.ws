@@ -1,6 +1,6 @@
 import { NextApiRequest } from "next/dist/shared/lib/utils";
 import { NextApiResponse } from "next";
-import helloApi from "../../../app/api/hello/index";
+import helloApi from "@/pages/api/index";
 
 describe("hello api", () => {
   const json = jest.fn();
