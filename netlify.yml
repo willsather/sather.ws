@@ -1,0 +1,17 @@
+build:
+  publish: .next
+  command: npm run build
+#  functions: project/functions/
+#  ignore: git diff --quiet HEAD^ HEAD sub_dir/
+#  processing:
+#    skip_processing: false
+#    css:
+#      bundle: true
+#      minify: false
+#    js:
+#      bundle: true
+#      minify: false
+#    html:
+#      pretty_urls: true
+#    images:
+#      compress: true
