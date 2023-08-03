@@ -38,7 +38,7 @@ jobs:
           ls -la
 
       - name: Install Netlify
-        run: npm install -g netlify-cli @netlify/plugin-nextjs@appdi
+        run: npm install -g netlify-cli @netlify/plugin-nextjs@appdir
 
       - name: Build Artifact
         run: |
