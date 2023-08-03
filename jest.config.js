@@ -16,6 +16,7 @@ const customJestConfig = {
     "^@/__tests__/(.*)$": "<rootDir>/__tests__/$1",
     "^@/__mocks__/(.*)$": "<rootDir>/__mocks__/$1",
   },
+  modulePathIgnorePatterns: ["node_modules", ".netlify"],
   testEnvironment: "jest-environment-jsdom",
   watchPathIgnorePatterns: ["node_modules", "globalConfig"],
 };

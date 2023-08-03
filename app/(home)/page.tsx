@@ -19,7 +19,7 @@ export default function Home() {
         </Box>
 
         <Box sx={{ display: "flex", justifyContent: "center" }} mt={8}>
-          <Typography variant="h4">livin&apos; the dream :)</Typography>
+          <Typography variant="h4">livin&apos; the dream.</Typography>
         </Box>
 
         <SocialLinks />
