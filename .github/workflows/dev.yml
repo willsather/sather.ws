@@ -32,6 +32,11 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
+      - name: debug
+        run: |
+          pwd
+          ls -la
+
       - name: Deploy
         uses: netlify/actions/cli@master
         with:
