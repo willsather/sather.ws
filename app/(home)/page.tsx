@@ -4,7 +4,7 @@ import React from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/src/theme/theme";
 import { Box, Typography } from "@mui/material";
-import SocialLinks from "./socialLinks";
+import SocialLinks from "@/app/(home)/socialLinks";
 
 export default function Home() {
   return (

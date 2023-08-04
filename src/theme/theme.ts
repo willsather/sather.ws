@@ -1,7 +1,7 @@
 import { createTheme } from "@mui/material/styles";
-import colorTheme from "./colors";
-import typography from "./typography";
-import breakpoints from "./breakpoints";
+import colorTheme from "@/src/theme/colors";
+import typography from "@/src/theme/typography";
+import breakpoints from "@/src/theme/breakpoints";
 
 const theme = createTheme({
   typography,

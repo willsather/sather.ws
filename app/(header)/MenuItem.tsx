@@ -7,7 +7,13 @@ const HeaderMenuItem = ({ text, link }: { text: string; link: string }) => {
     <Link
       className={styles.headerMenuItem}
       href={link}
-      style={{ fontSize: "18px", margin: "5px", textDecoration: "none", textAlign: "right" }}
+      style={{
+        fontSize: "18px",
+        color: "black",
+        margin: "5px",
+        textDecoration: "none",
+        textAlign: "right",
+      }}
     >
       <Typography variant="body1" color="primary.main">
         {text}
