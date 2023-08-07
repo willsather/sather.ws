@@ -48,4 +48,4 @@ jobs:
           npm run build
 
       - name: Deploy
-        run: netlify deploy --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --dir=.next --build --prod
+        run: netlify deploy --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --dir=.next --build --prod --message "Deploy GitHub Actions"
