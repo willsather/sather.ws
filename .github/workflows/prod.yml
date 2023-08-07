@@ -5,15 +5,17 @@ on:
       - v[0-9]+.[0-9]
 
 jobs:
-# TODO: Run cypress tests on dev before push to prod
-#  test:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v3
-#
-#      - name: Install Dependencies
-#        run: npm install --silent --immutable
-#
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm install --silent --immutable
+
+      - name: Integration Test (Dev)
+        run: npm run e2e:dev
+
 
   deploy:
     runs-on: ubuntu-latest
@@ -30,4 +32,4 @@ jobs:
           npm run build
 
       - name: Deploy
-        run: netlify deploy --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --dir=.next --build --prod --message "Deploy GitHub Actions"
+        run: netlify deploy --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --dir=.next --build --prod --message "Deploy - GitHub Actions"

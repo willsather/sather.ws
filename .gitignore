@@ -1,30 +1,37 @@
+# local
 .idea
 .vscode
 .DS_Store
 
+# next
 logs
 *.log
 npm-debug.log*
 
+# tests
+lib-cov
+coverage
+.nyc_output
+
+# build
+build
+.next
 pids
 *.pid
 *.seed
 
-lib-cov
-
-coverage
-
-.nyc_output
-
-
-build
-
+# dependencies
 node_modules
 jspm_packages
 
+# npm
 .npm
-
 .node_repl_history
-.next
-# Local Netlify folder
+
+# netlify
 .netlify
+
+# cypress
+cypress/downloads
+cypress/screenshots
+cypress/videos

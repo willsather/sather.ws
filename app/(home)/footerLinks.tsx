@@ -67,7 +67,7 @@ const FooterLinks = ({
           display: "flex",
         }}
       >
-        <IconButton onClick={() => setShowParticles(!showParticles)} aria-label="particles">
+        <IconButton onClick={() => setShowParticles(!showParticles)} aria-label="particles" name="particles">
           <DotsIcon width={24} height={24} />
         </IconButton>
       </Box>
