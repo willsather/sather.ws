@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import Home from "@/app/(home)/page";
 
 describe("Home", () => {
-  beforeEach(async () => {
+  beforeEach(() => {
     render(<Home />);
   });
 

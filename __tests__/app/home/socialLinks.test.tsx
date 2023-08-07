@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import SocialLinks from "@/app/(home)/socialLinks";
 
 describe("SocialLinks", () => {
-  beforeEach(async () => {
+  beforeEach(() => {
     render(<SocialLinks />);
   });
 

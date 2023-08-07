@@ -5,7 +5,7 @@ const typography = {
     fontFamily: "MatterSemibold, Arial, sans-serif",
     fontWeight: "600",
     lineHeight: "45px",
-    "@media (max-width:820px)": {
+    "@media (max-width:900px)": {
       fontSize: "35px",
       lineHeight: "45px",
     },
@@ -15,7 +15,7 @@ const typography = {
     fontFamily: "MatterSemibold, Arial, sans-serif",
     fontWeight: "600",
     lineHeight: "45px",
-    "@media (max-width:820px)": {
+    "@media (max-width:900px)": {
       fontSize: "28px",
     },
   },
@@ -24,7 +24,7 @@ const typography = {
     fontFamily: "MatterSemibold, Arial, sans-serif",
     fontWeight: "600",
     lineHeight: "40px",
-    "@media (max-width:820px)": {
+    "@media (max-width:900px)": {
       fontSize: "24px",
       lineHeight: "32px",
     },
@@ -34,7 +34,7 @@ const typography = {
     fontFamily: "MatterMedium, Arial, sans-serif",
     fontWeight: "500",
     lineHeight: "24px",
-    "@media (max-width:820px)": {
+    "@media (max-width:900px)": {
       fontSize: "14px",
       lineHeight: "18px",
     },
@@ -43,9 +43,37 @@ const typography = {
     fontSize: "16px",
     fontFamily: "MatterRegular, Arial, sans-serif",
     lineHeight: "26px",
-    "@media (max-width:820px)": {
+    "@media (max-width:900px)": {
       fontSize: "15px",
       lineHeight: "22px",
+    },
+  },
+  subtitle1: {
+    fontSize: "40px",
+    fontFamily: "MatterSemibold, Arial, sans-serif",
+    fontWeight: "600",
+    lineHeight: "50px",
+    "@media (max-width:900px)": {
+      fontSize: "20px",
+    },
+  },
+  subtitle2: {
+    fontSize: "20px",
+    fontFamily: "MatterSemibold, Arial, sans-serif",
+    fontWeight: "300",
+    lineHeight: "30px",
+    "@media (max-width:900px)": {
+      fontSize: "16px",
+    },
+  },
+  caption: {
+    fontSize: "20px",
+    fontFamily: "MatterSemibold, Arial, sans-serif",
+    fontWeight: "300",
+    color: "#808080",
+    lineHeight: "30px",
+    "@media (max-width:900px)": {
+      fontSize: "16px",
     },
   },
   useNextVariants: true,
