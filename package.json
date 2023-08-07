@@ -8,9 +8,9 @@
     "lint:fix": "next lint --fix",
     "test": "jest --watch",
     "test:ci": "jest --ci",
-    "e2e": "start-server-and-test dev http://localhost:3333 \"cypress run --e2e --browser chrome\"",
+    "e2e": "start-server-and-test dev http://localhost:3333 \"cypress run --e2e\"",
     "e2e:open": "start-server-and-test dev http://localhost:3333 \"cypress open --e2e --browser chrome\"",
-    "e2e:dev": "cypress run --config baseUrl=https://dev.sather.ws --e2e --browser chrome"
+    "e2e:dev": "cypress run --config baseUrl=https://dev.sather.ws --e2e"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",

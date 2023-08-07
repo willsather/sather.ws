@@ -23,7 +23,16 @@ jobs:
         run: npm run test:ci
 
       - name: Integration Test
-        run: npm run e2e
+        uses: cypress-io/github-action@v5
+        with:
+          config: baseUrl=http://localhost:3000
+          quiet: false
+          browser: chrome
+          headless: true
+          record: false
+          start: npm start
+          wait-on: http://localhost:3000
+          wait-on-timeout: 180
 
   deploy:
     runs-on: ubuntu-latest

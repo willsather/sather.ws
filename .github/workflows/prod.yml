@@ -15,7 +15,16 @@ jobs:
 
       - name: Integration Test (Dev)
         run: npm run e2e:dev
-
+      - name: Integration Test
+        uses: cypress-io/github-action@v2
+        with:
+          quiet: false
+          browser: chrome
+          headless: true
+          record: false
+          start: npm start
+          wait-on: https://dev.sather.ws
+          wait-on-timeout: 180
 
   deploy:
     runs-on: ubuntu-latest
