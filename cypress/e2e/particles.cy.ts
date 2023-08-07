@@ -1,6 +1,6 @@
 describe("Navigation", () => {
   it("should navigate to experience page", () => {
-    cy.visit(Cypress.config().baseUrl);
+    cy.visit("/");
 
     // particles are shown
     cy.get("[id$=tsparticles]").should("exist");

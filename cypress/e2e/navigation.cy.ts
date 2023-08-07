@@ -1,6 +1,6 @@
 describe("Navigation", () => {
   it("should navigate to experience page", () => {
-    cy.visit(Cypress.config().baseUrl);
+    cy.visit("/");
 
     cy.contains("experience").click();
 
@@ -9,7 +9,7 @@ describe("Navigation", () => {
   });
 
   it("should navigate to home page", () => {
-    cy.visit(Cypress.config().baseUrl);
+    cy.visit("/");
 
     cy.contains("home").click();
 
@@ -18,7 +18,7 @@ describe("Navigation", () => {
   });
 
   it("should navigate to about page", () => {
-    cy.visit(Cypress.config().baseUrl);
+    cy.visit("/");
 
     cy.contains("about").click();
 
