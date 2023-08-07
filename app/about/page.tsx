@@ -21,7 +21,7 @@ const About = () => {
           <Typography variant="h1">ABOUT</Typography>
         </Box>
 
-        <Box sx={{ display: "flex", justifyContent: "center" }} mt={2}>
+        <Box sx={{ display: "flex", justifyContent: "center" }} mt={8}>
           <Typography variant="h4">hi, i&apos;m will</Typography>
         </Box>
 

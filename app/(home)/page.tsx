@@ -1,13 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/src/theme/theme";
 import { Box, Typography } from "@mui/material";
-import SocialLinks from "@/app/(home)/socialLinks";
+import FooterLinks from "@/app/(home)/footerLinks";
 import ParticleOverlay from "@/src/components/shared/particles";
 
 export default function Home() {
+  const [showParticles, setShowParticles] = useState(true);
+
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -15,7 +17,7 @@ export default function Home() {
           backgroundColor: "secondary.main",
         }}
       >
-        <ParticleOverlay />
+        {showParticles && <ParticleOverlay />}
 
         <Box sx={{ display: "flex", justifyContent: "center" }} mt={8}>
           <Typography variant="h1">WILL SATHER</Typography>
@@ -25,7 +27,7 @@ export default function Home() {
           <Typography variant="h4">livin&apos; the dream.</Typography>
         </Box>
 
-        <SocialLinks />
+        <FooterLinks showParticles={showParticles} setShowParticles={setShowParticles} />
       </Box>
     </ThemeProvider>
   );
