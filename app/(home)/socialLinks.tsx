@@ -4,6 +4,7 @@ import React from "react";
 import InstagramIcon from "@/public/icons/instagram.svg";
 import LinkedInIcon from "@/public/icons/linkedin.svg";
 import GitHubIcon from "@/public/icons/github.svg";
+import PictureIcon from "@/public/icons/picture.svg";
 
 const SocialLinks = () => {
   const socialLinks = {
@@ -11,13 +12,17 @@ const SocialLinks = () => {
       icon: <InstagramIcon width={24} height={24} />,
       link: "https://www.instagram.com/will.sather/",
     },
+    github: {
+      icon: <GitHubIcon width={24} height={24} />,
+      link: "https://github.com/willsather/Will-Sather",
+    },
     linkedin: {
       icon: <LinkedInIcon width={24} height={24} />,
       link: "https://www.linkedin.com/in/willsather",
     },
-    github: {
-      icon: <GitHubIcon width={24} height={24} />,
-      link: "https://github.com/willsather/Will-Sather",
+    vsco: {
+      icon: <PictureIcon width={24} height={24} />,
+      link: "https://vsco.co/willsather/gallery",
     },
   };
 
