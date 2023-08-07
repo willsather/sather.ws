@@ -21,7 +21,7 @@ const JobList = () => {
     },
     {
       company: "byt8",
-      role: "Developer &amp; Creator",
+      role: "Developer & Creator",
       description: "firebase, google cloud platform, javascript, swift",
     },
   ];
