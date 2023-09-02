@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import FooterLinks from "@/app/(home)/footerLinks";
+import FooterLinks from "@/src/app/(home)/footerLinks";
 import userEvent from "@testing-library/user-event";
 import { UserEvent } from "@testing-library/user-event/setup/setup";
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "@/app/(header)/header.module.scss";
+import styles from "@/src/app/(header)/header.module.scss";
 import { Typography } from "@mui/material";
 
 const HeaderMenuItem = ({ text, link }: { text: string; link: string }) => {

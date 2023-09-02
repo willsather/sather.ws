@@ -1,7 +1,6 @@
 const nextJest = require("next/jest");
 
 const createJestConfig = nextJest({
-  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
   dir: "./",
 });
 
@@ -9,11 +8,9 @@ const customJestConfig = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   moduleNameMapper: {
     "^@/public/(.*)$": "<rootDir>/public/$1",
-    "^@/app/(.*)$": "<rootDir>/app/$1",
     "^@/pages/(.*)$": "<rootDir>/pages/$1",
     "^@/types/(.*)$": "<rootDir>/types/$1",
     "^@/src/(.*)$": "<rootDir>/src/$1",
-    "^@/__tests__/(.*)$": "<rootDir>/__tests__/$1",
     "^@/__mocks__/(.*)$": "<rootDir>/__mocks__/$1",
   },
   modulePathIgnorePatterns: ["node_modules", ".netlify"],

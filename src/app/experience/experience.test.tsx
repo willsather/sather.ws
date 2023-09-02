@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Experience from "@/app/experience/page";
+import Experience from "@/src/app/experience/page";
 
 describe("Experience", () => {
   beforeEach(() => {
