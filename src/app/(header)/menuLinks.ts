@@ -1,7 +1,7 @@
 const menuLinks = {
   home: "/",
   experience: "/experience",
-  blog: "https://blog.sather.ws",
+  blog: "/blog",
   // byt8: "https://byt8.app",
   about: "/about",
 };

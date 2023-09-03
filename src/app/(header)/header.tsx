@@ -13,7 +13,7 @@ const Header = () => {
 
       <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, justifyContent: "space-between" }}>
         {Object.entries(menuLinks).map(([text, link]) => (
-          <Box margin={{ md: "15px" }} key={text}>
+          <Box margin={{ md: "15px" }} marginTop={{ xs: "15px", md: 0 }} key={text}>
             <Link
               className={styles.headerMenuItem}
               href={link}
@@ -24,7 +24,7 @@ const Header = () => {
                 textAlign: "right",
               }}
             >
-              <Typography variant="h4">{text}</Typography>
+              <Typography variant="body1">{text}</Typography>
             </Link>
           </Box>
         ))}

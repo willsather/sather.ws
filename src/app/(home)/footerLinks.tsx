@@ -1,5 +1,4 @@
 import { Box, IconButton } from "@mui/material";
-import Link from "next/link";
 import React, { Dispatch, SetStateAction } from "react";
 import InstagramIcon from "@/public/icons/instagram.svg";
 import LinkedInIcon from "@/public/icons/linkedin.svg";

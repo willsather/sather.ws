@@ -1,6 +1,6 @@
-import { Box, Typography } from "@mui/material";
-import Link from "next/link";
+import { Box, Typography, Button } from "@mui/material";
 import React from "react";
+import ArrowLeft from "@/public/icons/arrow-left.svg";
 
 const GoBackHome = ({ title }: { title: string }) => {
   return (
@@ -14,11 +14,12 @@ const GoBackHome = ({ title }: { title: string }) => {
       </Box>
 
       <Box sx={{ display: "flex", justifyContent: "center" }} mt={8}>
-        <Link href="/">
-          <Typography variant="h4" sx={{ color: "grey" }}>
-            go back home
-          </Typography>
-        </Link>
+        <Button href="/" variant="outlined">
+          <Box sx={{ display: "flex", gap: 2 }}>
+            <ArrowLeft width={24} height={24} />
+            <Typography variant="h4">go back home</Typography>
+          </Box>
+        </Button>
       </Box>
     </Box>
   );
