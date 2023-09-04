@@ -2,6 +2,10 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 import ExternalLink from "@/src/components/shared/link";
 import Jobs from "@/src/app/experience/jobs";
+// import { Metadata } from "next";
+// import experienceMetadata from "@/src/metadata/experience";
+
+// export const metadata: Metadata = experienceMetadata;
 
 export default function Experience() {
   return (

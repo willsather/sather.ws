@@ -1,10 +1,10 @@
 import { Box, Divider, Typography } from "@mui/material";
 import { findAllPostSlugs, loadMdxFromSlug } from "@/lib/blog/utils";
 import PostListItem from "@/src/components/blog/postListItem";
-import { Metadata } from "next";
-import blogMetadata from "@/src/metadata/blog";
+// import { Metadata } from "next";
+// import blogMetadata from "@/src/metadata/blog";
 
-export const metadata: Metadata = blogMetadata;
+// export const metadata: Metadata = blogMetadata;
 
 async function getBlogData() {
   const allSlugs = await findAllPostSlugs();

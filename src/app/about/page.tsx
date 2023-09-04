@@ -1,10 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import blogMetadata from "@/src/metadata/blog";
-import { Metadata } from "next";
 import AboutInformation from "@/src/app/about/aboutInformation";
+// import { Metadata } from "next";
+// import blogMetadata from "@/src/metadata/blog";
 
-export const metadata: Metadata = blogMetadata;
+// export const metadata: Metadata = blogMetadata;
 
 export default function About() {
   return (
