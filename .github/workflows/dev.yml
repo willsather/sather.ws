@@ -4,6 +4,10 @@ on:
     branches:
       - main
 
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_DEV_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,32 +23,32 @@ jobs:
       - name: Lint
         run: npm run lint
 
-#  test:
-#    needs: [ build ]
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v3
-#
-#      - name: Install Dependencies
-#        run: npm install --silent --immutable
-#
-#      - name: Build
-#        run: npm run build
-#
-#      - name: Test
-#        run: npm run test:ci
-#
-#      - name: Integration Test
-#        uses: cypress-io/github-action@v5
-#        with:
-#          config: baseUrl=http://localhost:3000
-#          quiet: false
-#          browser: chrome
-#          headless: true
-#          record: false
-#          start: npm start
-#          wait-on: http://localhost:3000
-#          wait-on-timeout: 180
+  test:
+    needs: [ build ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm install --silent --immutable
+
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm run test:ci
+
+      - name: Integration Test
+        uses: cypress-io/github-action@v5
+        with:
+          config: baseUrl=http://localhost:3000
+          quiet: false
+          browser: chrome
+          headless: true
+          record: false
+          start: npm start
+          wait-on: http://localhost:3000
+          wait-on-timeout: 180
 
   deploy:
     needs: [build]
