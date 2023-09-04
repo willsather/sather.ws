@@ -51,7 +51,7 @@ jobs:
           wait-on-timeout: 180
 
   deploy:
-    needs: [build]
+    needs: [ build, test ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
