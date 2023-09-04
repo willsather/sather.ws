@@ -10,4 +10,8 @@ export default defineConfig({
       bundler: "webpack",
     },
   },
+  retries: {
+    runMode: 2,
+    openMode: 0,
+  },
 });
