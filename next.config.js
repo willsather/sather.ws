@@ -1,4 +1,7 @@
 module.exports = {
+  experimental: {
+    appDir: true,
+  },
   eslint: {
     dirs: ["src", "__mocks__", "lib"],
   },

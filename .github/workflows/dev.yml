@@ -42,7 +42,7 @@ jobs:
       - uses: actions/checkout@master
 
       - name: Install Netlify
-        run: npm install -g netlify-cli @netlify/plugin-nextjs@appdir
+        run: npm install -g netlify-cli @netlify/plugin-nextjs
 
       - name: Build Artifact
         run: |

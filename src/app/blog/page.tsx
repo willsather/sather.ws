@@ -1,5 +1,5 @@
 import { Box, Divider, Typography } from "@mui/material";
-import { findAllPostSlugs, loadMdxFromSlug } from "@/lib/blog/utils";
+import { BlogPostFrontmatter, findAllPostSlugs, loadMdxFromSlug } from "@/lib/blog/utils";
 import PostListItem from "@/src/components/blog/postListItem";
 // import { Metadata } from "next";
 // import blogMetadata from "@/src/metadata/blog";
@@ -9,7 +9,7 @@ import PostListItem from "@/src/components/blog/postListItem";
 async function getBlogData() {
   const allSlugs = await findAllPostSlugs();
   const allSources = await Promise.all(
-    allSlugs.map(async (slug) => {
+    allSlugs.map(async (slug: string) => {
       const source = await loadMdxFromSlug(slug);
       return { slug, source };
     })
