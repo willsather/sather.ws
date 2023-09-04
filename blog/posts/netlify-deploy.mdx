@@ -1,0 +1,131 @@
+---
+title: 'Deploy Next.js app to Netlify using GitHub Actions'
+date: 2023-08-07T19:00:00Z
+tags: ['next-js', 'github', 'netlify']
+draft: false
+summary: 'Deploying a Next.js App Router application to Netlify using GitHub Actions'
+---
+
+## Overview
+
+[nextjs-app-router]: [https://nextjs.org/docs/app]
+[github-repository]: [https://github.com/willsather/website]
+[sather-website]: [https://sather.ws]
+
+Recently, I migrated my website from Angular to Next.js and React, with attempts to utilize Next.js new App Router architecture.
+In doing so, I wanted to replace my Netlify Git connector with GitHub Actions, as I had intentions of building, testing, and linting the
+codebase before a successful deployment.  However, I ran into some nuances with the App Router, Netlify, and Next.js that I wanted to document here.
+
+You can view the deployed application at [sather.ws][sather-website] and the GitHub repository at [GitHub.com][github-repository].
+
+## Configure workflow
+
+First thing I did was to create the GitHub action workflow:
+
+<Note>This configuration includes jobs for building, testing, and deploying the application</Note>
+
+
+```yml
+name: dev
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm install --silent --immutable
+
+      - name: Build
+        run: npm run build
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm run test:ci
+
+      - name: Integration Test
+        uses: cypress-io/github-action@v5
+        with:
+          config: baseUrl=http://localhost:3000
+          quiet: false
+          browser: chrome
+          headless: true
+          record: false
+          start: npm start
+          wait-on: http://localhost:3000
+          wait-on-timeout: 180
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [ build ]
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Install Netlify
+        run: npm install -g netlify-cli @netlify/plugin-nextjs@appdir
+
+      - name: Build Artifact
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy
+        run: netlify deploy --site ${{ secrets.NETLIFY_DEV_SITE_ID }} /
+              --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} /
+              --dir=.next --build --prod /
+              --message "Deploy - GitHub Actions"
+
+```
+
+The primary code of importance here is the final `deploy` job, which directly utilizes installing and deploying via Netlify CLI.
+There is more documentation for the `yaml` at [GitHub Actions Documentation](https://docs.github.com/en/actions).
+
+These steps under the `deploy` job are pretty straightforward, it
+1. checks out the repository
+2. installs dependencies and builds artifact
+3. installs Netlify CLI
+4. deploys to specified environment
+
+The only thing worth noting here is that the `--dir=.next` parameter specifying the build output file location.  Secondly,
+according to Netlify's documentation, App Router Next.js Applications MUST use the `--build` parameter.  Finally, the rest of
+the parameters just cover Netlify Authentication and setting a message to make it all a little cleaner in the Netlify platform.
+
+Lastly, there is one critical piece to this puzzle, which is the `npm install @netlify/plugin-nextjs@appdir` which not only
+adds support for Next.js applications, but specifically the App Router.
+
+This package will automatically detect the App Router application and deploy a site for the frontend and Netlify functions
+for the API routes and Image optimizations.
+
+## Secrets
+
+First, you need to have a `Netlify Auth Token` and `Netlify Site ID`, both of which can be found on Netlify's platform.
+
+Once you have those two pieces of information, you need to configure the GitHub Actions secrets to include them as named above.
+
+## Netlify Configuration
+
+You can also a Netlify configuration to specify configuration in `netlify.toml` file, like shown here:
+
+```toml
+[build]
+  base = "."
+  publish = ".next"
+  command = "npm run build"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs@appdir"
+```
+
+## Deployed   🎉
+
+Now, whenever a commit is made on the `main` branch, GitHub actions will build, test, and deploy to Netlify (in this case, the dev site).
+This is useful for building more complicated pipelines that can do anything you want as well as abstracting the deployment details away
+from the Netlify Git connector hook.

@@ -20,7 +20,7 @@ export default function Home() {
         <Typography variant="h1">WILL SATHER</Typography>
       </Box>
 
-      <Box sx={{ display: "flex", justifyContent: "center" }} mt={8}>
+      <Box sx={{ display: "flex", justifyContent: "center" }} mt={4}>
         <Typography variant="h4">livin&apos; the dream.</Typography>
       </Box>
 

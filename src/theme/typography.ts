@@ -48,6 +48,11 @@ const typography = {
       lineHeight: "22px",
     },
   },
+  body2: {
+    fontSize: "14px",
+    fontFamily: "MatterRegular, Arial, sans-serif",
+    lineHeight: "18px",
+  },
   subtitle1: {
     fontSize: "40px",
     fontFamily: "MatterSemibold, Arial, sans-serif",

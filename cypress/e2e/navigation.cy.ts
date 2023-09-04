@@ -17,6 +17,15 @@ describe("Navigation", () => {
     cy.get("h1").contains("WILL SATHER");
   });
 
+  it("should navigate to blog page", () => {
+    cy.visit("/");
+
+    cy.contains("blog").click();
+
+    cy.url().should("include", "/blog");
+    cy.get("h1").contains("BLOG");
+  });
+
   it("should navigate to about page", () => {
     cy.visit("/");
 

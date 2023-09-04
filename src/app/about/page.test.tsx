@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
-import Home from "@/src/app/about/page";
+import About from "@/src/app/about/page";
 
 describe("About", () => {
   beforeEach(() => {
-    render(<Home />);
+    render(<About />);
   });
 
   it("should render", () => {
     expect(screen.getByRole("img", { name: "About" })).toBeInTheDocument();
 
-    expect(screen.getByText("hi, i'm will")).toBeInTheDocument();
+    expect(screen.getByText("hi, i'm will.")).toBeInTheDocument();
   });
 });

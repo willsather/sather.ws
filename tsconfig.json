@@ -23,20 +23,14 @@
       "@/public/*": [
         "public/*"
       ],
-      "@/pages/*": [
-        "pages/*"
-      ],
-      "@/styles/*": [
-        "styles/*"
-      ],
       "@/src/*": [
         "src/*"
       ],
+      "@/lib/*": [
+        "lib/*"
+      ],
       "@/types/*": [
         "types/*"
-      ],
-      "@/__tests__/*": [
-        "__tests__/*"
       ],
       "@/__mocks__/*": [
         "__mocks__/*"

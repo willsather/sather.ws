@@ -8,9 +8,8 @@ const customJestConfig = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   moduleNameMapper: {
     "^@/public/(.*)$": "<rootDir>/public/$1",
-    "^@/pages/(.*)$": "<rootDir>/pages/$1",
-    "^@/types/(.*)$": "<rootDir>/types/$1",
     "^@/src/(.*)$": "<rootDir>/src/$1",
+    "^@/lib/(.*)$": "<rootDir>/lib/$1",
     "^@/__mocks__/(.*)$": "<rootDir>/__mocks__/$1",
   },
   modulePathIgnorePatterns: ["node_modules", ".netlify"],
