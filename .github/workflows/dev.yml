@@ -34,6 +34,29 @@ jobs:
           wait-on: http://localhost:3000
           wait-on-timeout: 180
 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm install --silent --immutable
+
+      - name: Test
+        run: npm run test:ci
+
+      - name: Integration Test
+        uses: cypress-io/github-action@v5
+        with:
+          config: baseUrl=http://localhost:3000
+          quiet: false
+          browser: chrome
+          headless: true
+          record: false
+          start: npm start
+          wait-on: http://localhost:3000
+          wait-on-timeout: 180
+
   deploy:
     needs: [build, test]
     runs-on: ubuntu-latest
