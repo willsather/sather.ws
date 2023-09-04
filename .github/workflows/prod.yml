@@ -17,18 +17,19 @@ jobs:
         run: npm run e2e:dev
 
   deploy:
+    needs: [ build, test ]
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
 
-      - name: Install Netlify
-        run: npm install -g netlify-cli @netlify/plugin-nextjs@appdir
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
 
-      - name: Build Artifact
-        run: |
-          npm install
-          npm run build
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: Deploy
-        run: netlify deploy --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --dir=.next --build --prod --message "Deploy - GitHub Actions"
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
