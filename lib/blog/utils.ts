@@ -4,14 +4,6 @@ import glob from "tiny-glob";
 import matter from "gray-matter";
 import fs from "fs/promises";
 
-export type BlogPostFrontmatter = {
-  title: string;
-  date: Date;
-  tags: string[];
-  draft: boolean;
-  summary: string;
-};
-
 export const BLOG_PATH = path.join(process.cwd(), "/blog/posts/");
 
 function getSlug(slugPath: string) {
@@ -20,6 +12,13 @@ function getSlug(slugPath: string) {
 }
 
 export function findAllPostSlugs() {
+  return glob(path.join(BLOG_PATH, "*.mdx")).then((paths) => paths.map(getSlug));
+}
+export function findAllTags() {
+  return glob(path.join(BLOG_PATH, "*.mdx")).then((paths) => paths.map(getSlug));
+}
+
+export function findAllPostTags(tag: string) {
   return glob(path.join(BLOG_PATH, "*.mdx")).then((paths) => paths.map(getSlug));
 }
 

@@ -81,6 +81,13 @@ const typography = {
       fontSize: "16px",
     },
   },
+  tag: {
+    fontSize: "16px",
+    fontFamily: "MatterSemibold, Arial, sans-serif",
+    fontWeight: "300",
+    lineHeight: "12px",
+    color: "#AAAAAA",
+  },
   useNextVariants: true,
 };
 export default typography;

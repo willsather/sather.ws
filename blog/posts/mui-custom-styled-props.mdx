@@ -1,0 +1,64 @@
+---
+title: 'Custom Material UI Styled Component with Props'
+date: 2023-09-08T12:00:00Z
+tags: ['mui', 'react']
+draft: false
+summary: 'Adding custom props to a styled Material UI component'
+---
+
+## Overview
+
+[mui-checkbox]: [https://mui.com/material-ui/react-checkbox/]
+[mui-styled]: [https://mui.com/system/styled/]
+
+I was recently trying to customize a [Material UI Checkbox][mui-checkbox] in order to modify the styles when in an `error` state.  I noticed
+that Material UI had predetermined classes for things liked `&.Mui-Checked` and so on, but Material UI didn't have an error state.
+In my case, I had a checkbox which was required to be checked before moving on (for consent capture).  So, here is how I did it:
+
+### Styled Component
+To pass in a prop to `styled`, you just can add any custom prop right next to the `theme` prop as seen below.  However,
+once you compile and run your application, you'll notice a warning:
+
+```text
+Warning: React does not recognize the "error" prop on a DOM element. If you intentionally want it to appear in the DOM
+as a custom attribute, spell it as lowercase error instead. If you accidentally passed it from a parent component,
+remove it from the DOM element.
+```
+
+This is because MUI doesn't recognize the prop even though you pass it in (at this point it works, but you just have a warning.
+The nice thing is that MUI `styled` provides an optional parameter for options, which, in this case, the `shouldForwardProp` option.
+This option tells Material UI to forward the `error` prop to the styled component, which then gets rid of the error.
+
+```javascript
+'use client'
+
+import { styled } from '@mui/material/styles'
+import Checkbox from '@mui/material/Checkbox'
+
+const CustomCheckbox = styled(Checkbox, { shouldForwardProp: (prop) => prop !== 'error' })(
+  ({ theme, error = false }) => ({
+    color: error ? theme.palette.colorTheme.error : theme.palette.colorTheme.primary,
+    '&.Mui-checked': {
+      color: theme.palette.colorTheme.primary
+    },
+    ariaRoleDescription: 'checkbox'
+  }),
+)
+
+export default CustomCheckbox
+```
+
+So, now that the custom checkbox is configured, you can utilize it like this:
+
+```javascript
+  <NormalCheckbox
+    checked={isChecked}
+    error={showError}
+    onClick={({ target }) => onCheckChanged(target.checked)}
+  />
+```
+
+## woot woot   🎉
+
+And that's it, that's all you need to add custom props to a styled component using Material UI.  This can be extended to
+meet all sorts of use cases like `error` in my case, but also customizing other behavior.  Cheers!

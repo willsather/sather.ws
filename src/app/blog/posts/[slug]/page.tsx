@@ -1,14 +1,43 @@
-import { BlogPostFrontmatter, loadMdxFromSlug } from "@/lib/blog/utils";
+import { loadMdxFromSlug } from "@/lib/blog/utils";
 import Post from "@/src/app/blog/posts/[slug]/post";
 import { notFound } from "next/navigation";
+import { Box, Stack, Divider, Typography } from "@mui/material";
+import Tag from "@/src/components/blog/tag/tag";
+import { BlogFrontMatter } from "@/src/types/BlogFrontMatter";
 
 export default async function BlogPost({ params }: { params: { slug: string } }) {
   const { content, data } = await loadMdxFromSlug(params?.slug);
-  const frontMatter = data as BlogPostFrontmatter;
+  const frontMatter = data as BlogFrontMatter;
 
   if (frontMatter.draft) {
     notFound();
   }
 
-  return <Post frontMatter={frontMatter} content={content} />;
+  const tags = Array.from(new Set(frontMatter.tags));
+
+  return (
+    <Box>
+      <Stack direction="row" justifyContent="center" my={2}>
+        <Typography variant="h4" sx={{ color: "grey" }}>
+          {frontMatter.date.toLocaleDateString("default", { month: "long", day: "numeric", year: "numeric" })}
+        </Typography>
+      </Stack>
+
+      <Stack direction="row" justifyContent="center" my={2}>
+        <Typography variant="h2" sx={{ textAlign: "center" }}>
+          {frontMatter.title}
+        </Typography>
+      </Stack>
+
+      <Stack direction="row" justifyContent="center" useFlexGap flexWrap="wrap" spacing={{ xs: 2, md: 4 }}>
+        {tags.map((tag) => (
+          <Tag tag={tag} />
+        ))}
+      </Stack>
+
+      <Divider sx={{ mt: 4 }} />
+
+      <Post content={content} />
+    </Box>
+  );
 }

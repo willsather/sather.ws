@@ -1,12 +1,13 @@
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Divider, Stack, Typography } from "@mui/material";
 import { findAllPostSlugs, loadMdxFromSlug } from "@/lib/blog/utils";
-import PostListItem from "@/src/components/blog/postListItem";
+import { BlogFrontMatter } from "@/src/types/BlogFrontMatter";
+import Tag from "@/src/components/blog/tag/tag";
 // import { Metadata } from "next";
 // import blogMetadata from "@/src/metadata/blog";
 
 // export const metadata: Metadata = blogMetadata;
 
-async function getBlogData() {
+async function getTagData() {
   const allSlugs = await findAllPostSlugs();
   const allSources = await Promise.all(
     allSlugs.map(async (slug: string) => {
@@ -16,16 +17,14 @@ async function getBlogData() {
   );
 
   const posts = allSources.map(({ slug, source }) => {
-    return { slug, data: source.data };
+    return { slug, data: source.data as BlogFrontMatter };
   });
 
-  return posts.sort((a, b) => {
-    return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
-  });
+  return Array.from(new Set(posts.map(({ data: { tags } }) => tags).flat()));
 }
 
-export default async function Blog() {
-  const posts = await getBlogData();
+export default async function Tags() {
+  const tags = await getTagData();
 
   return (
     <Box
@@ -34,25 +33,20 @@ export default async function Blog() {
       }}
     >
       <Box sx={{ display: "flex", justifyContent: "center" }} mt={8}>
-        <Typography variant="h1">BLOG</Typography>
+        <Typography variant="h1">TAGS</Typography>
       </Box>
 
       <Box sx={{ display: "flex", justifyContent: "center" }} mt={4}>
-        <Typography variant="h4">stuff i want to write about</Typography>
+        <Typography variant="h4">categories i want to write about</Typography>
       </Box>
 
       <Divider sx={{ my: 4 }} />
 
-      <Box>
-        {posts.slice(0, 3).map((post) => {
-          const {
-            slug,
-            data: { title, date, summary },
-          } = post;
-
-          return <PostListItem key={title} slug={slug} title={title} date={date} summary={summary} />;
+      <Stack direction="row" justifyContent="center" useFlexGap flexWrap="wrap" spacing={{ xs: 2, md: 4 }}>
+        {tags.map((tag) => {
+          return <Tag tag={tag} />;
         })}
-      </Box>
+      </Stack>
     </Box>
   );
 }
