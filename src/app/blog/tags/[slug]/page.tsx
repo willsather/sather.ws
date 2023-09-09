@@ -1,6 +1,6 @@
 import { Box, Divider, Stack, Typography } from "@mui/material";
 import { findAllPostSlugs, loadMdxFromSlug } from "@/lib/blog/utils";
-import { BlogFrontMatter } from "@/src/types/BlogFrontMatter";
+import { BlogFrontMatter } from "@/src/types/blogFrontMatter";
 import Tag from "@/src/components/blog/tag/tag";
 import PostListItem from "@/src/components/blog/postListItem";
 
@@ -39,7 +39,7 @@ export default async function Tags({ params }: { params: { slug: string } }) {
       </Box>
 
       <Box sx={{ display: "flex", justifyContent: "center" }} mt={4}>
-        <Typography variant="h4">stuff i want to write about</Typography>
+        <Typography variant="h4">a category i wrote about</Typography>
       </Box>
 
       <Divider sx={{ my: 4 }} />

@@ -1,6 +1,6 @@
 import { Box, Divider, Stack, Typography } from "@mui/material";
 import { findAllPostSlugs, loadMdxFromSlug } from "@/lib/blog/utils";
-import { BlogFrontMatter } from "@/src/types/BlogFrontMatter";
+import { BlogFrontMatter } from "@/src/types/blogFrontMatter";
 import Tag from "@/src/components/blog/tag/tag";
 // import { Metadata } from "next";
 // import blogMetadata from "@/src/metadata/blog";
@@ -44,7 +44,7 @@ export default async function Tags() {
 
       <Stack direction="row" justifyContent="center" useFlexGap flexWrap="wrap" spacing={{ xs: 2, md: 4 }}>
         {tags.map((tag) => {
-          return <Tag tag={tag} />;
+          return <Tag key={tag} tag={tag} />;
         })}
       </Stack>
     </Box>

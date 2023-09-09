@@ -3,7 +3,7 @@ import Post from "@/src/app/blog/posts/[slug]/post";
 import { notFound } from "next/navigation";
 import { Box, Stack, Divider, Typography } from "@mui/material";
 import Tag from "@/src/components/blog/tag/tag";
-import { BlogFrontMatter } from "@/src/types/BlogFrontMatter";
+import { BlogFrontMatter } from "@/src/types/blogFrontMatter";
 
 export default async function BlogPost({ params }: { params: { slug: string } }) {
   const { content, data } = await loadMdxFromSlug(params?.slug);
@@ -31,7 +31,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
 
       <Stack direction="row" justifyContent="center" useFlexGap flexWrap="wrap" spacing={{ xs: 2, md: 4 }}>
         {tags.map((tag) => (
-          <Tag tag={tag} />
+          <Tag key={tag} tag={tag} />
         ))}
       </Stack>
 

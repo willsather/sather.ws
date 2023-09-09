@@ -1,6 +1,8 @@
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Divider, Stack, Typography } from "@mui/material";
 import { findAllPostSlugs, loadMdxFromSlug } from "@/lib/blog/utils";
-import PostListItem from "@/src/components/blog/postListItem";
+import PostPagination from "@/src/components/blog/postPagination";
+import { Post } from "@/src/types/post";
+
 // import { Metadata } from "next";
 // import blogMetadata from "@/src/metadata/blog";
 
@@ -16,7 +18,7 @@ async function getBlogData() {
   );
 
   const posts = allSources.map(({ slug, source }) => {
-    return { slug, data: source.data };
+    return { slug, data: source.data } as Post;
   });
 
   return posts.sort((a, b) => {
@@ -28,31 +30,18 @@ export default async function Blog() {
   const posts = await getBlogData();
 
   return (
-    <Box
-      sx={{
-        backgroundColor: "secondary.main",
-      }}
-    >
-      <Box sx={{ display: "flex", justifyContent: "center" }} mt={8}>
+    <Box sx={{ backgroundColor: "secondary.main" }}>
+      <Stack direction="row" justifyContent="center" mt={8}>
         <Typography variant="h1">BLOG</Typography>
-      </Box>
+      </Stack>
 
-      <Box sx={{ display: "flex", justifyContent: "center" }} mt={4}>
-        <Typography variant="h4">stuff i want to write about</Typography>
-      </Box>
+      <Stack direction="row" justifyContent="center" mt={4}>
+        <Typography variant="h4">stuff i wanted to write about</Typography>
+      </Stack>
 
       <Divider sx={{ my: 4 }} />
 
-      <Box>
-        {posts.slice(0, 3).map((post) => {
-          const {
-            slug,
-            data: { title, date, summary },
-          } = post;
-
-          return <PostListItem key={title} slug={slug} title={title} date={date} summary={summary} />;
-        })}
-      </Box>
+      <PostPagination posts={posts} />
     </Box>
   );
 }

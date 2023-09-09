@@ -90,4 +90,5 @@ const typography = {
   },
   useNextVariants: true,
 };
+
 export default typography;

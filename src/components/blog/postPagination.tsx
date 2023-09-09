@@ -1,0 +1,44 @@
+"use client";
+
+import { Box, Pagination, Stack } from "@mui/material";
+import PostListItem from "@/src/components/blog/postListItem";
+import { Post } from "@/src/types/post";
+import { ChangeEvent, useState } from "react";
+
+const POSTS_PER_PAGE = 3;
+
+export default function PostPagination({ posts }: { posts: Post[] }) {
+  const [page, setPage] = useState(1);
+  const [firstPost, setFirstPost] = useState(0);
+  const pageCount = Math.ceil(posts.length / 3);
+
+  const handlePaginationChange = (event: ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+    setFirstPost((value - 1) * POSTS_PER_PAGE);
+  };
+
+  return (
+    <Box>
+      <Box>
+        {posts.slice(firstPost, firstPost + POSTS_PER_PAGE).map((post) => {
+          const {
+            slug,
+            data: { title, date, summary },
+          } = post;
+
+          return <PostListItem key={slug} slug={slug} title={title} date={date} summary={summary} />;
+        })}
+      </Box>
+      <Stack direction="row" justifyContent="center" mt={4}>
+        <Pagination
+          page={page}
+          count={pageCount}
+          defaultPage={1}
+          onChange={handlePaginationChange}
+          shape="rounded"
+          sx={{ color: "#AAAAAA" }}
+        />
+      </Stack>
+    </Box>
+  );
+}
