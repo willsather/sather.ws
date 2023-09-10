@@ -18,6 +18,7 @@ export default function CustomMDX({ content }: { content: string }) {
           h2: (props: any) => <Typography {...props} variant="h3" mt={4} />,
           h3: (props: any) => <Typography {...props} variant="h4" mt={4} />,
           h4: (props: any) => <Typography {...props} variant="h5" mt={4} />,
+          h5: (props: any) => <Typography {...props} variant="h6" mt={4} />,
           p: (props: any) => <Typography {...props} variant="body1" mt={4} />,
           a: (props: any) => <Link {...props} />,
           pre: (props: any) => <PreBlock {...props} />,

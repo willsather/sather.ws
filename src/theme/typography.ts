@@ -31,12 +31,32 @@ const typography = {
   },
   h4: {
     fontSize: "18px",
-    fontFamily: "MatterMedium, Arial, sans-serif",
-    fontWeight: "500",
+    fontFamily: "MatterSemibold, Arial, sans-serif",
+    fontWeight: "600",
     lineHeight: "24px",
     "@media (max-width:900px)": {
       fontSize: "14px",
       lineHeight: "18px",
+    },
+  },
+  h5: {
+    fontSize: "16px",
+    fontFamily: "MatterSemibold, Arial, sans-serif",
+    fontWeight: "600",
+    lineHeight: "22px",
+    "@media (max-width:900px)": {
+      fontSize: "12px",
+      lineHeight: "16px",
+    },
+  },
+  h6: {
+    fontSize: "14px",
+    fontFamily: "MatterSemibold, Arial, sans-serif",
+    fontWeight: "600",
+    lineHeight: "20px",
+    "@media (max-width:900px)": {
+      fontSize: "10px",
+      lineHeight: "14px",
     },
   },
   body1: {

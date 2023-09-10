@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
-import PostPagination from "./postPagination";
+import PaginatedPosts from "./paginatedPosts";
 import { Post } from "@/src/types/post";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/src/theme/theme";
 import userEvent from "@testing-library/user-event";
 
-describe("PostPagination", () => {
+describe("PaginatedPosts", () => {
   const mockPost: Post = {
     slug: "fake-slug",
     data: {
@@ -55,7 +55,7 @@ describe("PostPagination", () => {
   it("renders", () => {
     render(
       <ThemeProvider theme={theme}>
-        <PostPagination posts={mockPosts} />
+        <PaginatedPosts posts={mockPosts} />
       </ThemeProvider>
     );
 
@@ -75,7 +75,7 @@ describe("PostPagination", () => {
   it("can navigate to next page", async () => {
     render(
       <ThemeProvider theme={theme}>
-        <PostPagination posts={mockPosts} />
+        <PaginatedPosts posts={mockPosts} />
       </ThemeProvider>
     );
 

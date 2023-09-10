@@ -1,6 +1,6 @@
 import { Box, Divider, Stack, Typography } from "@mui/material";
 import { findAllPostSlugs, loadMdxFromSlug } from "@/lib/blog/utils";
-import PostPagination from "@/src/components/blog/postPagination";
+import PaginatedPosts from "@/src/components/blog/paginatedPosts";
 import { Post } from "@/src/types/post";
 
 // import { Metadata } from "next";
@@ -41,7 +41,7 @@ export default async function Blog() {
 
       <Divider sx={{ my: 4 }} />
 
-      <PostPagination posts={posts} />
+      <PaginatedPosts posts={posts} />
     </Box>
   );
 }

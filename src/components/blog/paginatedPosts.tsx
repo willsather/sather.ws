@@ -1,13 +1,13 @@
 "use client";
 
-import { Box, Pagination, Stack } from "@mui/material";
+import { Box, Pagination, Stack, Typography } from "@mui/material";
 import PostListItem from "@/src/components/blog/postListItem";
 import { Post } from "@/src/types/post";
 import { ChangeEvent, useState } from "react";
 
 const POSTS_PER_PAGE = 3;
 
-export default function PostPagination({ posts }: { posts: Post[] }) {
+export default function PaginatedPosts({ posts }: { posts: Post[] }) {
   const [page, setPage] = useState(1);
   const [firstPost, setFirstPost] = useState(0);
   const pageCount = Math.ceil(posts.length / 3);
@@ -16,6 +16,16 @@ export default function PostPagination({ posts }: { posts: Post[] }) {
     setPage(value);
     setFirstPost((value - 1) * POSTS_PER_PAGE);
   };
+
+  if (!posts || posts.length < 1) {
+    return (
+      <Stack direction="row" justifyContent="center" mt={4}>
+        <Typography variant="body1" mt={2}>
+          No posts found
+        </Typography>
+      </Stack>
+    );
+  }
 
   return (
     <Box>

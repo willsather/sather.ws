@@ -3,13 +3,14 @@ import { findAllPostSlugs, loadMdxFromSlug } from "@/lib/blog/utils";
 import { BlogFrontMatter } from "@/src/types/blogFrontMatter";
 import Tag from "@/src/components/blog/tag/tag";
 import PostListItem from "@/src/components/blog/postListItem";
+import PaginatedPosts from "@/src/components/blog/paginatedPosts";
 
 // import { Metadata } from "next";
 // import blogMetadata from "@/src/metadata/blog";
 
 // export const metadata: Metadata = blogMetadata;
 
-async function getTagPosts(slug: string) {
+async function getTagPosts(tag: string) {
   const allSlugs = await findAllPostSlugs();
   const allSources = await Promise.all(
     allSlugs.map(async (slug: string) => {
@@ -22,11 +23,11 @@ async function getTagPosts(slug: string) {
     return { slug, data: source.data as BlogFrontMatter };
   });
 
-  return posts.filter(({ data: { tags } }) => tags.includes(slug));
+  return posts.filter(({ data: { tags } }) => tags.includes(tag));
 }
 
-export default async function Tags({ params }: { params: { slug: string } }) {
-  const posts = await getTagPosts(params?.slug);
+export default async function Tags({ params }: { params: { tag: string } }) {
+  const posts = await getTagPosts(params?.tag);
 
   return (
     <Box
@@ -35,7 +36,7 @@ export default async function Tags({ params }: { params: { slug: string } }) {
       }}
     >
       <Box sx={{ display: "flex", justifyContent: "center" }} mt={8}>
-        <Typography variant="h1">{params?.slug.toUpperCase()}</Typography>
+        <Typography variant="h1">{params?.tag.toUpperCase()}</Typography>
       </Box>
 
       <Box sx={{ display: "flex", justifyContent: "center" }} mt={4}>
@@ -44,16 +45,7 @@ export default async function Tags({ params }: { params: { slug: string } }) {
 
       <Divider sx={{ my: 4 }} />
 
-      <Box>
-        {posts.slice(0, 3).map((post) => {
-          const {
-            slug,
-            data: { title, date, summary },
-          } = post;
-
-          return <PostListItem key={title} slug={slug} title={title} date={date} summary={summary} />;
-        })}
-      </Box>
+      <PaginatedPosts posts={posts} />
     </Box>
   );
 }
