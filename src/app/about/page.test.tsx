@@ -7,7 +7,7 @@ describe("About", () => {
   });
 
   it("should render", () => {
-    expect(screen.getByRole("img", { name: "About" })).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "About | Will Sather" })).toBeInTheDocument();
 
     expect(screen.getByText("hi, i'm will.")).toBeInTheDocument();
   });
