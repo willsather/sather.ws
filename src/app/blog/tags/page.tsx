@@ -2,10 +2,10 @@ import { Box, Divider, Stack, Typography } from "@mui/material";
 import { findAllPostSlugs, loadMdxFromSlug } from "@/lib/blog/utils";
 import { BlogFrontMatter } from "@/src/types/blogFrontMatter";
 import Tag from "@/src/components/blog/tag/tag";
-// import { Metadata } from "next";
-// import blogMetadata from "@/src/metadata/blog";
+import { Metadata } from "next";
+import tagsMetadata from "@/src/metadata/tags";
 
-// export const metadata: Metadata = blogMetadata;
+export const metadata: Metadata = tagsMetadata;
 
 async function getTagData() {
   const allSlugs = await findAllPostSlugs();
@@ -23,7 +23,7 @@ async function getTagData() {
   return Array.from(new Set(posts.map(({ data: { tags } }) => tags).flat()));
 }
 
-export default async function Tags() {
+export default async function TagsPage() {
   const tags = await getTagData();
 
   return (

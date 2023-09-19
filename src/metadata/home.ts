@@ -3,8 +3,11 @@ import icons from "@/src/metadata/icons";
 import manifest from "@/src/metadata/manifest";
 
 const home: Metadata = {
-  title: "Will Sather",
-  description: "A software engineer based out of boston, ma.",
+  title: {
+    template: "%s | Will Sather",
+    default: "Will Sather",
+  },
+  description: "a software engineer based out of boston, ma.",
   icons,
   manifest,
 };

@@ -6,7 +6,7 @@ import React from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import theme from "@/src/theme/theme";
 
-export default function AboutInformation() {
+export default function About() {
   const isLargeScreenSize = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (

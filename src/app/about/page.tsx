@@ -1,12 +1,12 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import AboutInformation from "@/src/app/about/aboutInformation";
-// import { Metadata } from "next";
-// import blogMetadata from "@/src/metadata/blog";
+import About from "@/src/app/about/about";
+import { Metadata } from "next";
+import aboutMetadata from "@/src/metadata/about";
 
-// export const metadata: Metadata = blogMetadata;
+export const metadata: Metadata = aboutMetadata;
 
-export default function About() {
+export default function AboutPage() {
   return (
     <Box
       sx={{
@@ -21,7 +21,7 @@ export default function About() {
         <Typography variant="h4">hi, i&apos;m will.</Typography>
       </Box>
 
-      <AboutInformation />
+      <About />
     </Box>
   );
 }

@@ -4,8 +4,19 @@ import { notFound } from "next/navigation";
 import { Box, Stack, Divider, Typography } from "@mui/material";
 import Tag from "@/src/components/blog/tag/tag";
 import { BlogFrontMatter } from "@/src/types/blogFrontMatter";
+import { Metadata } from "next";
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const { content, data } = await loadMdxFromSlug(params?.slug);
+  const frontMatter = data as BlogFrontMatter;
+
+  return {
+    title: frontMatter.title,
+    description: frontMatter.summary,
+  } as Metadata;
+}
+
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const { content, data } = await loadMdxFromSlug(params?.slug);
   const frontMatter = data as BlogFrontMatter;
 

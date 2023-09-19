@@ -2,11 +2,10 @@ import { Box, Divider, Stack, Typography } from "@mui/material";
 import { findAllPostSlugs, loadMdxFromSlug } from "@/lib/blog/utils";
 import PaginatedPosts from "@/src/components/blog/paginatedPosts";
 import { Post } from "@/src/types/post";
+import { Metadata } from "next";
+import blogMetadata from "@/src/metadata/blog";
 
-// import { Metadata } from "next";
-// import blogMetadata from "@/src/metadata/blog";
-
-// export const metadata: Metadata = blogMetadata;
+export const metadata: Metadata = blogMetadata;
 
 async function getBlogData() {
   const allSlugs = await findAllPostSlugs();
@@ -28,7 +27,7 @@ async function getBlogData() {
   });
 }
 
-export default async function Blog() {
+export default async function BlogPage() {
   const posts = await getBlogData();
 
   return (
@@ -38,7 +37,7 @@ export default async function Blog() {
       </Stack>
 
       <Stack direction="row" justifyContent="center" mt={4}>
-        <Typography variant="h4">stuff i wanted to write about</Typography>
+        <Typography variant="h4">stuff i wanted to write about.</Typography>
       </Stack>
 
       <Divider sx={{ my: 4 }} />

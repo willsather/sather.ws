@@ -6,7 +6,7 @@ import GitHubIcon from "@/public/icons/github.svg";
 import PictureIcon from "@/public/icons/picture.svg";
 import DotsIcon from "@/public/icons/dots.svg";
 
-const FooterLinks = ({
+const Footer = ({
   showParticles,
   setShowParticles,
 }: {
@@ -74,4 +74,4 @@ const FooterLinks = ({
   );
 };
 
-export default FooterLinks;
+export default Footer;

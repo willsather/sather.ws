@@ -1,16 +1,16 @@
 import { render, screen } from "@testing-library/react";
-import FooterLinks from "@/src/app/(home)/footerLinks";
+import Footer from "@/src/app/(home)/footer";
 import userEvent from "@testing-library/user-event";
 import { UserEvent } from "@testing-library/user-event/setup/setup";
 
-describe("FooterLinks", () => {
+describe("Footer", () => {
   let user: UserEvent;
 
   const mockSetShowParticles = jest.fn();
 
   beforeEach(() => {
     user = userEvent.setup();
-    render(<FooterLinks showParticles={true} setShowParticles={mockSetShowParticles} />);
+    render(<Footer showParticles={true} setShowParticles={mockSetShowParticles} />);
   });
 
   it("should render", () => {

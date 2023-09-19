@@ -1,14 +1,16 @@
-import { Box, Divider, Stack, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import { findAllPostSlugs, loadMdxFromSlug } from "@/lib/blog/utils";
 import { BlogFrontMatter } from "@/src/types/blogFrontMatter";
-import Tag from "@/src/components/blog/tag/tag";
-import PostListItem from "@/src/components/blog/postListItem";
 import PaginatedPosts from "@/src/components/blog/paginatedPosts";
+import { Metadata } from "next";
+import tagsMetadata from "@/src/metadata/tags";
 
-// import { Metadata } from "next";
-// import blogMetadata from "@/src/metadata/blog";
-
-// export const metadata: Metadata = blogMetadata;
+export function generateMetadata({ params: { tag } }: { params: { tag: string } }) {
+  return {
+    title: tag.charAt(0).toUpperCase() + tag.slice(1),
+    description: tagsMetadata.description,
+  } as Metadata;
+}
 
 async function getTagPosts(tag: string) {
   const allSlugs = await findAllPostSlugs();
@@ -26,7 +28,7 @@ async function getTagPosts(tag: string) {
   return posts.filter(({ data: { draft } }) => !draft).filter(({ data: { tags } }) => tags.includes(tag));
 }
 
-export default async function Tags({ params }: { params: { tag: string } }) {
+export default async function TagPage({ params }: { params: { tag: string } }) {
   const posts = await getTagPosts(params?.tag);
 
   return (
@@ -40,7 +42,7 @@ export default async function Tags({ params }: { params: { tag: string } }) {
       </Box>
 
       <Box sx={{ display: "flex", justifyContent: "center" }} mt={4}>
-        <Typography variant="h4">a category i wrote about</Typography>
+        <Typography variant="h4">a category i wrote about.</Typography>
       </Box>
 
       <Divider sx={{ my: 4 }} />
