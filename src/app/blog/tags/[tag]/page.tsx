@@ -23,7 +23,7 @@ async function getTagPosts(tag: string) {
     return { slug, data: source.data as BlogFrontMatter };
   });
 
-  return posts.filter(({ data: { tags } }) => tags.includes(tag));
+  return posts.filter(({ data: { draft } }) => !draft).filter(({ data: { tags } }) => tags.includes(tag));
 }
 
 export default async function Tags({ params }: { params: { tag: string } }) {

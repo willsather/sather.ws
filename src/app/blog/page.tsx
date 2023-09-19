@@ -17,9 +17,11 @@ async function getBlogData() {
     })
   );
 
-  const posts = allSources.map(({ slug, source }) => {
-    return { slug, data: source.data } as Post;
-  });
+  const posts = allSources
+    .map(({ slug, source }) => {
+      return { slug, data: source.data } as Post;
+    })
+    .filter(({ data: { draft } }) => !draft);
 
   return posts.sort((a, b) => {
     return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();

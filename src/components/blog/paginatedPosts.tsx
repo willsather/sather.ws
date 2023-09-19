@@ -17,7 +17,7 @@ export default function PaginatedPosts({ posts }: { posts: Post[] }) {
     setFirstPost((value - 1) * POSTS_PER_PAGE);
   };
 
-  if (!posts || posts.length < 1) {
+  if (!posts || posts.length <= 0) {
     return (
       <Stack direction="row" justifyContent="center" mt={4}>
         <Typography variant="body1" mt={2}>
