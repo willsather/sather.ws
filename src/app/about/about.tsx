@@ -23,7 +23,7 @@ export default function About() {
         <Box sx={{ display: "flex", justifyContent: "center" }} ml={8} mr={8} mb={8}>
           <Image
             src="/assets/about.jpg"
-            alt="About"
+            alt="About | Will Sather"
             width={0}
             height={0}
             sizes="100%"
@@ -49,7 +49,7 @@ export default function About() {
         <Box sx={{ display: "flex", justifyContent: "center" }} ml={8} mr={8}>
           <Image
             src="/assets/about.jpg"
-            alt="About"
+            alt="About | Will Sather"
             width={0}
             height={0}
             sizes="100%"
