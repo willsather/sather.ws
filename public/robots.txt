@@ -1,6 +1,5 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
 
 # Sitemap
 Sitemap: https://www.sather.ws/sitemap.xml
