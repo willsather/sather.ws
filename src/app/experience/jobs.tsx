@@ -1,5 +1,5 @@
 import { Job } from "@/src/types/job";
-import Box from "@mui/material/box";
+import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 

@@ -1,4 +1,4 @@
-import Box from "@mui/material/box";
+import Box from "@mui/material/Box";
 import Home from "@/src/app/(home)/home";
 
 export default function HomePage() {

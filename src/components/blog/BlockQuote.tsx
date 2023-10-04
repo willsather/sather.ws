@@ -1,5 +1,5 @@
 import type { FC, ReactNode } from "react";
-import Box from "@mui/material/box";
+import Box from "@mui/material/Box";
 
 export interface BlockquoteProps {
   children?: ReactNode;
