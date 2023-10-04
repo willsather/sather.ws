@@ -41,13 +41,13 @@ jobs:
       - name: Integration Test
         uses: cypress-io/github-action@v5
         with:
-          config: baseUrl=http://localhost:3000
+          config: baseUrl=http://localhost:3333
           quiet: false
           browser: chrome
           headless: true
           record: false
           start: npm start
-          wait-on: http://localhost:3000
+          wait-on: http://localhost:3333
           wait-on-timeout: 180
 
   deploy:
