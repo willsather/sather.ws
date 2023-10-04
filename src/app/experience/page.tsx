@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import React from "react";
 import ExternalLink from "@/src/components/shared/link";
 import Jobs from "@/src/app/experience/jobs";
 import { Metadata } from "next";

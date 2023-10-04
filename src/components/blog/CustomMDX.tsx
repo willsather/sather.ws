@@ -1,6 +1,8 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { Typography } from "@mui/material";
-import Link from "@/src/components/blog/Link";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+import Typography from "@mui/material/Typography";
+import CustomLink from "@/src/components/blog/CustomLink";
 import PreBlock from "@/src/components/blog/PreBlock";
 import Image from "next/image";
 import BlockQuote from "@/src/components/blog/BlockQuote";
@@ -20,9 +22,11 @@ export default function CustomMDX({ content }: { content: string }) {
           h4: (props: any) => <Typography {...props} variant="h5" mt={4} />,
           h5: (props: any) => <Typography {...props} variant="h6" mt={4} />,
           p: (props: any) => <Typography {...props} variant="body1" mt={4} />,
-          a: (props: any) => <Link {...props} />,
+          a: (props: any) => <CustomLink {...props} />,
           pre: (props: any) => <PreBlock {...props} />,
-          Image: (props: any) => <Image {...props} style={{ width: "100%", height: "auto" }} loading="lazy" />,
+          Image: (props: any) => (
+            <Image style={{ width: "100%", height: "auto" }} loading="lazy" alt={props?.alt} {...props} />
+          ),
           blockQuote: BlockQuote,
           code: InlineCode,
           li: (props: any) => (
@@ -31,6 +35,30 @@ export default function CustomMDX({ content }: { content: string }) {
             </li>
           ),
           Note: Note,
+          Info: (props: any) => (
+            <Alert severity="info" {...props} sx={{ my: 2 }}>
+              <AlertTitle>Note</AlertTitle>
+              {props.children}
+            </Alert>
+          ),
+          Success: (props: any) => (
+            <Alert severity="success" {...props} sx={{ my: 2 }}>
+              <AlertTitle>Success</AlertTitle>
+              {props.children}
+            </Alert>
+          ),
+          Warning: (props: any) => (
+            <Alert severity="warning" {...props} sx={{ my: 2 }}>
+              <AlertTitle>Warning</AlertTitle>
+              {props.children}
+            </Alert>
+          ),
+          Error: (props: any) => (
+            <Alert severity="error" {...props} sx={{ my: 2 }}>
+              <AlertTitle>Error</AlertTitle>
+              {props.children}
+            </Alert>
+          ),
         }}
         options={{
           mdxOptions: {

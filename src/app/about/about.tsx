@@ -2,7 +2,6 @@
 
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import theme from "@/src/theme/theme";
 

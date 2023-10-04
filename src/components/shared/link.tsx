@@ -3,7 +3,6 @@
 import theme from "@/src/theme/theme";
 import { Typography } from "@mui/material";
 import Link from "next/link";
-import React from "react";
 import { UrlObject } from "url";
 
 const ExternalLink = ({ href, text }: { href: string | UrlObject; text: string }) => {

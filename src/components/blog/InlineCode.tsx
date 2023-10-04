@@ -1,6 +1,7 @@
 "use client";
 
-import { useTheme, darken } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import { darken } from "@mui/material/styles";
 import type { FC, ReactNode } from "react";
 
 export interface InlineCodeProps {

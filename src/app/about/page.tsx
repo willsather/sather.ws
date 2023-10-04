@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import React from "react";
 import About from "@/src/app/about/about";
 import { Metadata } from "next";
 import aboutMetadata from "@/src/metadata/about";

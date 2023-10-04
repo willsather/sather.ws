@@ -1,5 +1,4 @@
 import { Box, Typography, Button } from "@mui/material";
-import React from "react";
 import ArrowLeft from "@/public/icons/arrow-left.svg";
 
 const GoBackHome = ({ title }: { title: string }) => {

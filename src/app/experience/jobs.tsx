@@ -1,6 +1,7 @@
 import { Job } from "@/src/types/job";
-import { Box, List, Typography } from "@mui/material";
-import React from "react";
+import Box from "@mui/material/box";
+import List from "@mui/material/List";
+import Typography from "@mui/material/Typography";
 
 const JobList = () => {
   const jobs: Job[] = [
