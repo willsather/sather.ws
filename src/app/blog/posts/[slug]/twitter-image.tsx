@@ -11,7 +11,7 @@ export const size = {
 export const alt = "Blog | Will Sather";
 export const contentType = "image/png";
 
-export default async function OpengraphImage({ params }: { params: { slug: string } }) {
+export default async function TwitterImage({ params }: { params: { slug: string } }) {
   const { data } = await loadMdxFromSlug(params?.slug);
   const frontMatter = data as BlogFrontMatter;
 
