@@ -42,7 +42,7 @@ export default async function TagPage({ params }: { params: { tag: string } }) {
       </Box>
 
       <Box sx={{ display: "flex", justifyContent: "center" }} mt={4}>
-        <Typography variant="h4">a category i wrote about.</Typography>
+        <Typography variant="h2">a category i wrote about.</Typography>
       </Box>
 
       <Divider sx={{ my: 4 }} />

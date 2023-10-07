@@ -17,7 +17,7 @@ export default function AboutPage() {
       </Box>
 
       <Box sx={{ display: "flex", justifyContent: "center" }} mt={4}>
-        <Typography variant="h4">hi, i&apos;m will.</Typography>
+        <Typography variant="h2">hi, i&apos;m will.</Typography>
       </Box>
 
       <About />

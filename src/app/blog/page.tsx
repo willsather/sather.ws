@@ -37,7 +37,7 @@ export default async function BlogPage() {
       </Stack>
 
       <Stack direction="row" justifyContent="center" mt={4}>
-        <Typography variant="h4">stuff i wanted to write about.</Typography>
+        <Typography variant="h2">stuff i wanted to write about.</Typography>
       </Stack>
 
       <Divider sx={{ my: 4 }} />

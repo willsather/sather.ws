@@ -11,22 +11,23 @@ const typography = {
     },
   },
   h2: {
-    fontSize: "40px",
+    fontSize: "18px",
     fontFamily: "MatterSemibold, Arial, sans-serif",
     fontWeight: "600",
-    lineHeight: "45px",
+    lineHeight: "24px",
     "@media (max-width:900px)": {
-      fontSize: "28px",
+      fontSize: "14px",
+      lineHeight: "18px",
     },
   },
   h3: {
-    fontSize: "28px",
+    fontSize: "18px",
     fontFamily: "MatterSemibold, Arial, sans-serif",
     fontWeight: "600",
-    lineHeight: "40px",
+    lineHeight: "24px",
     "@media (max-width:900px)": {
-      fontSize: "24px",
-      lineHeight: "32px",
+      fontSize: "14px",
+      lineHeight: "18px",
     },
   },
   h4: {

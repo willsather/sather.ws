@@ -16,7 +16,7 @@ const GoBackHome = ({ title }: { title: string }) => {
         <Button href="/" variant="outlined">
           <Box sx={{ display: "flex", gap: 2 }}>
             <ArrowLeft width={24} height={24} />
-            <Typography variant="h4">go back home</Typography>
+            <Typography variant="h2">go back home</Typography>
           </Box>
         </Button>
       </Box>

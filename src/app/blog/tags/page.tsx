@@ -37,7 +37,7 @@ export default async function TagsPage() {
       </Box>
 
       <Box sx={{ display: "flex", justifyContent: "center" }} mt={4}>
-        <Typography variant="h4">categories i want to write about</Typography>
+        <Typography variant="h2">categories i want to write about</Typography>
       </Box>
 
       <Divider sx={{ my: 4 }} />

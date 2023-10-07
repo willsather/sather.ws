@@ -29,7 +29,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   return (
     <Box>
       <Stack direction="row" justifyContent="center" my={2}>
-        <Typography variant="h4" sx={{ color: "grey" }}>
+        <Typography variant="h3" sx={{ color: "grey" }}>
           {frontMatter.date.toLocaleDateString("default", { month: "long", day: "numeric", year: "numeric" })}
         </Typography>
       </Stack>
