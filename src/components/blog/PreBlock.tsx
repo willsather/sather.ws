@@ -7,13 +7,12 @@ export interface PreBlockProps {
   children: ReactNode | any;
   hideLineNumbers?: boolean;
   styles?: CSSProperties;
+  fileName?: string;
 }
 
-const PreBlock: FC<PreBlockProps> = (props) => {
-  const { children, styles, hideLineNumbers } = props;
-
+const PreBlock: FC<PreBlockProps> = ({ children, fileName, styles, hideLineNumbers }) => {
   return (
-    <CodeBlock styles={styles} language={children.props.className} hideLineNumbers={true}>
+    <CodeBlock styles={styles} fileName={fileName} language={children.props.className} hideLineNumbers={true}>
       {children.props.children}
     </CodeBlock>
   );

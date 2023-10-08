@@ -1,0 +1,74 @@
+---
+title: 'Estimating Pi'
+date: 2023-12-25T12:00:00Z
+tags: ['python', 'math']
+draft: true
+summary: 'Estimating Pi using a Monte Carlo simulation in Python'
+---
+
+## Background
+When I studied at University of Minnesota, one of the first computer science classes I took was Introduction to Computer Science -
+one of the basic, entry level Python classes.  Also during school, I was taking some math classes and decided to go for a mathematics
+minor just because I enjoyed the classes.
+
+One of the most memorable projects I worked on that first semester was a python script that uses the visualization tool Turtle
+to simulate throwing darts at a 1-foot by 1-foot square board that contains 1-foot diameter circle inside of it.
+It would look something like this:
+
+[//]: # (<Image alt="Concept" src="/assets/blog/images/estimating-pi/concept.png" width={2214} height={1596}/>)
+
+The idea was that if you throw enough darts at the board (all of which land in the 1x1 square), the number of darts in the circle
+divided by the total darts that hit the board would equal one quarter of Pi.  If you throw 4 darts and 3 of which land in the circle, this
+calculation would look like `(3 darts hit / 4 darts thrown) * 4 = 3`, which is not very far off from the number Pi we all love and know, but
+definitely needs to be closer to the irrational number.
+
+### Monte Carlo Simulation
+Monte Carlo simulations are basically a type of computational algorithm that uses repeated random sampling to calculate or generate
+some relevant statistic or mathematical answer.  This method of estimating Pi is a very basic example of the Monte Carlo algorithm.
+
+The script looks something like this:
+
+```python fileName="estimate.py"
+import turtle
+import random
+
+
+def estimate_pi(iterations):
+    turtle.penup()
+    turtle.speed(0)
+
+    darts_in = 0
+    darts_total = 0
+
+    for iteration in range(iterations):
+        y_coordinate = random.uniform(-1, 1)
+        x_coordinate = random.uniform(-1, 1)
+
+        if (((x_coordinate ** 2) + (y_coordinate ** 2)) ** 0.5) <= 1:
+            color = "green"
+            darts_in = darts_in + 1
+            darts_total = darts_total + 1
+
+        else:
+            color = "red"
+            darts_total = darts_total + 1
+
+        turtle.setpos(x_coordinate * 150, y_coordinate * 150)
+        turtle.dot(5, color)
+
+    pi_approx = 4 * (darts_in / darts_total)
+
+    print("Pi is approximately: {0:.4f}".format(pi_approx))
+
+    turtle.done()
+
+
+if __name__ == '__main__':
+    estimate_pi(250)
+```
+
+
+## Results  🎉
+I personally love the way the math can be visualized so easy with such a simple Python script.  As always, the code can
+be found on my [GitHub repository](https://github.com/willsather/pi-approximation) - feel free to clone and run locally,
+it's quite fun to mess around with.

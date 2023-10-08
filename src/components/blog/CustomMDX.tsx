@@ -9,6 +9,8 @@ import BlockQuote from "@/src/components/blog/BlockQuote";
 import InlineCode from "@/src/components/blog/InlineCode";
 import Note from "@/src/components/blog/Note";
 
+import rehypeMdxCodeProps from "rehype-mdx-code-props";
+
 export default function CustomMDX({ content }: { content: string }) {
   return (
     <>
@@ -23,7 +25,7 @@ export default function CustomMDX({ content }: { content: string }) {
           h5: (props: any) => <Typography {...props} variant="h6" mt={4} />,
           p: (props: any) => <Typography {...props} variant="body1" mt={4} />,
           a: (props: any) => <CustomLink {...props} />,
-          pre: (props: any) => <PreBlock {...props} />,
+          pre: (props: any) => <PreBlock {...props}>{props.children}</PreBlock>,
           Image: (props: any) => (
             <Image style={{ width: "100%", height: "auto" }} loading="lazy" alt={props?.alt} {...props} />
           ),
@@ -63,7 +65,7 @@ export default function CustomMDX({ content }: { content: string }) {
         options={{
           mdxOptions: {
             remarkPlugins: [],
-            rehypePlugins: [],
+            rehypePlugins: [rehypeMdxCodeProps],
             format: "mdx",
           },
         }}

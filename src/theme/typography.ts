@@ -111,6 +111,16 @@ const typography = {
       fontSize: "16px",
     },
   },
+  codeFileName: {
+    fontSize: "16px",
+    fontFamily: "MatterSemibold, Arial, sans-serif",
+    fontWeight: "300",
+    color: "#D6DEEB",
+    lineHeight: "30px",
+    "@media (max-width:900px)": {
+      fontSize: "16px",
+    },
+  },
   tag: {
     fontSize: "16px",
     fontFamily: "MatterSemibold, Arial, sans-serif",
