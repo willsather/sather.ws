@@ -39,25 +39,33 @@ export default function CustomMDX({ content }: { content: string }) {
           Note: Note,
           Info: (props: any) => (
             <Alert severity="info" {...props} sx={{ my: 2 }}>
-              <AlertTitle>Note</AlertTitle>
+              <AlertTitle>
+                <strong>Note</strong>
+              </AlertTitle>
               {props.children}
             </Alert>
           ),
           Success: (props: any) => (
             <Alert severity="success" {...props} sx={{ my: 2 }}>
-              <AlertTitle>Success</AlertTitle>
+              <AlertTitle>
+                <strong>Success</strong>
+              </AlertTitle>
               {props.children}
             </Alert>
           ),
           Warning: (props: any) => (
             <Alert severity="warning" {...props} sx={{ my: 2 }}>
-              <AlertTitle>Warning</AlertTitle>
+              <AlertTitle>
+                <strong>Warning</strong>
+              </AlertTitle>
               {props.children}
             </Alert>
           ),
           Error: (props: any) => (
             <Alert severity="error" {...props} sx={{ my: 2 }}>
-              <AlertTitle>Error</AlertTitle>
+              <AlertTitle>
+                <strong>Error</strong>
+              </AlertTitle>
               {props.children}
             </Alert>
           ),

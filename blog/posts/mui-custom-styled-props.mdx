@@ -17,7 +17,7 @@ on (for consent capture).  So, here is how I did it:
 To pass in a prop to `styled`, you just can add any custom prop right next to the `theme` prop as seen below.  However,
 once you compile and run your application, you'll notice a warning:
 
-<Warning>
+<Warning    >
     React does not recognize the "error" prop on a DOM element. If you intentionally want it to appear in the DOM
     as a custom attribute, spell it as lowercase error instead. If you accidentally passed it from a parent component,
     remove it from the DOM element.
@@ -27,7 +27,7 @@ This is because MUI doesn't recognize the prop even though you pass it in (at th
 The nice thing is that MUI `styled` provides an optional parameter for options, which, in this case, the `shouldForwardProp` option.
 This option tells Material UI to forward the `error` prop to the styled component, which then gets rid of the error.
 
-```javascript
+```jsx
 'use client'
 
 import { styled } from '@mui/material/styles'
@@ -50,7 +50,7 @@ export default CustomCheckbox
 
 So, now that the custom checkbox is configured, you can utilize it like this:
 
-```javascript
+```jsx
   <NormalCheckbox
     checked={isChecked}
     error={showError}

@@ -21,23 +21,23 @@ const typography = {
     },
   },
   h3: {
-    fontSize: "18px",
+    fontSize: "28px",
     fontFamily: "MatterSemibold, Arial, sans-serif",
     fontWeight: "600",
-    lineHeight: "24px",
+    lineHeight: "40px",
     "@media (max-width:900px)": {
-      fontSize: "14px",
-      lineHeight: "18px",
+      fontSize: "24px",
+      lineHeight: "32px",
     },
   },
   h4: {
-    fontSize: "18px",
+    fontSize: "20px",
     fontFamily: "MatterSemibold, Arial, sans-serif",
     fontWeight: "600",
     lineHeight: "24px",
     "@media (max-width:900px)": {
-      fontSize: "14px",
-      lineHeight: "18px",
+      fontSize: "16px",
+      lineHeight: "20px",
     },
   },
   h5: {
@@ -46,8 +46,8 @@ const typography = {
     fontWeight: "600",
     lineHeight: "22px",
     "@media (max-width:900px)": {
-      fontSize: "12px",
-      lineHeight: "16px",
+      fontSize: "14px",
+      lineHeight: "18px",
     },
   },
   h6: {
@@ -67,6 +67,7 @@ const typography = {
     lineHeight: "45px",
     "@media (max-width:900px)": {
       fontSize: "28px",
+      lineHeight: "33px",
     },
   },
   body1: {
