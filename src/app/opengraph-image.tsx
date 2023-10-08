@@ -1,6 +1,4 @@
 import { ImageResponse } from "next/server";
-import { loadMdxFromSlug } from "@/lib/blog/utils";
-import { BlogFrontMatter } from "@/src/types/blogFrontMatter";
 import Logo from "@/src/components/shared/logo";
 
 export const size = {

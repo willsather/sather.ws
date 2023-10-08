@@ -19,4 +19,10 @@ const theme = createTheme({
   },
 });
 
+declare module "@mui/material/Typography" {
+  interface TypographyPropsVariantOverrides {
+    blogTitle: true;
+  }
+}
+
 export default theme;

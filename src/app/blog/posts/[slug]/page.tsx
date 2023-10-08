@@ -35,7 +35,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       </Stack>
 
       <Stack direction="row" justifyContent="center" my={2}>
-        <Typography variant="h2" sx={{ textAlign: "center" }}>
+        <Typography variant="blogTitle" sx={{ textAlign: "center" }}>
           {frontMatter.title}
         </Typography>
       </Stack>

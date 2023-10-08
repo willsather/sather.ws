@@ -60,6 +60,15 @@ const typography = {
       lineHeight: "14px",
     },
   },
+  blogTitle: {
+    fontSize: "40px",
+    fontFamily: "MatterSemibold, Arial, sans-serif",
+    fontWeight: "600",
+    lineHeight: "45px",
+    "@media (max-width:900px)": {
+      fontSize: "28px",
+    },
+  },
   body1: {
     fontSize: "16px",
     fontFamily: "MatterRegular, Arial, sans-serif",

@@ -1,6 +1,6 @@
 ---
 title: 'Custom Material UI Styled Component with Props'
-date: 2023-09-08T12:00:00Z
+date: 2023-09-08T00:00:00Z
 tags: ['mui', 'react']
 draft: false
 summary: 'Adding custom props to a styled Material UI component'
@@ -8,12 +8,10 @@ summary: 'Adding custom props to a styled Material UI component'
 
 ## Overview
 
-[mui-checkbox]: [https://mui.com/material-ui/react-checkbox/]
-[mui-styled]: [https://mui.com/system/styled/]
-
-I was recently trying to customize a [Material UI Checkbox][mui-checkbox] in order to modify the styles when in an `error` state.  I noticed
-that Material UI had predetermined classes for things liked `&.Mui-Checked` and so on, but Material UI didn't have an error state.
-In my case, I had a checkbox which was required to be checked before moving on (for consent capture).  So, here is how I did it:
+I was recently trying to customize a [Material UI Checkbox](https://mui.com/material-ui/react-checkbox/) in order to modify
+the styles when in an `error` state.  I noticed that Material UI had predetermined classes for things liked `&.Mui-Checked`
+and so on, but Material UI didn't have an error state. In my case, I had a checkbox which was required to be checked before moving
+on (for consent capture).  So, here is how I did it:
 
 ### Styled Component
 To pass in a prop to `styled`, you just can add any custom prop right next to the `theme` prop as seen below.  However,
