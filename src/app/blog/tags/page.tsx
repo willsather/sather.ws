@@ -16,9 +16,11 @@ async function getTagData() {
     })
   );
 
-  const posts = allSources.map(({ slug, source }) => {
-    return { slug, data: source.data as BlogFrontMatter };
-  });
+  const posts = allSources
+    .map(({ slug, source }) => {
+      return { slug, data: source.data as BlogFrontMatter };
+    })
+    .filter(({ data: { draft } }) => !draft);
 
   return Array.from(new Set(posts.map(({ data: { tags } }) => tags).flat()));
 }
