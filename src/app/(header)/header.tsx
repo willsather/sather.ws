@@ -4,7 +4,6 @@ import { Box, Typography } from "@mui/material";
 import Link from "next/link";
 import Image from "next/image";
 import menuLinks from "@/src/app/(header)/menuLinks";
-import styles from "@/src/app/(header)/header.module.scss";
 
 const Header = () => {
   return (
@@ -13,19 +12,28 @@ const Header = () => {
 
       <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, justifyContent: "space-between" }}>
         {Object.entries(menuLinks).map(([text, link]) => (
-          <Box margin={{ md: "15px" }} marginTop={{ xs: "15px", md: 0 }} key={text}>
-            <Link
-              className={styles.headerMenuItem}
-              href={link}
-              target="_self"
-              style={{
-                color: "black",
-                textDecoration: "none",
-                textAlign: "right",
-              }}
+          <Box margin={{ md: 2 }} marginTop={{ xs: 2, md: 0 }} key={text}>
+            <Box
+              sx={[
+                {
+                  "&:hover": {
+                    textDecoration: "underline",
+                  },
+                },
+              ]}
             >
-              <Typography variant="body1">{text}</Typography>
-            </Link>
+              <Link
+                href={link}
+                target="_self"
+                style={{
+                  color: "black",
+                  textDecoration: "none",
+                  textAlign: "right",
+                }}
+              >
+                <Typography variant="body1">{text}</Typography>
+              </Link>
+            </Box>
           </Box>
         ))}
       </Box>

@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import Jobs from "@/src/app/experience/jobs";
+import JobList from "@/src/app/experience/jobList";
 import { Metadata } from "next";
 import experienceMetadata from "@/src/metadata/experience";
 import ExternalLink from "@/src/app/experience/link";
@@ -21,7 +21,7 @@ export default function ExperiencePage() {
         <ExternalLink href="/files/resume.pdf" text="check out my resume." />
       </Box>
 
-      <Jobs />
+      <JobList />
     </Box>
   );
 }

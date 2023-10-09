@@ -34,8 +34,7 @@ export default function About() {
       <Box mx={{ xs: 4, md: 8 }} mb={4}>
         <Typography variant="body1" sx={{ color: "primary.main" }} aria-label="about">
           i graduated university of minnesota with bachelors in computer science, currently working as a software
-          engineer at vmware. recently, been working building cloud apps with react/angular frontends and java/c#
-          backends.
+          engineer at vmware. recently, been working building modern web apps / cloud apps with a variety of cool tools.
           <br />
           <br />
           outside of work, i have always enjoyed working on various projects like this website, byt8, and other small

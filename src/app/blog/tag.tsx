@@ -3,7 +3,6 @@
 import { Box, Typography } from "@mui/material";
 import Link from "next/link";
 import theme from "@/src/theme/theme";
-import styles from "@/src/components/blog/tag/tag.module.scss";
 
 export default function Tag({ tag }: { tag: string }) {
   return (
@@ -12,16 +11,17 @@ export default function Tag({ tag }: { tag: string }) {
       sx={[
         {
           "&:hover": {
-            textDecoration: "none",
+            textDecoration: "underline",
+            color: theme.palette.grey["300"],
           },
         },
       ]}
     >
       <Link
         href={`/blog/tags/${tag}`}
-        // className={styles.tag}
         style={{
           color: theme.palette.grey["300"],
+          textDecoration: "none",
         }}
       >
         <Typography variant="body1">{tag.toUpperCase()}</Typography>
