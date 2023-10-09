@@ -1,5 +1,6 @@
 import Box from "@mui/material/Box";
-import Home from "@/src/app/(home)/home";
+import { Stack, Typography } from "@mui/material";
+import ParticleProvider from "@/src/app/(home)/particleProvider";
 
 export default function HomePage() {
   return (
@@ -8,7 +9,17 @@ export default function HomePage() {
         backgroundColor: "secondary.main",
       }}
     >
-      <Home />
+      <ParticleProvider>
+        <>
+          <Stack flexDirection="row" justifyContent="center" mt={8}>
+            <Typography variant="h1">WILL SATHER</Typography>
+          </Stack>
+
+          <Stack flexDirection="row" justifyContent="center" mt={4}>
+            <Typography variant="h2">livin&apos; the dream.</Typography>
+          </Stack>
+        </>
+      </ParticleProvider>
     </Box>
   );
 }
