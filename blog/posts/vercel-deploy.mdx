@@ -1,26 +1,26 @@
 ---
-title: 'Deploy Next.js app to Vercel using GitHub Actions'
-date: 2023-01-09T00:00:00Z
-tags: ['next-js', 'github', 'vercel']
+title: "Deploy Next.js app to Vercel using GitHub Actions"
+date: 2023-01-09T12:00:00Z
+tags: ["next-js", "github", "vercel"]
 draft: false
-summary: 'Deploying an example Next.js application to Vercel using GitHub Actions'
+summary: "Deploying an example Next.js application to Vercel using GitHub Actions"
 ---
 
 ## Overview
 
 [Vercel](https://vercel.com/) _(formerly known as Zeit prior to 2020)_ is designed for simple deployments of Next.js applications (or other frontend applications).
 
-For a certain project, we had started deploying to Vercel to gain use from its simple setup and user experience, 
-but our team also wanted to use GitHub Actions to build and run our tests.  Following this
-[guide](https://vercel.com/guides/how-can-i-use-github-actions-with-vercel) on Vercel, we 
+For a certain project, we had started deploying to Vercel to gain use from its simple setup and user experience,
+but our team also wanted to use GitHub Actions to build and run our tests. Following this
+[guide](https://vercel.com/guides/how-can-i-use-github-actions-with-vercel) on Vercel, we
 figured it would be easy to disconnect Vercel's GitHub connection
-and strictly use the CLI to deploy through Actions.  After some time of fighting, we 
+and strictly use the CLI to deploy through Actions. After some time of fighting, we
 were able to configure it how we wanted, but the fidgeting took longer than I thought it would, so I figured I'd share...
 
 ## Codebase
 
 This post assumes you already have an initialized Next.js application; this specific example will have the project
-at the root of the repository (and not within `/app`).  The example I used also has tests that can be run with `npm test`.
+at the root of the repository (and not within `/app`). The example I used also has tests that can be run with `npm test`.
 To see this repository, it's on GitHub [here](https://github.com/satherw/nextjs-github-actions-vercel).
 
 ## Configure workflow
@@ -77,16 +77,17 @@ jobs:
 ```
 
 The primary code of importance here is the final `deploy` job, which comes almost directly off the guide
-Vercel wrote.  If you need more help, GitHub Actions [documentation](https://docs.github.com/en/actions) is quite thorough.
+Vercel wrote. If you need more help, GitHub Actions [documentation](https://docs.github.com/en/actions) is quite thorough.
 
 These steps under the `deploy` job are pretty straightforward, it
+
 1. checks out the repository
 2. pulls the Vercel environment info
 3. builds the Next.js application _(using the aforementioned env info)_
 4. deploys the built application to vercel production environment
 
 The only thing worth noting here is that the `--prebuilt` parameter is only needed when the `vercel build` command is being used prior to the deploy.
-It is possible to build the application during the `vercel deploy` in which the parameter would not be needed.  We found it easier to read
+It is possible to build the application during the `vercel deploy` in which the parameter would not be needed. We found it easier to read
 and debug in our example if we had them as two different steps.
 
 ## Secrets
@@ -94,19 +95,24 @@ and debug in our example if we had them as two different steps.
 First, you must find all three tokens/secrets/IDs Vercel requires to authenticate and deploy.
 
 1. `VERCEL_TOKEN`
-    * On Vercel, go to User Profile > Settings > Tokens (Create new token)
+
+- On Vercel, go to User Profile > Settings > Tokens (Create new token)
+
 2. `VERCEL_PROJECT_ID`
-    * On Vercel, go to Project > Settings > Overview > Project ID
+
+- On Vercel, go to Project > Settings > Overview > Project ID
+
 3. `VERCEL_ORG_ID`
-      * Install [Vercel CLI](https://vercel.com/docs/cli) on machine
-      * `vercel login` to authenticate machine with Vercel
-      * At the root of your project, run `vercel link` which will link local directory to Vercel
-      * `.vercel/project.json` will contain both your **projectId** and **orgId**
+
+- Install [Vercel CLI](https://vercel.com/docs/cli) on machine
+- `vercel login` to authenticate machine with Vercel
+- At the root of your project, run `vercel link` which will link local directory to Vercel
+- `.vercel/project.json` will contain both your **projectId** and **orgId**
 
 Secondly, you need to configure the GitHub secrets that the pipeline uses by going to
 Repository > Settings > Secrets > Actions and creating new repository secrets
 
-<Image alt="GitHub Secrets" src="/assets/blog/images/vercel-deploy/githubSecrets.png" width={2214} height={1596}/>
+<Image alt="GitHub Secrets" src="/assets/blog/images/vercel-deploy/githubSecrets.png" width={2214} height={1596} />
 
 ## Vercel Configuration
 
@@ -142,7 +148,7 @@ vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 ```
 
 Another way of verifying the configuration (on the GitHub Action too) is to include the following yaml lines
-in your workflow.  Most of our problems arose from missing Vercel Next.js commands when pulling from our project and printing out
+in your workflow. Most of our problems arose from missing Vercel Next.js commands when pulling from our project and printing out
 the returned values made it easier to debug.
 
 ```yaml
@@ -153,7 +159,12 @@ the returned values made it easier to debug.
 If this is a problem, inside the Vercel project settings, you can override the **Build & Development Settings**
 with the following:
 
-<Image alt="Vercel Build & Development Settings" src="/assets/blog/images/vercel-deploy/vercelBuildSettings.png" width={1846} height={1090}/>
+<Image
+  alt="Vercel Build & Development Settings"
+  src="/assets/blog/images/vercel-deploy/vercelBuildSettings.png"
+  width={1846}
+  height={1090}
+/>
 
 while leaving the **Output Directory** and **Development Command** on default.
 
@@ -177,9 +188,8 @@ This should then return the following configuration allowing you to deploy to Ve
 }
 ```
 
-## Deployed   🎉
+## Deployed 🎉
 
-Now, whenever a commit is made on the `main` branch, GitHub actions will build, test, and deploy to Vercel.  This is useful for building more complicated
+Now, whenever a commit is made on the `main` branch, GitHub actions will build, test, and deploy to Vercel. This is useful for building more complicated
 pipelines that can do anything you want as well as abstracting the deployment details away from Vercel for future
 (easily swappable with other products like [Netlify](https://www.netlify.com/)).
-

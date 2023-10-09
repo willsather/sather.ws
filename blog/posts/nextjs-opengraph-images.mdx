@@ -1,26 +1,31 @@
 ---
-title: 'Generate Open Graph images using Next.js App Router'
+title: "Generate Open Graph images using Next.js App Router"
 date: 2023-10-08T12:00:00Z
-tags: ['next-js']
+tags: ["next-js"]
 draft: false
-summary: 'Use a Next.js feature to dynamically generate Open Graph / Twitter images'
+summary: "Use a Next.js feature to dynamically generate Open Graph / Twitter images"
 ---
 
 ## Overview
+
 Recently, I was looking to design my own Open Graph images for this very blog, and in doing so, I found out that Next.js
-supports dynamically generating images for SEO purposes.  I figured this would be way faster than manually designing one each time,
+supports dynamically generating images for SEO purposes. I figured this would be way faster than manually designing one each time,
 plus helps avoid needing to manually add and store all these images in a `/public` folder.
 
-For a quick background, Open Graph images are the image 'preview' when you see a link.  These commonly are shown on social media,
-text messages, and other previews.  You can read more about the protocol at [The Open Graph Protocol](https://ogp.me/).  I also
-have used [Opengraph.xyz](https://www.opengraph.xyz/) to preview websites and also see some examples.  For context, this is what a blog post on this
+For a quick background, Open Graph images are the image 'preview' when you see a link. These commonly are shown on social media,
+text messages, and other previews. You can read more about the protocol at [The Open Graph Protocol](https://ogp.me/). I also
+have used [Opengraph.xyz](https://www.opengraph.xyz/) to preview websites and also see some examples. For context, this is what a blog post on this
 site looks like at the time of writing it (using the code below).
 
-<Image alt="Open Graph Preview" src="/assets/blog/images/nextjs-open-graph-images/preview.png" width={2214}
-       height={1596}/>
-
+<Image
+  alt="Open Graph Preview"
+  src="/assets/blog/images/nextjs-open-graph-images/preview.png"
+  width={2214}
+  height={1596}
+/>
 
 ### Generating the image
+
 Using the [Next.js documentation](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image),
 I was able to customize it a little bit and come up with a generic/default Open Graph image for the entire site,
 located at the root of the App Router.
@@ -97,9 +102,9 @@ export default async function OpengraphImage({ params }: { params: { slug: strin
     size
   );
 }
-
 ```
 
-## Complete  🎉
+## Complete 🎉
+
 You can find all the code on this website's [GitHub repository](https://github.com/willsather/website),
 hopefully this is helpful - I thought this was so cool!

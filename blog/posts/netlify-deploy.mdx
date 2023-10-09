@@ -1,16 +1,16 @@
 ---
-title: 'Deploy Next.js app to Netlify using GitHub Actions'
-date: 2023-08-07T00:00:00Z
-tags: ['next-js', 'github', 'netlify']
+title: "Deploy Next.js app to Netlify using GitHub Actions"
+date: 2023-08-07T12:00:00Z
+tags: ["next-js", "github", "netlify"]
 draft: false
-summary: 'Deploying a Next.js App Router application to Netlify using GitHub Actions'
+summary: "Deploying a Next.js App Router application to Netlify using GitHub Actions"
 ---
 
 ## Overview
 
 Recently, I migrated my website from Angular to Next.js and React, with attempts to utilize Next.js new App Router architecture.
 In doing so, I wanted to replace my Netlify Git connector with GitHub Actions, as I had intentions of building, testing, and linting the
-codebase before a successful deployment.  However, I ran into some nuances with the App Router, Netlify, and Next.js that I wanted to document here.
+codebase before a successful deployment. However, I ran into some nuances with the App Router, Netlify, and Next.js that I wanted to document here.
 
 You can view the deployed application at [sather.ws](https://sather.ws) and the GitHub repository at [GitHub.com](https://github.com/willsather/website).
 
@@ -59,7 +59,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: [ build ]
+    needs: [build]
 
     steps:
       - uses: actions/checkout@master
@@ -74,23 +74,23 @@ jobs:
 
       - name: Deploy
         run: netlify deploy --site ${{ secrets.NETLIFY_DEV_SITE_ID }} /
-              --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} /
-              --dir=.next --build --prod /
-              --message "Deploy - GitHub Actions"
-
+          --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} /
+          --dir=.next --build --prod /
+          --message "Deploy - GitHub Actions"
 ```
 
 The primary code of importance here is the final `deploy` job, which directly utilizes installing and deploying via Netlify CLI.
 There is more documentation for the `yaml` at [GitHub Actions Documentation](https://docs.github.com/en/actions).
 
 These steps under the `deploy` job are pretty straightforward, it
+
 1. checks out the repository
 2. installs dependencies and builds artifact
 3. installs Netlify CLI
 4. deploys to specified environment
 
-The only thing worth noting here is that the `--dir=.next` parameter specifying the build output file location.  Secondly,
-according to Netlify's documentation, App Router Next.js Applications MUST use the `--build` parameter.  Finally, the rest of
+The only thing worth noting here is that the `--dir=.next` parameter specifying the build output file location. Secondly,
+according to Netlify's documentation, App Router Next.js Applications MUST use the `--build` parameter. Finally, the rest of
 the parameters just cover Netlify Authentication and setting a message to make it all a little cleaner in the Netlify platform.
 
 Lastly, there is one critical piece to this puzzle, which is the `npm install @netlify/plugin-nextjs@appdir` which not only
@@ -119,7 +119,7 @@ You can also a Netlify configuration to specify configuration in `netlify.toml` 
   package = "@netlify/plugin-nextjs@appdir"
 ```
 
-## Deployed   🎉
+## Deployed 🎉
 
 Now, whenever a commit is made on the `main` branch, GitHub actions will build, test, and deploy to Netlify (in this case, the dev site).
 This is useful for building more complicated pipelines that can do anything you want as well as abstracting the deployment details away

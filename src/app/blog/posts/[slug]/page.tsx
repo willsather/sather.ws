@@ -41,7 +41,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       </Stack>
 
       <Stack direction="row" justifyContent="center" useFlexGap flexWrap="wrap" spacing={{ xs: 2, md: 4 }}>
-        {tags.map((tag) => (
+        {tags?.map((tag) => (
           <Tag key={tag} tag={tag} />
         ))}
       </Stack>

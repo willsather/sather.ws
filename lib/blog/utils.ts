@@ -11,14 +11,7 @@ function getSlug(slugPath: string) {
   return slug;
 }
 
-export function findAllPostSlugs() {
-  return glob(path.join(BLOG_PATH, "*.mdx")).then((paths) => paths.map(getSlug));
-}
-export function findAllTags() {
-  return glob(path.join(BLOG_PATH, "*.mdx")).then((paths) => paths.map(getSlug));
-}
-
-export function findAllPostTags(tag: string) {
+export async function findAllPostSlugs() {
   return glob(path.join(BLOG_PATH, "*.mdx")).then((paths) => paths.map(getSlug));
 }
 
