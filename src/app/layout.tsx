@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import Header from "@/src/app/(header)/header";
-import Layout from "@/src/components/layout/layout";
+import ThemeLayout from "@/src/app/(layout)/themeLayout";
 import { Metadata } from "next";
 import homeMetadata from "@/src/metadata/home";
 
@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body>
         <Header />
-        <Layout>{children}</Layout>
+        <ThemeLayout>{children}</ThemeLayout>
       </body>
     </html>
   );

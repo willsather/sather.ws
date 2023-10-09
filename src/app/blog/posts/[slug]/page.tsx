@@ -2,7 +2,7 @@ import { loadMdxFromSlug } from "@/lib/blog/utils";
 import Post from "@/src/app/blog/posts/[slug]/post";
 import { notFound } from "next/navigation";
 import { Box, Stack, Divider, Typography } from "@mui/material";
-import Tag from "@/src/components/blog/tag/tag";
+import Tag from "@/src/app/blog/tag";
 import { BlogFrontMatter } from "@/src/types/blogFrontMatter";
 import { Metadata } from "next";
 

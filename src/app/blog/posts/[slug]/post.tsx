@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import CustomMDX from "@/src/components/blog/CustomMDX";
+import CustomMDX from "@/src/app/blog/(customMdx)/CustomMDX";
 
 const Post = ({ content }: { content: string }) => {
   return (

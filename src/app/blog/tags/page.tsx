@@ -1,7 +1,7 @@
 import { Box, Divider, Stack, Typography } from "@mui/material";
 import { findAllPostSlugs, loadMdxFromSlug } from "@/lib/blog/utils";
 import { BlogFrontMatter } from "@/src/types/blogFrontMatter";
-import Tag from "@/src/components/blog/tag/tag";
+import Tag from "@/src/app/blog/tag";
 import { Metadata } from "next";
 import tagsMetadata from "@/src/metadata/tags";
 

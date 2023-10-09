@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Pagination, Stack, Typography } from "@mui/material";
-import PostListItem from "@/src/components/blog/postListItem";
+import PostListItem from "@/src/app/blog/postListItem";
 import { Post } from "@/src/types/post";
 import { ChangeEvent, useState } from "react";
 

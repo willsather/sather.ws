@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
-import ExternalLink from "@/src/components/shared/link";
 import Jobs from "@/src/app/experience/jobs";
 import { Metadata } from "next";
 import experienceMetadata from "@/src/metadata/experience";
+import ExternalLink from "@/src/app/experience/link";
 
 export const metadata: Metadata = experienceMetadata;
 

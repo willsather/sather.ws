@@ -1,7 +1,7 @@
 import { Box, Divider, Typography } from "@mui/material";
 import { findAllPostSlugs, loadMdxFromSlug } from "@/lib/blog/utils";
 import { BlogFrontMatter } from "@/src/types/blogFrontMatter";
-import PaginatedPosts from "@/src/components/blog/paginatedPosts";
+import PaginatedPosts from "@/src/app/blog/paginatedPosts";
 import { Metadata } from "next";
 import tagsMetadata from "@/src/metadata/tags";
 

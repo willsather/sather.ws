@@ -1,6 +1,6 @@
 "use client";
 
-import ParticleOverlay from "@/src/components/shared/particles";
+import ParticleOverlay from "@/src/app/(home)/particles";
 import { Box, Typography } from "@mui/material";
 import Footer from "@/src/app/(home)/footer";
 import React, { useState } from "react";

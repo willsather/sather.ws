@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/server";
-import Logo from "@/src/components/shared/logo";
+import Logo from "@/src/app/(shared)/logo";
 
 export const size = {
   width: 1200,

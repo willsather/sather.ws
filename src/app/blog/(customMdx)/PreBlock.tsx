@@ -1,7 +1,7 @@
 "use client";
 
 import type { CSSProperties, FC, ReactNode } from "react";
-import CodeBlock from "@/src/components/blog/CodeBlock";
+import CodeBlock from "@/src/app/blog/(customMdx)/CodeBlock";
 
 export interface PreBlockProps {
   children: ReactNode | any;

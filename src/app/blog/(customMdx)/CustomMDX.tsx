@@ -2,12 +2,11 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 import Typography from "@mui/material/Typography";
-import CustomLink from "@/src/components/blog/CustomLink";
-import PreBlock from "@/src/components/blog/PreBlock";
+import CustomLink from "@/src/app/blog/(customMdx)/CustomLink";
+import PreBlock from "@/src/app/blog/(customMdx)/PreBlock";
 import Image from "next/image";
-import BlockQuote from "@/src/components/blog/BlockQuote";
-import InlineCode from "@/src/components/blog/InlineCode";
-import Note from "@/src/components/blog/Note";
+import BlockQuote from "@/src/app/blog/(customMdx)/BlockQuote";
+import InlineCode from "@/src/app/blog/(customMdx)/InlineCode";
 
 import rehypeMdxCodeProps from "rehype-mdx-code-props";
 
@@ -36,7 +35,6 @@ export default function CustomMDX({ content }: { content: string }) {
               <Typography {...props} variant="body1" />
             </li>
           ),
-          Note: Note,
           Info: (props: any) => (
             <Alert severity="info" {...props} sx={{ my: 2 }}>
               <AlertTitle>
