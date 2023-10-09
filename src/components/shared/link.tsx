@@ -8,7 +8,7 @@ import { UrlObject } from "url";
 const ExternalLink = ({ href, text }: { href: string | UrlObject; text: string }) => {
   return (
     <Link href={href} style={{ color: theme.palette.grey["500"] }}>
-      <Typography variant="h4">{text}</Typography>
+      <Typography variant="h2">{text}</Typography>
     </Link>
   );
 };
