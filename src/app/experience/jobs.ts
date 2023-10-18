@@ -4,7 +4,7 @@ const jobs: Job[] = [
   {
     company: "VMware Tanzu Labs",
     role: "Software Engineer",
-    description: "java, springboot, js/ts, next.js",
+    description: "java, react, js/ts, springboot, next.js",
   },
   {
     company: "Ivanti",

@@ -1,4 +1,4 @@
-import ExternalLink from "@/src/components/shared/link";
+import Link from "@/src/app/experience/link";
 import { render, screen } from "@testing-library/react";
 
 describe("link", () => {
@@ -6,7 +6,7 @@ describe("link", () => {
   const mockText = "fake link";
 
   beforeEach(() => {
-    render(<ExternalLink href={mockHref} text={mockText} />);
+    render(<Link href={mockHref} text={mockText} />);
   });
 
   it("renders", async () => {
