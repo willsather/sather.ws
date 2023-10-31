@@ -7,10 +7,12 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
       sx={{
         backgroundColor: "secondary.main",
       }}
-      mx={{ xs: "15px", md: "20%" }}
-      mb={8}
+      display="grid"
+      gridTemplateColumns="repeat(12, 1fr)"
+      gap={{ xs: 1, md: 3 }}
+      m={3}
     >
-      {children}
+      <Box gridColumn={{ xs: "1/-1", md: "3/11" }}>{children}</Box>
     </Box>
   );
 }
