@@ -16,11 +16,11 @@ const Footer = ({
   const socialLinks = {
     instagram: {
       icon: <InstagramIcon width={24} height={24} />,
-      link: "https://www.instagram.com/will.sather/",
+      link: "https://www.instagram.com/will.sather",
     },
     github: {
       icon: <GitHubIcon width={24} height={24} />,
-      link: "https://github.com/willsather/Will-Sather",
+      link: "https://github.com/willsather",
     },
     linkedin: {
       icon: <LinkedInIcon width={24} height={24} />,
@@ -43,8 +43,7 @@ const Footer = ({
         flexDirection: "row",
         justifyContent: "space-between",
       }}
-      ml={2}
-      mr={2}
+      mx={2}
       mb={2}
     >
       <Box
