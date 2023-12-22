@@ -13,6 +13,16 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   return {
     title: frontMatter.title,
     description: frontMatter.summary,
+    openGraph: {
+      title: frontMatter.title,
+      description: frontMatter.summary,
+      type: "article",
+      authors: "Will Sather",
+      url: `https://sather.ws/blog/${params?.slug}`,
+    },
+    alternates: {
+      canonical: `/blog/${params?.slug}`,
+    },
   } as Metadata;
 }
 
