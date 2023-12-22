@@ -9,7 +9,7 @@ const jobs: Job[] = [
   {
     company: "Ivanti",
     role: "Software Engineer Intern",
-    description: "c#, typescript, azure devops, angular",
+    description: "c#, typescript, azure, angular",
   },
   {
     company: "Dell Technologies",

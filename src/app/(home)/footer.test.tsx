@@ -23,16 +23,13 @@ describe("Footer", () => {
   it("should link to respective social sites", () => {
     expect(screen.getByRole("link", { name: "instagram" })).toHaveAttribute(
       "href",
-      "https://www.instagram.com/will.sather/"
+      "https://www.instagram.com/will.sather"
     );
     expect(screen.getByRole("link", { name: "linkedin" })).toHaveAttribute(
       "href",
       "https://www.linkedin.com/in/willsather"
     );
-    expect(screen.getByRole("link", { name: "github" })).toHaveAttribute(
-      "href",
-      "https://github.com/willsather/Will-Sather"
-    );
+    expect(screen.getByRole("link", { name: "github" })).toHaveAttribute("href", "https://github.com/willsather");
     expect(screen.getByRole("link", { name: "vsco" })).toHaveAttribute("href", "https://vsco.co/willsather/gallery");
   });
 
