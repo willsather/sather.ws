@@ -1,5 +1,0 @@
-User-agent: *
-Disallow:
-
-# Sitemap
-Sitemap: https://www.sather.ws/sitemap.xml
