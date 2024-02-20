@@ -1,34 +1,13 @@
 import { Box, Divider, Stack, Typography } from "@mui/material";
-import { findAllPostSlugs, loadMdxFromSlug } from "@/lib/blog/utils";
 import PaginatedPosts from "@/src/app/blog/paginatedPosts";
-import { Post } from "@/src/types/post";
 import { Metadata } from "next";
 import blogMetadata from "@/src/metadata/blog";
+import { getAllPosts } from "@/lib/blog/posts";
 
 export const metadata: Metadata = blogMetadata;
 
-async function getBlogData() {
-  const allSlugs = await findAllPostSlugs();
-  const allSources = await Promise.all(
-    allSlugs.map(async (slug: string) => {
-      const source = await loadMdxFromSlug(slug);
-      return { slug, source };
-    })
-  );
-
-  const posts = allSources
-    .map(({ slug, source }) => {
-      return { slug, data: source.data } as Post;
-    })
-    .filter(({ data: { draft } }) => !draft);
-
-  return posts.sort((a, b) => {
-    return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
-  });
-}
-
 export default async function BlogPage() {
-  const posts = await getBlogData();
+  const posts = await getAllPosts();
 
   return (
     <Box sx={{ backgroundColor: "secondary.main" }}>

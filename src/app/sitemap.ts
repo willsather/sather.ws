@@ -1,0 +1,41 @@
+import { getAllPosts } from "@/lib/blog/posts";
+import { getAllTags } from "@/lib/blog/tags";
+
+export default async function sitemap() {
+  const posts = await getAllPosts();
+  const blogPages = posts.map((post) => ({
+    url: `https://sather.ws/blog/posts/${post.slug}`,
+    lastModified: post.data.date,
+  }));
+
+  const tags = await getAllTags();
+  const tagPages = tags.map((tag) => ({
+    url: `https://sather.ws/blog/tags/${tag}`,
+    lastModified: new Date(),
+  }));
+
+  return [
+    {
+      url: "https://sather.ws",
+      lastModified: new Date(),
+    },
+    {
+      url: "https://sather.ws/about",
+      lastModified: new Date(),
+    },
+    {
+      url: "https://sather.ws/experience",
+      lastModified: new Date(),
+    },
+    {
+      url: "https://sather.ws/blog",
+      lastModified: new Date(),
+    },
+    {
+      url: "https://sather.ws/blog/tags",
+      lastModified: new Date(),
+    },
+    ...blogPages,
+    ...tagPages,
+  ];
+}

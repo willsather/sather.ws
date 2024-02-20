@@ -1,14 +1,12 @@
-import { loadMdxFromSlug } from "@/lib/blog/utils";
 import Post from "@/src/app/blog/posts/[slug]/post";
 import { notFound } from "next/navigation";
 import { Box, Stack, Divider, Typography } from "@mui/material";
 import Tag from "@/src/app/blog/tag";
-import { BlogFrontMatter } from "@/src/types/blogFrontMatter";
 import { Metadata } from "next";
+import { getPost } from "@/lib/blog/posts";
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const { content, data } = await loadMdxFromSlug(params?.slug);
-  const frontMatter = data as BlogFrontMatter;
+  const { frontMatter } = await getPost(params?.slug);
 
   return {
     title: frontMatter.title,
@@ -27,8 +25,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-  const { content, data } = await loadMdxFromSlug(params?.slug);
-  const frontMatter = data as BlogFrontMatter;
+  const { content, frontMatter } = await getPost(params?.slug);
 
   if (frontMatter.draft) {
     notFound();

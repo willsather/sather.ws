@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/server";
-import { loadMdxFromSlug } from "@/lib/blog/utils";
-import { BlogFrontMatter } from "@/src/types/blogFrontMatter";
 import Logo from "@/src/app/(shared)/logo";
+import { getPost } from "@/lib/blog/posts";
 
 export const size = {
   width: 1200,
@@ -12,8 +11,7 @@ export const alt = "Blog | Will Sather";
 export const contentType = "image/png";
 
 export default async function OpengraphImage({ params }: { params: { slug: string } }) {
-  const { data } = await loadMdxFromSlug(params?.slug);
-  const frontMatter = data as BlogFrontMatter;
+  const { frontMatter } = await getPost(params?.slug);
 
   return new ImageResponse(
     (

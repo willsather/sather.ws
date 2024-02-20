@@ -14,14 +14,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Dependencies
-        run: npm install --silent --immutable
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
 
       - name: Build
-        run: npm run build
+        run: pnpm run build
 
       - name: Lint
-        run: npm run lint
+        run: pnpm run lint
 
   test:
     needs: [ build ]
@@ -29,14 +33,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Dependencies
-        run: npm install --silent --immutable
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
 
       - name: Build
-        run: npm run build
+        run: pnpm run build
 
       - name: Test
-        run: npm run test:ci
+        run: pnpm run test:ci
 
       - name: Integration Test
         uses: cypress-io/github-action@v5
@@ -46,7 +54,7 @@ jobs:
           browser: chrome
           headless: true
           record: false
-          start: npm start
+          start: pnpm start
           wait-on: http://localhost:3333
           wait-on-timeout: 180
 
@@ -57,7 +65,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Install Vercel CLI
-        run: npm install --global vercel@latest
+        run: pnpm install --global vercel@latest
 
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}

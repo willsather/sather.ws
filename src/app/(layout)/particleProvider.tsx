@@ -1,6 +1,6 @@
 "use client";
 
-import ParticleOverlay from "@/src/app/(home)/particles";
+import ParticleOverlay from "@/src/app/(layout)/particles";
 import Footer from "@/src/app/(home)/footer";
 import React, { ReactNode, useState } from "react";
 

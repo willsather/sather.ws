@@ -66,8 +66,7 @@ generate the Open Graph image using the `params?.slug` to load the blog post and
 
 ```tsx fileName="/app/blog/posts/[slug]/opengraph-image.tsx"
 import { ImageResponse } from "next/server";
-import { loadMdxFromSlug } from "@/lib/blog/utils";
-import { BlogFrontMatter } from "@/src/types/blogFrontMatter";
+import { getPost } from "@/lib/blog/posts";
 import Logo from "@/src/components/shared/logo";
 
 export const size = {
@@ -79,8 +78,7 @@ export const alt = "Blog | Will Sather";
 export const contentType = "image/png";
 
 export default async function OpengraphImage({ params }: { params: { slug: string } }) {
-  const { data } = await loadMdxFromSlug(params?.slug);
-  const frontMatter = data as BlogFrontMatter;
+  const { frontMatter } = await getPost(params?.slug);
 
   return new ImageResponse(
     (

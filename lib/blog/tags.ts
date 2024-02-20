@@ -1,20 +1,13 @@
-import { findAllPostSlugs, loadMdxFromSlug } from "@/lib/blog/utils";
-import { BlogFrontMatter } from "@/src/types/blogFrontMatter";
+import { getAllPosts } from "@/lib/blog/posts";
 
-export default async function getAllTags() {
-  const allSlugs = await findAllPostSlugs();
-  const allSources = await Promise.all(
-    allSlugs.map(async (slug: string) => {
-      const source = await loadMdxFromSlug(slug);
-      return { slug, source };
-    })
-  );
+export async function getAllTags() {
+  const allPosts = await getAllPosts();
 
-  const posts = allSources
-    .map(({ slug, source }) => {
-      return { slug, data: source.data as BlogFrontMatter };
-    })
-    .filter(({ data: { draft } }) => !draft);
+  return Array.from(new Set(allPosts.map(({ data: { tags } }) => tags).flat()));
+}
 
-  return Array.from(new Set(posts.map(({ data: { tags } }) => tags).flat()));
+export async function getTagPosts(tag: string) {
+  const allPosts = await getAllPosts();
+
+  return allPosts.filter(({ data: { tags } }) => tags.includes(tag));
 }
