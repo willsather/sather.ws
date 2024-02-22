@@ -12,9 +12,6 @@ const about: Metadata = {
     authors: "Will Sather",
     url: "https://sather.ws/experience",
   },
-  alternates: {
-    canonical: "/experience",
-  },
   icons,
   manifest,
 };

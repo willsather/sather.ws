@@ -11,9 +11,6 @@ const blog: Metadata = {
     type: "website",
     url: "https://sather.ws/blog/tags",
   },
-  alternates: {
-    canonical: "/blog/tags",
-  },
   icons,
   manifest,
 };

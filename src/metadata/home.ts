@@ -4,7 +4,7 @@ import manifest from "@/src/metadata/manifest";
 import description from "@/src/metadata/description";
 
 const home: Metadata = {
-  metadataBase: new URL("https://sather.ws"),
+  metadataBase: new URL("https://www.sather.ws"),
   title: {
     template: "%s | Will Sather",
     default: "Will Sather",
@@ -14,10 +14,7 @@ const home: Metadata = {
     title: "Will Sather",
     description,
     type: "website",
-    url: "https://sather.ws",
-  },
-  alternates: {
-    canonical: "/",
+    url: "https://www.sather.ws",
   },
   icons,
   manifest,

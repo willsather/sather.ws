@@ -11,9 +11,6 @@ const about: Metadata = {
     type: "website",
     url: "https://sather.ws/about",
   },
-  alternates: {
-    canonical: "/about",
-  },
   icons,
   manifest,
 };

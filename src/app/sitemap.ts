@@ -4,35 +4,35 @@ import { getAllTags } from "@/lib/blog/tags";
 export default async function sitemap() {
   const posts = await getAllPosts();
   const blogPages = posts.map((post) => ({
-    url: `https://sather.ws/blog/posts/${post.slug}`,
+    url: `https://www.sather.ws/blog/posts/${post.slug}`,
     lastModified: post.data.date,
   }));
 
   const tags = await getAllTags();
   const tagPages = tags.map((tag) => ({
-    url: `https://sather.ws/blog/tags/${tag}`,
+    url: `https://www.sather.ws/blog/tags/${tag}`,
     lastModified: new Date(),
   }));
 
   return [
     {
-      url: "https://sather.ws",
+      url: "https://www.sather.ws",
       lastModified: new Date(),
     },
     {
-      url: "https://sather.ws/about",
+      url: "https://www.sather.ws/about",
       lastModified: new Date(),
     },
     {
-      url: "https://sather.ws/experience",
+      url: "https://www.sather.ws/experience",
       lastModified: new Date(),
     },
     {
-      url: "https://sather.ws/blog",
+      url: "https://www.sather.ws/blog",
       lastModified: new Date(),
     },
     {
-      url: "https://sather.ws/blog/tags",
+      url: "https://www.sather.ws/blog/tags",
       lastModified: new Date(),
     },
     ...blogPages,
