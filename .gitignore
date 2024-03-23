@@ -36,3 +36,12 @@ cypress/downloads
 cypress/screenshots
 cypress/videos
 .vercel
+
+# playwright
+.playwright/
+.playwrightrc.js
+.playwrightcli.dev.ts
+.playwrightcli.ts
+test-results/
+report/
+trace/

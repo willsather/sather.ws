@@ -448,7 +448,7 @@ const ParticleOverlay = () => {
   }
 
   return (
-    <div>
+    <div data-testid="tsparticles">
       <Particles
         id="tsparticles"
         style={{ position: "absolute" }}

@@ -8,9 +8,8 @@
     "lint:fix": "next lint --fix",
     "test": "jest --watch",
     "test:ci": "jest --ci",
-    "e2e": "start-server-and-test dev http://localhost:3333 \"cypress run --e2e\"",
-    "e2e:open": "start-server-and-test dev http://localhost:3333 \"cypress open --e2e --browser chrome\"",
-    "e2e:dev": "cypress run --config baseUrl=https://dev.sather.ws --e2e"
+    "test:e2e": "playwright test --ui --trace on",
+    "test:e2e:ci": "playwright test --trace on"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -47,7 +46,6 @@
     "@typescript-eslint/parser": "^5.57.0",
     "autoprefixer": "^10.4.19",
     "babel-jest": "^29.7.0",
-    "cypress": "^12.17.3",
     "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-typescript": "^3.5.4",
     "eslint-plugin-prettier": "^4.2.1",
@@ -62,6 +60,8 @@
     "start-server-and-test": "^2.0.0",
     "tailwindcss": "^3.4.1",
     "ts-jest": "^29.1.2",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "@playwright/test": "^1.42.1",
+    "@types/node": "^20.11.30"
   }
 }
