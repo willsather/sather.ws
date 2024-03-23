@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Pagination, Stack, Typography } from "@mui/material";
+import { Pagination, Stack, Typography } from "@mui/material";
 import PostListItem from "@/src/app/blog/postListItem";
 import { Post } from "@/src/types/post";
 import { ChangeEvent, useState } from "react";
@@ -28,8 +28,8 @@ export default function PaginatedPosts({ posts }: { posts: Post[] }) {
   }
 
   return (
-    <Box>
-      <Box>
+    <div>
+      <div>
         {posts.slice(firstPost, firstPost + POSTS_PER_PAGE).map((post) => {
           const {
             slug,
@@ -38,7 +38,7 @@ export default function PaginatedPosts({ posts }: { posts: Post[] }) {
 
           return <PostListItem key={slug} slug={slug} title={title} date={date} summary={summary} />;
         })}
-      </Box>
+      </div>
       <Stack direction="row" justifyContent="center" mt={4}>
         <Pagination
           page={page}
@@ -49,6 +49,6 @@ export default function PaginatedPosts({ posts }: { posts: Post[] }) {
           sx={{ color: "#AAAAAA" }}
         />
       </Stack>
-    </Box>
+    </div>
   );
 }

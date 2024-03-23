@@ -1,6 +1,5 @@
 import type { CSSProperties, FC } from "react";
 import { Highlight, themes } from "prism-react-renderer";
-import Box from "@mui/material/Box";
 import { Divider, Typography } from "@mui/material";
 
 export interface CodeBlockProps {
@@ -30,9 +29,9 @@ const CodeBlock: FC<CodeBlockProps> = ({ children = "", fileName, styles, langua
           >
             {fileName && (
               <>
-                <Box my={1}>
+                <div className="my-1">
                   <Typography variant="codeFileName">{fileName}</Typography>
-                </Box>
+                </div>
 
                 <Divider color="grey" sx={{ mb: 3 }} />
               </>

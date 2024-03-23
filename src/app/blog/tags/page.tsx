@@ -1,4 +1,4 @@
-import { Box, Divider, Stack, Typography } from "@mui/material";
+import { Divider, Stack, Typography } from "@mui/material";
 import Tag from "@/src/app/blog/tag";
 import { Metadata } from "next";
 import tagsMetadata from "@/src/metadata/tags";
@@ -10,18 +10,14 @@ export default async function TagsPage() {
   const tags = await getAllTags();
 
   return (
-    <Box
-      sx={{
-        backgroundColor: "secondary.main",
-      }}
-    >
-      <Box sx={{ display: "flex", justifyContent: "center" }} mt={8}>
+    <div className="bg-secondary">
+      <div className="flex justify-center mt-12">
         <Typography variant="h1">TAGS</Typography>
-      </Box>
+      </div>
 
-      <Box sx={{ display: "flex", justifyContent: "center" }} mt={4}>
+      <div className="flex justify-center mt-6">
         <Typography variant="h2">categories i want to write about</Typography>
-      </Box>
+      </div>
 
       <Divider sx={{ my: 4 }} />
 
@@ -30,6 +26,6 @@ export default async function TagsPage() {
           return <Tag key={tag} tag={tag} />;
         })}
       </Stack>
-    </Box>
+    </div>
   );
 }

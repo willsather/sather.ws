@@ -1,4 +1,4 @@
-import { Box, IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import React, { Dispatch, SetStateAction } from "react";
 import InstagramIcon from "@/public/icons/instagram.svg";
 import LinkedInIcon from "@/public/icons/linkedin.svg";
@@ -33,43 +33,23 @@ const Footer = ({
   };
 
   return (
-    <Box
-      sx={{
-        position: "fixed",
-        bottom: 0,
-        left: 0,
-        right: 0,
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-      }}
-      mx={2}
-      mb={2}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-        }}
-      >
+    <div className="fixed bottom-0 left-0 right-0 flex-row flex justify-between mx-4 mb-4">
+      <div className="flex flex-row">
         {Object.entries(socialLinks).map(([social, { icon, link }]) => (
-          <Box key={social} mr={2}>
+          <div className="mr-4" key={social}>
             <IconButton href={link} target="_blank" aria-label={social}>
               {icon}
             </IconButton>
-          </Box>
+          </div>
         ))}
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-        }}
-      >
+      </div>
+
+      <div className="flex">
         <IconButton onClick={() => setShowParticles(!showParticles)} aria-label="particles" name="particles">
           <DotsIcon width={24} height={24} />
         </IconButton>
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 };
 

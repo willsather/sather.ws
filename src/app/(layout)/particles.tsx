@@ -1,17 +1,16 @@
 "use client";
 
-import { Box } from "@mui/material";
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { type ISourceOptions } from "@tsparticles/engine";
-import { loadFull } from "tsparticles";
+import { loadSlim } from "@tsparticles/slim";
 
 const ParticleOverlay = () => {
   const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      await loadFull(engine);
+      await loadSlim(engine);
     }).then(() => {
       setInitialized(true);
     });
@@ -449,9 +448,9 @@ const ParticleOverlay = () => {
   }
 
   return (
-    <Box>
+    <div>
       <Particles id="tsparticles" style={{ position: "absolute" }} options={options} />
-    </Box>
+    </div>
   );
 };
 

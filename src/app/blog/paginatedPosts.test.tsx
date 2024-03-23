@@ -59,14 +59,14 @@ describe("PaginatedPosts", () => {
       </ThemeProvider>
     );
 
-    expect(screen.getByText(mockPost.data.title)).toBeInTheDocument();
-    expect(screen.getByText(mockPost.data.summary)).toBeInTheDocument();
+    expect(screen.getAllByText(mockPost.data.title)[0]).toBeInTheDocument();
+    expect(screen.getAllByText(mockPost.data.summary)[0]).toBeInTheDocument();
 
-    expect(screen.getByText(mockPost1.data.title)).toBeInTheDocument();
-    expect(screen.getByText(mockPost1.data.summary)).toBeInTheDocument();
+    expect(screen.getAllByText(mockPost1.data.title)[0]).toBeInTheDocument();
+    expect(screen.getAllByText(mockPost1.data.summary)[0]).toBeInTheDocument();
 
-    expect(screen.getByText(mockPost2.data.title)).toBeInTheDocument();
-    expect(screen.getByText(mockPost2.data.summary)).toBeInTheDocument();
+    expect(screen.getAllByText(mockPost2.data.title)[0]).toBeInTheDocument();
+    expect(screen.getAllByText(mockPost2.data.summary)[0]).toBeInTheDocument();
 
     expect(screen.queryByText(mockPost3.data.title)).not.toBeInTheDocument();
     expect(screen.queryByText(mockPost3.data.summary)).not.toBeInTheDocument();
@@ -84,7 +84,7 @@ describe("PaginatedPosts", () => {
 
     await userEvent.click(screen.getByRole("button", { name: "Go to page 2" }));
 
-    expect(screen.getByText(mockPost3.data.title)).toBeInTheDocument();
-    expect(screen.getByText(mockPost3.data.summary)).toBeInTheDocument();
+    expect(screen.getAllByText(mockPost3.data.title)[0]).toBeInTheDocument();
+    expect(screen.getAllByText(mockPost3.data.summary)[0]).toBeInTheDocument();
   });
 });

@@ -1,4 +1,4 @@
-import { Box, Divider, Typography } from "@mui/material";
+import { Divider, Typography } from "@mui/material";
 import PaginatedPosts from "@/src/app/blog/paginatedPosts";
 import { Metadata } from "next";
 import tagsMetadata from "@/src/metadata/tags";
@@ -15,22 +15,18 @@ export default async function TagPage({ params }: { params: { tag: string } }) {
   const posts = await getTagPosts(params?.tag);
 
   return (
-    <Box
-      sx={{
-        backgroundColor: "secondary.main",
-      }}
-    >
-      <Box sx={{ display: "flex", justifyContent: "center" }} mt={8}>
+    <div className="bg-secondary">
+      <div className="flex justify-center mt-10">
         <Typography variant="h1">{params?.tag.toUpperCase()}</Typography>
-      </Box>
+      </div>
 
-      <Box sx={{ display: "flex", justifyContent: "center" }} mt={4}>
+      <div className="flex justify-center mt-3 md:mt-5">
         <Typography variant="h2">a category i wrote about.</Typography>
-      </Box>
+      </div>
 
       <Divider sx={{ my: 4 }} />
 
       <PaginatedPosts posts={posts} />
-    </Box>
+    </div>
   );
 }

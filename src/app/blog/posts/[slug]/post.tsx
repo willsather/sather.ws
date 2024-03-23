@@ -1,13 +1,12 @@
-import { Box } from "@mui/material";
 import CustomMDX from "@/src/app/blog/(customMdx)/CustomMDX";
 
 const Post = ({ content }: { content: string }) => {
   return (
-    <Box>
-      <Box my={6}>
+    <div>
+      <div className="my-10">
         <CustomMDX content={content} />
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 };
 

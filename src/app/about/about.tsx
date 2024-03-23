@@ -1,41 +1,23 @@
 "use client";
 
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import Image from "next/image";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import theme from "@/src/theme/theme";
 
 export default function About() {
-  const isMediumScreenSize = useMediaQuery(theme.breakpoints.up("md"));
-
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: { xs: "column", md: "row" },
-        justifyContent: "center",
-        alignContent: "center",
-      }}
-      my={{ xs: 6, md: 8 }}
-    >
-      {!isMediumScreenSize && (
-        <Box
-          sx={{ display: { xs: "flex", md: "none" }, justifyContent: "center" }}
-          mx={{ xs: 4, md: 8 }}
-          mb={{ xs: 6, md: 8 }}
-        >
-          <Image
-            src="/assets/about.jpg"
-            alt="About | Will Sather"
-            width={0}
-            height={0}
-            sizes="100%"
-            style={{ width: "85%", height: "auto" }}
-          />
-        </Box>
-      )}
+    <div className="flex flex-col md:flex-row-reverse justify-center items-center gap-6 mx-6 md:mx-8 my-8 md:my10">
+      <div className="flex grow">
+        <Image
+          src="/assets/about.jpg"
+          alt="About | Will Sather"
+          width={0}
+          height={0}
+          sizes="100%"
+          className="w-full min-w-96"
+        />
+      </div>
 
-      <Box mx={{ xs: 4, md: 8 }} mb={4}>
+      <div>
         <Typography variant="body1" sx={{ color: "primary.main" }} aria-label="about">
           <strong>a little about me:</strong> i graduated from university of minnesota in 2022 with bachelors in
           computer science and am currently working as a software engineer at vmware tanzu labs. recently, been working
@@ -49,20 +31,7 @@ export default function About() {
           <br /> <br />
           anyways, welcome and feel free to say hi!
         </Typography>
-      </Box>
-
-      {isMediumScreenSize && (
-        <Box sx={{ display: { xs: "none", lg: "flex" }, justifyContent: "center" }} mx={8}>
-          <Image
-            src="/assets/about.jpg"
-            alt="About | Will Sather"
-            width={0}
-            height={0}
-            sizes="100%"
-            style={{ width: "100%", minWidth: "600px", height: "auto", maxHeight: "336px" }}
-          />
-        </Box>
-      )}
-    </Box>
+      </div>
+    </div>
   );
 }

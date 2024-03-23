@@ -1,4 +1,4 @@
-import { Box, Divider, Stack, Typography } from "@mui/material";
+import { Divider, Stack, Typography } from "@mui/material";
 import PaginatedPosts from "@/src/app/blog/paginatedPosts";
 import { Metadata } from "next";
 import blogMetadata from "@/src/metadata/blog";
@@ -10,7 +10,7 @@ export default async function BlogPage() {
   const posts = await getAllPosts();
 
   return (
-    <Box sx={{ backgroundColor: "secondary.main" }}>
+    <div className="bg-secondary">
       <Stack direction="row" justifyContent="center" mt={8}>
         <Typography variant="h1">BLOG</Typography>
       </Stack>
@@ -22,6 +22,6 @@ export default async function BlogPage() {
       <Divider sx={{ my: 4 }} />
 
       <PaginatedPosts posts={posts} />
-    </Box>
+    </div>
   );
 }

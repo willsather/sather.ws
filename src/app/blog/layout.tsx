@@ -1,18 +1,9 @@
 import React, { ReactNode } from "react";
-import { Box } from "@mui/material";
 
 export default function BlogLayout({ children }: { children: ReactNode }) {
   return (
-    <Box
-      sx={{
-        backgroundColor: "secondary.main",
-      }}
-      display="grid"
-      gridTemplateColumns="repeat(12, 1fr)"
-      gap={{ xs: 1, md: 3 }}
-      m={3}
-    >
-      <Box gridColumn={{ xs: "1/-1", md: "3/11" }}>{children}</Box>
-    </Box>
+    <div className="grid grid-cols-12 gap-1 md:gap-3 m-3 bg-secondary">
+      <div className="col-span-full md:col-start-3 md:col-end-11 mx-4">{children}</div>
+    </div>
   );
 }

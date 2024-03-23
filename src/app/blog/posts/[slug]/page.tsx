@@ -1,6 +1,6 @@
 import Post from "@/src/app/blog/posts/[slug]/post";
 import { notFound } from "next/navigation";
-import { Box, Stack, Divider, Typography } from "@mui/material";
+import { Stack, Divider, Typography } from "@mui/material";
 import Tag from "@/src/app/blog/tag";
 import { Metadata } from "next";
 import { getPost } from "@/lib/blog/posts";
@@ -34,7 +34,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   const tags = Array.from(new Set(frontMatter.tags));
 
   return (
-    <Box>
+    <div>
       <Stack direction="row" justifyContent="center" my={2}>
         <Typography variant="h5" sx={{ color: "grey" }}>
           {frontMatter.date.toLocaleDateString("default", { month: "long", day: "numeric", year: "numeric" })}
@@ -56,6 +56,6 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       <Divider sx={{ mt: 4 }} />
 
       <Post content={content} />
-    </Box>
+    </div>
   );
 }

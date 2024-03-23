@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import menuLinks from "@/src/app/(header)/menuLinks";
 import React, { useState } from "react";
@@ -10,32 +10,22 @@ import CloseIcon from "@/public/icons/close.svg";
 const NavigationBar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const getShowMobileLinks = () => (mobileOpen ? "block" : "none");
-
   return (
     <Stack flexDirection={{ xs: "column", md: "row" }} justifyContent="space-between" pt={2}>
-      <Box sx={{ display: { xs: "flex", md: "none" }, justifyContent: "end" }}>
-        <Box onClick={() => setMobileOpen(!mobileOpen)}>
+      <div className="flex md:hidden justify-end">
+        <div onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <CloseIcon width={24} height={24} /> : <MenuIcon width={24} height={24} />}
-        </Box>
-      </Box>
+        </div>
+      </div>
 
-      <Box sx={{ display: { xs: getShowMobileLinks(), md: "flex" } }}>
+      <div className={mobileOpen ? "block md:hidden" : "hidden"}>
         {Object.entries(menuLinks).map(([text, link]) => (
-          <Box margin={{ md: 2 }} marginTop={{ xs: 2, md: 0 }} key={text}>
-            <Box
-              sx={[
-                {
-                  "&:hover": {
-                    textDecoration: "underline",
-                  },
-                },
-              ]}
-              onClick={() => setMobileOpen(false)}
-            >
+          <div key={text} className="mt-3">
+            <div className="hover:underline" onClick={() => setMobileOpen(false)}>
               <Link
                 href={link}
                 target="_self"
+                className="text-primary decoration-primary"
                 style={{
                   color: "black",
                   textDecoration: "none",
@@ -44,10 +34,21 @@ const NavigationBar = () => {
               >
                 <Typography variant="body1">{text}</Typography>
               </Link>
-            </Box>
-          </Box>
+            </div>
+          </div>
         ))}
-      </Box>
+      </div>
+
+      {/*Desktop Navbar*/}
+      <div className="hidden md:flex">
+        {Object.entries(menuLinks).map(([text, link]) => (
+          <div className="hover:underline m-4" key={text} onClick={() => setMobileOpen(false)}>
+            <Link href={link} target="_self" className="text-primary no-underline">
+              <Typography variant="body1">{text}</Typography>
+            </Link>
+          </div>
+        ))}
+      </div>
     </Stack>
   );
 };

@@ -4,6 +4,8 @@ import ThemeLayout from "@/src/app/(layout)/themeLayout";
 import { Metadata } from "next";
 import homeMetadata from "@/src/metadata/home";
 
+import "./tailwind.css";
+
 export const metadata: Metadata = homeMetadata;
 
 export default function RootLayout({ children }: { children: ReactNode }) {
