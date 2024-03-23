@@ -1,6 +1,6 @@
 import Post from "@/src/app/blog/posts/[slug]/post";
 import { notFound } from "next/navigation";
-import { Stack, Divider, Typography } from "@mui/material";
+import { Divider, Typography } from "@mui/material";
 import Tag from "@/src/app/blog/tag";
 import { Metadata } from "next";
 import { getPost } from "@/lib/blog/posts";
@@ -35,23 +35,23 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
   return (
     <div>
-      <Stack direction="row" justifyContent="center" my={2}>
+      <div className="flex flex-row justify-center my-2">
         <Typography variant="h5" sx={{ color: "grey" }}>
           {frontMatter.date.toLocaleDateString("default", { month: "long", day: "numeric", year: "numeric" })}
         </Typography>
-      </Stack>
+      </div>
 
-      <Stack direction="row" justifyContent="center" my={2}>
+      <div className="flex flex-row justify-center my-2">
         <Typography variant="blogTitle" sx={{ textAlign: "center" }}>
           {frontMatter.title}
         </Typography>
-      </Stack>
+      </div>
 
-      <Stack direction="row" justifyContent="center" useFlexGap flexWrap="wrap" spacing={{ xs: 2, md: 4 }}>
+      <div className="flex flex-row justify-center wrap gap-2 md:gap-4">
         {tags?.map((tag) => (
           <Tag key={tag} tag={tag} />
         ))}
-      </Stack>
+      </div>
 
       <Divider sx={{ mt: 4 }} />
 

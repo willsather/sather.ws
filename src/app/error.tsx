@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { Button, Stack, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import ArrowLeft from "@/public/icons/arrow-left.svg";
 
 const Error = ({ error }: { error: Error }) => {
@@ -11,18 +11,18 @@ const Error = ({ error }: { error: Error }) => {
 
   return (
     <div className="bg-secondary">
-      <Stack justifyContent="center" mt={8} mx={4}>
+      <div className="flex justify-center mt-8 mx-4">
         <Typography variant="h3" sx={{ textAlign: "center" }}>
           ugh, we had an error :(
         </Typography>
-      </Stack>
+      </div>
 
       <div className="flex justify-center mt-12">
         <Button href="/" variant="outlined">
-          <Stack gap={2} flexDirection="row" justifyContent="center">
+          <div className="flex flex-row gap-2 justify-center">
             <ArrowLeft width={24} height={24} />
             <Typography>home</Typography>
-          </Stack>
+          </div>
         </Button>
       </div>
     </div>

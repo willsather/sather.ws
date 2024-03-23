@@ -1,16 +1,12 @@
 "use client";
 
-import { CircularProgress, Stack } from "@mui/material";
-import { ThemeProvider } from "@mui/material/styles";
-import theme from "@/src/theme/theme";
+import { CircularProgress } from "@mui/material";
 
 const Loading = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <Stack direction="row" justifyContent="center" alignItems="center" sx={{ width: 1, height: "100vh" }}>
-        <CircularProgress color="primary" />
-      </Stack>
-    </ThemeProvider>
+    <div className="flex flex-row justify-center items-center w-full h-">
+      <CircularProgress color="primary" />
+    </div>
   );
 };
 

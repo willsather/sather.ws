@@ -1,4 +1,4 @@
-import { Divider, Stack, Typography } from "@mui/material";
+import { Divider, Typography } from "@mui/material";
 import Tag from "@/src/app/blog/tag";
 import { Metadata } from "next";
 import tagsMetadata from "@/src/metadata/tags";
@@ -21,11 +21,11 @@ export default async function TagsPage() {
 
       <Divider sx={{ my: 4 }} />
 
-      <Stack direction="row" justifyContent="center" useFlexGap flexWrap="wrap" spacing={{ xs: 2, md: 4 }}>
+      <div className="flex flex-row justify-center items-center flex-wrap gap-2 md:gap-4">
         {tags.map((tag) => {
           return <Tag key={tag} tag={tag} />;
         })}
-      </Stack>
+      </div>
     </div>
   );
 }

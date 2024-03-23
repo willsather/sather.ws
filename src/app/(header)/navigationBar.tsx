@@ -1,6 +1,6 @@
 "use client";
 
-import { Stack, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import Link from "next/link";
 import menuLinks from "@/src/app/(header)/menuLinks";
 import React, { useState } from "react";
@@ -11,7 +11,7 @@ const NavigationBar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <Stack flexDirection={{ xs: "column", md: "row" }} justifyContent="space-between" pt={2}>
+    <div className="flex-col md:flex-row justify-between pt-2">
       <div className="flex md:hidden justify-end">
         <div onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <CloseIcon width={24} height={24} /> : <MenuIcon width={24} height={24} />}
@@ -49,7 +49,7 @@ const NavigationBar = () => {
           </div>
         ))}
       </div>
-    </Stack>
+    </div>
   );
 };
 

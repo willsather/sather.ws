@@ -1,23 +1,23 @@
 "use client";
 
-import { Button, Stack, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import ArrowLeft from "@/public/icons/arrow-left.svg";
 
 const NotFound = () => {
   return (
     <div className="bg-secondary">
-      <Stack justifyContent="center" mt={8} mx={4}>
+      <div className="flex justify-center mt-8 mx-4">
         <Typography variant="h3" sx={{ textAlign: "center" }}>
           ugh, we can&apos;t find that page :(
         </Typography>
-      </Stack>
+      </div>
 
       <div className="flex justify-center mt-12">
         <Button href="/" variant="outlined">
-          <Stack gap={2} flexDirection="row" justifyContent="center">
+          <div className="flex flex-row justify-center gap-2">
             <ArrowLeft width={24} height={24} />
             <Typography>home</Typography>
-          </Stack>
+          </div>
         </Button>
       </div>
     </div>

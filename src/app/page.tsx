@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import ParticleProvider from "@/src/app/(layout)/particleProvider";
 
 export default function HomePage() {

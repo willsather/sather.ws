@@ -1,4 +1,4 @@
-import { Divider, Stack, Typography } from "@mui/material";
+import { Divider, Typography } from "@mui/material";
 import PaginatedPosts from "@/src/app/blog/paginatedPosts";
 import { Metadata } from "next";
 import blogMetadata from "@/src/metadata/blog";
@@ -11,13 +11,13 @@ export default async function BlogPage() {
 
   return (
     <div className="bg-secondary">
-      <Stack direction="row" justifyContent="center" mt={8}>
+      <div className="flex flex-row justify-center mt-8">
         <Typography variant="h1">BLOG</Typography>
-      </Stack>
+      </div>
 
-      <Stack direction="row" justifyContent="center" mt={4}>
+      <div className="flex flex-row justify-center mt-4">
         <Typography variant="h2">stuff i wanted to write about.</Typography>
-      </Stack>
+      </div>
 
       <Divider sx={{ my: 4 }} />
 
