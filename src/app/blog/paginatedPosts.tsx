@@ -1,6 +1,6 @@
 "use client";
 
-import { Pagination, Typography } from "@mui/material";
+import { Pagination } from "@mui/material";
 import PostListItem from "@/src/app/blog/postListItem";
 import { Post } from "@/src/types/post";
 import { ChangeEvent, useState } from "react";
@@ -23,9 +23,7 @@ export default function PaginatedPosts({ posts }: { posts: Post[] }) {
   if (!posts || posts.length <= 0) {
     return (
       <div className="flex flex-row justify-center mt-4">
-        <Typography variant="body1" mt={2}>
-          No posts found
-        </Typography>
+        <p className="mt-2">No posts found</p>
       </div>
     );
   }
@@ -51,7 +49,7 @@ export default function PaginatedPosts({ posts }: { posts: Post[] }) {
         })}
       </div>
 
-      <div className="flex flex-row justify-center mt-4">
+      <div className="flex flex-row justify-center mt-12">
         <Pagination
           page={page}
           count={pageCount}

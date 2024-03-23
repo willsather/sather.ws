@@ -1,6 +1,6 @@
 import type { CSSProperties, FC } from "react";
 import { Highlight, themes } from "prism-react-renderer";
-import { Divider, Typography } from "@mui/material";
+import { Divider } from "@mui/material";
 
 export interface CodeBlockProps {
   hideLineNumbers?: boolean;
@@ -26,6 +26,8 @@ const CodeBlock: FC<CodeBlockProps> = ({
         <>
           <pre
             style={{
+              marginTop: "0.5rem",
+              marginBottom: "0.5rem",
               borderRadius: "0.5rem",
               padding: "0.5rem 0.75rem",
               overflow: "auto",
@@ -35,9 +37,9 @@ const CodeBlock: FC<CodeBlockProps> = ({
           >
             {fileName && (
               <>
-                <div className="my-1">
-                  <Typography variant="codeFileName">{fileName}</Typography>
-                </div>
+                <code className="my-1">
+                  <p className="italic text-gray-200 my-2">{fileName}</p>
+                </code>
 
                 <Divider color="grey" sx={{ mb: 3 }} />
               </>

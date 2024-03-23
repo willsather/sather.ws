@@ -1,4 +1,3 @@
-import { Typography } from "@mui/material";
 import JobList from "@/src/app/experience/jobList";
 import { Metadata } from "next";
 import experienceMetadata from "@/src/metadata/experience";
@@ -10,10 +9,10 @@ export default function ExperiencePage() {
   return (
     <div className="bg-secondary">
       <div className="flex justify-center mt-10">
-        <Typography variant="h1">EXPERIENCE</Typography>
+        <h1>EXPERIENCE</h1>
       </div>
 
-      <div className="flex justify-center mt-3 md:mt-5">
+      <div className="flex justify-center mt-5">
         <ExternalLink href="/files/resume.pdf" text="check out my resume." />
       </div>
 

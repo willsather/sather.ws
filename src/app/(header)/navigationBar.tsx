@@ -1,6 +1,5 @@
 "use client";
 
-import { Typography } from "@mui/material";
 import Link from "next/link";
 import menuLinks from "@/src/app/(header)/menuLinks";
 import React, { useState } from "react";
@@ -32,14 +31,9 @@ const NavigationBar = () => {
               <Link
                 href={link}
                 target="_self"
-                className="text-primary decoration-primary"
-                style={{
-                  color: "black",
-                  textDecoration: "none",
-                  textAlign: "right",
-                }}
+                className="text-primary text-right decoration-primary"
               >
-                <Typography variant="body1">{text}</Typography>
+                <p>{text}</p>
               </Link>
             </div>
           </div>
@@ -59,7 +53,7 @@ const NavigationBar = () => {
               target="_self"
               className="text-primary no-underline"
             >
-              <Typography variant="body1">{text}</Typography>
+              <p>{text}</p>
             </Link>
           </div>
         ))}

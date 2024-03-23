@@ -1,6 +1,6 @@
 import Post from "@/src/app/blog/posts/[slug]/post";
 import { notFound } from "next/navigation";
-import { Divider, Typography } from "@mui/material";
+import { Divider } from "@mui/material";
 import Tag from "@/src/app/blog/tag";
 import { Metadata } from "next";
 import { getPost } from "@/lib/blog/posts";
@@ -44,19 +44,17 @@ export default async function BlogPostPage({
   return (
     <div>
       <div className="flex flex-row justify-center my-2">
-        <Typography variant="h5" sx={{ color: "grey" }}>
+        <h4 className="text-gray-500">
           {frontMatter.date.toLocaleDateString("default", {
             month: "long",
             day: "numeric",
             year: "numeric",
           })}
-        </Typography>
+        </h4>
       </div>
 
-      <div className="flex flex-row justify-center my-2">
-        <Typography variant="blogTitle" sx={{ textAlign: "center" }}>
-          {frontMatter.title}
-        </Typography>
+      <div className="flex flex-row text-center justify-center my-2">
+        <h1 className="content-center">{frontMatter.title}</h1>
       </div>
 
       <div className="flex flex-row justify-center wrap gap-2 md:gap-4">

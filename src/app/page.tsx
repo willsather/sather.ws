@@ -1,4 +1,3 @@
-import { Typography } from "@mui/material";
 import ParticleProvider from "@/src/app/(layout)/particleProvider";
 
 export default function HomePage() {
@@ -7,11 +6,11 @@ export default function HomePage() {
       <ParticleProvider>
         <>
           <div className="flex justify-center mt-10">
-            <Typography variant="h1">WILL SATHER</Typography>
+            <h1>WILL SATHER</h1>
           </div>
 
-          <div className="flex justify-center mt-3 md:mt-5">
-            <Typography variant="h2">livin&apos; the dream.</Typography>
+          <div className="flex justify-center mt-5">
+            <h2>livin&apos; the dream.</h2>
           </div>
         </>
       </ParticleProvider>

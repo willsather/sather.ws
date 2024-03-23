@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 
 const PostListItem = ({
   slug,
@@ -18,75 +18,54 @@ const PostListItem = ({
     <div>
       {/*Mobile Item*/}
       <div className="block md:hidden">
-        <div className="flex flex-col border-3 border-secondary border-r-2">
+        <div className="flex flex-col mb-6 border-3 border-secondary border-r-2">
           <Link
             href={`/blog/posts/${slug}`}
-            style={{ color: "black", textDecoration: "none" }}
+            className="no-underline text-primary"
           >
-            <Typography variant="h3" sx={{ fontSize: 20, mt: 2 }}>
-              {title}
-            </Typography>
-          </Link>
+            <h3 className="text-xl">{title}</h3>
 
-          <Typography variant="subtitle2" sx={{ color: "grey" }}>
-            {date.toLocaleDateString("default", {
-              month: "long",
-              day: "numeric",
-              year: "numeric",
-            })}
-          </Typography>
+            <h5 className=" text-gray-500 my-1">
+              {date.toLocaleDateString("default", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </h5>
 
-          <Typography variant="body2" mt={2}>
-            {summary}
-          </Typography>
+            <p>{summary}</p>
 
-          <Link href={`/blog/posts/${slug}`} className="no-underline">
-            <div className="flex text-gray-500 my-6">
-              <Typography mr={2}>Read more →</Typography>
-            </div>
+            <p className="mt-2 text-gray-500">Read more →</p>
           </Link>
         </div>
       </div>
 
       {/*Desktop Item*/}
-      <div className="hidden md:flex border-3 border-secondary border-r-2">
+      <div className="hidden md:flex mb-6 border-3 border-secondary border-r-2">
         <Grid container spacing={2}>
           <Grid item xs={4}>
             <div className="flex justify-center items-center">
-              <Typography variant="subtitle2" sx={{ color: "grey" }}>
+              <h5 className="text-lg text-gray-500">
                 {date.toLocaleDateString("default", {
                   month: "long",
                   day: "numeric",
                   year: "numeric",
                 })}
-              </Typography>
+              </h5>
             </div>
           </Grid>
 
           <Grid item xs={8}>
-            <div>
-              <Link
-                href={`/blog/posts/${slug}`}
-                className="text-primary no-underline"
-              >
-                <Typography
-                  variant="h3"
-                  sx={{
-                    fontSize: { xs: 20, md: 24 },
-                    textAlign: { xs: "center", md: "left" },
-                  }}
-                >
-                  {title}
-                </Typography>
-              </Link>
-              <Typography variant="body2">{summary}</Typography>
+            <Link
+              href={`/blog/posts/${slug}`}
+              className="text-primary no-underline"
+            >
+              <h3 className="text-center md:text-left">{title}</h3>
 
-              <Link href={`/blog/posts/${slug}`} className="no-underline">
-                <div className="flex text-gray-500 my-6">
-                  <Typography mr={2}>Read more →</Typography>
-                </div>
-              </Link>
-            </div>
+              <p>{summary}</p>
+
+              <p className="mt-2 text-gray-500">Read more →</p>
+            </Link>
           </Grid>
         </Grid>
       </div>

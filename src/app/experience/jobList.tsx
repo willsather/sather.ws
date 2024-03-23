@@ -1,19 +1,15 @@
 import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
 import jobs from "@/src/app/experience/jobs";
 
 export default function JobList() {
   return (
-    <div>
+    <div className="ml-4 md:ml-8">
       <List>
         {jobs.map((job) => (
-          <div
-            key={job.company}
-            className="ml-2 mt-2 mb-4 md:ml-8 md:mt-8 md:mb-8"
-          >
-            <Typography variant="subtitle1">{job.company}.</Typography>
-            <Typography variant="subtitle2">{job.role}.</Typography>
-            <Typography variant="caption">{job.description}.</Typography>
+          <div className="my-6 md:my-12" key={job.company}>
+            <h3 className="text-2xl md:text-4xl">{job.company}.</h3>
+            <h4>{job.role}.</h4>
+            <p className="text-gray-500">{job.description}.</p>
           </div>
         ))}
       </List>

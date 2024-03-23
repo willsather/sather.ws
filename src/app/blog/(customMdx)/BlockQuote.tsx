@@ -1,26 +1,16 @@
 import type { FC, ReactNode } from "react";
-import Box from "@mui/material/Box";
 
 export interface BlockquoteProps {
   children?: ReactNode;
 }
 
-const Blockquote: FC<BlockquoteProps> = (props) => {
-  const { children } = props;
-
+const Blockquote: FC<BlockquoteProps> = ({ children }) => {
   return (
-    <Box
-      component="blockquote"
-      dir="auto"
-      sx={{
-        borderInlineStart: "3px solid",
-        paddingInlineStart: "1.5rem",
-        borderColor: "text.secondary",
-        m: "0.25rem 0",
-      }}
-    >
-      {children}
-    </Box>
+    <blockquote className="p-4 my-4 border-s-4 border-gray-300 bg-gray-50 rounded-sm">
+      <div className="italic font-medium leading-relaxed text-gray-900">
+        {children}
+      </div>
+    </blockquote>
   );
 };
 

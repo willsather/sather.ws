@@ -1,4 +1,4 @@
-import { Divider, Typography } from "@mui/material";
+import { Divider } from "@mui/material";
 import Tag from "@/src/app/blog/tag";
 import { Metadata } from "next";
 import tagsMetadata from "@/src/metadata/tags";
@@ -12,11 +12,11 @@ export default async function TagsPage() {
   return (
     <div className="bg-secondary">
       <div className="flex justify-center mt-12">
-        <Typography variant="h1">TAGS</Typography>
+        <h1>TAGS</h1>
       </div>
 
-      <div className="flex justify-center mt-6">
-        <Typography variant="h2">categories i want to write about</Typography>
+      <div className="flex justify-center mt-5">
+        <h2>categories i want to write about</h2>
       </div>
 
       <Divider sx={{ my: 4 }} />

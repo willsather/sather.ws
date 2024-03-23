@@ -1,4 +1,4 @@
-import { Divider, Typography } from "@mui/material";
+import { Divider } from "@mui/material";
 import PaginatedPosts from "@/src/app/blog/paginatedPosts";
 import { Metadata } from "next";
 import tagsMetadata from "@/src/metadata/tags";
@@ -21,11 +21,11 @@ export default async function TagPage({ params }: { params: { tag: string } }) {
   return (
     <div className="bg-secondary">
       <div className="flex justify-center mt-10">
-        <Typography variant="h1">{params?.tag.toUpperCase()}</Typography>
+        <h1>{params?.tag.toUpperCase()}</h1>
       </div>
 
-      <div className="flex justify-center mt-3 md:mt-5">
-        <Typography variant="h2">a category i wrote about.</Typography>
+      <div className="flex justify-center mt-5">
+        <h2>a category i wrote about.</h2>
       </div>
 
       <Divider sx={{ my: 4 }} />

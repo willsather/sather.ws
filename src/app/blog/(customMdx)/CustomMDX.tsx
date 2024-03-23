@@ -3,7 +3,6 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
-import Typography from "@mui/material/Typography";
 import CustomLink from "@/src/app/blog/(customMdx)/CustomLink";
 import PreBlock from "@/src/app/blog/(customMdx)/PreBlock";
 import Image from "next/image";
@@ -19,12 +18,12 @@ export default function CustomMDX({ content }: { content: string }) {
       <MDXRemote
         source={content}
         components={{
-          h1: (props: any) => <Typography {...props} variant="h2" mt={4} />,
-          h2: (props: any) => <Typography {...props} variant="h3" mt={4} />,
-          h3: (props: any) => <Typography {...props} variant="h4" mt={4} />,
-          h4: (props: any) => <Typography {...props} variant="h5" mt={4} />,
-          h5: (props: any) => <Typography {...props} variant="h6" mt={4} />,
-          p: (props: any) => <Typography {...props} variant="body1" mt={4} />,
+          h1: (props: any) => <h2 {...props} className="mt-4" />,
+          h2: (props: any) => <h3 {...props} className="mt-4" />,
+          h3: (props: any) => <h4 {...props} className="mt-4" />,
+          h4: (props: any) => <h5 {...props} className="mt-4" />,
+          h5: (props: any) => <h6 {...props} className="mt-4" />,
+          p: (props: any) => <p {...props} className="mt-4" />,
           a: (props: any) => <CustomLink {...props} />,
           pre: (props: any) => <PreBlock {...props}>{props.children}</PreBlock>,
           Image: (props: any) => (
@@ -35,11 +34,11 @@ export default function CustomMDX({ content }: { content: string }) {
               {...props}
             />
           ),
-          blockQuote: BlockQuote,
+          blockquote: BlockQuote,
           code: InlineCode,
           li: (props: any) => (
             <li {...props}>
-              <Typography {...props} variant="body1" />
+              <p {...props} />
             </li>
           ),
           Info: (props: any) => (

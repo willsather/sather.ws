@@ -1,10 +1,8 @@
 import { createTheme } from "@mui/material/styles";
 import colorTheme from "@/src/theme/colors";
-import typography from "@/src/theme/typography";
 import breakpoints from "@/src/theme/breakpoints";
 
 const theme = createTheme({
-  typography,
   breakpoints,
   palette: colorTheme,
   spacing: [4, 8, 12, 16, 24, 32, 40, 48, 64, 72, 96, 128],
@@ -18,12 +16,5 @@ const theme = createTheme({
     },
   },
 });
-
-declare module "@mui/material/Typography" {
-  interface TypographyPropsVariantOverrides {
-    blogTitle: true;
-    codeFileName: true;
-  }
-}
 
 export default theme;
