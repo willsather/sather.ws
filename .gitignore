@@ -42,6 +42,7 @@ cypress/videos
 .playwrightrc.js
 .playwrightcli.dev.ts
 .playwrightcli.ts
+playwright-report/
 test-results/
 report/
 trace/
