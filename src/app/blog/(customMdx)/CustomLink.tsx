@@ -4,7 +4,7 @@ import Link from "@mui/material/Link";
 import { styled } from "@mui/material/styles";
 import type { LinkProps as MuiLinkProps } from "@mui/material";
 
-export interface LinkProps extends MuiLinkProps {}
+export type LinkProps = MuiLinkProps;
 
 const CustomLink = styled(Link)<LinkProps>(() => ({}));
 

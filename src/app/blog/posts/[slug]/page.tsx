@@ -5,7 +5,11 @@ import Tag from "@/src/app/blog/tag";
 import { Metadata } from "next";
 import { getPost } from "@/lib/blog/posts";
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const { frontMatter } = await getPost(params?.slug);
 
   return {
@@ -24,7 +28,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   } as Metadata;
 }
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const { content, frontMatter } = await getPost(params?.slug);
 
   if (frontMatter.draft) {
@@ -37,7 +45,11 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     <div>
       <div className="flex flex-row justify-center my-2">
         <Typography variant="h5" sx={{ color: "grey" }}>
-          {frontMatter.date.toLocaleDateString("default", { month: "long", day: "numeric", year: "numeric" })}
+          {frontMatter.date.toLocaleDateString("default", {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          })}
         </Typography>
       </div>
 

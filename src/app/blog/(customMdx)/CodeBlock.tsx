@@ -10,7 +10,13 @@ export interface CodeBlockProps {
   fileName?: string;
 }
 
-const CodeBlock: FC<CodeBlockProps> = ({ children = "", fileName, styles, language = "text", hideLineNumbers }) => {
+const CodeBlock: FC<CodeBlockProps> = ({
+  children = "",
+  fileName,
+  styles,
+  language = "text",
+  hideLineNumbers,
+}) => {
   const codeLanguage = language.replace("language-", "");
 
   // Prism React Renderer Themes: themes.nightOwl or themes.oneDark

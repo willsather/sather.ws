@@ -7,7 +7,9 @@ describe("Header", () => {
   });
 
   it("should render header", () => {
-    expect(screen.getByRole("img", { name: "Will Sather" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", { name: "Will Sather" })
+    ).toBeInTheDocument();
 
     expect(screen.getAllByText("home")[0]).toBeInTheDocument();
     expect(screen.getAllByText("experience")[0]).toBeInTheDocument();

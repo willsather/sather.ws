@@ -3,20 +3,37 @@
 import Link from "next/link";
 import { Grid, Typography } from "@mui/material";
 
-const PostListItem = ({ slug, title, date, summary }: { slug: string; title: string; date: Date; summary: string }) => {
+const PostListItem = ({
+  slug,
+  title,
+  date,
+  summary,
+}: {
+  slug: string;
+  title: string;
+  date: Date;
+  summary: string;
+}) => {
   return (
     <div>
       {/*Mobile Item*/}
       <div className="block md:hidden">
         <div className="flex flex-col border-3 border-secondary border-r-2">
-          <Link href={`/blog/posts/${slug}`} style={{ color: "black", textDecoration: "none" }}>
+          <Link
+            href={`/blog/posts/${slug}`}
+            style={{ color: "black", textDecoration: "none" }}
+          >
             <Typography variant="h3" sx={{ fontSize: 20, mt: 2 }}>
               {title}
             </Typography>
           </Link>
 
           <Typography variant="subtitle2" sx={{ color: "grey" }}>
-            {date.toLocaleDateString("default", { month: "long", day: "numeric", year: "numeric" })}
+            {date.toLocaleDateString("default", {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            })}
           </Typography>
 
           <Typography variant="body2" mt={2}>
@@ -37,15 +54,28 @@ const PostListItem = ({ slug, title, date, summary }: { slug: string; title: str
           <Grid item xs={4}>
             <div className="flex justify-center items-center">
               <Typography variant="subtitle2" sx={{ color: "grey" }}>
-                {date.toLocaleDateString("default", { month: "long", day: "numeric", year: "numeric" })}
+                {date.toLocaleDateString("default", {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })}
               </Typography>
             </div>
           </Grid>
 
           <Grid item xs={8}>
             <div>
-              <Link href={`/blog/posts/${slug}`} className="text-primary no-underline">
-                <Typography variant="h3" sx={{ fontSize: { xs: 20, md: 24 }, textAlign: { xs: "center", md: "left" } }}>
+              <Link
+                href={`/blog/posts/${slug}`}
+                className="text-primary no-underline"
+              >
+                <Typography
+                  variant="h3"
+                  sx={{
+                    fontSize: { xs: 20, md: 24 },
+                    textAlign: { xs: "center", md: "left" },
+                  }}
+                >
                   {title}
                 </Typography>
               </Link>

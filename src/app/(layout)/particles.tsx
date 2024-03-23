@@ -449,7 +449,11 @@ const ParticleOverlay = () => {
 
   return (
     <div>
-      <Particles id="tsparticles" style={{ position: "absolute" }} options={options} />
+      <Particles
+        id="tsparticles"
+        style={{ position: "absolute" }}
+        options={options}
+      />
     </div>
   );
 };

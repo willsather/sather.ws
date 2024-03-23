@@ -17,7 +17,9 @@ export default async function DefaultOpengraphImage() {
           <Logo width="64" height="58" fill="white" />
         </div>
         <div tw="flex items-center justify-center mt-12 mx-16">
-          <h1 tw="text-7xl text-center font-bold text-white font-sans font-bold">Will Sather</h1>
+          <h1 tw="text-7xl text-center font-bold text-white font-sans font-bold">
+            Will Sather
+          </h1>
         </div>
       </div>
     ),

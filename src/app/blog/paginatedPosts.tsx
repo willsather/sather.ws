@@ -12,7 +12,10 @@ export default function PaginatedPosts({ posts }: { posts: Post[] }) {
   const [firstPost, setFirstPost] = useState(0);
   const pageCount = Math.ceil(posts.length / 3);
 
-  const handlePaginationChange = (event: ChangeEvent<unknown>, value: number) => {
+  const handlePaginationChange = (
+    event: ChangeEvent<unknown>,
+    value: number
+  ) => {
     setPage(value);
     setFirstPost((value - 1) * POSTS_PER_PAGE);
   };
@@ -36,7 +39,15 @@ export default function PaginatedPosts({ posts }: { posts: Post[] }) {
             data: { title, date, summary },
           } = post;
 
-          return <PostListItem key={slug} slug={slug} title={title} date={date} summary={summary} />;
+          return (
+            <PostListItem
+              key={slug}
+              slug={slug}
+              title={title}
+              date={date}
+              summary={summary}
+            />
+          );
         })}
       </div>
 

@@ -10,7 +10,9 @@ describe("Footer", () => {
 
   beforeEach(() => {
     user = userEvent.setup();
-    render(<Footer showParticles={true} setShowParticles={mockSetShowParticles} />);
+    render(
+      <Footer showParticles={true} setShowParticles={mockSetShowParticles} />
+    );
   });
 
   it("should render", () => {
@@ -29,8 +31,14 @@ describe("Footer", () => {
       "href",
       "https://www.linkedin.com/in/willsather"
     );
-    expect(screen.getByRole("link", { name: "github" })).toHaveAttribute("href", "https://github.com/willsather");
-    expect(screen.getByRole("link", { name: "vsco" })).toHaveAttribute("href", "https://vsco.co/willsather/gallery");
+    expect(screen.getByRole("link", { name: "github" })).toHaveAttribute(
+      "href",
+      "https://github.com/willsather"
+    );
+    expect(screen.getByRole("link", { name: "vsco" })).toHaveAttribute(
+      "href",
+      "https://vsco.co/willsather/gallery"
+    );
   });
 
   it("should toggle particles", async () => {

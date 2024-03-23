@@ -14,14 +14,21 @@ const NavigationBar = () => {
     <div className="flex-col md:flex-row justify-between pt-2">
       <div className="flex md:hidden justify-end">
         <div onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <CloseIcon width={24} height={24} /> : <MenuIcon width={24} height={24} />}
+          {mobileOpen ? (
+            <CloseIcon width={24} height={24} />
+          ) : (
+            <MenuIcon width={24} height={24} />
+          )}
         </div>
       </div>
 
       <div className={mobileOpen ? "block md:hidden" : "hidden"}>
         {Object.entries(menuLinks).map(([text, link]) => (
           <div key={text} className="mt-3">
-            <div className="hover:underline" onClick={() => setMobileOpen(false)}>
+            <div
+              className="hover:underline"
+              onClick={() => setMobileOpen(false)}
+            >
               <Link
                 href={link}
                 target="_self"
@@ -42,8 +49,16 @@ const NavigationBar = () => {
       {/*Desktop Navbar*/}
       <div className="hidden md:flex">
         {Object.entries(menuLinks).map(([text, link]) => (
-          <div className="hover:underline m-4" key={text} onClick={() => setMobileOpen(false)}>
-            <Link href={link} target="_self" className="text-primary no-underline">
+          <div
+            className="hover:underline m-4"
+            key={text}
+            onClick={() => setMobileOpen(false)}
+          >
+            <Link
+              href={link}
+              target="_self"
+              className="text-primary no-underline"
+            >
               <Typography variant="body1">{text}</Typography>
             </Link>
           </div>

@@ -4,7 +4,11 @@ import { Metadata } from "next";
 import tagsMetadata from "@/src/metadata/tags";
 import { getTagPosts } from "@/lib/blog/tags";
 
-export function generateMetadata({ params: { tag } }: { params: { tag: string } }) {
+export function generateMetadata({
+  params: { tag },
+}: {
+  params: { tag: string };
+}) {
   return {
     title: tag.charAt(0).toUpperCase() + tag.slice(1),
     description: tagsMetadata.description,

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
@@ -26,7 +28,12 @@ export default function CustomMDX({ content }: { content: string }) {
           a: (props: any) => <CustomLink {...props} />,
           pre: (props: any) => <PreBlock {...props}>{props.children}</PreBlock>,
           Image: (props: any) => (
-            <Image style={{ width: "100%", height: "auto" }} loading="lazy" alt={props?.alt} {...props} />
+            <Image
+              style={{ width: "100%", height: "auto" }}
+              loading="lazy"
+              alt={props?.alt}
+              {...props}
+            />
           ),
           blockQuote: BlockQuote,
           code: InlineCode,

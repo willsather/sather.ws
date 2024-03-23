@@ -6,13 +6,13 @@ import GitHubIcon from "@/public/icons/github.svg";
 import PictureIcon from "@/public/icons/picture.svg";
 import DotsIcon from "@/public/icons/dots.svg";
 
-const Footer = ({
+export default function Footer({
   showParticles,
   setShowParticles,
 }: {
   showParticles: boolean;
   setShowParticles: Dispatch<SetStateAction<boolean>>;
-}) => {
+}) {
   const socialLinks = {
     instagram: {
       icon: <InstagramIcon width={24} height={24} />,
@@ -45,12 +45,14 @@ const Footer = ({
       </div>
 
       <div className="flex">
-        <IconButton onClick={() => setShowParticles(!showParticles)} aria-label="particles" name="particles">
+        <IconButton
+          onClick={() => setShowParticles(!showParticles)}
+          aria-label="particles"
+          name="particles"
+        >
           <DotsIcon width={24} height={24} />
         </IconButton>
       </div>
     </div>
   );
-};
-
-export default Footer;
+}

@@ -4,7 +4,11 @@ import ParticleOverlay from "@/src/app/(layout)/particles";
 import Footer from "@/src/app/(home)/footer";
 import React, { ReactNode, useState } from "react";
 
-export default function ParticleProvider({ children }: { children: ReactNode }) {
+export default function ParticleProvider({
+  children,
+}: {
+  children: ReactNode;
+}) {
   const [showParticles, setShowParticles] = useState(true);
 
   return (
@@ -13,7 +17,10 @@ export default function ParticleProvider({ children }: { children: ReactNode }) 
 
       {children}
 
-      <Footer showParticles={showParticles} setShowParticles={setShowParticles} />
+      <Footer
+        showParticles={showParticles}
+        setShowParticles={setShowParticles}
+      />
     </>
   );
 }

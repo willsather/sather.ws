@@ -1,11 +1,21 @@
-const nextJest = require("next/jest");
+import nextJest from "next/jest";
 
 const createJestConfig = nextJest({
   dir: "./",
 });
 
-const customJestConfig = {
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+/** @type {import('jest').Config} */
+const customJestConfig: import('jest').Config = {
+  roots: ["<rootDir>"],
+  verbose: true,
+  testEnvironment: "jsdom",
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  transform: {
+    "^.+\\.(ts|tsx)$": "ts-jest",
+    "^.+\\.(js|jsx)$": ["babel-jest", { presets: ["next/babel"] }],
+    ".+\\.(svg|css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$":
+        "jest-transform-stub",
+  },
   moduleNameMapper: {
     "^@/public/(.*)$": "<rootDir>/public/$1",
     "^@/src/(.*)$": "<rootDir>/src/$1",
@@ -13,10 +23,11 @@ const customJestConfig = {
     "^@/__mocks__/(.*)$": "<rootDir>/__mocks__/$1",
   },
   modulePathIgnorePatterns: ["node_modules", ".netlify"],
-  testEnvironment: "jest-environment-jsdom",
   watchPathIgnorePatterns: ["node_modules", "globalConfig"],
+  preset: "ts-jest",
 };
 
+// Workaround to reconcile issues with Next/SVG rendering in JSDOM
 // https://github.com/vercel/next.js/issues/37542#issuecomment-1151075024
 const jestConfig = async () => {
   const customConfig = await createJestConfig(customJestConfig)();

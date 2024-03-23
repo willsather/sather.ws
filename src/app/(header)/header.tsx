@@ -7,7 +7,13 @@ const Header = () => {
   return (
     <div className="flex justify-between sticky m-4">
       <div>
-        <Image className="" src="/assets/logo.png" alt="Will Sather" width={100} height={100} />
+        <Image
+          className=""
+          src="/assets/logo.png"
+          alt="Will Sather"
+          width={100}
+          height={100}
+        />
       </div>
 
       <NavigationBar />
