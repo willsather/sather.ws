@@ -6,13 +6,9 @@ import { type ISourceOptions } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 
 const ParticleOverlay = () => {
-  const [initialized, setInitialized] = useState(false);
-
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
-    }).then(() => {
-      setInitialized(true);
     });
   }, []);
 
@@ -443,17 +439,9 @@ const ParticleOverlay = () => {
     []
   );
 
-  if (!initialized) {
-    return null;
-  }
-
   return (
     <div data-testid="tsparticles">
-      <Particles
-        id="tsparticles"
-        style={{ position: "absolute" }}
-        options={options}
-      />
+      <Particles id="tsparticles" className="absolute" options={options} />
     </div>
   );
 };
