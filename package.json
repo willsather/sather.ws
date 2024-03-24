@@ -12,9 +12,6 @@
     "test:e2e:ci": "playwright test --trace on"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.14.11",
     "@svgr/webpack": "^8.0.1",
     "@tsparticles/engine": "^3.2.2",
     "@tsparticles/react": "^3.0.0",

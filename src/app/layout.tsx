@@ -2,7 +2,6 @@ import React, { ReactNode } from "react";
 import { Metadata } from "next";
 import localFont from "next/font/local";
 import Header from "@/src/app/(header)/header";
-import ThemeLayout from "@/src/app/(layout)/themeLayout";
 import homeMetadata from "@/src/metadata/home";
 
 import "./tailwind.css";
@@ -21,10 +20,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={Matter.className}>
       <body>
-        <ThemeLayout>
-          <Header />
-          {children}
-        </ThemeLayout>
+        <Header />
+        {children}
       </body>
     </html>
   );

@@ -2,6 +2,7 @@ import PaginatedPosts from "@/src/app/blog/paginatedPosts";
 import { Metadata } from "next";
 import tagsMetadata from "@/src/metadata/tags";
 import { getTagPosts } from "@/lib/blog/tags";
+import { redirect } from "next/navigation";
 
 export function generateMetadata({
   params: { tag },
@@ -14,8 +15,28 @@ export function generateMetadata({
   } as Metadata;
 }
 
-export default async function TagPage({ params }: { params: { tag: string } }) {
+export default async function TagPage({
+  params,
+  searchParams,
+}: {
+  params: { tag: string };
+  searchParams: { page: string | undefined };
+}) {
   const posts = await getTagPosts(params?.tag);
+
+  const parsedPage = parseInt(searchParams.page ?? "");
+
+  // never show ?page=0
+  if (parsedPage === 0) {
+    redirect(`/blog/tags/${params?.tag}`);
+  }
+
+  const page = isNaN(parsedPage) ? 0 : parsedPage;
+
+  // redirect if manually navigating to a page that doesn't exist
+  if (page > Math.ceil(posts.length / 3) - 1) {
+    redirect(`/blog/tags/${params?.tag}`);
+  }
 
   return (
     <div className="bg-secondary">
@@ -29,7 +50,7 @@ export default async function TagPage({ params }: { params: { tag: string } }) {
 
       <hr className="my-6" />
 
-      <PaginatedPosts posts={posts} />
+      <PaginatedPosts posts={posts} page={page} />
     </div>
   );
 }
