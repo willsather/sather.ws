@@ -1,4 +1,3 @@
-import { Divider } from "@mui/material";
 import Tag from "@/src/app/blog/tag";
 import { Metadata } from "next";
 import tagsMetadata from "@/src/metadata/tags";

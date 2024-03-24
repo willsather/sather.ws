@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
-import { Button } from "@mui/material";
 import ArrowLeft from "@/public/icons/arrow-left.svg";
+import { useRouter } from "next/navigation";
 
 const Error = ({ error }: { error: Error }) => {
+  const router = useRouter();
+
   useEffect(() => {
     console.error(error);
   }, [error]);
@@ -16,12 +18,15 @@ const Error = ({ error }: { error: Error }) => {
       </div>
 
       <div className="flex justify-center mt-12">
-        <Button href="/" variant="outlined">
-          <div className="flex flex-row gap-2 justify-center">
+        <button
+          onClick={() => router.push("/")}
+          className="border-primary border-2 p-2 rounded-md hover:bg-gray-300"
+        >
+          <div className="flex flex-row justify-center gap-2">
             <ArrowLeft width={24} height={24} />
             <p className="font-extrabold">home</p>
           </div>
-        </Button>
+        </button>
       </div>
     </div>
   );

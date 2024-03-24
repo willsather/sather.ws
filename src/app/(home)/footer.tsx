@@ -1,4 +1,3 @@
-import { IconButton } from "@mui/material";
 import React, { Dispatch, SetStateAction } from "react";
 import InstagramIcon from "@/public/icons/instagram.svg";
 import LinkedInIcon from "@/public/icons/linkedin.svg";
@@ -34,24 +33,25 @@ export default function Footer({
 
   return (
     <div className="fixed bottom-0 left-0 right-0 flex-row flex justify-between mx-4 mb-4">
-      <div className="flex flex-row">
+      <div className="flex flex-row items-center justify-center">
         {Object.entries(socialLinks).map(([social, { icon, link }]) => (
-          <div className="mr-4" key={social}>
-            <IconButton href={link} target="_blank" aria-label={social}>
+          <div className="mr-6 hover:bg-gray-300 p-2 rounded-2xl" key={social}>
+            <a href={link} target="_blank" aria-label={social}>
               {icon}
-            </IconButton>
+            </a>
           </div>
         ))}
       </div>
 
       <div className="flex">
-        <IconButton
-          onClick={() => setShowParticles(!showParticles)}
+        <button
           aria-label="particles"
           name="particles"
+          onClick={() => setShowParticles(!showParticles)}
+          className="hover:bg-gray-300 p-2 rounded-2xl"
         >
           <DotsIcon width={24} height={24} />
-        </IconButton>
+        </button>
       </div>
     </div>
   );

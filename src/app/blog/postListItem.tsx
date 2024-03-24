@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { Grid } from "@mui/material";
 
 const PostListItem = ({
   slug,
@@ -41,33 +40,29 @@ const PostListItem = ({
       </div>
 
       {/*Desktop Item*/}
-      <div className="hidden md:flex mb-6 border-3 border-secondary border-r-2">
-        <Grid container spacing={2}>
-          <Grid item xs={4}>
-            <div className="flex justify-center items-center">
-              <h5 className="text-lg text-gray-500">
-                {date.toLocaleDateString("default", {
-                  month: "long",
-                  day: "numeric",
-                  year: "numeric",
-                })}
-              </h5>
-            </div>
-          </Grid>
+      <div className="hidden md:block mb-6 border-3 border-secondary border-r-2">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="p-4 flex justify-center items-center">
+            <h5 className="text-lg text-gray-500">
+              {date.toLocaleDateString("default", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </h5>
+          </div>
 
-          <Grid item xs={8}>
+          <div className="col-span-2 p-4">
             <Link
               href={`/blog/posts/${slug}`}
               className="text-primary no-underline"
             >
-              <h3 className="text-center md:text-left">{title}</h3>
-
+              <h3 className="text-left">{title}</h3>
               <p>{summary}</p>
-
               <p className="mt-2 text-gray-500">Read more →</p>
             </Link>
-          </Grid>
-        </Grid>
+          </div>
+        </div>
       </div>
     </div>
   );
