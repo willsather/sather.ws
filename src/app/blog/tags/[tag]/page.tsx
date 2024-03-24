@@ -1,4 +1,3 @@
-import { Divider } from "@mui/material";
 import PaginatedPosts from "@/src/app/blog/paginatedPosts";
 import { Metadata } from "next";
 import tagsMetadata from "@/src/metadata/tags";
@@ -28,7 +27,7 @@ export default async function TagPage({ params }: { params: { tag: string } }) {
         <h2>a category i wrote about.</h2>
       </div>
 
-      <Divider sx={{ my: 4 }} />
+      <hr className="my-6" />
 
       <PaginatedPosts posts={posts} />
     </div>

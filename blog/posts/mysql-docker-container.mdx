@@ -35,10 +35,10 @@ By running this command, you will effectively be starting a Docker container (an
 what this command is doing, you are starting a `mysql` image, with parameters `--name test-mysql-container`, `-e MYSQL_ROOT_PASSWORD=password`,
 `-d`, and `-p 3306:3306`.
 
-The name is pretty obvious, it is just giving the container a custom name to help you keep track of it (in case you have other containers running).
+The `--name` is pretty obvious, it is just giving the container a custom name to help you keep track of it (in case you have other containers running).
 
 The password is important as it is specifying the root MySQL password (you will use this later). In a local environment, this isn't as important so
-it's okay just using `password`.
+it's okay just using a basic password like `password` :).
 
 `-d` means this is a `detached` container, effectively means that you don't have to keep the terminal running to keep the container running.
 

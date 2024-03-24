@@ -1,4 +1,3 @@
-import { Divider } from "@mui/material";
 import PaginatedPosts from "@/src/app/blog/paginatedPosts";
 import { Metadata } from "next";
 import blogMetadata from "@/src/metadata/blog";
@@ -19,7 +18,7 @@ export default async function BlogPage() {
         <h2>stuff i wanted to write about.</h2>
       </div>
 
-      <Divider sx={{ my: 4 }} />
+      <hr className="my-6" />
 
       <PaginatedPosts posts={posts} />
     </div>

@@ -5,16 +5,21 @@ const createJestConfig = nextJest({
 });
 
 /** @type {import('jest').Config} */
-const customJestConfig: import('jest').Config = {
+const customJestConfig: import("jest").Config = {
   roots: ["<rootDir>"],
   verbose: true,
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  modulePathIgnorePatterns: [
+    "<rootDir>/e2e",
+    "<rootDir>/node_modules",
+    "<rootDir>/.netlify",
+  ],
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
     "^.+\\.(js|jsx)$": ["babel-jest", { presets: ["next/babel"] }],
     ".+\\.(svg|css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$":
-        "jest-transform-stub",
+      "jest-transform-stub",
   },
   moduleNameMapper: {
     "^@/public/(.*)$": "<rootDir>/public/$1",
@@ -22,7 +27,6 @@ const customJestConfig: import('jest').Config = {
     "^@/lib/(.*)$": "<rootDir>/lib/$1",
     "^@/__mocks__/(.*)$": "<rootDir>/__mocks__/$1",
   },
-  modulePathIgnorePatterns: ["node_modules", ".netlify"],
   watchPathIgnorePatterns: ["node_modules", "globalConfig"],
   preset: "ts-jest",
 };

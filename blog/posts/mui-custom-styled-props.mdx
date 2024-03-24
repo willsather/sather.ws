@@ -19,9 +19,10 @@ To pass in a prop to `styled`, you just can add any custom prop right next to th
 once you compile and run your application, you'll notice a warning:
 
 <Warning>
-  React does not recognize the "error" prop on a DOM element. If you intentionally want it to appear in the DOM as a
-  custom attribute, spell it as lowercase error instead. If you accidentally passed it from a parent component, remove
-  it from the DOM element.
+  React does not recognize the "error" prop on a DOM element. If you
+  intentionally want it to appear in the DOM as a custom attribute, spell it as
+  lowercase error instead. If you accidentally passed it from a parent
+  component, remove it from the DOM element.
 </Warning>
 
 This is because MUI doesn't recognize the prop even though you pass it in (at this point it works, but you just have a warning.
@@ -34,15 +35,17 @@ This option tells Material UI to forward the `error` prop to the styled componen
 import { styled } from "@mui/material/styles";
 import Checkbox from "@mui/material/Checkbox";
 
-const CustomCheckbox = styled(Checkbox, { shouldForwardProp: (prop) => prop !== "error" })(
-  ({ theme, error = false }) => ({
-    color: error ? theme.palette.colorTheme.error : theme.palette.colorTheme.primary,
-    "&.Mui-checked": {
-      color: theme.palette.colorTheme.primary,
-    },
-    ariaRoleDescription: "checkbox",
-  })
-);
+const CustomCheckbox = styled(Checkbox, {
+  shouldForwardProp: (prop) => prop !== "error",
+})(({ theme, error = false }) => ({
+  color: error
+    ? theme.palette.colorTheme.error
+    : theme.palette.colorTheme.primary,
+  "&.Mui-checked": {
+    color: theme.palette.colorTheme.primary,
+  },
+  ariaRoleDescription: "checkbox",
+}));
 
 export default CustomCheckbox;
 ```
@@ -52,7 +55,11 @@ export default CustomCheckbox;
 So, now that the custom checkbox is configured, you can utilize it like this:
 
 ```jsx
-<NormalCheckbox checked={isChecked} error={showError} onClick={({ target }) => onCheckChanged(target.checked)} />
+<NormalCheckbox
+  checked={isChecked}
+  error={showError}
+  onClick={({ target }) => onCheckChanged(target.checked)}
+/>
 ```
 
 ## woot woot 🎉

@@ -1,6 +1,5 @@
 import Post from "@/src/app/blog/posts/[slug]/post";
 import { notFound } from "next/navigation";
-import { Divider } from "@mui/material";
 import Tag from "@/src/app/blog/tag";
 import { Metadata } from "next";
 import { getPost } from "@/lib/blog/posts";
@@ -63,7 +62,7 @@ export default async function BlogPostPage({
         ))}
       </div>
 
-      <Divider sx={{ mt: 4 }} />
+      <hr className="my-6" />
 
       <Post content={content} />
     </div>

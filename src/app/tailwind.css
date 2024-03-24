@@ -20,6 +20,6 @@
     }
 
     p {
-        @apply text-primary font-light;
+        @apply font-light;
     }
 }

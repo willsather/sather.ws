@@ -1,15 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { MDXRemote } from "next-mdx-remote/rsc";
-import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
-import CustomLink from "@/src/app/blog/(customMdx)/CustomLink";
 import PreBlock from "@/src/app/blog/(customMdx)/PreBlock";
 import Image from "next/image";
-import BlockQuote from "@/src/app/blog/(customMdx)/BlockQuote";
-import InlineCode from "@/src/app/blog/(customMdx)/InlineCode";
 
 import rehypeMdxCodeProps from "rehype-mdx-code-props";
+import InlineCode from "@/src/app/blog/(customMdx)/InlineCode";
 
 export default function CustomMDX({ content }: { content: string }) {
   return (
@@ -24,7 +20,7 @@ export default function CustomMDX({ content }: { content: string }) {
           h4: (props: any) => <h5 {...props} className="mt-4" />,
           h5: (props: any) => <h6 {...props} className="mt-4" />,
           p: (props: any) => <p {...props} className="mt-4" />,
-          a: (props: any) => <CustomLink {...props} />,
+          a: (props: any) => <a {...props} className="underline" />,
           pre: (props: any) => <PreBlock {...props}>{props.children}</PreBlock>,
           Image: (props: any) => (
             <Image
@@ -34,7 +30,13 @@ export default function CustomMDX({ content }: { content: string }) {
               {...props}
             />
           ),
-          blockquote: BlockQuote,
+          blockquote: (props: any) => (
+            <blockquote className="p-4 my-4 border-s-4 border-gray-300 bg-gray-50 rounded-sm">
+              <div className="italic font-medium leading-relaxed text-gray-900">
+                {props.children}
+              </div>
+            </blockquote>
+          ),
           code: InlineCode,
           li: (props: any) => (
             <li {...props}>
@@ -42,36 +44,44 @@ export default function CustomMDX({ content }: { content: string }) {
             </li>
           ),
           Info: (props: any) => (
-            <Alert severity="info" {...props} sx={{ my: 2 }}>
-              <AlertTitle>
-                <strong>Note</strong>
-              </AlertTitle>
-              {props.children}
-            </Alert>
+            <div className="my-3" role="alert">
+              <div className="bg-sky-400 text-white font-bold rounded-t px-4 py-2">
+                Note
+              </div>
+              <div className="border border-t-0 border-sky-400 rounded-b bg-sky-100 px-4 py-3 text-sky-700">
+                {props.children}
+              </div>
+            </div>
           ),
           Success: (props: any) => (
-            <Alert severity="success" {...props} sx={{ my: 2 }}>
-              <AlertTitle>
-                <strong>Success</strong>
-              </AlertTitle>
-              {props.children}
-            </Alert>
+            <div className="my-3" role="alert">
+              <div className="bg-green-400 text-white font-bold rounded-t px-4 py-2">
+                Success
+              </div>
+              <div className="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
+                {props.children}
+              </div>
+            </div>
           ),
           Warning: (props: any) => (
-            <Alert severity="warning" {...props} sx={{ my: 2 }}>
-              <AlertTitle>
-                <strong>Warning</strong>
-              </AlertTitle>
-              {props.children}
-            </Alert>
+            <div className="my-3" role="alert">
+              <div className="bg-amber-400 text-white font-bold rounded-t px-4 py-2">
+                Warning
+              </div>
+              <div className="border border-t-0 border-amber-400 rounded-b bg-amber-100 px-4 py-3 text-amber-700">
+                {props.children}
+              </div>
+            </div>
           ),
-          Error: (props: any) => (
-            <Alert severity="error" {...props} sx={{ my: 2 }}>
-              <AlertTitle>
-                <strong>Error</strong>
-              </AlertTitle>
-              {props.children}
-            </Alert>
+          Danger: (props: any) => (
+            <div className="my-3" role="alert">
+              <div className="bg-red-400 text-white font-bold rounded-t px-4 py-2">
+                Error
+              </div>
+              <div className="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+                {props.children}
+              </div>
+            </div>
           ),
         }}
         options={{

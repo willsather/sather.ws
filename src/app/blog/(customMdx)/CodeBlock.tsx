@@ -1,6 +1,5 @@
 import type { CSSProperties, FC } from "react";
 import { Highlight, themes } from "prism-react-renderer";
-import { Divider } from "@mui/material";
 
 export interface CodeBlockProps {
   hideLineNumbers?: boolean;
@@ -41,7 +40,7 @@ const CodeBlock: FC<CodeBlockProps> = ({
                   <p className="italic text-gray-200 my-2">{fileName}</p>
                 </code>
 
-                <Divider color="grey" sx={{ mb: 3 }} />
+                <hr className="bg-gray-500 mt-2 mb-3" />
               </>
             )}
 

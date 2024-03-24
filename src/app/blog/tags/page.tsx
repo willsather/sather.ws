@@ -19,7 +19,7 @@ export default async function TagsPage() {
         <h2>categories i want to write about</h2>
       </div>
 
-      <Divider sx={{ my: 4 }} />
+      <hr className="my-6" />
 
       <div className="flex flex-row justify-center items-center flex-wrap gap-2 md:gap-4">
         {tags.map((tag) => {
