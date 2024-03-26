@@ -1,6 +1,5 @@
 import PaginatedPosts from "@/src/app/blog/paginatedPosts";
 import { Metadata } from "next";
-import tagsMetadata from "@/src/metadata/tags";
 import { getTagPosts } from "@/lib/blog/tags";
 import { redirect } from "next/navigation";
 
