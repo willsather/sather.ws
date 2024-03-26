@@ -19,10 +19,10 @@ export async function generateMetadata({
       description: frontMatter.summary,
       type: "article",
       authors: "Will Sather",
+      tags: frontMatter.tags,
+      publishedTime: frontMatter.date,
+      modifiedTime: frontMatter.date,
       url: `https://sather.ws/blog/${params?.slug}`,
-    },
-    alternates: {
-      canonical: `/blog/${params?.slug}`,
     },
   } as Metadata;
 }

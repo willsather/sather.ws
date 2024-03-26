@@ -4,10 +4,14 @@ import manifest from "@/src/metadata/manifest";
 
 const about: Metadata = {
   title: "About",
-  description: "hi, i'm will.",
+  description:
+    "just a little about myself. a dedicated and curious software engineer who love solving problems and writing about it too.",
+
   openGraph: {
     title: "About",
-    description: "hi, i'm will.",
+    description:
+      "just a little about myself. a dedicated and curious software engineer who love solving problems and writing about it too.",
+
     type: "website",
     url: "https://sather.ws/about",
   },

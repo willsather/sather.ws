@@ -2,18 +2,20 @@ import { Metadata } from "next";
 import icons from "@/src/metadata/icons";
 import manifest from "@/src/metadata/manifest";
 
-const about: Metadata = {
+const experience: Metadata = {
   title: "Experience",
-  description: "check out my resume.",
+  description:
+    "just another personal resume. a brief overview of the cool work i've had the pleasure of doing along with some recent projects.",
+
   openGraph: {
     title: "Experience",
-    description: "check out my resume.",
-    type: "article",
-    authors: "Will Sather",
+    description:
+      "just another personal resume. a brief overview of the cool work i've had the pleasure of doing along with some recent projects.",
+    type: "website",
     url: "https://sather.ws/experience",
   },
   icons,
   manifest,
 };
 
-export default about;
+export default experience;
