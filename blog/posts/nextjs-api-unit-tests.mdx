@@ -2,7 +2,7 @@
 title: "Unit Testing Next.js App Router API Handlers"
 date: 2023-10-31T12:00:00Z
 tags: ["next-js", "testing"]
-summary: "Unit Testing Next.js App Router API handlers using Jest and React Testing Library"
+summary: "How to write valuable unit tests for Next.js App Router API handlers using Jest and React Testing Library."
 ---
 
 ## Overview
@@ -22,7 +22,10 @@ that returns stuff. Here is a simple example:
 import { NextResponse } from "next/server";
 import UserService from "@/services/UserService";
 
-export async function GET(request: Request, { params }: { params: { userId: string } }) {
+export async function GET(
+  request: Request,
+  { params }: { params: { userId: string } }
+) {
   const userId = params.userId;
   const user = await UserService.getUser(userId);
 
@@ -44,16 +47,27 @@ Here is how I tested this function:
 import { GET } from "@/src/app/api/user/[userId]/route";
 
 jest.mock("@/services/UserService", () => ({
-  getUser: jest.fn().mockResolvedValue({ id: "fake-user-id", name: "Will", email: "test@email.com" }),
+  getUser: jest.fn().mockResolvedValue({
+    id: "fake-user-id",
+    name: "Will",
+    email: "test@email.com",
+  }),
 }));
 
 describe("api", () => {
   describe("GET", () => {
     it("retrieves user by id", async () => {
-      const response = await GET({ method: "GET", params: { userId: "fake-user-id" } } as Request);
+      const response = await GET({
+        method: "GET",
+        params: { userId: "fake-user-id" },
+      } as Request);
 
       expect(response.ok).toBeTruthy();
-      expect(await response.json()).toEqual({ id: "fake-user-id", name: "Will", email: "test@email.com" });
+      expect(await response.json()).toEqual({
+        id: "fake-user-id",
+        name: "Will",
+        email: "test@email.com",
+      });
     });
   });
 });
@@ -98,7 +112,10 @@ describe("api", () => {
         email: "test@email.com",
       };
 
-      const response = await POST({ method: "POST", json: jest.fn().mockResolvedValue(mockBody) } as Request);
+      const response = await POST({
+        method: "POST",
+        json: jest.fn().mockResolvedValue(mockBody),
+      } as Request);
 
       expect(response.ok).toBeTruthy();
       expect(await response.json()).toEqual("Hello World");

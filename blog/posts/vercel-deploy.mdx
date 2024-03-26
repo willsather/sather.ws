@@ -3,7 +3,7 @@ title: "Deploy Next.js app to Vercel using GitHub Actions"
 date: 2023-01-09T12:00:00Z
 tags: ["next-js", "github", "vercel"]
 draft: false
-summary: "Deploying an example Next.js application to Vercel using GitHub Actions"
+summary: "How to manually build and deploy a Next.js App Router application to Vercel using a GitHub Action pipeline."
 ---
 
 ## Overview
@@ -27,7 +27,10 @@ To see this repository, it's on GitHub [here](https://github.com/satherw/nextjs-
 
 First, here is the GitHub action workflow that we used:
 
-<Info>This configuration includes jobs for building, testing, and deploying the application</Info>
+<Info>
+  This configuration includes jobs for building, testing, and deploying the
+  application
+</Info>
 
 ```yaml
 name: Deploy to Vercel
@@ -112,7 +115,12 @@ First, you must find all three tokens/secrets/IDs Vercel requires to authenticat
 Secondly, you need to configure the GitHub secrets that the pipeline uses by going to
 Repository > Settings > Secrets > Actions and creating new repository secrets
 
-<Image alt="GitHub Secrets" src="/assets/blog/images/vercel-deploy/githubSecrets.png" width={2214} height={1596} />
+<Image
+  alt="GitHub Secrets"
+  src="/assets/blog/images/vercel-deploy/githubSecrets.png"
+  width={2214}
+  height={1596}
+/>
 
 ## Vercel Configuration
 
