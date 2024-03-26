@@ -22,7 +22,10 @@ export async function generateMetadata({
       tags: frontMatter.tags,
       publishedTime: frontMatter.date,
       modifiedTime: frontMatter.date,
-      url: `https://sather.ws/blog/${params?.slug}`,
+      url: `https://sather.ws/blog/posts/${params?.slug}`,
+    },
+    alternates: {
+      canonical: `/blog/posts/${params?.slug}`,
     },
   } as Metadata;
 }
