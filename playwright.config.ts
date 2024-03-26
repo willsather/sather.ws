@@ -4,7 +4,7 @@ export default defineConfig({
   testDir: "./e2e",
   fullyParallel: true,
   retries: 2,
-  reporter: "html",
+  reporter: [["html"], ["github"]],
   use: {
     baseURL: "http://localhost:3333",
     trace: "on-first-retry",
