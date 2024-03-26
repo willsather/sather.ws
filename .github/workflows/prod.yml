@@ -25,7 +25,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Integration Test
-        run: pnpm run test:e2e:ci -- --config=playwright.dev.config.ts
+        run: pnpm run test:e2e:ci --config=playwright.dev.config.ts
 
       - uses: actions/upload-artifact@v4
         if: always()
