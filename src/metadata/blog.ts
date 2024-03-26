@@ -15,6 +15,9 @@ const blog: Metadata = {
     authors: "Will Sather",
     url: "https://sather.ws/blog",
   },
+  alternates: {
+    canonical: `/blog`,
+  },
   icons,
   manifest,
 };

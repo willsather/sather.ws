@@ -9,5 +9,7 @@ export async function getAllTags() {
 export async function getTagPosts(tag: string) {
   const allPosts = await getAllPosts();
 
-  return allPosts.filter(({ data: { tags } }) => tags.includes(tag));
+  return allPosts.filter(({ data: { tags } }) =>
+    tags.map((t) => t.toLowerCase()).includes(tag)
+  );
 }

@@ -10,8 +10,15 @@ export function generateMetadata({
   params: { tag: string };
 }) {
   return {
-    title: tag.charAt(0).toUpperCase() + tag.slice(1),
-    description: tagsMetadata.description,
+    title: tag,
+    description: `just another coding blog. an assortment of blog posts about ${tag} and my recent experience.`,
+    openGraph: {
+      title: tag,
+      url: `https://sather.ws/blog/tags/${tag}`,
+    },
+    alternates: {
+      canonical: `/blog/tags/${tag}`,
+    },
   } as Metadata;
 }
 

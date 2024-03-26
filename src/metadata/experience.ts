@@ -14,6 +14,9 @@ const experience: Metadata = {
     type: "website",
     url: "https://sather.ws/experience",
   },
+  alternates: {
+    canonical: `/experience`,
+  },
   icons,
   manifest,
 };
