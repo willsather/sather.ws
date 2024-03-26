@@ -10,7 +10,7 @@ export default async function sitemap() {
 
   const tags = await getAllTags();
   const tagPages = tags.map((tag) => ({
-    url: `https://www.sather.ws/blog/tags/${tag}`,
+    url: `https://www.sather.ws/blog/tags/${tag.toLowerCase()}`,
     lastModified: new Date(),
   }));
 
