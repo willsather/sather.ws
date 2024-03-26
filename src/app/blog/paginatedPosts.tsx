@@ -47,7 +47,7 @@ export default function PaginatedPosts({
           })}
       </div>
 
-      <div className="flex flex-row justify-center mt-12">
+      <div className="flex flex-row justify-center my-24">
         <nav aria-label="Blog Pagination">
           <ul className="flex items-center -space-x-px h-8 text-sm">
             {/*Previous Arrow*/}
@@ -77,19 +77,33 @@ export default function PaginatedPosts({
 
             {/*Numbers*/}
             {Array.from({ length: pageCount }, (_, i) => i).map(
-              (pageNumber: number) => (
-                <li key={pageNumber}>
-                  <a
-                    href={pageNumber >= 0 ? `?page=${pageNumber}` : ""}
-                    aria-label={`Go to page ${pageNumber + 1}`}
-                    className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  >
-                    <span className={pageNumber === page ? "font-bold" : ""}>
-                      {pageNumber + 1}
-                    </span>
-                  </a>
-                </li>
-              )
+              (pageNumber: number) => {
+                if (pageNumber === page) {
+                  return (
+                    <li key={pageNumber}>
+                      <a
+                        href={pageNumber >= 0 ? `?page=${pageNumber}` : ""}
+                        aria-label={`Go to page ${pageNumber + 1}`}
+                        className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-gray-200 border border-gray-300 hover:bg-gray-300 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                      >
+                        <span className="font-bold">{pageNumber + 1}</span>
+                      </a>
+                    </li>
+                  );
+                }
+
+                return (
+                  <li key={pageNumber}>
+                    <a
+                      href={pageNumber >= 0 ? `?page=${pageNumber}` : ""}
+                      aria-label={`Go to page ${pageNumber + 1}`}
+                      className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                    >
+                      <span>{pageNumber + 1}</span>
+                    </a>
+                  </li>
+                );
+              }
             )}
 
             {/*Next Arrow*/}
