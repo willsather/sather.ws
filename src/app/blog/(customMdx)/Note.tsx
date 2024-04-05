@@ -19,10 +19,10 @@ export default function Note({
 
   return (
     <div
-      className={`my-3  border rounded border-s-4 ${colorClasses[type]} px-4 py-3`}
+      className={`my-3 border rounded border-s-4 ${colorClasses[type]} px-4 py-3`}
       role="alert"
     >
-      <h5 className="font-bold">{type}</h5>
+      <h5 className={`font-bold ${colorClasses[type]}`}>{type}</h5>
       <div>{children}</div>
     </div>
   );
