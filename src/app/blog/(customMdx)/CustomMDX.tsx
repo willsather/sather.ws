@@ -2,9 +2,11 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import PreBlock from "@/src/app/blog/(customMdx)/PreBlock";
 import Image from "next/image";
 
+import rehypeSlug from "rehype-slug";
 import rehypeMdxCodeProps from "rehype-mdx-code-props";
 import InlineCode from "@/src/app/blog/(customMdx)/InlineCode";
 import Note from "@/src/app/blog/(customMdx)/Note";
+import AnchorLink from "@/src/app/blog/(customMdx)/AnchorLink";
 
 export default function CustomMDX({ content }: { content: string }) {
   return (
@@ -13,11 +15,31 @@ export default function CustomMDX({ content }: { content: string }) {
       <MDXRemote
         source={content}
         components={{
-          h1: ({ ...props }) => <h2 {...props} className="mt-4" />,
-          h2: ({ ...props }) => <h3 {...props} className="mt-4" />,
-          h3: ({ ...props }) => <h4 {...props} className="mt-4" />,
-          h4: ({ ...props }) => <h5 {...props} className="mt-4" />,
-          h5: ({ ...props }) => <h6 {...props} className="mt-4" />,
+          h1: ({ id, ...props }) => (
+            <h2 {...props} className="group mt-4 flex relative">
+              <AnchorLink id={id}>{props.children}</AnchorLink>
+            </h2>
+          ),
+          h2: ({ id, ...props }) => (
+            <h3 {...props} className="group mt-4 flex relative">
+              <AnchorLink id={id}>{props.children}</AnchorLink>
+            </h3>
+          ),
+          h3: ({ id, ...props }) => (
+            <h4 {...props} className="group mt-4 flex relative">
+              <AnchorLink id={id}>{props.children}</AnchorLink>
+            </h4>
+          ),
+          h4: ({ id, ...props }) => (
+            <h5 {...props} className="group mt-4 flex relative">
+              <AnchorLink id={id}>{props.children}</AnchorLink>
+            </h5>
+          ),
+          h5: ({ id, ...props }) => (
+            <h6 {...props} className="group mt-4 flex relative">
+              <AnchorLink id={id}>{props.children}</AnchorLink>
+            </h6>
+          ),
           p: ({ ...props }) => (
             <p {...props} className="[&:not(:first-child)]:mt-4" />
           ),
@@ -77,7 +99,7 @@ export default function CustomMDX({ content }: { content: string }) {
         options={{
           mdxOptions: {
             remarkPlugins: [],
-            rehypePlugins: [rehypeMdxCodeProps],
+            rehypePlugins: [rehypeSlug, rehypeMdxCodeProps],
             format: "mdx",
           },
         }}

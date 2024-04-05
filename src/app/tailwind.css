@@ -8,7 +8,7 @@
     }
 
     h2 {
-        @apply text-lg lg:text-2xl font-bold text-primary;
+        @apply text-xl lg:text-3xl font-bold text-primary;
     }
 
     h3 {
@@ -17,6 +17,14 @@
 
     h4 {
         @apply text-lg font-semibold text-primary;
+    }
+
+    h5 {
+        @apply font-semibold text-primary;
+    }
+
+    h6 {
+        @apply font-semibold text-primary;
     }
 
     p {
