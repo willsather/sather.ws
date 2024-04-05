@@ -11,6 +11,6 @@ describe("Tag", () => {
   it("routes to tag page", () => {
     render(<Tag tag="TAG" />);
 
-    expect(screen.getByRole("link")).toHaveAttribute("href", "/blog/tags/TAG");
+    expect(screen.getByRole("link")).toHaveAttribute("href", "/blog/tags/tag");
   });
 });

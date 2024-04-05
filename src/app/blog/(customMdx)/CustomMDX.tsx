@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { MDXRemote } from "next-mdx-remote/rsc";
 import PreBlock from "@/src/app/blog/(customMdx)/PreBlock";
 import Image from "next/image";
 
 import rehypeMdxCodeProps from "rehype-mdx-code-props";
 import InlineCode from "@/src/app/blog/(customMdx)/InlineCode";
+import Note from "@/src/app/blog/(customMdx)/Note";
 
 export default function CustomMDX({ content }: { content: string }) {
   return (
@@ -14,15 +13,19 @@ export default function CustomMDX({ content }: { content: string }) {
       <MDXRemote
         source={content}
         components={{
-          h1: (props: any) => <h2 {...props} className="mt-4" />,
-          h2: (props: any) => <h3 {...props} className="mt-4" />,
-          h3: (props: any) => <h4 {...props} className="mt-4" />,
-          h4: (props: any) => <h5 {...props} className="mt-4" />,
-          h5: (props: any) => <h6 {...props} className="mt-4" />,
-          p: (props: any) => <p {...props} className="mt-4" />,
-          a: (props: any) => <a {...props} className="underline" />,
-          pre: (props: any) => <PreBlock {...props}>{props.children}</PreBlock>,
-          Image: (props: any) => (
+          h1: ({ ...props }) => <h2 {...props} className="mt-4" />,
+          h2: ({ ...props }) => <h3 {...props} className="mt-4" />,
+          h3: ({ ...props }) => <h4 {...props} className="mt-4" />,
+          h4: ({ ...props }) => <h5 {...props} className="mt-4" />,
+          h5: ({ ...props }) => <h6 {...props} className="mt-4" />,
+          p: ({ ...props }) => (
+            <p {...props} className="[&:not(:first-child)]:mt-4" />
+          ),
+          a: ({ ...props }) => <a {...props} className="underline" />,
+          pre: ({ ...props }) => (
+            <PreBlock {...props}>{props.children}</PreBlock>
+          ),
+          Image: ({ ...props }) => (
             <Image
               style={{ width: "100%", height: "auto" }}
               loading="lazy"
@@ -30,7 +33,7 @@ export default function CustomMDX({ content }: { content: string }) {
               {...props}
             />
           ),
-          blockquote: (props: any) => (
+          blockquote: ({ ...props }) => (
             <blockquote className="font-sans p-4 my-4 border-s-4 border-gray-300 bg-gray-50 rounded-sm">
               <div className="italic font-medium leading-relaxed text-gray-900">
                 {props.children}
@@ -38,50 +41,32 @@ export default function CustomMDX({ content }: { content: string }) {
             </blockquote>
           ),
           code: InlineCode,
-          li: (props: any) => (
-            <li {...props}>
-              <p {...props} />
-            </li>
+          ul: ({ ...props }) => (
+            <ul className="my-3 ml-6 list-disc" {...props} />
           ),
-          Info: (props: any) => (
-            <div className="my-3" role="alert">
-              <div className="bg-sky-400 text-white font-bold rounded-t px-4 py-2">
-                Note
-              </div>
-              <div className="border border-t-0 border-sky-400 rounded-b bg-sky-100 px-4 py-3 text-sky-700">
-                {props.children}
-              </div>
-            </div>
+          ol: ({ ...props }) => (
+            <ol className="mt-4 ml-6 list-decimal" {...props} />
           ),
-          Success: (props: any) => (
-            <div className="my-3" role="alert">
-              <div className="bg-green-400 text-white font-bold rounded-t px-4 py-2">
-                Success
-              </div>
-              <div className="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
-                {props.children}
-              </div>
-            </div>
+          li: ({ ...props }) => <li className="mt-2" {...props} />,
+          Info: ({ children, ...props }) => (
+            <Note type="Info" {...props}>
+              {children}
+            </Note>
           ),
-          Warning: (props: any) => (
-            <div className="my-3" role="alert">
-              <div className="bg-amber-400 text-white font-bold rounded-t px-4 py-2">
-                Warning
-              </div>
-              <div className="border border-t-0 border-amber-400 rounded-b bg-amber-100 px-4 py-3 text-amber-700">
-                {props.children}
-              </div>
-            </div>
+          Success: ({ children, ...props }) => (
+            <Note type="Success" {...props}>
+              {children}
+            </Note>
           ),
-          Danger: (props: any) => (
-            <div className="my-3" role="alert">
-              <div className="bg-red-400 text-white font-bold rounded-t px-4 py-2">
-                Error
-              </div>
-              <div className="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
-                {props.children}
-              </div>
-            </div>
+          Warning: ({ children, ...props }) => (
+            <Note type="Warning" {...props}>
+              {children}
+            </Note>
+          ),
+          Danger: ({ children, ...props }) => (
+            <Note type="Danger" {...props}>
+              {children}
+            </Note>
           ),
         }}
         options={{
