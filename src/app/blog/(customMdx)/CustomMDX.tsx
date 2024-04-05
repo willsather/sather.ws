@@ -34,8 +34,8 @@ export default function CustomMDX({ content }: { content: string }) {
             />
           ),
           blockquote: ({ ...props }) => (
-            <blockquote className="font-sans p-4 my-4 border-s-4 border-gray-300 bg-gray-50 rounded-sm">
-              <div className="italic font-medium leading-relaxed text-gray-900">
+            <blockquote className="font-sans  my-4 p-4 rounded border border-s-4 border-gray-300 bg-gray-50">
+              <div className=" font-medium leading-relaxed text-gray-900">
                 {props.children}
               </div>
             </blockquote>
@@ -48,6 +48,11 @@ export default function CustomMDX({ content }: { content: string }) {
             <ol className="mt-4 ml-6 list-decimal" {...props} />
           ),
           li: ({ ...props }) => <li className="mt-2" {...props} />,
+          Note: ({ children, ...props }) => (
+            <Note type="Note" {...props}>
+              {children}
+            </Note>
+          ),
           Info: ({ children, ...props }) => (
             <Note type="Info" {...props}>
               {children}
@@ -63,8 +68,8 @@ export default function CustomMDX({ content }: { content: string }) {
               {children}
             </Note>
           ),
-          Danger: ({ children, ...props }) => (
-            <Note type="Danger" {...props}>
+          Error: ({ children, ...props }) => (
+            <Note type="Error" {...props}>
               {children}
             </Note>
           ),

@@ -1,25 +1,6 @@
 import { ReactNode } from "react";
 
-export type NoteType = "Info" | "Success" | "Warning" | "Danger";
-
-const getColor = (type: NoteType) => {
-  switch (type) {
-    case "Info":
-      return "sky";
-
-    case "Success":
-      return "green";
-
-    case "Warning":
-      return "amber";
-
-    case "Danger":
-      return "red";
-
-    default:
-      return "gray";
-  }
-};
+export type NoteType = "Note" | "Info" | "Success" | "Warning" | "Error";
 
 export default function Note({
   type,
@@ -28,21 +9,21 @@ export default function Note({
   type: NoteType;
   children: ReactNode;
 }) {
-  const color = getColor(type);
-  console.log("color", color);
+  const colorClasses = {
+    Note: "border-gray-400 bg-gray-100 text-gray-700",
+    Info: "border-sky-400 bg-sky-100 text-sky-700",
+    Success: "border-green-400 bg-green-100 text-green-700",
+    Warning: "border-amber-400 bg-amber-100 text-amber-700",
+    Error: "border-red-400 bg-red-100 text-red-700",
+  };
 
   return (
-    <div className="my-3" role="alert">
-      <div
-        className={`bg-${color}-400 text-white font-bold rounded-t px-4 py-2`}
-      >
-        {type}
-      </div>
-      <div
-        className={`border border-t-0 border-${color}-400 rounded-b bg-${color}-100 px-4 py-3 text-${color}-700`}
-      >
-        {children}
-      </div>
+    <div
+      className={`my-3  border rounded border-s-4 ${colorClasses[type]} px-4 py-3`}
+      role="alert"
+    >
+      <h5 className="font-bold">{type}</h5>
+      <div>{children}</div>
     </div>
   );
 }
