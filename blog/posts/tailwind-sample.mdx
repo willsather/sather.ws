@@ -1,5 +1,5 @@
 ---
-title: "Designing a custom MDX Blog Post with Tailwind"
+title: "Build tailwind components and code blocks for MDX renderer"
 date: 2024-04-04T12:00:00Z
 tags: ["Next-js", "Tailwind"]
 summary: "A sample blog post using MDX that utilizes Tailwindcss to create custom components"
@@ -74,7 +74,31 @@ This is preformatted text!
 #### Typescript
 
 ```ts
-export interface TypescriptType {
+// comment about the type
+export interface SayHelloType {
+  say: "Hello" | "Goodbye";
+  user: {
+    firstName: string;
+    lastName: string;
+  };
+}
+
+/**
+ * @param {"Hello" | "Goodbye} say what you want to say
+ */
+export default function sayHello(say: "Hello" | "Goodbye"): SayHelloType {
+  return {
+    say: say,
+    user: {
+      firstName: "Will",
+      lastName: "Sather",
+    },
+  };
+}
+```
+
+```ts fileName="filename.ts"
+export interface TypescriptTypeWithFileName {
   hello: "Will" | "Sather";
   user: {
     firstName: string;
@@ -82,8 +106,8 @@ export interface TypescriptType {
 }
 ```
 
-```ts fileName="filename.ts"
-export interface TypescriptTypeWithFileName {
+```ts
+export interface TypescriptReallyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyLonggggggggggggggggggggggggggggggggTypeeeeeeeeeeeeeeeeeeeeeeeeeee {
   hello: "Will" | "Sather";
   user: {
     firstName: string;
@@ -113,9 +137,9 @@ if __name__ == '__main__':
 
 #### Shell
 
-```shell
-$ git add .
-$ git commit -m "chore: fix git commit"
+```zsh
+git add .
+git commit -m "chore: fix git commit"
 ```
 
 ### Data
@@ -145,6 +169,14 @@ on:
   push:
     branches:
       - main
+```
+
+#### Text
+
+```text
+Hello Will,
+
+This is some random text
 ```
 
 ## Emojis

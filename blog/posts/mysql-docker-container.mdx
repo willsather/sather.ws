@@ -18,7 +18,7 @@ if you are using macOS.
 ### Pull MySQL Docker Image
 
 ```bash
-$ docker pull mysql
+docker pull mysql
 ```
 
 By running this command, you will see some loading bars which is downloading the official
@@ -28,7 +28,7 @@ up an instance of MySQL.
 ### Start/Run the Container
 
 ```shell
-$ docker run --name test-mysql-container -e MYSQL_ROOT_PASSWORD=password -d -p 3306:3306 mysql
+docker run --name test-mysql-container -e MYSQL_ROOT_PASSWORD=password -d -p 3306:3306 mysql
 ```
 
 By running this command, you will effectively be starting a Docker container (an instantiation of an Image). To break down
@@ -48,7 +48,7 @@ allowing you to connect to the container from your local computer.
 ### Validate the Container is Running
 
 ```shell
-$ docker ps
+docker ps
 ```
 
 should return a value like:
@@ -66,7 +66,7 @@ This validates that the container started correctly.
 Once the image is pulled and the container is started, you can open the container and get into the MySQL server. You can do this by:
 
 ```shell
-$ docker exec -it test-mysql-container bash
+docker exec -it test-mysql-container bash
 ```
 
 This will allow you to now interact with the container we have created.
@@ -76,7 +76,7 @@ This will allow you to now interact with the container we have created.
 Once you are operating inside the container, you can connect to the MySQL terminal:
 
 ```shell
-# mysql -u root -p
+mysql -u root -p
 ```
 
 This will prompt you for the password, you can use `password` like we specified above.

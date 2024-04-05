@@ -16,27 +16,27 @@ export default function CustomMDX({ content }: { content: string }) {
         source={content}
         components={{
           h1: ({ id, ...props }) => (
-            <h2 {...props} className="group mt-4 flex relative">
+            <h2 id={id} {...props} className="group mt-4 flex relative">
               <AnchorLink id={id}>{props.children}</AnchorLink>
             </h2>
           ),
           h2: ({ id, ...props }) => (
-            <h3 {...props} className="group mt-4 flex relative">
+            <h3 id={id} {...props} className="group mt-4 flex relative">
               <AnchorLink id={id}>{props.children}</AnchorLink>
             </h3>
           ),
           h3: ({ id, ...props }) => (
-            <h4 {...props} className="group mt-4 flex relative">
+            <h4 id={id} {...props} className="group mt-4 flex relative">
               <AnchorLink id={id}>{props.children}</AnchorLink>
             </h4>
           ),
           h4: ({ id, ...props }) => (
-            <h5 {...props} className="group mt-4 flex relative">
+            <h5 id={id} {...props} className="group mt-4 flex relative">
               <AnchorLink id={id}>{props.children}</AnchorLink>
             </h5>
           ),
           h5: ({ id, ...props }) => (
-            <h6 {...props} className="group mt-4 flex relative">
+            <h6 id={id} {...props} className="group mt-4 flex relative">
               <AnchorLink id={id}>{props.children}</AnchorLink>
             </h6>
           ),
