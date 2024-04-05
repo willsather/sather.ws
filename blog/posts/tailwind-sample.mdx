@@ -1,0 +1,156 @@
+---
+title: "Designing a custom MDX Blog Post with Tailwind"
+date: 2024-04-04T12:00:00Z
+tags: ["Next-js", "Tailwind"]
+summary: "A sample blog post using MDX that utilizes Tailwindcss to create custom components"
+---
+
+## Overview
+
+This is just a sample blog post that demonstrates and shows all of the custom components this site uses. This
+is a cool demonstration as it renders all of the custom components in a single blog, making it easy to share, test,
+and learn from.
+
+### Codebase 💻
+
+You can find the source code for this MDX blog post at [GitHub](https://github.com/willsather/website/blob/main/blog/posts/tailwind-sample.mdx)
+
+## Basic Components
+
+# H2 Header
+
+## H3 Header
+
+### H4 Header
+
+#### H5 Header
+
+##### H6 Header
+
+paragraph
+
+[link](https://sather.ws)
+
+`Inline Code`
+
+## Blockquote
+
+> "The only way to do great work is to love what you do."
+>
+> Steve Jobs
+
+## Preformatted Text
+
+```
+This is preformatted text!
+```
+
+## Lists
+
+- unordered
+- list
+
+1. ordered
+2. list
+
+## Notes
+
+<Note>Single line note</Note>
+
+<Note>
+  This is a really long note that goes for a really long time because it needs
+  to go all the way to the second line to demonstrate the line break
+</Note>
+
+<Info>Single line information block!</Info>
+<Success>Single line success block!</Success>
+<Warning>Single line warning block!</Warning>
+<Error>Single line error block!</Error>
+
+## Code Blocks
+
+### Code Snippets
+
+#### Typescript
+
+```ts
+export interface TypescriptType {
+  hello: "Will" | "Sather";
+  user: {
+    firstName: string;
+  };
+}
+```
+
+```ts fileName="filename.ts"
+export interface TypescriptTypeWithFileName {
+  hello: "Will" | "Sather";
+  user: {
+    firstName: string;
+  };
+}
+```
+
+#### Javascript
+
+```js
+export default function JavascriptFunction() {
+  return "Hello";
+}
+```
+
+#### Python
+
+```python
+def getFirstName():
+    return "Will"
+
+if __name__ == '__main__':
+    print(getFirstName())
+```
+
+### Commands
+
+#### Shell
+
+```shell
+$ git add .
+$ git commit -m "chore: fix git commit"
+```
+
+### Data
+
+#### JSON
+
+```json
+{
+  "json": {
+    "hello": {
+      "firstName": "Will",
+      "lastName": "Sather"
+    }
+  }
+}
+```
+
+#### YAML
+
+```yaml
+name: Sample YAML File
+
+hello:
+  will: ${{ vars.SATHER }}
+
+on:
+  push:
+    branches:
+      - main
+```
+
+## Emojis
+
+## 🏓 🌁 🏖️ 🎉 ❤️ 🌎 💻
+
+### 🏓 🌁 🏖️ 🎉 ❤️ 🌎 💻
+
+🏓 🌁 🏖️ 🎉 ❤️ 🌎 💻

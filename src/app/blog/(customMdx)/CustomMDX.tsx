@@ -35,7 +35,7 @@ export default function CustomMDX({ content }: { content: string }) {
           ),
           blockquote: ({ ...props }) => (
             <blockquote className="font-sans  my-4 p-4 rounded border border-s-4 border-gray-300 bg-gray-50">
-              <div className=" font-medium leading-relaxed text-gray-900">
+              <div className="italic font-medium leading-relaxed text-gray-900">
                 {props.children}
               </div>
             </blockquote>
