@@ -7,6 +7,7 @@ import rehypeMdxCodeProps from "rehype-mdx-code-props";
 import InlineCode from "@/src/app/blog/(customMdx)/InlineCode";
 import Note from "@/src/app/blog/(customMdx)/Note";
 import AnchorLink from "@/src/app/blog/(customMdx)/AnchorLink";
+import Component from "@/src/app/blog/(customMdx)/Component";
 
 export default function CustomMDX({ content }: { content: string }) {
   return (
@@ -94,6 +95,9 @@ export default function CustomMDX({ content }: { content: string }) {
             <Note type="Error" {...props}>
               {children}
             </Note>
+          ),
+          Component: ({ children, ...props }) => (
+            <Component {...props}>{children}</Component>
           ),
         }}
         options={{
