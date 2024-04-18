@@ -2,6 +2,7 @@ import type { FC } from "react";
 import { Highlight } from "prism-react-renderer";
 import prismTheme from "@/src/app/blog/(customMdx)/prismTheme";
 import "@/src/app/scroll.css";
+import FileName from "@/src/app/blog/(customMdx)/FileName";
 
 export interface CodeBlockProps {
   hideLineNumbers?: boolean;
@@ -18,16 +19,19 @@ const CodeBlock: FC<CodeBlockProps> = ({
 }) => {
   const codeLanguage = language.replace("language-", "");
 
+  const showHeader = fileName != null || codeLanguage != "text";
+
   // Prism React Renderer Themes: themes.nightOwl or themes.oneDark
   return (
     <Highlight code={children} language={codeLanguage} theme={prismTheme}>
       {({ tokens, getLineProps, getTokenProps }) => (
         <>
           <pre className="border-2 border-gray-500 my-4 rounded-lg font-mono">
-            <div className="bg-gray-300 rounded-t-md">
+            {/*Code Block Header*/}
+            <div className="bg-gray-300 rounded-t-md py-2 px-4">
               {/*Only show header if filename exists OR language isn't text*/}
-              {(fileName != null || codeLanguage != "text") && (
-                <div className="py-2 pl-4 mr-4 overflow-x-auto">
+              {showHeader && (
+                <div className="overflow-x-auto">
                   <div
                     className={`flex items-center ${
                       fileName ? "justify-between" : "justify-end"
@@ -38,18 +42,20 @@ const CodeBlock: FC<CodeBlockProps> = ({
                         {fileName}
                       </p>
                     )}
-
-                    <p className="font-mono text-blue-400 bg-blue-100 text-sm p-1 px-2 border-2 border-blue-400 rounded-lg">
-                      {codeLanguage.toUpperCase()}
-                    </p>
+                    <FileName codeLanguage={codeLanguage.toUpperCase()} />
+                    {}
                   </div>
                 </div>
               )}
             </div>
 
             {/*Code Block*/}
-            <div className="bg-gray-100 rounded-b-md">
-              <div className="p-2 px-4 overflow-auto scrollbar-custom">
+            <div
+              className={`bg-gray-100 p-2 px-4 ${
+                showHeader ? "rounded-b-md" : "rounded-md"
+              }`}
+            >
+              <div className="overflow-auto scrollbar-custom">
                 <div>
                   {tokens.map((line, i) => (
                     <div key={i} {...getLineProps({ line })}>

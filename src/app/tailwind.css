@@ -30,4 +30,8 @@
     p {
         @apply font-light;
     }
+
+    strong  {
+        @apply font-semibold
+    }
 }
