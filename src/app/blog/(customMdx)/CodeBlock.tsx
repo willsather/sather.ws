@@ -19,7 +19,15 @@ const CodeBlock: FC<CodeBlockProps> = ({
 }) => {
   const codeLanguage = language.replace("language-", "");
 
+  let showLines = !hideLineNumbers;
   const showHeader = fileName != null || codeLanguage != "text";
+
+  const isTerminal =
+    codeLanguage == "shell" || codeLanguage == "bash" || codeLanguage == "zsh";
+
+  if (isTerminal || codeLanguage == "text") {
+    showLines = false;
+  }
 
   // Prism React Renderer Themes: themes.nightOwl or themes.oneDark
   return (
@@ -28,9 +36,10 @@ const CodeBlock: FC<CodeBlockProps> = ({
         <>
           <pre className="border-2 border-gray-500 my-4 rounded-lg font-mono">
             {/*Code Block Header*/}
-            <div className="bg-gray-300 rounded-t-md py-2 px-4">
-              {/*Only show header if filename exists OR language isn't text*/}
-              {showHeader && (
+            {showHeader && (
+              <div className="bg-gray-300 rounded-t-md py-2 px-4">
+                {/*Only show header if filename exists OR language isn't text*/}
+
                 <div className="overflow-x-auto">
                   <div
                     className={`flex items-center ${
@@ -46,12 +55,12 @@ const CodeBlock: FC<CodeBlockProps> = ({
                     {}
                   </div>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
 
             {/*Code Block*/}
             <div
-              className={`bg-gray-100 p-2 px-4 ${
+              className={`bg-gray-100 p-2 px-4 pb-2 ${
                 showHeader ? "rounded-b-md" : "rounded-md"
               }`}
             >
@@ -59,21 +68,21 @@ const CodeBlock: FC<CodeBlockProps> = ({
                 <div>
                   {tokens.map((line, i) => (
                     <div key={i} {...getLineProps({ line })}>
-                      {!hideLineNumbers && (
-                        <span className="font-mono text-gray-400">
-                          {i + 1}{" "}
+                      {showLines && (
+                        <span
+                          className={`font-mono text-gray-300 ${
+                            i == tokens.length ? "mb-8" : ""
+                          }`}
+                        >
+                          {i + 1}
+                          {"  "}
                         </span>
                       )}
 
                       {/*Add Dollar Sign to Terminal*/}
-                      {(codeLanguage == "shell" ||
-                        codeLanguage == "bash" ||
-                        codeLanguage == "zsh") &&
-                        i < tokens.length - 1 && (
-                          <span className="font-mono text-pink-500 mr-2">
-                            $
-                          </span>
-                        )}
+                      {isTerminal && i < tokens.length - 1 && (
+                        <span className="font-mono text-pink-500 mr-2">$</span>
+                      )}
 
                       {line.map((token, key) => (
                         <span key={key} {...getTokenProps({ token })} />

@@ -16,7 +16,7 @@ const PreBlock: FC<PreBlockProps> = ({ children, fileName }) => {
     <CodeBlock
       fileName={fileName}
       language={children.props.className}
-      hideLineNumbers={true}
+      hideLineNumbers={children.props.hideLineNumbers}
     >
       {children.props.children}
     </CodeBlock>
