@@ -19,10 +19,10 @@ export default function About() {
       <div>
         <p className="text-primary" aria-label="about">
           <strong className="font-bold">a little about me:</strong> i graduated
-          from university of minnesota in 2022 with bachelors in computer
-          science and am currently working as a software engineer at vmware
-          tanzu labs. recently, been working building and modernizing modern web
-          apps / cloud apps with a bunch of cool software.
+          from university of minnesota with bachelors in computer science and am
+          currently working as a software engineer at vmware tanzu labs.
+          recently, been working building and modernizing modern web apps /
+          cloud apps with a bunch of cool software.
           <br /> <br />
           <strong className="font-bold">outside of work: </strong> i have always
           enjoyed working on various software projects (like this website, plus
