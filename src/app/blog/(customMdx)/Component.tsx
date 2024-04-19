@@ -1,10 +1,8 @@
-import { ReactNode } from "react";
-
-export default function Component({ children }: { children: ReactNode }) {
+export default function Component({ name }: { name: string }) {
   return (
-    <code className="font-mono text-sm text-gray-500 py-1 px-1 rounded-md border-2 border-gray-500">
+    <code className="font-mono text-sm text-gray-500 py-0.5 px-1 rounded-md border-2 border-gray-500">
       {"<"}
-      {children}
+      {name}
       {"/>"}
     </code>
   );

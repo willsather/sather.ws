@@ -96,8 +96,8 @@ export default function CustomMDX({ content }: { content: string }) {
               {children}
             </Note>
           ),
-          Component: ({ children, ...props }) => (
-            <Component {...props}>{children}</Component>
+          Component: ({ name, ...props }) => (
+            <Component name={name} {...props} />
           ),
         }}
         options={{
