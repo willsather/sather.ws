@@ -23,6 +23,8 @@ export default async function DefaultOpengraphImage() {
         </div>
       </div>
     ),
-    size
+    {
+      ...size,
+    }
   );
 }

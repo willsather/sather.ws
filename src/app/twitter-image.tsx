@@ -23,6 +23,8 @@ export default async function DefaultTwitterImage() {
         </div>
       </div>
     ),
-    size
+    {
+      ...size,
+    }
   );
 }
