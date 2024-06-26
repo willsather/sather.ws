@@ -1,100 +1,95 @@
-import type { FC } from "react";
-import { Highlight } from "prism-react-renderer";
+"use client";
+
+import React from "react";
 import prismTheme from "@/src/app/blog/(customMdx)/prismTheme";
 import "@/src/app/scroll.css";
 import FileName from "@/src/app/blog/(customMdx)/FileName";
+import { CodeBlock } from "react-code-block";
+import FileType from "@/src/app/blog/(customMdx)/FileType";
 
 export interface CodeBlockProps {
-  hideLineNumbers?: boolean;
-  children?: string;
+  children: string;
+  className?: string;
+  lines?: (number | string)[];
+  words?: string[];
   language?: string;
   fileName?: string;
+  showLineNumbers?: boolean;
 }
 
-const CodeBlock: FC<CodeBlockProps> = ({
-  children = "",
+function MyCodeBlock({
+  children,
   fileName,
+  lines = [],
+  words = [],
   language = "language-text",
-  hideLineNumbers,
-}) => {
+  showLineNumbers = false,
+}: CodeBlockProps) {
   const codeLanguage = language.replace("language-", "");
-
-  let showLines = !hideLineNumbers;
-  const showHeader = fileName != null || codeLanguage != "text";
 
   const isTerminal =
     codeLanguage == "shell" || codeLanguage == "bash" || codeLanguage == "zsh";
 
-  if (isTerminal || codeLanguage == "text") {
-    showLines = false;
-  }
-
-  // Prism React Renderer Themes: themes.nightOwl or themes.oneDark
   return (
-    <Highlight code={children} language={codeLanguage} theme={prismTheme}>
-      {({ tokens, getLineProps, getTokenProps }) => (
-        <>
-          <pre className="border-2 border-gray-500 my-4 rounded-lg">
-            {/*Code Block Header*/}
-            {showHeader && (
-              <div className="bg-gray-300 rounded-t-md py-2 px-4">
-                {/*Only show header if filename exists OR language isn't text*/}
+    <CodeBlock
+      code={children}
+      language={codeLanguage}
+      words={words}
+      lines={lines}
+      theme={prismTheme}
+    >
+      <div className="relative bg-gray-100 border-2 border-gray-500 my-4 rounded-xl">
+        {/* Filename */}
 
-                <div className="overflow-x-auto">
-                  <div
-                    className={`flex items-center ${
-                      fileName ? "justify-between" : "justify-end"
-                    }`}
-                  >
-                    {fileName && (
-                      <p className="font-bold text-gray-500 mr-4">{fileName}</p>
-                    )}
-                    <FileName codeLanguage={codeLanguage.toUpperCase()} />
-                    {}
-                  </div>
+        <FileName fileName={fileName} />
+
+        <div className="overflow-auto">
+          <CodeBlock.Code className="!px-0 ">
+            {({ isLineHighlighted }) => (
+              <div
+                className={`table-row ${
+                  isLineHighlighted ? "bg-emerald-400/25" : ""
+                }`}
+              >
+                {/* Add Highlighted Symbol if desired */}
+                <div
+                  className={`table-cell text-emerald-400 select-none ${
+                    isLineHighlighted ? "opacity-100 px-4" : "opacity-0"
+                  }`}
+                >
+                  +
                 </div>
+
+                {/*Add Line Numbers if desired*/}
+                {showLineNumbers && (
+                  <CodeBlock.LineNumber className="pl-1 pr-4 table-cell text-sm text-gray-400 text-right select-none" />
+                )}
+
+                <CodeBlock.LineContent
+                  className={`table-cell w-full ${
+                    !showLineNumbers ? "px-3" : "pr-3"
+                  }`}
+                >
+                  {/*Add Dollar Sign to Terminal*/}
+                  {isTerminal && (
+                    <span className="text-pink-500 mr-2 select-none">$</span>
+                  )}
+                  <CodeBlock.Token />
+                </CodeBlock.LineContent>
               </div>
             )}
+          </CodeBlock.Code>
 
-            {/*Code Block*/}
-            <div
-              className={`bg-gray-100 p-2 px-4 pb-2 ${
-                showHeader ? "rounded-b-md" : "rounded-md"
-              }`}
-            >
-              <div className="overflow-auto scrollbar-custom">
-                <div>
-                  {tokens.map((line, i) => (
-                    <div key={i} {...getLineProps({ line })}>
-                      {showLines && (
-                        <span
-                          className={`text-gray-300 ${
-                            i == tokens.length ? "mb-8" : ""
-                          }`}
-                        >
-                          {i + 1}
-                          {"  "}
-                        </span>
-                      )}
-
-                      {/*Add Dollar Sign to Terminal*/}
-                      {isTerminal && i < tokens.length - 1 && (
-                        <span className="text-pink-500 mr-2">$</span>
-                      )}
-
-                      {line.map((token, key) => (
-                        <span key={key} {...getTokenProps({ token })} />
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
+          <div className="m-4">
+            {/* Language being used */}
+            <div className="static px-6 pb-4 text-right uppercase select-none">
+              <FileType codeLanguage={codeLanguage.toUpperCase()} />
             </div>
-          </pre>
-        </>
-      )}
-    </Highlight>
+          </div>
+        </div>
+      </div>
+    </CodeBlock>
   );
-};
+}
 
-export default CodeBlock;
+export default MyCodeBlock;

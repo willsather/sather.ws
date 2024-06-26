@@ -43,9 +43,7 @@ export default function CustomMDX({ content }: { content: string }) {
             <p {...props} className="[&:not(:first-child)]:mt-4" />
           ),
           a: ({ ...props }) => <a {...props} className="underline" />,
-          pre: ({ ...props }) => (
-            <PreBlock {...props}>{props.children}</PreBlock>
-          ),
+          pre: ({ ...props }) => <PreBlock {...props} />,
           Image: ({ ...props }) => (
             <img
               className="w-full my-3"

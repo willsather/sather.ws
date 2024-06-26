@@ -1,22 +1,30 @@
 "use client";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import type { FC, ReactNode } from "react";
 import CodeBlock from "@/src/app/blog/(customMdx)/CodeBlock";
 
 export interface PreBlockProps {
-  children: ReactNode | any;
-  hideLineNumbers?: boolean;
+  children?: ReactNode | any; // eslint-disable-line @typescript-eslint/no-explicit-any
+  lines?: (number | string)[];
+  words?: string[];
+  showLineNumbers?: boolean;
   fileName?: string;
 }
 
-const PreBlock: FC<PreBlockProps> = ({ children, fileName }) => {
+const PreBlock: FC<PreBlockProps> = ({
+  children,
+  fileName,
+  lines,
+  words,
+  showLineNumbers,
+}) => {
   return (
     <CodeBlock
-      fileName={fileName}
       language={children.props.className}
-      hideLineNumbers={children.props.hideLineNumbers}
+      showLineNumbers={showLineNumbers}
+      lines={lines}
+      words={words}
+      fileName={fileName}
     >
       {children.props.children}
     </CodeBlock>
