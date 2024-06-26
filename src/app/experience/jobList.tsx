@@ -5,8 +5,16 @@ export default function JobList() {
     <div className="ml-4 md:ml-8">
       <ul>
         {jobs.map((job) => (
-          <div className="my-6 md:my-12" key={job.company}>
-            <h3 className="text-2xl md:text-4xl">{job.company}.</h3>
+          <div className="my-8 md:my-12" key={job.company}>
+            <div className="flex items-center">
+              <h3 className="text-3xl md:text-4xl">{job.company}.</h3>
+
+              {job?.tag != null && (
+                <div className="ml-4 bg-amber-500 p-1 px-2 rounded-lg">
+                  <p className="text-xs">{job.tag}</p>
+                </div>
+              )}
+            </div>
             <h4>{job.role}.</h4>
             <p className="text-gray-500">{job.description}.</p>
           </div>

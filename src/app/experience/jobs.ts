@@ -20,6 +20,7 @@ const jobs: Job[] = [
     company: "byt8",
     role: "Developer & Creator",
     description: "firebase, google cloud platform, javascript, swift",
+    tag: "archived",
   },
 ];
 
