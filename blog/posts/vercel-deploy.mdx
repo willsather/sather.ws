@@ -32,7 +32,7 @@ First, here is the GitHub action workflow that we used:
   application
 </Info>
 
-```yaml
+```yml fileName="deploy.yml" showLineNumbers
 name: Deploy to Vercel
 
 env:
@@ -157,7 +157,7 @@ Another way of verifying the configuration (on the GitHub Action too) is to incl
 in your workflow. Most of our problems arose from missing Vercel Next.js commands when pulling from our project and printing out
 the returned values made it easier to debug.
 
-```yaml
+```yml lines={["1:2"]}
 - name: Print out Vercel config
   run: pwd && ls -la && cat .vercel/.env.production.local && cat .vercel/project.json
 ```

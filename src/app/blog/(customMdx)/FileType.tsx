@@ -31,10 +31,12 @@ type Language =
   | "SHELL"
   | "SQL"
   | "TEXT"
+  | "TOML"
   | "TS"
   | "TSX"
   | "VIM"
   | "XML"
+  | "YML"
   | "YAML"
   | "ZSH";
 
@@ -78,10 +80,12 @@ const FileType: FC<FileTypeProps> = (props) => {
     SHELL: "border-gray-400 bg-gray-100 text-gray-400",
     SQL: "border-cyan-400 bg-cyan-100 text-cyan-400",
     TEXT: "border-gray-400 bg-gray-100 text-gray-400",
+    TOML: "border-orange-400 bg-orange-100 text-orange-400",
     TS: "border-blue-400 bg-blue-100 text-blue-400",
     TSX: "border-blue-400 bg-blue-100 text-blue-400",
     VIM: "border-green-400 bg-green-100 text-green-400",
     XML: "border-orange-400 bg-orange-100 text-orange-400",
+    YML: "border-orange-400 bg-orange-100 text-orange-400",
     YAML: "border-orange-400 bg-orange-100 text-orange-400",
     ZSH: "border-gray-400 bg-gray-100 text-gray-400",
   };
