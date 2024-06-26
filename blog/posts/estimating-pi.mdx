@@ -16,12 +16,7 @@ One of the most memorable projects I worked on that first semester was a python 
 to simulate throwing darts at a 2-foot by 2-foot square board that contains 2-foot diameter _(1-foot radius)_ circle inside of it.
 It would look something like this:
 
-<Image
-  alt="Concept"
-  src="/assets/blog/images/estimating-pi/concept.png"
-  width={2214}
-  height={1596}
-/>
+<Image alt="Concept" src="/assets/blog/images/estimating-pi/concept.png" />
 
 The idea was that if you throw enough darts at the board _(all of which land in the 2x2 square)_, the number of darts in the circle
 divided by the total darts that hit the board would equal one quarter of Pi. This can be represented by something like:
@@ -29,8 +24,6 @@ divided by the total darts that hit the board would equal one quarter of Pi. Thi
 <Image
   alt="Concept"
   src="/assets/blog/images/estimating-pi/calculation-1.png"
-  width={2214}
-  height={1596}
 />
 
 In order to truly calculate for the number Pi, you can rearrange the above calculation to look like:
@@ -38,8 +31,6 @@ In order to truly calculate for the number Pi, you can rearrange the above calcu
 <Image
   alt="Concept"
   src="/assets/blog/images/estimating-pi/calculation-2.png"
-  width={2214}
-  height={1596}
 />
 
 Now, if you throw 4 darts and 3 of which land in the circle, this calculation would look like `(3 darts hit / 4 darts thrown) * 4 = 3`,
@@ -97,12 +88,7 @@ if __name__ == '__main__':
 The idea is, like mentioned above, is that a few random darts thrown at the board doesn't provide a very accurate representation
 of Pi, and thus, the python script would generate something like this:
 
-<Image
-  alt="Concept"
-  src="/assets/blog/images/estimating-pi/first.png"
-  width={2214}
-  height={1596}
-/>
+<Image alt="Concept" src="/assets/blog/images/estimating-pi/first.png" />
 
 and prints out:
 
@@ -113,12 +99,7 @@ Pi is approximately: 3.5200
 Well, that's cool but that also doesn't seem very accurate. So, to really try and achieve accuracy let's bump up the number
 of iterations to 250 so we can get a closer estimation:
 
-<Image
-  alt="Concept"
-  src="/assets/blog/images/estimating-pi/second.png"
-  width={2214}
-  height={1596}
-/>
+<Image alt="Concept" src="/assets/blog/images/estimating-pi/second.png" />
 
 and prints out:
 
@@ -133,12 +114,7 @@ is to crank up the iterations to work on estimating a number extremely close to 
 
 For example, when you visualize 25,000 darts thrown, the graph looks something like this:
 
-<Image
-  alt="Concept"
-  src="/assets/blog/images/estimating-pi/final.png"
-  width={2214}
-  height={1596}
-/>
+<Image alt="Concept" src="/assets/blog/images/estimating-pi/final.png" />
 
 and prints out:
 

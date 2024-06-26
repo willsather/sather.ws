@@ -1,7 +1,5 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import PreBlock from "@/src/app/blog/(customMdx)/PreBlock";
-import Image from "next/image";
-
 import rehypeSlug from "rehype-slug";
 import rehypeMdxCodeProps from "rehype-mdx-code-props";
 import InlineCode from "@/src/app/blog/(customMdx)/InlineCode";
@@ -49,8 +47,9 @@ export default function CustomMDX({ content }: { content: string }) {
             <PreBlock {...props}>{props.children}</PreBlock>
           ),
           Image: ({ ...props }) => (
-            <Image
-              style={{ width: "100%", height: "auto" }}
+            <img
+              className="w-full my-3"
+              // style={{ width: "100%", height: "auto" }}
               loading="lazy"
               alt={props?.alt}
               {...props}
