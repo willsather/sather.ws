@@ -34,7 +34,7 @@ const CodeBlock: FC<CodeBlockProps> = ({
     <Highlight code={children} language={codeLanguage} theme={prismTheme}>
       {({ tokens, getLineProps, getTokenProps }) => (
         <>
-          <pre className="border-2 border-gray-500 my-4 rounded-lg font-mono">
+          <pre className="border-2 border-gray-500 my-4 rounded-lg">
             {/*Code Block Header*/}
             {showHeader && (
               <div className="bg-gray-300 rounded-t-md py-2 px-4">
@@ -47,9 +47,7 @@ const CodeBlock: FC<CodeBlockProps> = ({
                     }`}
                   >
                     {fileName && (
-                      <p className="font-mono font-bold text-gray-500 mr-4">
-                        {fileName}
-                      </p>
+                      <p className="font-bold text-gray-500 mr-4">{fileName}</p>
                     )}
                     <FileName codeLanguage={codeLanguage.toUpperCase()} />
                     {}
@@ -70,7 +68,7 @@ const CodeBlock: FC<CodeBlockProps> = ({
                     <div key={i} {...getLineProps({ line })}>
                       {showLines && (
                         <span
-                          className={`font-mono text-gray-300 ${
+                          className={`text-gray-300 ${
                             i == tokens.length ? "mb-8" : ""
                           }`}
                         >
@@ -81,7 +79,7 @@ const CodeBlock: FC<CodeBlockProps> = ({
 
                       {/*Add Dollar Sign to Terminal*/}
                       {isTerminal && i < tokens.length - 1 && (
-                        <span className="font-mono text-pink-500 mr-2">$</span>
+                        <span className="text-pink-500 mr-2">$</span>
                       )}
 
                       {line.map((token, key) => (

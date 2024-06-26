@@ -20,7 +20,7 @@ export default function AboutPage() {
       </div>
 
       <footer>
-        <div className="relative justify-end md:fixed bottom-0 left-0 mx-6 md:mx-8 my-8 md:my10 text-gray-400">
+        <div className="relative justify-end md:fixed bottom-0 left-0 mx-6 md:mx-8 my-8 md:my10 text-gray-400 font-mono">
           <p>Will Sather © 2020-{new Date().getFullYear()}</p>
         </div>
       </footer>

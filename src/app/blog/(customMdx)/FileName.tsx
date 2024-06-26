@@ -90,7 +90,7 @@ const FileName: FC<FileNameProps> = (props) => {
     <p
       className={`${
         languageColors[language] ?? "border-gray-400 bg-gray-100 text-gray-400"
-      } font-mono text-sm p-1 px-2 border-2 rounded-lg`}
+      } text-sm p-1 px-2 border-2 rounded-lg`}
     >
       {props.codeLanguage}
     </p>

@@ -8,6 +8,10 @@ const config: Omit<Config, "content"> = {
         primary: "#000000",
         secondary: "#ffffff",
       },
+      fontFamily: {
+        sans: ["var(--font-geist-sans)"],
+        mono: ["var(--font-jetbrains)"],
+      },
     },
   },
   plugins: [],

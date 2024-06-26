@@ -14,7 +14,7 @@ const jobs: Job[] = [
   {
     company: "Dell Technologies",
     role: "Solutions Architect Intern",
-    description: "ismv4 associate exam, dart, flutter, firebase",
+    description: "ismv4 associate exam, dart, react native, firebase",
   },
   {
     company: "byt8",

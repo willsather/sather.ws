@@ -7,7 +7,7 @@ export default function JobList() {
         {jobs.map((job) => (
           <div className="my-8 md:my-12" key={job.company}>
             <div className="flex items-center">
-              <h3 className="text-3xl md:text-4xl">{job.company}.</h3>
+              <h3 className="text-3xl md:text-5xl">{job.company}.</h3>
 
               {job?.tag != null && (
                 <div className="ml-4 bg-amber-500 p-1 px-2 rounded-lg">
@@ -15,8 +15,8 @@ export default function JobList() {
                 </div>
               )}
             </div>
-            <h4>{job.role}.</h4>
-            <p className="text-gray-500">{job.description}.</p>
+            <h4 className="text-xl md:text-2xl">{job.role}.</h4>
+            <p className="text-gray-500 font-mono">{job.description}.</p>
           </div>
         ))}
       </ul>
