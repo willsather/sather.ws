@@ -1,9 +1,10 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { type Dispatch, type SetStateAction } from "react";
+
+import DotsIcon from "@/public/icons/dots.svg";
+import GitHubIcon from "@/public/icons/github.svg";
 import InstagramIcon from "@/public/icons/instagram.svg";
 import LinkedInIcon from "@/public/icons/linkedin.svg";
-import GitHubIcon from "@/public/icons/github.svg";
 import PictureIcon from "@/public/icons/picture.svg";
-import DotsIcon from "@/public/icons/dots.svg";
 
 export default function Footer({
   showParticles,
@@ -36,7 +37,7 @@ export default function Footer({
       <div className="flex flex-row items-center justify-center">
         {Object.entries(socialLinks).map(([social, { icon, link }]) => (
           <div className="mr-6 hover:bg-gray-300 p-2 rounded-2xl" key={social}>
-            <a href={link} target="_blank" aria-label={social}>
+            <a href={link} target="_blank" aria-label={social} rel="noreferrer">
               {icon}
             </a>
           </div>
@@ -45,6 +46,7 @@ export default function Footer({
 
       <div className="flex">
         <button
+          type="button"
           aria-label="particles"
           name="particles"
           onClick={() => setShowParticles(!showParticles)}

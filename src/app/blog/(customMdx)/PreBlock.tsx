@@ -1,10 +1,12 @@
 "use client";
 
 import type { FC, ReactNode } from "react";
+
 import CodeBlock from "@/src/app/blog/(customMdx)/CodeBlock";
 
 export interface PreBlockProps {
-  children?: ReactNode | any; // eslint-disable-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: : children can be anything in the markdown
+  children?: ReactNode | any;
   lines?: (number | string)[];
   words?: string[];
   showLineNumbers?: boolean;

@@ -1,7 +1,8 @@
-import PaginatedPosts from "@/src/app/blog/paginatedPosts";
-import { Metadata } from "next";
-import { getTagPosts } from "@/lib/blog/tags";
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
+
+import { getTagPosts } from "@/lib/blog/tags";
+import PaginatedPosts from "@/src/app/blog/paginatedPosts";
 
 export function generateMetadata({
   params: { tag },
@@ -30,14 +31,14 @@ export default async function TagPage({
 }) {
   const posts = await getTagPosts(params?.tag);
 
-  const parsedPage = parseInt(searchParams.page ?? "");
+  const parsedPage = Number.parseInt(searchParams.page ?? "");
 
   // never show ?page=0
   if (parsedPage === 0) {
     redirect(`/blog/tags/${params?.tag}`);
   }
 
-  const page = isNaN(parsedPage) ? 0 : parsedPage;
+  const page = Number.isNaN(parsedPage) ? 0 : parsedPage;
 
   // redirect if manually navigating to a page that doesn't exist
   if (page > Math.ceil(posts.length / 3) - 1) {

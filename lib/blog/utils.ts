@@ -1,8 +1,7 @@
-import path from "path";
-
-import glob from "tiny-glob";
+import fs from "node:fs/promises";
+import path from "node:path";
 import matter from "gray-matter";
-import fs from "fs/promises";
+import glob from "tiny-glob";
 
 export const BLOG_PATH = path.join(process.cwd(), "/blog/posts/");
 
@@ -18,7 +17,7 @@ export async function findAllPostSlugs() {
 }
 
 export function getPath(slug: string) {
-  return path.join(BLOG_PATH, slug + ".mdx");
+  return path.join(BLOG_PATH, `${slug}.mdx`);
 }
 
 export async function loadMdxFromSlug(slug: string) {

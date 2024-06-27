@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import menuLinks from "@/src/app/(header)/menuLinks";
 import React, { useState } from "react";
-import MenuIcon from "@/public/icons/menu.svg";
+
 import CloseIcon from "@/public/icons/close.svg";
+import MenuIcon from "@/public/icons/menu.svg";
+import menuLinks from "@/src/app/(header)/menuLinks";
 
 const NavigationBar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -12,19 +13,20 @@ const NavigationBar = () => {
   return (
     <div className="flex-col md:flex-row justify-between pt-2">
       <div className="flex md:hidden justify-end">
-        <div onClick={() => setMobileOpen(!mobileOpen)}>
+        <button type="button" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? (
             <CloseIcon width={24} height={24} />
           ) : (
             <MenuIcon width={24} height={24} />
           )}
-        </div>
+        </button>
       </div>
 
       <div className={mobileOpen ? "block md:hidden" : "hidden"}>
         {Object.entries(menuLinks).map(([text, link]) => (
           <div key={text} className="mt-3">
-            <div
+            <button
+              type="button"
               className="hover:underline"
               onClick={() => setMobileOpen(false)}
             >
@@ -35,7 +37,7 @@ const NavigationBar = () => {
               >
                 <p>{text}</p>
               </Link>
-            </div>
+            </button>
           </div>
         ))}
       </div>
@@ -43,7 +45,8 @@ const NavigationBar = () => {
       {/*Desktop Navbar*/}
       <div className="hidden md:flex">
         {Object.entries(menuLinks).map(([text, link]) => (
-          <div
+          <button
+            type="button"
             className="hover:underline m-4"
             key={text}
             onClick={() => setMobileOpen(false)}
@@ -55,7 +58,7 @@ const NavigationBar = () => {
             >
               <p>{text}</p>
             </Link>
-          </div>
+          </button>
         ))}
       </div>
     </div>

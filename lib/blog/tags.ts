@@ -3,7 +3,7 @@ import { getAllPosts } from "@/lib/blog/posts";
 export async function getAllTags() {
   const allPosts = await getAllPosts();
 
-  return Array.from(new Set(allPosts.map(({ data: { tags } }) => tags).flat()));
+  return Array.from(new Set(allPosts.flatMap(({ data: { tags } }) => tags)));
 }
 
 export async function getTagPosts(tag: string) {

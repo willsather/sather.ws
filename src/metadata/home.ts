@@ -1,7 +1,8 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+
+import description from "@/src/metadata/description";
 import icons from "@/src/metadata/icons";
 import manifest from "@/src/metadata/manifest";
-import description from "@/src/metadata/description";
 
 const home: Metadata = {
   metadataBase: new URL("https://www.sather.ws"),
@@ -40,7 +41,7 @@ const home: Metadata = {
     url: "https://www.sather.ws",
   },
   alternates: {
-    canonical: `/`,
+    canonical: "/",
   },
   icons,
   manifest,

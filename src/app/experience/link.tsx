@@ -1,7 +1,7 @@
 "use client";
 
+import type { UrlObject } from "node:url";
 import Link from "next/link";
-import { UrlObject } from "url";
 
 const ExternalLink = ({
   href,

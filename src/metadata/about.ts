@@ -1,6 +1,6 @@
-import { Metadata } from "next";
 import icons from "@/src/metadata/icons";
 import manifest from "@/src/metadata/manifest";
+import type { Metadata } from "next";
 
 const about: Metadata = {
   title: "About",
@@ -16,7 +16,7 @@ const about: Metadata = {
     url: "https://sather.ws/about",
   },
   alternates: {
-    canonical: `/about`,
+    canonical: "/about",
   },
   icons,
   manifest,

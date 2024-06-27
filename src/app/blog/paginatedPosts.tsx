@@ -1,7 +1,7 @@
 "use client";
 
 import PostListItem from "@/src/app/blog/postListItem";
-import { Post } from "@/src/types/post";
+import type { Post } from "@/src/types/post";
 
 const POSTS_PER_PAGE = 3;
 

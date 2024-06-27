@@ -1,7 +1,8 @@
+import type { Metadata } from "next";
+
 import JobList from "@/src/app/experience/jobList";
-import { Metadata } from "next";
-import experienceMetadata from "@/src/metadata/experience";
 import ExternalLink from "@/src/app/experience/link";
+import experienceMetadata from "@/src/metadata/experience";
 
 export const metadata: Metadata = experienceMetadata;
 

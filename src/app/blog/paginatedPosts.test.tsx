@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
+
+import type { Post } from "@/src/types/post";
 import PaginatedPosts from "./paginatedPosts";
-import { Post } from "@/src/types/post";
 
 describe("PaginatedPosts", () => {
   const mockPost: Post = {

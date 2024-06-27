@@ -1,4 +1,5 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+
 import icons from "@/src/metadata/icons";
 import manifest from "@/src/metadata/manifest";
 
@@ -15,7 +16,7 @@ const blog: Metadata = {
     url: "https://sather.ws/blog/tags",
   },
   alternates: {
-    canonical: `/blog/tags`,
+    canonical: "/blog/tags",
   },
   icons,
   manifest,

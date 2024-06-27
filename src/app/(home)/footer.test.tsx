@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import Footer from "@/src/app/(home)/footer";
 import userEvent from "@testing-library/user-event";
-import { UserEvent } from "@testing-library/user-event/setup/setup";
+import type { UserEvent } from "@testing-library/user-event/setup/setup";
+
+import Footer from "@/src/app/(home)/footer";
 
 describe("Footer", () => {
   let user: UserEvent;

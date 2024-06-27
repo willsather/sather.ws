@@ -1,11 +1,12 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
-import PreBlock from "@/src/app/blog/(customMdx)/PreBlock";
-import rehypeSlug from "rehype-slug";
 import rehypeMdxCodeProps from "rehype-mdx-code-props";
-import InlineCode from "@/src/app/blog/(customMdx)/InlineCode";
-import Note from "@/src/app/blog/(customMdx)/Note";
+import rehypeSlug from "rehype-slug";
+
 import AnchorLink from "@/src/app/blog/(customMdx)/AnchorLink";
 import Component from "@/src/app/blog/(customMdx)/Component";
+import InlineCode from "@/src/app/blog/(customMdx)/InlineCode";
+import Note from "@/src/app/blog/(customMdx)/Note";
+import PreBlock from "@/src/app/blog/(customMdx)/PreBlock";
 
 export default function CustomMDX({ content }: { content: string }) {
   return (
@@ -46,11 +47,10 @@ export default function CustomMDX({ content }: { content: string }) {
           pre: ({ ...props }) => <PreBlock {...props} />,
           Image: ({ ...props }) => (
             <img
-              className="w-full my-3"
-              // style={{ width: "100%", height: "auto" }}
-              loading="lazy"
-              alt={props?.alt}
               {...props}
+              className="w-full my-3"
+              loading="lazy"
+              alt={props.alt}
             />
           ),
           blockquote: ({ ...props }) => (

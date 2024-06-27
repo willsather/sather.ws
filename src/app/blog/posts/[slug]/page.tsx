@@ -1,8 +1,9 @@
-import Post from "@/src/app/blog/posts/[slug]/post";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Tag from "@/src/app/blog/tag";
-import { Metadata } from "next";
+
 import { getPost } from "@/lib/blog/posts";
+import Post from "@/src/app/blog/posts/[slug]/post";
+import Tag from "@/src/app/blog/tag";
 
 export async function generateMetadata({
   params,

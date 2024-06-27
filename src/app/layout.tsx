@@ -1,10 +1,11 @@
-import React, { ReactNode } from "react";
-import { Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GeistSans } from "geist/font/sans";
+import type { Metadata } from "next";
 import localFont from "next/font/local";
+import React, { type ReactNode } from "react";
+
 import Header from "@/src/app/(header)/header";
 import homeMetadata from "@/src/metadata/home";
-import { GeistSans } from "geist/font/sans";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./tailwind.css";
 

@@ -1,10 +1,11 @@
 import { render, screen } from "@testing-library/react";
+
 import Home from "@/src/app/page";
 
 // mock particle engine in jest
 jest.mock("@/src/app/(layout)/particles", () => ({
   __esModule: true,
-  default: jest.fn().mockReturnValue(<></>),
+  default: jest.fn().mockReturnValue(null),
 }));
 
 describe("Home", () => {

@@ -1,11 +1,13 @@
 "use client";
 
 import React from "react";
-import prismTheme from "@/src/app/blog/(customMdx)/prismTheme";
-import "@/src/app/scroll.css";
-import FileName from "@/src/app/blog/(customMdx)/FileName";
 import { CodeBlock } from "react-code-block";
+
+import FileName from "@/src/app/blog/(customMdx)/FileName";
 import FileType from "@/src/app/blog/(customMdx)/FileType";
+import prismTheme from "@/src/app/blog/(customMdx)/prismTheme";
+
+import "@/src/app/scroll.css";
 
 export interface CodeBlockProps {
   children: string;
@@ -28,7 +30,9 @@ function MyCodeBlock({
   const codeLanguage = language.replace("language-", "");
 
   const isTerminal =
-    codeLanguage == "shell" || codeLanguage == "bash" || codeLanguage == "zsh";
+    codeLanguage === "shell" ||
+    codeLanguage === "bash" ||
+    codeLanguage === "zsh";
 
   return (
     <CodeBlock
@@ -47,7 +51,9 @@ function MyCodeBlock({
           <CodeBlock.Code className="!px-0 ">
             {({ isLineHighlighted }) => (
               <div
-                className={`table-row ${isLineHighlighted ? "bg-emerald-400/25" : ""}`}
+                className={`table-row ${
+                  isLineHighlighted ? "bg-emerald-400/25" : ""
+                }`}
               >
                 {/* Add Highlighted Symbol if desired */}
                 <div
@@ -64,7 +70,9 @@ function MyCodeBlock({
                 )}
 
                 <CodeBlock.LineContent
-                  className={`table-cell w-full ${!showLineNumbers ? "px-3" : "pr-3"}`}
+                  className={`table-cell w-full ${
+                    !showLineNumbers ? "px-3" : "pr-3"
+                  }`}
                 >
                   {/*Add Dollar Sign to Terminal*/}
                   {isTerminal && (

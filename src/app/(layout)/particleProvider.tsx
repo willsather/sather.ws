@@ -1,8 +1,9 @@
 "use client";
 
-import ParticleOverlay from "@/src/app/(layout)/particles";
+import React, { type ReactNode, useState } from "react";
+
 import Footer from "@/src/app/(home)/footer";
-import React, { ReactNode, useState } from "react";
+import ParticleOverlay from "@/src/app/(layout)/particles";
 
 export default function ParticleProvider({
   children,

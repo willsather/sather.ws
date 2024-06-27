@@ -1,7 +1,8 @@
 "use client";
 
-import ArrowLeft from "@/public/icons/arrow-left.svg";
 import { useRouter } from "next/navigation";
+
+import ArrowLeft from "@/public/icons/arrow-left.svg";
 
 const NotFound = () => {
   const router = useRouter();
@@ -14,6 +15,7 @@ const NotFound = () => {
 
       <div className="flex justify-center mt-12">
         <button
+          type="button"
           onClick={() => router.push("/")}
           className="border-primary border-2 p-2 rounded-md hover:bg-gray-300"
         >
