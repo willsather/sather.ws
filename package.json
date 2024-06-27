@@ -4,6 +4,7 @@
     "dev": "next dev -p 3333",
     "build": "next build",
     "start": "next start -p 3333",
+    "bio": "biome check",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "test": "jest --watch",
@@ -35,6 +36,7 @@
     "tsparticles": "^3.2.2"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.8.2",
     "@playwright/test": "^1.42.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
