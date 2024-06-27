@@ -19,16 +19,16 @@
       "@/public/*": ["public/*"],
       "@/src/*": ["src/*"],
       "@/lib/*": ["lib/*"],
-      "@/types/*": ["types/*"],
-      "@/__mocks__/*": ["__mocks__/*"]
+      "@/types/*": ["types/*"]
     },
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "types": ["vitest/globals"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": [
     "node_modules",
     "cypress",

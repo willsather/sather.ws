@@ -7,7 +7,7 @@ import Footer from "@/src/app/(home)/footer";
 describe("Footer", () => {
   let user: UserEvent;
 
-  const mockSetShowParticles = jest.fn();
+  const mockSetShowParticles = vi.fn();
 
   beforeEach(() => {
     user = userEvent.setup();
