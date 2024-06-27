@@ -10,7 +10,7 @@ test.describe("Navigation", () => {
 
     await expect(page).toHaveTitle(/Experience/);
     await expect(
-      page.getByRole("heading", { name: "Experience" })
+      page.getByRole("heading", { name: "Experience" }),
     ).toBeVisible();
   });
 
@@ -19,7 +19,7 @@ test.describe("Navigation", () => {
 
     await expect(page).toHaveTitle(/Will Sather/);
     await expect(
-      page.getByRole("heading", { name: "WILL SATHER" })
+      page.getByRole("heading", { name: "WILL SATHER" }),
     ).toBeVisible();
   });
 

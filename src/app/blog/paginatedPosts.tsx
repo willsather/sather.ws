@@ -103,7 +103,7 @@ export default function PaginatedPosts({
                     </a>
                   </li>
                 );
-              }
+              },
             )}
 
             {/*Next Arrow*/}

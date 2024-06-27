@@ -9,7 +9,7 @@ export async function getAllPosts(): Promise<Post[]> {
     allSlugs.map(async (slug: string) => {
       const source = await loadMdxFromSlug(slug);
       return { slug, source };
-    })
+    }),
   );
 
   const posts = allSources

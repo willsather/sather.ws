@@ -436,7 +436,7 @@ const ParticleOverlay = () => {
       themes: [],
       zLayers: 100,
     }),
-    []
+    [],
   );
 
   return (

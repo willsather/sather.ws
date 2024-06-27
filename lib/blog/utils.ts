@@ -13,7 +13,7 @@ function getSlug(slugPath: string) {
 
 export async function findAllPostSlugs() {
   return glob(path.join(BLOG_PATH, "*.mdx")).then((paths) =>
-    paths.map(getSlug)
+    paths.map(getSlug),
   );
 }
 
