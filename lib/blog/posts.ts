@@ -1,6 +1,6 @@
 import { findAllPostSlugs, loadMdxFromSlug } from "@/lib/blog/utils";
-import type { Post } from "@/src/types/post";
 import type { BlogFrontMatter } from "@/src/types/blogFrontMatter";
+import type { Post } from "@/src/types/post";
 
 export async function getAllPosts(): Promise<Post[]> {
   const allSlugs = await findAllPostSlugs();

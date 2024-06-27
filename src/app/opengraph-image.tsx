@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+
 import Logo from "@/src/app/(shared)/logo";
 
 export const size = {

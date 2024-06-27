@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+
 import NavigationBar from "@/src/app/(header)/navigationBar";
 
 const Header = () => {

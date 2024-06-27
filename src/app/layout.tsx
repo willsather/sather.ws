@@ -44,7 +44,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${JetBrainsFont.variable}`}
+      // biome-ignore lint/nursery/useSortedClasses: do not delete this space (fix once out of beta)
+      className={`${JetBrainsFont.variable} ${GeistSans.variable}`}
     >
       <body>
         <Header />
