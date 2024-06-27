@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <div className="md:my10 mx-6 my-8 flex flex-col items-center justify-center gap-6 md:mx-8 md:flex-row-reverse">
+    <div className="mx-6 my-8 flex flex-col items-center justify-center gap-6 md:mx-8 md:my-10 md:flex-row-reverse">
       <div className="flex grow">
         <Image
           src="/assets/about.jpg"
