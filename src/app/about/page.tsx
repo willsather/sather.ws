@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import About from "@/src/app/about/about";
-import aboutMetadata from "@/src/metadata/about";
+import About from "@/app/about/about";
+import aboutMetadata from "@/metadata/about";
 
 export const metadata: Metadata = aboutMetadata;
 

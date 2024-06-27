@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
 
-import Home from "@/src/app/page";
+import Home from "@/app/page";
 
 // mock particle engine in jest
-vi.mock("@/src/app/(layout)/particles", () => ({
+vi.mock("@/app/(layout)/particles", () => ({
   default: vi.fn().mockReturnValue(null),
 }));
 

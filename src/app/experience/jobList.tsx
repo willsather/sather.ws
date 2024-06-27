@@ -1,4 +1,4 @@
-import jobs from "@/src/app/experience/jobs";
+import jobs from "@/app/experience/jobs";
 
 export default function JobList() {
   return (

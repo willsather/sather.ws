@@ -1,4 +1,4 @@
-import type { Job } from "@/src/types/job";
+import type { Job } from "@/types/job";
 
 const jobs: Job[] = [
   {

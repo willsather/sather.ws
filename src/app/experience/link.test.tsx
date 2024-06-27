@@ -1,4 +1,4 @@
-import Link from "@/src/app/experience/link";
+import Link from "@/app/experience/link";
 import { render, screen } from "@testing-library/react";
 
 describe("link", () => {

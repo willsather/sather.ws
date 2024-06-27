@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { GET, POST } from "@/src/app/api/route";
+import { GET, POST } from "@/app/api/route";
 
 describe("api", () => {
   describe("GET", () => {

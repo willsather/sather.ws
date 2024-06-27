@@ -2,8 +2,8 @@
 
 import React, { type ReactNode, useState } from "react";
 
-import Footer from "@/src/app/(home)/footer";
-import ParticleOverlay from "@/src/app/(layout)/particles";
+import Footer from "@/app/(home)/footer";
+import ParticleOverlay from "@/app/(layout)/particles";
 
 export default function ParticleProvider({
   children,

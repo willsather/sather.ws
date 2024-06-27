@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import NavigationBar from "@/src/app/(header)/navigationBar";
+import NavigationBar from "@/app/(header)/navigationBar";
 
 const Header = () => {
   return (

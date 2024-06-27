@@ -30,7 +30,7 @@ located at the root of the App Router.
 
 ```tsx fileName="/app/opengraph-image.tsx"
 import { ImageResponse } from "next/server";
-import Logo from "@/src/components/shared/logo";
+import Logo from "@/components/shared/logo";
 
 export const size = {
   width: 1200,
@@ -67,7 +67,7 @@ generate the Open Graph image using the `params?.slug` to load the blog post and
 ```tsx fileName="/app/blog/posts/[slug]/opengraph-image.tsx"
 import { ImageResponse } from "next/server";
 import { getPost } from "@/lib/blog/posts";
-import Logo from "@/src/components/shared/logo";
+import Logo from "@/components/shared/logo";
 
 export const size = {
   width: 1200,

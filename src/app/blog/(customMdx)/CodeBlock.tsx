@@ -3,11 +3,11 @@
 import React from "react";
 import { CodeBlock } from "react-code-block";
 
-import FileName from "@/src/app/blog/(customMdx)/FileName";
-import FileType from "@/src/app/blog/(customMdx)/FileType";
-import prismTheme from "@/src/app/blog/(customMdx)/prismTheme";
+import FileName from "@/app/blog/(customMdx)/FileName";
+import FileType from "@/app/blog/(customMdx)/FileType";
+import prismTheme from "@/app/blog/(customMdx)/prismTheme";
 
-import "@/src/app/scroll.css";
+import "@/app/scroll.css";
 
 export interface CodeBlockProps {
   children: string;

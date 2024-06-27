@@ -44,7 +44,7 @@ Here is how I tested this function:
  * @jest-environment node
  */
 
-import { GET } from "@/src/app/api/user/[userId]/route";
+import { GET } from "@/app/api/user/[userId]/route";
 
 jest.mock("@/services/UserService", () => ({
   getUser: jest.fn().mockResolvedValue({
@@ -98,7 +98,7 @@ and the test:
  * @jest-environment node
  */
 
-import { POST } from "@/src/app/api/user/route";
+import { POST } from "@/app/api/user/route";
 
 jest.mock("@/services/UserService", () => ({
   createUser: jest.fn().mockResolvedValue({ id: "fake-user-id" }),

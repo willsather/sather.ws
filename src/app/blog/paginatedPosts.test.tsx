@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import type { Post } from "@/src/types/post";
+import type { Post } from "@/types/post";
 import PaginatedPosts from "./paginatedPosts";
 
 describe("PaginatedPosts", () => {

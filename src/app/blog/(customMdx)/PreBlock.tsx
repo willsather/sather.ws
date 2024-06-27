@@ -2,7 +2,7 @@
 
 import type { FC, ReactNode } from "react";
 
-import CodeBlock from "@/src/app/blog/(customMdx)/CodeBlock";
+import CodeBlock from "@/app/blog/(customMdx)/CodeBlock";
 
 export interface PreBlockProps {
   // biome-ignore lint/suspicious/noExplicitAny: : children can be anything in the markdown

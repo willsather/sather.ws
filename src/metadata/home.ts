@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-import description from "@/src/metadata/description";
-import icons from "@/src/metadata/icons";
-import manifest from "@/src/metadata/manifest";
+import description from "@/metadata/description";
+import icons from "@/metadata/icons";
+import manifest from "@/metadata/manifest";
 
 const home: Metadata = {
   metadataBase: new URL("https://www.sather.ws"),

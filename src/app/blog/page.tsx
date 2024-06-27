@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
+import PaginatedPosts from "@/app/blog/paginatedPosts";
 import { getAllPosts } from "@/lib/blog/posts";
-import PaginatedPosts from "@/src/app/blog/paginatedPosts";
-import blogMetadata from "@/src/metadata/blog";
+import blogMetadata from "@/metadata/blog";
 
 export const metadata: Metadata = blogMetadata;
 

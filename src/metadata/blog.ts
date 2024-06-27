@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import icons from "@/src/metadata/icons";
-import manifest from "@/src/metadata/manifest";
+import icons from "@/metadata/icons";
+import manifest from "@/metadata/manifest";
 
 const blog: Metadata = {
   title: "Blog",

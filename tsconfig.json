@@ -16,16 +16,11 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/public/*": ["public/*"],
-      "@/src/*": ["src/*"],
-      "@/lib/*": ["lib/*"],
-      "@/types/*": ["types/*"]
+      "@/*": ["src/*"],
+      "@/e2e*": ["e2e/*"],
+      "@/public/*": ["public/*"]
     },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "plugins": [{ "name": "next" }],
     "types": ["vitest/globals"]
   },
   "include": ["**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -1,5 +1,5 @@
-import icons from "@/src/metadata/icons";
-import manifest from "@/src/metadata/manifest";
+import icons from "@/metadata/icons";
+import manifest from "@/metadata/manifest";
 import type { Metadata } from "next";
 
 const about: Metadata = {

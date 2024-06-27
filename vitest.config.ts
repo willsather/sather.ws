@@ -24,7 +24,9 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./"),
+      "@": path.resolve(__dirname, "./src"),
+      "@/e2e": path.resolve(__dirname, "./e2e"),
+      "@/public": path.resolve(__dirname, "./public"),
     },
   },
 });

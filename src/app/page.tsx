@@ -1,4 +1,4 @@
-import ParticleProvider from "@/src/app/(layout)/particleProvider";
+import ParticleProvider from "@/app/(layout)/particleProvider";
 
 export default function HomePage() {
   return (
