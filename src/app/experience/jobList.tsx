@@ -10,13 +10,13 @@ export default function JobList() {
               <h3 className="text-3xl md:text-5xl">{job.company}.</h3>
 
               {job?.tag != null && (
-                <div className="ml-4 bg-amber-500 p-1 px-2 rounded-lg">
+                <div className="ml-4 rounded-lg bg-amber-500 p-1 px-2">
                   <p className="text-xs">{job.tag}</p>
                 </div>
               )}
             </div>
             <h4 className="text-xl md:text-2xl">{job.role}.</h4>
-            <p className="text-gray-500 font-mono">{job.description}.</p>
+            <p className="font-mono text-gray-500">{job.description}.</p>
           </div>
         ))}
       </ul>

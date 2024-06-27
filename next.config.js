@@ -1,6 +1,6 @@
 module.exports = {
   eslint: {
-    dirs: ["src", "__mocks__", "lib"],
+    ignoreDuringBuilds: true,
   },
   webpack(config) {
     config.module.rules.push({

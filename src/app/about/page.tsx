@@ -9,11 +9,11 @@ export default function AboutPage() {
   return (
     <>
       <div className="bg-secondary">
-        <div className="flex justify-center mt-10">
+        <div className="mt-10 flex justify-center">
           <h1>ABOUT</h1>
         </div>
 
-        <div className="flex justify-center mt-5">
+        <div className="mt-5 flex justify-center">
           <h2>hi, i&apos;m will.</h2>
         </div>
 
@@ -21,7 +21,7 @@ export default function AboutPage() {
       </div>
 
       <footer>
-        <div className="relative justify-end md:fixed bottom-0 left-0 mx-6 md:mx-8 my-8 md:my10 text-gray-400 font-mono">
+        <div className="md:my10 relative bottom-0 left-0 mx-6 my-8 justify-end font-mono text-gray-400 md:fixed md:mx-8">
           <p>Will Sather © 2020-{new Date().getFullYear()}</p>
         </div>
       </footer>

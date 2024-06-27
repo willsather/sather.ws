@@ -11,8 +11,8 @@ const NavigationBar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <div className="flex-col md:flex-row justify-between pt-2">
-      <div className="flex md:hidden justify-end">
+    <div className="flex-col justify-between pt-2 md:flex-row">
+      <div className="flex justify-end md:hidden">
         <button type="button" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? (
             <CloseIcon width={24} height={24} />
@@ -33,7 +33,7 @@ const NavigationBar = () => {
               <Link
                 href={link}
                 target="_self"
-                className="text-primary text-right decoration-primary"
+                className="text-right text-primary decoration-primary"
               >
                 <p>{text}</p>
               </Link>
@@ -47,7 +47,7 @@ const NavigationBar = () => {
         {Object.entries(menuLinks).map(([text, link]) => (
           <button
             type="button"
-            className="hover:underline m-4"
+            className="m-4 hover:underline"
             key={text}
             onClick={() => setMobileOpen(false)}
           >

@@ -46,7 +46,7 @@ export default async function BlogPostPage({
 
   return (
     <div>
-      <div className="flex flex-row justify-center my-2">
+      <div className="my-2 flex flex-row justify-center">
         <h4 className="text-gray-500">
           {frontMatter.date.toLocaleDateString("default", {
             month: "long",
@@ -56,11 +56,11 @@ export default async function BlogPostPage({
         </h4>
       </div>
 
-      <div className="flex flex-row text-center justify-center my-2">
+      <div className="my-2 flex flex-row justify-center text-center">
         <h1 className="content-center">{frontMatter.title}</h1>
       </div>
 
-      <div className="flex flex-row justify-center wrap gap-2 md:gap-4">
+      <div className="wrap flex flex-row justify-center gap-2 md:gap-4">
         {tags?.map((tag) => (
           <Tag key={tag} tag={tag} />
         ))}

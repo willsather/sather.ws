@@ -42,7 +42,7 @@ function MyCodeBlock({
       lines={lines}
       theme={prismTheme}
     >
-      <div className="relative bg-gray-100 border-2 border-gray-500 my-4 rounded-xl">
+      <div className="relative my-4 rounded-xl border-2 border-gray-500 bg-gray-100">
         {/* Filename */}
 
         <FileName fileName={fileName} />
@@ -57,8 +57,8 @@ function MyCodeBlock({
               >
                 {/* Add Highlighted Symbol if desired */}
                 <div
-                  className={`table-cell text-emerald-400 select-none ${
-                    isLineHighlighted ? "opacity-100 px-4" : "opacity-0"
+                  className={`table-cell select-none text-emerald-400 ${
+                    isLineHighlighted ? "px-4 opacity-100" : "opacity-0"
                   }`}
                 >
                   +
@@ -66,7 +66,7 @@ function MyCodeBlock({
 
                 {/*Add Line Numbers if desired*/}
                 {showLineNumbers && (
-                  <CodeBlock.LineNumber className="pl-1 pr-4 table-cell text-sm text-gray-400 text-right select-none" />
+                  <CodeBlock.LineNumber className="table-cell select-none pr-4 pl-1 text-right text-gray-400 text-sm" />
                 )}
 
                 <CodeBlock.LineContent
@@ -76,7 +76,7 @@ function MyCodeBlock({
                 >
                   {/*Add Dollar Sign to Terminal*/}
                   {isTerminal && (
-                    <span className="text-pink-500 mr-2 select-none">$</span>
+                    <span className="mr-2 select-none text-pink-500">$</span>
                   )}
                   <CodeBlock.Token />
                 </CodeBlock.LineContent>
@@ -86,7 +86,7 @@ function MyCodeBlock({
 
           <div className="m-4">
             {/* Language being used */}
-            <div className="static px-6 pb-4 text-right uppercase select-none">
+            <div className="static select-none px-6 pb-4 text-right uppercase">
               <FileType codeLanguage={codeLanguage.toUpperCase()} />
             </div>
           </div>

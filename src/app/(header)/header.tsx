@@ -5,7 +5,7 @@ import NavigationBar from "@/src/app/(header)/navigationBar";
 
 const Header = () => {
   return (
-    <div className="flex justify-between sticky m-4">
+    <div className="sticky m-4 flex justify-between">
       <a href="/">
         <Image
           className=""

@@ -9,11 +9,11 @@ export const metadata: Metadata = experienceMetadata;
 export default function ExperiencePage() {
   return (
     <div className="bg-secondary">
-      <div className="flex justify-center mt-10">
+      <div className="mt-10 flex justify-center">
         <h1>EXPERIENCE</h1>
       </div>
 
-      <div className="flex justify-center mt-5">
+      <div className="mt-5 flex justify-center">
         <ExternalLink href="/files/resume.pdf" text="check out my resume." />
       </div>
 

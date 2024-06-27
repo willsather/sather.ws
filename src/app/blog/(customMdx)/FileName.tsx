@@ -12,8 +12,8 @@ const FileName: FC<FileNameProps> = ({ fileName }) => {
   }
 
   return (
-    <div className="overflow-x-auto flex justify-between p-2 mb-2 rounded-t-lg bg-gray-300 font-mono">
-      <p className="font-bold text-gray-700 ml-2">{fileName}</p>
+    <div className="mb-2 flex justify-between overflow-x-auto rounded-t-lg bg-gray-300 p-2 font-mono">
+      <p className="ml-2 font-bold text-gray-700">{fileName}</p>
     </div>
   );
 };

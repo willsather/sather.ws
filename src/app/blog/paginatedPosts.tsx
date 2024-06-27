@@ -18,7 +18,7 @@ export default function PaginatedPosts({
 
   if (!posts || posts.length <= 0) {
     return (
-      <div className="flex flex-row justify-center mt-4">
+      <div className="mt-4 flex flex-row justify-center">
         <p className="mt-2">No posts found</p>
       </div>
     );
@@ -47,18 +47,18 @@ export default function PaginatedPosts({
           })}
       </div>
 
-      <div className="flex flex-row justify-center my-24">
+      <div className="my-24 flex flex-row justify-center">
         <nav aria-label="Blog Pagination">
-          <ul className="flex items-center -space-x-px h-8 text-sm">
+          <ul className="-space-x-px flex h-8 items-center text-sm">
             {/*Previous Arrow*/}
             <li>
               <a
                 href={page > 0 ? `?page=${page - 1}` : ""}
-                className="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                className="ms-0 flex h-8 items-center justify-center rounded-s-lg border border-gray-300 border-e-0 bg-white px-3 text-gray-500 leading-tight dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 hover:bg-gray-100 dark:hover:text-white dark:text-gray-400 hover:text-gray-700"
               >
                 <span className="sr-only">Previous</span>
                 <svg
-                  className="w-2.5 h-2.5 rtl:rotate-180"
+                  className="h-2.5 w-2.5 rtl:rotate-180"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -84,7 +84,7 @@ export default function PaginatedPosts({
                       <a
                         href={pageNumber >= 0 ? `?page=${pageNumber}` : ""}
                         aria-label={`Go to page ${pageNumber + 1}`}
-                        className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-gray-200 border border-gray-300 hover:bg-gray-300 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                        className="flex h-8 items-center justify-center border border-gray-300 bg-gray-200 px-3 text-gray-500 leading-tight dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 hover:bg-gray-300 dark:hover:text-white dark:text-gray-400 hover:text-gray-700"
                       >
                         <span className="font-bold">{pageNumber + 1}</span>
                       </a>
@@ -97,7 +97,7 @@ export default function PaginatedPosts({
                     <a
                       href={pageNumber >= 0 ? `?page=${pageNumber}` : ""}
                       aria-label={`Go to page ${pageNumber + 1}`}
-                      className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                      className="flex h-8 items-center justify-center border border-gray-300 bg-white px-3 text-gray-500 leading-tight dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 hover:bg-gray-100 dark:hover:text-white dark:text-gray-400 hover:text-gray-700"
                     >
                       <span>{pageNumber + 1}</span>
                     </a>
@@ -110,11 +110,11 @@ export default function PaginatedPosts({
             <li>
               <a
                 href={page < pageCount - 1 ? `?page=${page + 1}` : ""}
-                className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                className="flex h-8 items-center justify-center rounded-e-lg border border-gray-300 bg-white px-3 text-gray-500 leading-tight dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 hover:bg-gray-100 dark:hover:text-white dark:text-gray-400 hover:text-gray-700"
               >
                 <span className="sr-only">Next</span>
                 <svg
-                  className="w-2.5 h-2.5 rtl:rotate-180"
+                  className="h-2.5 w-2.5 rtl:rotate-180"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

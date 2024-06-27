@@ -14,15 +14,15 @@ const ErrorPage = ({ error }: { error: Error }) => {
 
   return (
     <div className="bg-secondary">
-      <div className="flex justify-center mt-8 mx-4">
+      <div className="mx-4 mt-8 flex justify-center">
         <h3 className="text-center">ugh, we had an error :(</h3>
       </div>
 
-      <div className="flex justify-center mt-12">
+      <div className="mt-12 flex justify-center">
         <button
           type="button"
           onClick={() => router.push("/")}
-          className="border-primary border-2 p-2 rounded-md hover:bg-gray-300"
+          className="rounded-md border-2 border-primary p-2 hover:bg-gray-300"
         >
           <div className="flex flex-row justify-center gap-2">
             <ArrowLeft width={24} height={24} />

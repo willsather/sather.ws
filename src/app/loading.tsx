@@ -2,11 +2,11 @@
 
 const Loading = () => {
   return (
-    <div className="flex flex-row justify-center items-center w-full h-64">
+    <div className="flex h-64 w-full flex-row items-center justify-center">
       <div role="status">
         <svg
           aria-hidden="true"
-          className="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-gray-600 dark:fill-gray-300"
+          className="inline h-8 w-8 animate-spin fill-gray-600 text-gray-200 dark:fill-gray-300 dark:text-gray-600"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

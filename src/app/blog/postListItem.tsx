@@ -17,14 +17,14 @@ const PostListItem = ({
     <div>
       {/*Mobile Item*/}
       <div className="block md:hidden">
-        <div className="flex flex-col mb-6 border-3 border-secondary border-r-2">
+        <div className="mb-6 flex flex-col border-3 border-secondary border-r-2">
           <Link
             href={`/blog/posts/${slug}`}
-            className="no-underline text-primary"
+            className="text-primary no-underline"
           >
             <h3 className="text-xl">{title}</h3>
 
-            <h5 className=" text-gray-500 my-1">
+            <h5 className=" my-1 text-gray-500">
               {date.toLocaleDateString("default", {
                 month: "long",
                 day: "numeric",
@@ -40,10 +40,10 @@ const PostListItem = ({
       </div>
 
       {/*Desktop Item*/}
-      <div className="hidden md:block mb-6 border-3 border-secondary border-r-2">
+      <div className="mb-6 hidden border-3 border-secondary border-r-2 md:block">
         <div className="grid grid-cols-3 gap-4">
-          <div className="p-4 flex justify-center items-center">
-            <h5 className="text-lg text-gray-500">
+          <div className="flex items-center justify-center p-4">
+            <h5 className="text-gray-500 text-lg">
               {date.toLocaleDateString("default", {
                 month: "long",
                 day: "numeric",

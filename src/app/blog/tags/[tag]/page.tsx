@@ -47,11 +47,11 @@ export default async function TagPage({
 
   return (
     <div className="bg-secondary">
-      <div className="flex justify-center mt-10">
+      <div className="mt-10 flex justify-center">
         <h1>{params?.tag.toUpperCase()}</h1>
       </div>
 
-      <div className="flex justify-center mt-5">
+      <div className="mt-5 flex justify-center">
         <h2>a category i wrote about.</h2>
       </div>
 

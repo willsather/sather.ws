@@ -9,12 +9,12 @@ export default function AnchorLink({
 }) {
   return (
     <a href={`#${id}`} className="flex flex-row items-center">
-      <span className="hidden md:group-hover:block text-gray-300 border-color-gray-400 border-2 p-1 rounded-lg absolute left-0 transform -translate-x-12">
+      <span className="-translate-x-12 absolute left-0 hidden transform rounded-lg border-2 border-color-gray-400 p-1 text-gray-300 md:group-hover:block">
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"
-            className="text-gray-400 fill-current"
+            className="fill-current text-gray-400"
             width={16}
             height={16}
           >

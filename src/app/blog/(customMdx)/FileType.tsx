@@ -91,12 +91,12 @@ const FileType: FC<FileTypeProps> = (props) => {
   };
 
   return (
-    <div className="absolute right-2 bottom-2 flex justify-end mt-2">
+    <div className="absolute right-2 bottom-2 mt-2 flex justify-end">
       <p
         className={`${
           languageColors[language] ??
           "border-gray-400 bg-gray-100 text-gray-400"
-        } text-sm p-1 px-2 border-2 rounded-lg`}
+        } rounded-lg border-2 p-1 px-2 text-sm`}
       >
         {props.codeLanguage}
       </p>

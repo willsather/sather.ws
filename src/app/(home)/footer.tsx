@@ -33,10 +33,10 @@ export default function Footer({
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 flex-row flex justify-between mx-4 mb-4">
+    <div className="fixed right-0 bottom-0 left-0 mx-4 mb-4 flex flex-row justify-between">
       <div className="flex flex-row items-center justify-center">
         {Object.entries(socialLinks).map(([social, { icon, link }]) => (
-          <div className="mr-6 hover:bg-gray-300 p-2 rounded-2xl" key={social}>
+          <div className="mr-6 rounded-2xl p-2 hover:bg-gray-300" key={social}>
             <a href={link} target="_blank" aria-label={social} rel="noreferrer">
               {icon}
             </a>
@@ -50,7 +50,7 @@ export default function Footer({
           aria-label="particles"
           name="particles"
           onClick={() => setShowParticles(!showParticles)}
-          className="hover:bg-gray-300 p-2 rounded-2xl"
+          className="rounded-2xl p-2 hover:bg-gray-300"
         >
           <DotsIcon width={24} height={24} />
         </button>

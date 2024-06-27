@@ -30,11 +30,11 @@ export default async function BlogPage({
 
   return (
     <div className="bg-secondary">
-      <div className="flex flex-row justify-center mt-8">
+      <div className="mt-8 flex flex-row justify-center">
         <h1>BLOG</h1>
       </div>
 
-      <div className="flex justify-center mt-5">
+      <div className="mt-5 flex justify-center">
         <h2>stuff i wanted to write about.</h2>
       </div>
 

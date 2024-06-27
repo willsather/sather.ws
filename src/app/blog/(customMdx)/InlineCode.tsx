@@ -10,7 +10,7 @@ const InlineCode: FC<InlineCodeProps> = (props) => {
   const { children } = props;
 
   return (
-    <code className="text-sm py-0.5 px-1 rounded-md bg-gray-200">
+    <code className="rounded-md bg-gray-200 px-1 py-0.5 text-sm">
       {children}
     </code>
   );
