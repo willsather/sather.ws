@@ -119,7 +119,7 @@ jobs:
 
       - name: Release URL
         run:
-          echo "New release created: ${{ steps.create_release.outputs.release_url }}"
+          echo "New release created at ${{ steps.create_release.outputs.release_url }}"
 
 
 
