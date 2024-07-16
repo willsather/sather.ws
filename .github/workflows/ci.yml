@@ -107,9 +107,6 @@ jobs:
         with:
           version: 8
 
-      - name: Remove Preview Build
-        run: rm -rf .vercel
-
       - name: Draft new release
         uses: actions/github-script@v6
         with:
@@ -126,9 +123,9 @@ jobs:
       - name: Build Project
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: Deploy Build to Vercel
+      - name: Deploy Production Build to Vercel
         id: vercel
         run: |
-          url="$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})"
+          url="$(vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }})"
           echo "production_url=$url" >> $GITHUB_OUTPUT
 
