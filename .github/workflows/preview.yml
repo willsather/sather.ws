@@ -42,7 +42,6 @@ jobs:
       - name: Set Preview Deployment URL
         id: url
         run: |
-          echo "$(<deploy.log )"
           url=$(tail -1 deploy.log)
-          echo "URL: $url"
-          echo "preview_url=$url" >> $GITHUB_ENV
+          echo "Preview URL: $url"
+          echo "preview_url=$url >> "$GITHUB_OUTPUT"

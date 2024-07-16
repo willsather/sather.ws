@@ -38,5 +38,6 @@ jobs:
         id: url
         run: |
           url=$(tail -1 deploy.log)
-          echo "production_url=$url" >> $GITHUB_ENV
+          echo "Production URL: $url"
+          echo "production_url=$url >> "$GITHUB_OUTPUT"
 
