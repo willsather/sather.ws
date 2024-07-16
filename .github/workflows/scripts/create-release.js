@@ -1,5 +1,3 @@
-// @ts-check
-/** @param {import('@types/github-script').AsyncFunctionArguments} AsyncFunctionArguments */
 module.exports = async ({ github, context, core }) => {
   const releaseName = context.sha.substring(0, 7);
   console.log("Release Name: ", releaseName);
