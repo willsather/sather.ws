@@ -1,6 +1,15 @@
 ## Website
 
-This is all the code that supports my website. You can find the two instances at: [`https://www.sather.ws`](https://www.sather.ws)
+This is all the code that supports my website. You can find the it live at: [`https://www.sather.ws`](https://www.sather.ws)
+
+It has four main pages:
+
+1. Home
+2. Experience
+3. Blog
+4. About
+
+where `/blog/${slug}` is various blog posts.
 
 ## Local Setup
 
