@@ -17,7 +17,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: pnpm/action-setup@v3
         with:
@@ -35,7 +35,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: pnpm/action-setup@v3
         with:
@@ -71,7 +71,8 @@ jobs:
       url: ${{ steps.vercel.outputs.preview_url }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
       - uses: pnpm/action-setup@v3
         with:
           version: 8
@@ -100,7 +101,8 @@ jobs:
       url: ${{ steps.vercel.outputs.production_url }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
       - uses: pnpm/action-setup@v3
         with:
           version: 8
