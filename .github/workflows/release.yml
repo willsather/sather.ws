@@ -79,7 +79,8 @@ jobs:
         with:
           script: |
             const releaseType = core.getInput('release_type');
-            
+            console.log('Release Type: ', releaseType);
+
             const latestRelease = await github.rest.repos.getLatestRelease({
               owner: context.repo.owner,
               repo: context.repo.repo
@@ -88,9 +89,15 @@ jobs:
             const latestTag = latestRelease.data.tag_name;
             const versionParts = latestTag.replace(/^v/, '').split('.');
             
+            console.log('Latest Tag: ', latestTag);
+            
             let major = parseInt(versionParts[0]);
             let minor = parseInt(versionParts[1]) ?? 0;
             let patch = parseInt(versionParts[2]) ?? 0;
+            
+            console.log('Major ', major);
+            console.log('Minor ', minor);
+            console.log('Path ', patch);
             
             if (releaseType === 'major') {
               major += 1;
