@@ -19,11 +19,11 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 jobs:
-  build-lint-test:
+  verify:
     uses: ./.github/workflows/ci.yml
 
   release:
-    needs: [ build-lint-test ]
+    needs: [ verify ]
     runs-on: ubuntu-latest
 
     steps:

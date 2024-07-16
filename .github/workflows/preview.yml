@@ -15,11 +15,11 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-lint-test:
+  verify:
     uses: ./.github/workflows/ci.yml
 
   preview-deploy:
-    needs: [ build-lint-test ]
+    needs: [ verify ]
     runs-on: ubuntu-latest
     environment:
       name: preview

@@ -11,6 +11,7 @@ describe("Footer", () => {
 
   beforeEach(() => {
     user = userEvent.setup();
+
     render(
       <Footer showParticles={true} setShowParticles={mockSetShowParticles} />,
     );
