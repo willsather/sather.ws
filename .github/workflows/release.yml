@@ -79,7 +79,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const script = require('./scripts/create-release.js')
+            const script = require('./.github/workflows/scripts/create-release.js')
             await script({github, context, core})
 
       - name: Release URL
