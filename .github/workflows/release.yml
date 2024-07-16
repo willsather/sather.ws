@@ -67,7 +67,7 @@ jobs:
           retention-days: 30
 
   release:
-#    needs: [ build, test ]
+    needs: [ build, test ]
     runs-on: ubuntu-latest
 
     steps:
