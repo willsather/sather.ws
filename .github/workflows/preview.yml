@@ -11,11 +11,11 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 jobs:
-#  build-lint-test:
-#    uses: ./.github/workflows/ci.yml
+  build-lint-test:
+    uses: ./.github/workflows/ci.yml
 
   preview-deploy:
-#    needs: [ build-lint-test ]
+    needs: [ build-lint-test ]
     runs-on: ubuntu-latest
     environment:
       name: preview
@@ -30,13 +30,13 @@ jobs:
       - name: Install Vercel CLI
         run: pnpm install --global vercel@latest
 
-      - name: Pull Vercel Environment Information
+      - name: Pull Vercel Environment
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: Build Project Artifacts
+      - name: Build Project
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: Deploy Project Artifacts to Vercel
+      - name: Deploy Build to Vercel
         id: vercel
         run: |
           url="$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})"

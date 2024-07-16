@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production
-      url: ${{ steps.url.outputs.production_url }}
+      url: ${{ steps.vercel.outputs.production_url }}
 
     steps:
       - uses: actions/checkout@v3
@@ -25,19 +25,15 @@ jobs:
       - name: Install Vercel CLI
         run: pnpm install --global vercel@latest
 
-      - name: Pull Vercel Environment Information
+      - name: Pull Vercel Environment
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: Build Project Artifacts
+      - name: Build Project
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }} | tee deploy.log
-
-      - name: Set Production Deployment URL
-        id: url
+      - name: Deploy Build to Vercel
+        id: vercel
         run: |
-          url=$(tail -1 deploy.log)
-          echo "Production URL: $url"
-          echo "production_url=$url >> "$GITHUB_OUTPUT"
+          url="$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})"
+          echo "production_url=$url" >> $GITHUB_OUTPUT
 
