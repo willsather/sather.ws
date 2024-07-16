@@ -66,6 +66,7 @@ jobs:
           retention-days: 30
 
   release:
+#    needs: [ build, test ]
     runs-on: ubuntu-latest
 
     steps:
@@ -88,8 +89,8 @@ jobs:
             const versionParts = latestTag.replace(/^v/, '').split('.');
             
             let major = parseInt(versionParts[0]);
-            let minor = parseInt(versionParts[1]);
-            let patch = parseInt(versionParts[2]);
+            let minor = parseInt(versionParts[1]) ?? 0;
+            let patch = parseInt(versionParts[2]) ?? 0;
             
             if (releaseType === 'major') {
               major += 1;
