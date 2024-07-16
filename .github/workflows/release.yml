@@ -14,6 +14,7 @@ on:
           - patch
 
 env:
+  RELEASE_TYPE: ${{ github.event.inputs.release_type }}
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
@@ -78,52 +79,8 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const releaseType = core.getInput('release_type');
-            console.log('Release Type: ', releaseType);
-
-            const latestRelease = await github.rest.repos.getLatestRelease({
-              owner: context.repo.owner,
-              repo: context.repo.repo
-            });
-            
-            const latestTag = latestRelease.data.tag_name;
-            const versionParts = latestTag.replace(/^v/, '').split('.');
-            
-            console.log('Latest Tag: ', latestTag);
-            
-            let major = parseInt(versionParts[0]);
-            let minor = parseInt(versionParts[1]) ?? 0;
-            let patch = parseInt(versionParts[2]) ?? 0;
-            
-            console.log('Major ', major);
-            console.log('Minor ', minor);
-            console.log('Path ', patch);
-            
-            if (releaseType === 'major') {
-              major += 1;
-              minor = 0;
-              patch = 0;
-            } else if (releaseType === 'minor') {
-              minor += 1;
-              patch = 0;
-            } else {
-              patch += 1;
-            }
-            
-            const nextVersion = `v${major}.${minor}.${patch}`;
-            
-            const response = await github.rest.repos.createRelease({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              tag_name: nextVersion,
-              name: nextVersion,
-              generate_release_notes: true,
-              draft: false,
-              prerelease: false
-            });
-            
-            core.setOutput('next_version', nextVersion);
-            core.setOutput('release_url', response.data.html_url);
+            const script = require('./scripts/create-release.js')
+            await script({github, context, core})
 
       - name: Release URL
         run:
