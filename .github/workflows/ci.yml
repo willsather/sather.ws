@@ -27,10 +27,33 @@ jobs:
               args: [--frozen-lockfile, --strict-peer-dependencies]
 
       - name: Build
+        id: build
+        run: |
+          pnpm run build
+          echo "::notice title=🛠️ Build::Complete"
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
+
+      - name: Build
+        id: build
         run: pnpm run build
 
       - name: Lint
-        run: pnpm run lint
+        id: lint
+        run: |
+          pnpm run lint
+          echo "::notice title=🧼️ Lint::Complete"
+
 
   test:
     runs-on: ubuntu-latest
@@ -48,7 +71,9 @@ jobs:
         run: pnpm run build
 
       - name: Unit Test
-        run: pnpm run test
+        run: |
+          pnpm run test
+          echo "::notice title=📝 Unit Test::Complete"
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
@@ -64,7 +89,7 @@ jobs:
           retention-days: 5
 
   preview:
-    needs: [ build, test ]
+    needs: [ build, lint, test ]
     runs-on: ubuntu-latest
     environment:
       name: preview
@@ -90,6 +115,7 @@ jobs:
         id: vercel
         run: |
           url="$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})"
+          echo "::notice title=📬 Preview Deploy::Complete"
           echo "preview_url=$url" >> $GITHUB_OUTPUT
 
 
@@ -127,5 +153,6 @@ jobs:
         id: vercel
         run: |
           url="$(vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }})"
+          echo "::notice title=🚀 Production Deploy::Complete"
           echo "production_url=$url" >> $GITHUB_OUTPUT
 
