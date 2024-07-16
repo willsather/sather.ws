@@ -1,6 +1,5 @@
 module.exports = async ({ github, context, core }) => {
-  const releaseType = core.getInput("release_type");
-  console.log("Release Type: ", releaseType);
+  console.log("Release Type: ", process.env.RELEASE_TYPE);
 
   const latestRelease = await github.rest.repos.getLatestRelease({
     owner: context.repo.owner,
@@ -16,11 +15,11 @@ module.exports = async ({ github, context, core }) => {
   let minor = Number.parseInt(versionParts[1]);
   let patch = Number.parseInt(versionParts[2]);
 
-  if (releaseType === "major") {
+  if (process.env.RELEASE_TYPE === "major") {
     major += 1;
     minor = 0;
     patch = 0;
-  } else if (releaseType === "minor") {
+  } else if (process.env.RELEASE_TYPE === "minor") {
     minor += 1;
     patch = 0;
   } else {

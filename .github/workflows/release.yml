@@ -74,13 +74,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Determine next version and create release
+      - name: Create new release
         id: create_release
         uses: actions/github-script@v6
         with:
           script: |
             const script = require('./.github/workflows/scripts/create-release.js')
             await script({github, context, core})
+        env:
+          RELEASE_TYPE: ${{ github.event.inputs.release_type }}
 
       - name: Release URL
         run:
