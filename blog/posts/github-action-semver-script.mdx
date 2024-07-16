@@ -1,9 +1,9 @@
 ---
-title: "Basic Semantic Versioning in GitHub Action Script"
-date: 2023-12-25T12:00:00Z
+title: "GitHub Action Script for Semantic Versioning"
+date: 2024-07-15T12:00:00Z
 tags: ["GitHub"]
-draft: true
-summary: "Template"
+draft: false
+summary: "Automating GitHub releases and using a basic semantic versioning action"
 ---
 
 ## Overview
@@ -14,7 +14,7 @@ This code snippet generates:
 2. calculates the new version number dependent on an environment variable `RELEASE_TYPE` (options are `major`, `minor`, or `patch`)
 3. creates a new GitHub release using new version number
 
-```js
+```js fileName=".github/workflows/scripts/create-release.js"
 module.exports = async ({ github, context, core }) => {
   console.log("Release Type: ", process.env.RELEASE_TYPE);
 
@@ -61,3 +61,25 @@ module.exports = async ({ github, context, core }) => {
   core.setOutput("release_url", response.data.html_url);
 };
 ```
+
+and can be used like this:
+
+```yml lines={["8:12"]}
+on: push
+
+jobs:
+  echo-input:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const script = require('./.github/workflows/scripts/create-release.js')
+            await script({github, context, core})
+```
+
+This is all documented at [`actions/github-script`](https://github.com/actions/github-script).
+
+This was at one point useful when I was generating semantic versions for all my releases, but recently simplified to just
+using the shortened Git Sha and continuously releasing with every commit.
