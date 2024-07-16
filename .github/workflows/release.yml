@@ -1,0 +1,138 @@
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: 'What type of release is this?'
+        required: true
+        default: 'minor'
+        type: choice
+        options:
+          - major
+          - minor
+          - patch
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Lint
+        run: pnpm run lint
+
+  test:
+    needs: [ build ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Integration Test
+        run: pnpm run test:e2e:ci
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Determine next version and create release
+        id: create_release
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const releaseType = core.getInput('release_type');
+            
+            const latestRelease = await github.rest.repos.getLatestRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+            
+            const latestTag = latestRelease.data.tag_name;
+            const versionParts = latestTag.replace(/^v/, '').split('.');
+            
+            let major = parseInt(versionParts[0]);
+            let minor = parseInt(versionParts[1]);
+            let patch = parseInt(versionParts[2]);
+            
+            if (releaseType === 'major') {
+              major += 1;
+              minor = 0;
+              patch = 0;
+            } else if (releaseType === 'minor') {
+              minor += 1;
+              patch = 0;
+            } else {
+              patch += 1;
+            }
+            
+            const nextVersion = `v${major}.${minor}.${patch}`;
+            
+            const response = await github.rest.repos.createRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag_name: nextVersion,
+              name: nextVersion,
+              generate_release_notes: true,
+              draft: false,
+              prerelease: false
+            });
+            
+            core.setOutput('next_version', nextVersion);
+            core.setOutput('release_url', response.data.html_url);
+
+      - name: Release URL
+        run:
+          echo "New release created: ${{ steps.create_release.outputs.release_url }}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
