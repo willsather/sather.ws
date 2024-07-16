@@ -18,7 +18,7 @@ jobs:
   verify:
     uses: ./.github/workflows/ci.yml
 
-  preview-deploy:
+  deploy:
     needs: [ verify ]
     runs-on: ubuntu-latest
     environment:
