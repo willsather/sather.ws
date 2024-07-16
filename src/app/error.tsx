@@ -1,9 +1,8 @@
 "use client";
 
+import ArrowLeftIcon from "@/icons/ArrowLeft";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-
-import ArrowLeft from "@/public/icons/arrow-left.svg";
 
 const ErrorPage = ({ error }: { error: Error }) => {
   const router = useRouter();
@@ -25,7 +24,7 @@ const ErrorPage = ({ error }: { error: Error }) => {
           className="rounded-md border-2 border-primary p-2 hover:bg-gray-300"
         >
           <div className="flex flex-row justify-center gap-2">
-            <ArrowLeft width={24} height={24} />
+            <ArrowLeftIcon width={24} height={24} />
             <p className="font-extrabold">home</p>
           </div>
         </button>

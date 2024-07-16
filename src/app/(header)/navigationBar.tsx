@@ -4,8 +4,8 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 import menuLinks from "@/app/(header)/menuLinks";
-import CloseIcon from "@/public/icons/close.svg";
-import MenuIcon from "@/public/icons/menu.svg";
+import CloseIcon from "@/icons/Close";
+import MenuIcon from "@/icons/Menu";
 
 const NavigationBar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);

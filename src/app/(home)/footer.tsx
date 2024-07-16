@@ -1,10 +1,9 @@
+import DotsIcon from "@/icons/Dots";
+import GitHubIcon from "@/icons/GitHub";
+import InstagramIcon from "@/icons/Instagram";
+import LinkedInIcon from "@/icons/LinkedIn";
+import PictureIcon from "@/icons/Picture";
 import React, { type Dispatch, type SetStateAction } from "react";
-
-import DotsIcon from "@/public/icons/dots.svg";
-import GitHubIcon from "@/public/icons/github.svg";
-import InstagramIcon from "@/public/icons/instagram.svg";
-import LinkedInIcon from "@/public/icons/linkedin.svg";
-import PictureIcon from "@/public/icons/picture.svg";
 
 export default function Footer({
   showParticles,

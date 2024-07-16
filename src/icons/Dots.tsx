@@ -1,0 +1,18 @@
+import type { IconProps } from "@/icons/type";
+
+export default function DotsIcon({ width, height }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 452 358"
+      width={width}
+      height={height}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <title>Dots</title>
+      <circle cx="75.2804" cy="282.72" r="75.2804" fill="black" />
+      <circle cx="376.402" cy="282.72" r="75.2804" fill="black" />
+      <circle cx="225.841" cy="75.2804" r="75.2804" fill="black" />
+    </svg>
+  );
+}
