@@ -22,9 +22,8 @@ jobs:
       - name: Lint
         run: pnpm run lint
 
-#        FIXME: fix unit tests that are breaking
-#      - name: Unit Test
-#        run: pnpm run test
+      - name: Unit Test
+        run: pnpm run test
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
