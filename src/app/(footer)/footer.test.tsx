@@ -13,7 +13,7 @@ describe("Footer", () => {
     user = userEvent.setup();
 
     render(
-      <Footer showParticles={true} setShowParticles={mockSetShowParticles} />
+      <Footer showParticles={true} setShowParticles={mockSetShowParticles} />,
     );
   });
 
@@ -28,23 +28,23 @@ describe("Footer", () => {
   it("should link to respective social sites", () => {
     expect(screen.getByRole("link", { name: "instagram" })).toHaveAttribute(
       "href",
-      "https://www.instagram.com/will.sather"
+      "https://www.instagram.com/will.sather",
     );
     expect(screen.getByRole("link", { name: "linkedin" })).toHaveAttribute(
       "href",
-      "https://www.linkedin.com/in/willsather"
+      "https://www.linkedin.com/in/willsather",
     );
     expect(screen.getByRole("link", { name: "github" })).toHaveAttribute(
       "href",
-      "https://github.com/willsather"
+      "https://github.com/willsather",
     );
     expect(screen.getByRole("link", { name: "vsco" })).toHaveAttribute(
       "href",
-      "https://vsco.co/willsather/gallery"
+      "https://vsco.co/willsather/gallery",
     );
     expect(screen.getByRole("link", { name: "rss" })).toHaveAttribute(
       "href",
-      "/blog/rss.xml"
+      "/blog/rss.xml",
     );
   });
 
