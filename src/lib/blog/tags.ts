@@ -1,4 +1,4 @@
-import { getAllPosts } from "@/lib/blog/posts";
+import { getAllPosts } from "@/lib/blog";
 
 export async function getAllTags() {
   const allPosts = await getAllPosts();
@@ -10,6 +10,6 @@ export async function getTagPosts(tag: string) {
   const allPosts = await getAllPosts();
 
   return allPosts.filter(({ data: { tags } }) =>
-    tags.map((t) => t.toLowerCase()).includes(tag),
+    tags.map((t) => t.toLowerCase()).includes(tag)
   );
 }

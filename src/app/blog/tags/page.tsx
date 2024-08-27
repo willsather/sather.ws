@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import Tag from "@/app/blog/tag";
-import { getAllTags } from "@/lib/blog/tags";
+import { getAllTags } from "@/lib/blog";
 import tagsMetadata from "@/metadata/tags";
 
 export const metadata: Metadata = tagsMetadata;

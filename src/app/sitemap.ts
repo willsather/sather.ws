@@ -1,5 +1,4 @@
-import { getAllPosts } from "@/lib/blog/posts";
-import { getAllTags } from "@/lib/blog/tags";
+import { getAllPosts, getAllTags } from "@/lib/blog";
 
 export default async function sitemap() {
   const posts = await getAllPosts();

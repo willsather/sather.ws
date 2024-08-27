@@ -4,6 +4,7 @@ import InstagramIcon from "@/icons/Instagram";
 import LinkedInIcon from "@/icons/LinkedIn";
 import PictureIcon from "@/icons/Picture";
 import React, { type Dispatch, type SetStateAction } from "react";
+import RSSIcon from "@/icons/RSS";
 
 export default function Footer({
   showParticles,
@@ -28,6 +29,10 @@ export default function Footer({
     vsco: {
       icon: <PictureIcon width={24} height={24} />,
       link: "https://vsco.co/willsather/gallery",
+    },
+    rss: {
+      icon: <RSSIcon width={24} height={24} />,
+      link: "/blog/rss.xml",
     },
   };
 

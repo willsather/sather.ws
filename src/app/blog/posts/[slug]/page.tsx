@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import Post from "@/app/blog/posts/[slug]/post";
 import Tag from "@/app/blog/tag";
-import { getPost } from "@/lib/blog/posts";
+import { getPost } from "@/lib/blog";
 
 export async function generateMetadata({
   params,

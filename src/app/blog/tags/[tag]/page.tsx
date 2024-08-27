@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 import PaginatedPosts from "@/app/blog/paginatedPosts";
-import { getTagPosts } from "@/lib/blog/tags";
+import { getTagPosts } from "@/lib/blog";
 
 export function generateMetadata({
   params: { tag },

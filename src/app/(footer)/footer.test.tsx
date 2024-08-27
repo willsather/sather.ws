@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import type { UserEvent } from "@testing-library/user-event/setup/setup";
 
-import Footer from "@/app/(home)/footer";
+import Footer from "@/app/(footer)/footer";
 
 describe("Footer", () => {
   let user: UserEvent;
@@ -13,7 +13,7 @@ describe("Footer", () => {
     user = userEvent.setup();
 
     render(
-      <Footer showParticles={true} setShowParticles={mockSetShowParticles} />,
+      <Footer showParticles={true} setShowParticles={mockSetShowParticles} />
     );
   });
 
@@ -22,24 +22,29 @@ describe("Footer", () => {
     expect(screen.getByRole("link", { name: "linkedin" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "github" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "vsco" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "rss" })).toBeInTheDocument();
   });
 
   it("should link to respective social sites", () => {
     expect(screen.getByRole("link", { name: "instagram" })).toHaveAttribute(
       "href",
-      "https://www.instagram.com/will.sather",
+      "https://www.instagram.com/will.sather"
     );
     expect(screen.getByRole("link", { name: "linkedin" })).toHaveAttribute(
       "href",
-      "https://www.linkedin.com/in/willsather",
+      "https://www.linkedin.com/in/willsather"
     );
     expect(screen.getByRole("link", { name: "github" })).toHaveAttribute(
       "href",
-      "https://github.com/willsather",
+      "https://github.com/willsather"
     );
     expect(screen.getByRole("link", { name: "vsco" })).toHaveAttribute(
       "href",
-      "https://vsco.co/willsather/gallery",
+      "https://vsco.co/willsather/gallery"
+    );
+    expect(screen.getByRole("link", { name: "rss" })).toHaveAttribute(
+      "href",
+      "/blog/rss.xml"
     );
   });
 
