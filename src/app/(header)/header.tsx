@@ -1,20 +1,13 @@
 "use client";
 
-import Image from "next/image";
-
 import NavigationBar from "@/app/(header)/navigationBar";
+import Logo from "@/icons/Logo";
 
 const Header = () => {
   return (
     <div className="sticky m-4 flex justify-between">
       <a href="/">
-        <Image
-          className=""
-          src="/assets/logo.png"
-          alt="Will Sather"
-          width={100}
-          height={100}
-        />
+        <Logo width={100} height={100} />
       </a>
 
       <NavigationBar />
