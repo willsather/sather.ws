@@ -2,7 +2,15 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 import PaginatedPosts from "@/app/blog/paginatedPosts";
-import { getTagPosts } from "@/lib/blog";
+import { getAllTags, getTagPosts } from "@/lib/blog";
+
+export async function generateStaticParams() {
+  const tags = await getAllTags();
+
+  return tags.map((tag) => ({
+    slug: tag,
+  }));
+}
 
 export function generateMetadata({
   params: { tag },
