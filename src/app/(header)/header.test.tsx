@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import Header from "@/app/(header)/header";
 
 describe("Header", () => {
-  beforeEach(async () => {
+  beforeEach(() => {
     render(<Header />);
   });
 

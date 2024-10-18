@@ -3,6 +3,7 @@ import type { IconProps } from "@/icons/type";
 export default function Logo({ width, height }: IconProps) {
   return (
     <svg
+      role="img"
       width={width}
       height={height}
       viewBox="0 0 175 112"
