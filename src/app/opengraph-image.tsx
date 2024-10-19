@@ -1,6 +1,5 @@
+import Logo from "@/icons/Logo";
 import { ImageResponse } from "next/og";
-
-import Logo from "@/app/(shared)/logo";
 
 export const size = {
   width: 1200,

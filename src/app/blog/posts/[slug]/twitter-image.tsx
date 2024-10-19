@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-import Logo from "@/app/(shared)/logo";
+import Logo from "@/icons/Logo";
 import { getPost } from "@/lib/blog";
 
 export const size = {

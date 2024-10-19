@@ -1,6 +1,10 @@
-import type { IconProps } from "@/icons/type";
+import type { ComponentProps } from "react";
 
-export default function DotsIcon({ width, height }: IconProps) {
+export default function DotsIcon({
+  width,
+  height,
+  ...props
+}: ComponentProps<"svg">) {
   return (
     <svg
       viewBox="0 0 452 358"
@@ -8,6 +12,7 @@ export default function DotsIcon({ width, height }: IconProps) {
       height={height}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <title>Dots</title>
       <circle cx="75.2804" cy="282.72" r="75.2804" fill="black" />
