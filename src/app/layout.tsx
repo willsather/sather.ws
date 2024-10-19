@@ -27,15 +27,6 @@ const JetBrainsFont = localFont({
 
     // Regular
     { path: "../../public/fonts/JetBrainsMono-Regular.ttf", weight: "400" },
-
-    // Light
-    { path: "../../public/fonts/JetBrainsMono-Light.ttf", weight: "300" },
-
-    // Extra Light
-    { path: "../../public/fonts/JetBrainsMono-ExtraLight.ttf", weight: "200" },
-
-    // Thin
-    { path: "../../public/fonts/JetBrainsMono-Thin.ttf", weight: "100" },
   ],
   variable: "--font-jetbrains",
 });
