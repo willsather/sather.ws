@@ -42,9 +42,7 @@ function MyCodeBlock({
       lines={lines}
       theme={prismTheme}
     >
-      <div className="relative my-4 rounded-xl border-2 border-gray-500 bg-gray-100">
-        {/* Filename */}
-
+      <div className="relative my-4 overflow-hidden rounded-xl border-2 border-gray-500 bg-gray-100">
         <FileName fileName={fileName} />
 
         <div className="overflow-auto">
@@ -58,7 +56,7 @@ function MyCodeBlock({
                 {/* Add Highlighted Symbol if desired */}
                 <div
                   className={`table-cell select-none text-emerald-400 ${
-                    isLineHighlighted ? "px-4 opacity-100" : "opacity-0"
+                    isLineHighlighted ? "px-2 opacity-100 md:px-4" : "opacity-0"
                   }`}
                 >
                   +
