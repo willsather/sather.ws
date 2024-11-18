@@ -54,7 +54,7 @@ export default function PaginatedPosts({
             <li>
               <a
                 href={page > 0 ? `?page=${page - 1}` : ""}
-                className="ms-0 flex h-8 items-center justify-center rounded-s-lg border border-gray-300 border-e-0 bg-white px-3 text-gray-500 leading-tight dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 hover:bg-gray-100 dark:hover:text-white dark:text-gray-400 hover:text-gray-700"
+                className="ms-0 flex h-8 items-center justify-center rounded-s-lg border border-gray-300 border-e-0 bg-white px-3 text-gray-500 leading-tight hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               >
                 <span className="sr-only">Previous</span>
                 <svg
@@ -84,7 +84,7 @@ export default function PaginatedPosts({
                       <a
                         href={pageNumber >= 0 ? `?page=${pageNumber}` : ""}
                         aria-label={`Go to page ${pageNumber + 1}`}
-                        className="flex h-8 items-center justify-center border border-gray-300 bg-gray-200 px-3 text-gray-500 leading-tight dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 hover:bg-gray-300 dark:hover:text-white dark:text-gray-400 hover:text-gray-700"
+                        className="flex h-8 items-center justify-center border border-gray-300 bg-gray-200 px-3 text-gray-500 leading-tight hover:bg-gray-300 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                       >
                         <span className="font-bold">{pageNumber + 1}</span>
                       </a>
@@ -97,7 +97,7 @@ export default function PaginatedPosts({
                     <a
                       href={pageNumber >= 0 ? `?page=${pageNumber}` : ""}
                       aria-label={`Go to page ${pageNumber + 1}`}
-                      className="flex h-8 items-center justify-center border border-gray-300 bg-white px-3 text-gray-500 leading-tight dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 hover:bg-gray-100 dark:hover:text-white dark:text-gray-400 hover:text-gray-700"
+                      className="flex h-8 items-center justify-center border border-gray-300 bg-white px-3 text-gray-500 leading-tight hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                     >
                       <span>{pageNumber + 1}</span>
                     </a>
@@ -110,7 +110,7 @@ export default function PaginatedPosts({
             <li>
               <a
                 href={page < pageCount - 1 ? `?page=${page + 1}` : ""}
-                className="flex h-8 items-center justify-center rounded-e-lg border border-gray-300 bg-white px-3 text-gray-500 leading-tight dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 hover:bg-gray-100 dark:hover:text-white dark:text-gray-400 hover:text-gray-700"
+                className="flex h-8 items-center justify-center rounded-e-lg border border-gray-300 bg-white px-3 text-gray-500 leading-tight hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               >
                 <span className="sr-only">Next</span>
                 <svg

@@ -3,7 +3,7 @@
 const Loading = () => {
   return (
     <div className="flex h-64 w-full flex-row items-center justify-center">
-      <div role="status">
+      <output>
         <svg
           aria-hidden="true"
           className="inline h-8 w-8 animate-spin fill-gray-600 text-gray-200 dark:fill-gray-300 dark:text-gray-600"
@@ -21,7 +21,7 @@ const Loading = () => {
           />
         </svg>
         <span className="sr-only">Loading...</span>
-      </div>
+      </output>
     </div>
   );
 };

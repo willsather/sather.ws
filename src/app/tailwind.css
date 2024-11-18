@@ -3,35 +3,36 @@
 @tailwind utilities;
 
 @layer base {
-    h1 {
-        @apply text-4xl lg:text-6xl font-extrabold text-primary;
-    }
+  h1 {
+    @apply text-4xl lg:text-6xl font-extrabold text-primary;
+  }
 
-    h2 {
-        @apply text-xl lg:text-3xl font-bold text-primary;
-    }
+  h2 {
+    @apply text-xl lg:text-3xl font-bold text-primary;
+  }
 
-    h3 {
-        @apply text-lg lg:text-2xl font-semibold text-primary;
-    }
+  h3 {
+    @apply text-lg lg:text-2xl font-semibold text-primary;
+  }
 
-    h4 {
-        @apply text-lg font-semibold text-primary;
-    }
+  h4 {
+    @apply text-lg font-semibold text-primary;
+  }
 
-    h5 {
-        @apply font-semibold text-primary;
-    }
+  h5 {
+    @apply font-semibold text-primary;
+  }
 
-    h6 {
-        @apply font-semibold text-primary;
-    }
+  h6 {
+    @apply font-semibold text-primary;
+  }
 
-    strong  {
-        @apply font-semibold
-    }
+  strong {
+    @apply font-semibold;
+  }
 
-    pre, code {
-        @apply font-mono
-    }
+  pre,
+  code {
+    @apply font-mono;
+  }
 }

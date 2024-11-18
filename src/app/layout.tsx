@@ -32,13 +32,11 @@ const JetBrainsFont = localFont({
   variable: "--font-jetbrains",
 });
 
+const fonts = `${GeistSans.variable} ${JetBrainsFont.variable}`;
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html
-      lang="en"
-      // biome-ignore lint/nursery/useSortedClasses: do not delete this space (fix once out of beta)
-      className={`${JetBrainsFont.variable} ${GeistSans.variable}`}
-    >
+    <html lang="en" className={fonts}>
       <body>
         <Header />
         {children}
