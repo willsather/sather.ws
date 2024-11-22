@@ -17,8 +17,9 @@ export default async function BlogPostTwitterImage({
 }: {
   params: { slug: string };
 }) {
-  const geistBoldPath = path.join(process.cwd(), "public/fonts/Geist-Bold.ttf");
-  const geistBold = await fs.readFile(geistBoldPath);
+  const geistBold = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_URL}/fonts/Geist-Bold.ttf`,
+  ).then((res) => res.arrayBuffer());
 
   const blogPost = await getPost(params?.slug);
 

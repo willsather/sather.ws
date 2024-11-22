@@ -46,3 +46,6 @@ playwright-report/
 test-results/
 report/
 trace/
+
+.env
+.env.*
