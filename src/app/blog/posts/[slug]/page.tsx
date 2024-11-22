@@ -32,6 +32,7 @@ export async function generateMetadata({
       publishedTime: frontMatter.date,
       modifiedTime: frontMatter.date,
       url: `https://sather.ws/blog/posts/${params?.slug}`,
+      images: [`/og/${params?.slug}`],
     },
     alternates: {
       canonical: `/blog/posts/${params?.slug}`,

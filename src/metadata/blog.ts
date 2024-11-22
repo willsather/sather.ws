@@ -15,10 +15,10 @@ const blog: Metadata = {
     type: "article",
     authors: "Will Sather",
     url: "https://sather.ws/blog",
-    images: "/opengraph-image",
+    images: ["/og"],
   },
   twitter: {
-    images: "/twitter-image",
+    images: ["/og"],
   },
   alternates: {
     canonical: "/blog",

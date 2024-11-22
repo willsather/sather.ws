@@ -39,6 +39,7 @@ const home: Metadata = {
     description,
     type: "website",
     url: "https://www.sather.ws",
+    images: ["/og"],
   },
   alternates: {
     canonical: "/",
