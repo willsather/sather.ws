@@ -20,9 +20,6 @@ export default async function BlogPostTwitterImage({
   const geistBoldPath = path.join(process.cwd(), "public/fonts/Geist-Bold.ttf");
   const geistBold = await fs.readFile(geistBoldPath);
 
-  const geistPath = path.join(process.cwd(), "public/fonts/Geist-Bold.ttf");
-  const geist = await fs.readFile(geistPath);
-
   const blogPost = await getPost(params?.slug);
 
   return new ImageResponse(
@@ -46,12 +43,6 @@ export default async function BlogPostTwitterImage({
           name: "Geist Bold",
           data: geistBold,
           weight: 700,
-          style: "normal",
-        },
-        {
-          name: "Geist",
-          data: geist,
-          weight: 200,
           style: "normal",
         },
       ],
