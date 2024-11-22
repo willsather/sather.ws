@@ -1,3 +1,5 @@
+import fs from "node:fs/promises";
+import path from "node:path";
 import Logo from "@/icons/Logo";
 import { ImageResponse } from "next/og";
 
@@ -10,19 +12,24 @@ export const alt = "Will Sather";
 export const contentType = "image/png";
 
 export default async function DefaultTwitterImage() {
+  const fontPath = path.join(process.cwd(), "public/fonts/Geist-Bold.ttf");
+  const fontData = await fs.readFile(fontPath);
+
   return new ImageResponse(
-    <div tw="flex h-full w-full flex-col items-center justify-center bg-black">
-      <div tw="flex flex-none items-center justify-center h-[160px] w-[160px]">
-        <Logo width="64" height="58" fill="white" />
-      </div>
-      <div tw="flex items-center justify-center mt-12 mx-16">
-        <h1 tw="text-7xl text-center font-bold text-white font-sans font-bold">
-          Will Sather
-        </h1>
-      </div>
+    <div tw="flex flex-col w-full h-full items-center justify-center bg-black text-2xl text-white gap-8 text-4xl">
+      <Logo fill="white" />
+      <h1>Will Sather</h1>
     </div>,
     {
       ...size,
+      fonts: [
+        {
+          name: "JetBrains Mono",
+          data: fontData,
+          weight: 700,
+          style: "normal",
+        },
+      ],
     },
   );
 }

@@ -1,15 +1,9 @@
 import type { ComponentProps } from "react";
 
-export default function InstagramIcon({
-  width,
-  height,
-  ...props
-}: ComponentProps<"svg">) {
+export default function InstagramIcon({ ...props }: ComponentProps<"svg">) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={width}
-      height={height}
       viewBox="0 0 448 512"
       fill="#000000"
       {...props}

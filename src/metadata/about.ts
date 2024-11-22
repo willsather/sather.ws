@@ -14,6 +14,10 @@ const about: Metadata = {
 
     type: "website",
     url: "https://sather.ws/about",
+    images: "/opengraph-image",
+  },
+  twitter: {
+    images: "/twitter-image",
   },
   alternates: {
     canonical: "/about",
