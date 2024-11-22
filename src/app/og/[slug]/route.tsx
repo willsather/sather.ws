@@ -8,7 +8,11 @@ import { ImageResponse } from "next/og";
 export const dynamic = "force-static";
 
 export async function generateStaticParams() {
-  return (await getAllPosts()).map((post) => ({ id: post.slug }));
+  const posts = await getAllPosts();
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
 const geistBold = readFileSync(
