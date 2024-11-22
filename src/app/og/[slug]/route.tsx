@@ -1,11 +1,11 @@
 import Logo from "@/icons/Logo";
 
-export const revalidate = 60;
-
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { getAllPosts, getPost } from "@/lib/blog";
 import { ImageResponse } from "next/og";
+
+export const dynamic = "force-static";
 
 export async function generateStaticParams() {
   return (await getAllPosts()).map((post) => ({ id: post.slug }));
