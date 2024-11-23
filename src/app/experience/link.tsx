@@ -12,7 +12,9 @@ const ExternalLink = ({
 }) => {
   return (
     <Link href={href}>
-      <h2 className="text-gray-600 underline hover:text-black">{text}</h2>
+      <h2 className="text-gray-600 underline font-mono hover:text-black">
+        {text}
+      </h2>
     </Link>
   );
 };

@@ -14,7 +14,7 @@ export default function ExperiencePage() {
       </div>
 
       <div className="mt-5 flex justify-center">
-        <ExternalLink href="/files/resume.pdf" text="check out my resume." />
+        <ExternalLink href="/files/resume.pdf" text="my resume ->" />
       </div>
 
       <div className="mx-4">

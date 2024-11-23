@@ -5,8 +5,6 @@ import { join } from "node:path";
 import { getAllPosts, getPost } from "@/lib/blog";
 import { ImageResponse } from "next/og";
 
-export const dynamic = "force-static";
-
 export async function generateStaticParams() {
   const posts = await getAllPosts();
 
