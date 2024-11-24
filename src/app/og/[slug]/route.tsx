@@ -1,7 +1,6 @@
-import Logo from "@/icons/Logo";
-
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import Logo from "@/icons/Logo";
 import { getAllPosts, getPost } from "@/lib/blog";
 import { ImageResponse } from "next/og";
 
@@ -25,16 +24,8 @@ const geistBold = readFileSync(
   ),
 );
 
-const geistRegular = readFileSync(
-  join(
-    process.cwd(),
-    "node_modules",
-    "geist",
-    "dist",
-    "fonts",
-    "geist-sans",
-    "Geist-Regular.ttf",
-  ),
+const jetBrainsMono = readFileSync(
+  join(process.cwd(), "public", "fonts", "JetBrainsMono-Regular.ttf"),
 );
 
 export async function GET(
@@ -54,7 +45,7 @@ export async function GET(
       <Logo fill="white" style={{ marginBottom: 50 }} />
 
       {/* Website Domain */}
-      <div tw="text-xl text-gray-400 mb-4" style={font("Geist")}>
+      <div tw="text-xl text-gray-400 mb-4" style={font("JetBrains Mono")}>
         sather.ws
       </div>
 
@@ -75,8 +66,8 @@ export async function GET(
       height: 630,
       fonts: [
         {
-          name: "Geist",
-          data: geistRegular,
+          name: "JetBrains Mono",
+          data: jetBrainsMono,
         },
         {
           name: "Geist Bold",
