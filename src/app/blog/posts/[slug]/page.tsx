@@ -56,7 +56,7 @@ export default async function BlogPostPage({
   return (
     <div>
       <div className="my-2 flex flex-row justify-center">
-        <h4 className="text-gray-500">
+        <h4 className="font-mono text-gray-400">
           {frontMatter.date.toLocaleDateString("default", {
             month: "long",
             day: "numeric",

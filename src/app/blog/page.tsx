@@ -1,32 +1,13 @@
-import type { Metadata } from "next";
-import { redirect } from "next/navigation";
-
-import PaginatedPosts from "@/app/blog/paginatedPosts";
+import PostList from "@/app/blog/postList";
 import { getAllPosts } from "@/lib/blog";
 import blogMetadata from "@/metadata/blog";
+import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = blogMetadata;
 
-export default async function BlogPage({
-  searchParams,
-}: {
-  searchParams: { page: string | undefined };
-}) {
+export default async function BlogPage() {
   const posts = await getAllPosts();
-
-  const parsedPage = Number.parseInt(searchParams.page ?? "");
-
-  // never show ?page=0
-  if (parsedPage === 0) {
-    redirect("/blog");
-  }
-
-  const page = Number.isNaN(parsedPage) ? 0 : parsedPage;
-
-  // redirect if manually navigating to a page that doesn't exist
-  if (page > Math.ceil(posts.length / 3) - 1) {
-    redirect("/blog");
-  }
 
   return (
     <div className="bg-secondary">
@@ -40,7 +21,7 @@ export default async function BlogPage({
 
       <hr className="my-6" />
 
-      <PaginatedPosts posts={posts} page={page} />
+      <PostList posts={posts} />
     </div>
   );
 }
