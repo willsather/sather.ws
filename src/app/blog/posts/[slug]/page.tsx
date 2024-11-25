@@ -18,24 +18,24 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
-  const { frontMatter } = await getPost(params?.slug);
+  const { slug, data } = await getPost(params?.slug);
 
   return {
-    title: frontMatter.title,
-    description: frontMatter.summary,
+    title: data.title,
+    description: data.summary,
     openGraph: {
-      title: frontMatter.title,
-      description: frontMatter.summary,
+      title: data.title,
+      description: data.summary,
       type: "article",
       authors: "Will Sather",
-      tags: frontMatter.tags,
-      publishedTime: frontMatter.date,
-      modifiedTime: frontMatter.date,
-      url: `https://sather.ws/blog/posts/${params?.slug}`,
-      images: [`/og/${params?.slug}`],
+      tags: data.tags,
+      publishedTime: data.date,
+      modifiedTime: data.date,
+      url: `https://sather.ws/blog/posts/${slug}`,
+      images: [`/og/${slug}`],
     },
     alternates: {
-      canonical: `/blog/posts/${params?.slug}`,
+      canonical: `/blog/posts/${slug}`,
     },
   } as Metadata;
 }
@@ -45,19 +45,19 @@ export default async function BlogPostPage({
 }: {
   params: { slug: string };
 }) {
-  const { content, frontMatter } = await getPost(params?.slug);
+  const { content, data } = await getPost(params?.slug);
 
-  if (frontMatter.draft) {
+  if (data.draft) {
     notFound();
   }
 
-  const tags = Array.from(new Set(frontMatter.tags));
+  const tags = Array.from(new Set(data.tags));
 
   return (
     <div>
       <div className="my-2 flex flex-row justify-center">
         <h4 className="font-mono text-gray-400">
-          {frontMatter.date.toLocaleDateString("default", {
+          {data.date.toLocaleDateString("default", {
             month: "long",
             day: "numeric",
             year: "numeric",
@@ -66,7 +66,7 @@ export default async function BlogPostPage({
       </div>
 
       <div className="my-2 flex flex-row justify-center text-center">
-        <h1 className="content-center">{frontMatter.title}</h1>
+        <h1 className="content-center">{data.title}</h1>
       </div>
 
       <div className="wrap flex flex-row justify-center gap-2 md:gap-4">

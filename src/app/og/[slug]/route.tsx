@@ -54,7 +54,7 @@ export async function GET(
         tw="text-5xl font-bold leading-tight mb-4"
         style={font("Geist Bold")}
       >
-        {post.frontMatter.title}
+        {post.data.title}
       </div>
 
       <div tw="text-3xl text-gray-400" style={font("Geist Bold")}>
