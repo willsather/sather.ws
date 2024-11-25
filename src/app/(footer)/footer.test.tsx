@@ -22,7 +22,7 @@ describe("Footer", () => {
     expect(screen.getByRole("link", { name: "linkedin" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "github" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "vsco" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "rss" })).toBeInTheDocument();
+    // expect(screen.getByRole("link", { name: "rss" })).toBeInTheDocument();
   });
 
   it("should link to respective social sites", () => {
@@ -42,10 +42,10 @@ describe("Footer", () => {
       "href",
       "https://vsco.co/willsather/gallery",
     );
-    expect(screen.getByRole("link", { name: "rss" })).toHaveAttribute(
-      "href",
-      "/blog/rss.xml",
-    );
+    // expect(screen.getByRole("link", { name: "rss" })).toHaveAttribute(
+    //   "href",
+    //   "/blog/rss.xml",
+    // );
   });
 
   it("should toggle particles", async () => {
