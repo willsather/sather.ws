@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import React, { type ReactNode } from "react";
 
-import Header from "@/app/(header)/header";
+import Header from "@/app/(layout)/header";
 import homeMetadata from "@/metadata/home";
 
 import "./tailwind.css";

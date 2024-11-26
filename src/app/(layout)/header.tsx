@@ -1,6 +1,6 @@
 "use client";
 
-import NavigationBar from "@/app/(header)/navigationBar";
+import NavigationBar from "@/app/(layout)/navigationBar";
 import Logo from "@/icons/Logo";
 
 const Header = () => {

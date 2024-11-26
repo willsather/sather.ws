@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 
-import menuLinks from "@/app/(header)/menuLinks";
+import menuLinks from "@/app/(layout)/menuLinks";
 import CloseIcon from "@/icons/Close";
 import MenuIcon from "@/icons/Menu";
 

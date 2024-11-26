@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import Header from "@/app/(header)/header";
+import Header from "@/app/(layout)/header";
 
 describe("Header", () => {
   beforeEach(() => {
