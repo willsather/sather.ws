@@ -3,9 +3,9 @@
 import React from "react";
 import { CodeBlock } from "react-code-block";
 
-import FileName from "@/app/blog/(customMdx)/FileName";
-import FileType from "@/app/blog/(customMdx)/FileType";
-import prismTheme from "@/app/blog/(customMdx)/prismTheme";
+import FileName from "@/app/blog/(components)/FileName";
+import FileType from "@/app/blog/(components)/FileType";
+import prismTheme from "@/app/blog/(components)/prismTheme";
 
 import "@/app/scroll.css";
 

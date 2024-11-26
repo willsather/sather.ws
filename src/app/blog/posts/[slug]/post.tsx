@@ -1,4 +1,4 @@
-import CustomMDX from "@/app/blog/(customMdx)/CustomMDX";
+import CustomMDX from "@/app/blog/CustomMDX";
 
 const Post = ({ content }: { content: string }) => {
   return (

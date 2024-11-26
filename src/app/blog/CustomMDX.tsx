@@ -2,11 +2,11 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeMdxCodeProps from "rehype-mdx-code-props";
 import rehypeSlug from "rehype-slug";
 
-import AnchorLink from "@/app/blog/(customMdx)/AnchorLink";
-import Component from "@/app/blog/(customMdx)/Component";
-import InlineCode from "@/app/blog/(customMdx)/InlineCode";
-import Note from "@/app/blog/(customMdx)/Note";
-import PreBlock from "@/app/blog/(customMdx)/PreBlock";
+import AnchorLink from "@/app/blog/(components)/AnchorLink";
+import Component from "@/app/blog/(components)/Component";
+import InlineCode from "@/app/blog/(components)/InlineCode";
+import Note from "@/app/blog/(components)/Note";
+import PreBlock from "@/app/blog/(components)/PreBlock";
 
 export default function CustomMDX({ content }: { content: string }) {
   return (
