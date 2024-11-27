@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 export type NoteType = "Note" | "Info" | "Success" | "Warning" | "Error";
 
 export default function Note({
-  type,
+  type = "Note",
   children,
 }: {
   type: NoteType;
@@ -25,5 +25,37 @@ export default function Note({
       <h5 className={`font-bold ${colorClasses[type]}`}>{type}</h5>
       <div>{children}</div>
     </div>
+  );
+}
+
+export function InfoBlock({ children, ...props }: { children: ReactNode }) {
+  return (
+    <Note type="Info" {...props}>
+      {children}
+    </Note>
+  );
+}
+
+export function SuccessBlock({ children, ...props }: { children: ReactNode }) {
+  return (
+    <Note type="Success" {...props}>
+      {children}
+    </Note>
+  );
+}
+
+export function WarningBlock({ children, ...props }: { children: ReactNode }) {
+  return (
+    <Note type="Warning" {...props}>
+      {children}
+    </Note>
+  );
+}
+
+export function ErrorBlock({ children, ...props }: { children: ReactNode }) {
+  return (
+    <Note type="Error" {...props}>
+      {children}
+    </Note>
   );
 }
