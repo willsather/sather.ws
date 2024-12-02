@@ -1,6 +1,6 @@
 import CustomMDX from "@/app/blog/CustomMDX";
 
-const Post = ({ content }: { content: string }) => {
+export default function Post({ content }: { content: string }) {
   return (
     <div>
       <div className="my-10">
@@ -8,6 +8,4 @@ const Post = ({ content }: { content: string }) => {
       </div>
     </div>
   );
-};
-
-export default Post;
+}

@@ -3,7 +3,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import React, { type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import Header from "@/app/(layout)/header";
 import homeMetadata from "@/metadata/home";

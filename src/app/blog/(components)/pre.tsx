@@ -1,41 +1,46 @@
-import type { HTMLAttributes } from "react";
+import type { HTMLAttributes, ReactElement, ReactNode } from "react";
 
-// export default function Pre({
-//   children,
-//   ...props
-// }: HTMLAttributes<HTMLPreElement>) {
-//   return <pre {...props}>{children}</pre>;
-// }
-
-import type { FC, ReactNode } from "react";
-
-import CodeBlock from "@/app/blog/(components)/CodeBlock";
-
-export interface PreBlockProps {
-  // biome-ignore lint/suspicious/noExplicitAny: : children can be anything in the markdown
-  children?: ReactNode | any;
-  lines?: (number | string)[];
-  words?: string[];
+export interface PreBlockProps extends HTMLAttributes<HTMLPreElement> {
+  children?: ReactNode;
   showLineNumbers?: boolean;
   fileName?: string;
 }
 
-export default function PreBlock({
-  children,
-  fileName,
-  lines,
-  words,
-  showLineNumbers,
-}: PreBlockProps) {
+function isReactElement(node: ReactNode): node is ReactElement {
+  return typeof node === "object" && node !== null && "props" in node;
+}
+
+export default function PreBlock({ ...props }: PreBlockProps) {
+  let className: string | undefined = undefined;
+
+  if (isReactElement(props.children)) {
+    className = props.children.props.className;
+  }
+
+  const language = className?.match(/language-(\w+)/)?.[1];
+  const fileName = props?.fileName?.replaceAll('"', "");
+
+  // return props.children;
+
   return (
-    <CodeBlock
-      language={children.props.className}
-      showLineNumbers={showLineNumbers}
-      lines={lines}
-      words={words}
-      fileName={fileName}
-    >
-      {children.props.children}
-    </CodeBlock>
+    <div className="mb-4 overflow-hidden rounded-lg bg-gray-900 shadow-lg">
+      {fileName && (
+        <div className="flex items-center gap-2 bg-gray-800 px-4 py-2 text-gray-400 text-sm">
+          <span className="font-medium">{fileName}</span>
+        </div>
+      )}
+
+      <div className="relative">
+        <pre className="overflow-x-auto p-4 text-gray-300 text-sm">
+          {props.children}
+        </pre>
+
+        {language && (
+          <div className="absolute right-2 bottom-2 rounded bg-gray-800 px-2 py-1 font-medium text-gray-400 text-xs">
+            {language.toLowerCase()}
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

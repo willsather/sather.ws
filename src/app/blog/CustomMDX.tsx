@@ -1,17 +1,11 @@
+import rehypeShiki from "@shikijs/rehype";
+import { transformerNotationDiff } from "@shikijs/transformers";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeMdxCodeProps from "rehype-mdx-code-props";
 import rehypeSlug from "rehype-slug";
 
-import Component from "@/app/blog/(components)/component";
-import Note, {
-  ErrorBlock,
-  InfoBlock,
-  SuccessBlock,
-  WarningBlock,
-} from "@/app/blog/(components)/note";
 import a from "./(components)/a";
 import blockquote from "./(components)/blockquote";
-import code from "./(components)/code";
 import h1 from "./(components)/h1";
 import h2 from "./(components)/h2";
 import h3 from "./(components)/h3";
@@ -25,10 +19,18 @@ import p from "./(components)/p";
 import pre from "./(components)/pre";
 import ul from "./(components)/ul";
 
+import Component from "@/app/blog/(components)/component";
+import Note, {
+  ErrorBlock,
+  InfoBlock,
+  SuccessBlock,
+  WarningBlock,
+} from "@/app/blog/(components)/note";
+
 export default function CustomMDX({ content }: { content: string }) {
   return (
     <>
-      {/* @ts-expect-error Server Component */}
+      {/* @ts-expect-error Server Component (Not supported yet?) */}
       <MDXRemote
         source={content}
         components={{
@@ -40,10 +42,9 @@ export default function CustomMDX({ content }: { content: string }) {
           p,
           a,
           pre,
-          img: img,
+          img,
           Image: img,
           blockquote,
-          code,
           hr,
           ul,
           ol,
@@ -59,8 +60,34 @@ export default function CustomMDX({ content }: { content: string }) {
           mdxOptions: {
             remarkPlugins: [],
             rehypePlugins: [
+              [
+                rehypeShiki,
+                {
+                  themes: { light: "one-dark-pro", dark: "one-dark-pro" },
+                  addLanguageClass: true,
+                  transformers: [transformerNotationDiff()],
+
+                  // hack to pass data props through shiki
+                  // https://github.com/shikijs/shiki/issues/629
+                  parseMetaString: (str: string) => {
+                    return Object.fromEntries(
+                      str.split(" ").reduce(
+                        (prev, curr) => {
+                          const [key, value] = curr.split("=");
+                          const isNormalKey = /^[A-Z0-9]+$/i.test(key);
+                          if (isNormalKey) {
+                            prev.push([key, value || true]);
+                          }
+                          return prev;
+                        },
+                        [] as [string, string | true][],
+                      ),
+                    );
+                  },
+                },
+              ],
               rehypeSlug, // add `id` to all headings
-              rehypeMdxCodeProps,
+              rehypeMdxCodeProps, // provide custom props on `code` and `pre` blocks
             ],
             format: "mdx",
           },

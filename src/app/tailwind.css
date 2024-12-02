@@ -35,4 +35,45 @@
   code {
     @apply font-mono;
   }
+
+  /* blog code blocks */
+  :not(pre) > code {
+    @apply rounded-md bg-gray-200 px-1 py-0.5 text-sm;
+  }
+
+  pre {
+    @apply overflow-x-auto p-4 text-gray-300 text-sm;
+
+    & > code {
+      @apply flex flex-col flex-grow;
+
+      .line {
+        @apply bg-red w-full flex-grow;
+      }
+    }
+
+    &.diff {
+      .line {
+        @apply px-1 select-none min-h-2;
+
+        &::before {
+          content: " ";
+          @apply px-1 select-none min-h-2;
+        }
+        &.add {
+          @apply bg-green-200;
+          &::before {
+            content: "+";
+          }
+        }
+        &.remove {
+          @apply bg-red-300;
+
+          &::before {
+            content: "-";
+          }
+        }
+      }
+    }
+  }
 }

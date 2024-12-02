@@ -114,8 +114,6 @@ to show when writing React components
 
 ## Code Blocks
 
-### Code Snippets
-
 #### Typescript
 
 ```ts
@@ -151,14 +149,14 @@ export interface TypescriptTypeWithFileName {
 }
 ```
 
-```ts fileName="highlighted.ts" showLineNumbers lines={["1:3"]}
-function sayHello(name) {
-  console.log("Hello", name);
-}
+```ts fileName="diff.ts" showLineNumbers
+function sayHello(name) {           // [!code --]
+  console.log("Hello", name);       // [!code --]
+}                                   // [!code --]
 
-function sayGoodbye(name) {
-  console.log("Goodbye", name);
-}
+function sayGoodbye(name) {         // [!code ++]
+  console.log("Goodbye", name);     // [!code ++]
+}                                   // [!code ++]
 ```
 
 ```ts fileName="/really/long/file/name/file.ts"
