@@ -9,7 +9,7 @@ It has four main pages:
 3. Blog
 4. About
 
-where `/blog/${slug}` is various blog posts.
+where `/blog/posts/${slug}` is various blog posts.
 
 ## Local Setup
 
