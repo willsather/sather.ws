@@ -2,7 +2,6 @@ import type { HTMLAttributes, ReactElement, ReactNode } from "react";
 
 export interface PreBlockProps extends HTMLAttributes<HTMLPreElement> {
   children?: ReactNode;
-  showLineNumbers?: boolean;
   fileName?: string;
 }
 
