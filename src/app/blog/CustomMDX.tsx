@@ -1,5 +1,8 @@
 import rehypeShiki from "@shikijs/rehype";
-import { transformerNotationDiff } from "@shikijs/transformers";
+import {
+  transformerNotationDiff,
+  transformerNotationHighlight,
+} from "@shikijs/transformers";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeMdxCodeProps from "rehype-mdx-code-props";
 import rehypeSlug from "rehype-slug";
@@ -65,7 +68,10 @@ export default function CustomMDX({ content }: { content: string }) {
                 {
                   themes: { light: "one-dark-pro", dark: "one-dark-pro" },
                   addLanguageClass: true,
-                  transformers: [transformerNotationDiff()],
+                  transformers: [
+                    transformerNotationDiff(),
+                    transformerNotationHighlight(),
+                  ],
 
                   // hack to pass data props through shiki
                   // https://github.com/shikijs/shiki/issues/629

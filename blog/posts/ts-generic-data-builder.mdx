@@ -82,15 +82,15 @@ export const purchaseEventData = z.object({
 });
 export type PurchaseEventData = z.infer<typeof purchaseEventData>;
 
-export const shippedEventData = z.object({
-  shipmentDate: z.date(),
-  carrier: z.union([z.literal("UPS"), z.literal("FEDEX")]),
-});
-export type ShipmentEventData = z.infer<typeof shippedEventData>;
+export const shippedEventData = z.object({                        // [!code ++]
+  shipmentDate: z.date(),                                         // [!code ++]
+  carrier: z.union([z.literal("UPS"), z.literal("FEDEX")]),       // [!code ++]
+});                                                               // [!code ++]
+export type ShipmentEventData = z.infer<typeof shippedEventData>; // [!code ++]
 
 export interface OrderEventData {
   [OrderEvent.Purchase]: PurchaseEventData;
-  [OrderEvent.Shipped]: ShipmentEventData;
+  [OrderEvent.Shipped]: ShipmentEventData;                        // [!code ++]
 }
 ```
 
@@ -132,18 +132,18 @@ export function buildThirdPartyOrderData<T extends OrderEvent>(
 Typescript would complain with:
 
 <Error>
-    <code className="text-sm">
+    <span className="font-mono text-sm">
       {
         'TS2339: Property sku does not exist on type { shipmentDate: Date; carrier: "UPS" | "FEDEX"; } | { id: string; sku: string; totalPrice: number; }'
       }
-    </code>
+    </span>
 
     <br />
     <br />
 
-    <code className="text-sm">
+    <span className="font-mono text-sm">
         {'Property sku does not exist on type { shipmentDate: Date; carrier: "UPS" | "FEDEX"; }'}
-    </code>
+    </span>
 
 </Error>
 
@@ -170,18 +170,18 @@ export function buildThirdPartyOrderData<T extends OrderEvent>(
   orderEvent: T,
   orderEventData: OrderEventData[T]
 ): ThirdPartyOrderData[T] {
-  const thirdPartyOrderDataBuilder: {
-    [K in OrderEvent]: (data: OrderEventData[K]) => ThirdPartyOrderData[K];
-  } = {
+  const thirdPartyOrderDataBuilder: {                                         // [!code ++]
+    [K in OrderEvent]: (data: OrderEventData[K]) => ThirdPartyOrderData[K];   // [!code ++]
+  } = {                                                                       // [!code ++]
     [OrderEvent.Purchase]: (data) => ({
       id: data.id,
       sku: data.sku,
       totalPrice: data.price,
     }),
-    [OrderEvent.Shipped]: (data) => ({
-      date_shipped: data.shipmentDate,
-      carrier_brand: data.carrier,
-    }),
+    [OrderEvent.Shipped]: (data) => ({                                        // [!code ++]
+      date_shipped: data.shipmentDate,                                        // [!code ++]
+      carrier_brand: data.carrier,                                            // [!code ++]
+    }),                                                                       // [!code ++]
   };
 
   if (thirdPartyOrderDataBuilder[orderEvent] == null) {

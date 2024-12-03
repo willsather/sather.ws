@@ -20,8 +20,6 @@ export default function PreBlock({ ...props }: PreBlockProps) {
   const language = className?.match(/language-(\w+)/)?.[1];
   const fileName = props?.fileName?.replaceAll('"', "");
 
-  // return props.children;
-
   return (
     <div className="mb-4 overflow-hidden rounded-lg bg-gray-900 shadow-lg">
       {fileName && (
@@ -31,7 +29,7 @@ export default function PreBlock({ ...props }: PreBlockProps) {
       )}
 
       <div className="relative">
-        <pre className="overflow-x-auto p-4 text-gray-300 text-sm">
+        <pre className="flex overflow-x-auto text-gray-300 text-sm">
           {props.children}
         </pre>
 

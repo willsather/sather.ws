@@ -149,6 +149,12 @@ export interface TypescriptTypeWithFileName {
 }
 ```
 
+```ts fileName="highlighted.ts"
+function sayHello(name) {           
+  console.log("Hello", name);       // [!code highlight]
+}                                   
+```
+
 ```ts fileName="diff.ts" showLineNumbers
 function sayHello(name) {           // [!code --]
   console.log("Hello", name);       // [!code --]
@@ -159,7 +165,7 @@ function sayGoodbye(name) {         // [!code ++]
 }                                   // [!code ++]
 ```
 
-```ts fileName="/really/long/file/name/file.ts"
+```ts fileName="really-long-file-name-file.ts"
 export interface TypescriptReallyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyLonggggggggggggggggggggggggggggggggTypeeeeeeeeeeeeeeeeeeeeeeeeeee {
   hello: "Will" | "Sather";
   user: {
@@ -259,15 +265,7 @@ This is some random text
 echo "hello there"
 ```
 
-```bat
-hello
-```
-
 ```c
-hello
-```
-
-```console
 hello
 ```
 

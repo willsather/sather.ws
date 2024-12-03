@@ -1,0 +1,67 @@
+/* inline code block */
+:not(pre) > code {
+  @apply rounded-md bg-gray-200 px-1 py-0.5 text-sm;
+}
+
+/* pre code block */
+pre {
+  /* ensure code block is flex for highlighting */
+  & > code {
+    @apply flex flex-col flex-grow;
+  }
+
+  /* add padding if no syntax highlighting */
+  & > code:not(:has(.line)) {
+    @apply p-3;
+  }
+
+  /*& > code > .has*/
+}
+
+.line {
+  /* grow width and min height for empty lines */
+  @apply flex flex-grow min-h-3;
+
+  /* space out first code line without impacting highlight */
+  &:first-child {
+    @apply mt-4;
+  }
+
+  /* space out last code line without impacting highlight */
+  &:last-child {
+    @apply mb-10 md:mb-5;
+  }
+
+  /* style code block highlights */
+  &::before {
+    content: " ";
+    @apply select-none border-transparent px-2;
+  }
+
+  &.highlighted {
+    @apply border-l-4 border-blue-800 bg-blue-800/25;
+
+    &::before {
+      content: " ";
+      @apply pl-1 pr-2;
+    }
+  }
+
+  &.add {
+    @apply border-l-4 border-green-800 bg-green-800/25 text-green-500;
+
+    &::before {
+      content: "+";
+      @apply pl-1 pr-2;
+    }
+  }
+
+  &.remove {
+    @apply border-l-4 border-red-800 bg-red-800/25 text-red-500;
+
+    &::before {
+      content: "-";
+      @apply pl-1 pr-2;
+    }
+  }
+}

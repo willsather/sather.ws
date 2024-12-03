@@ -5,6 +5,8 @@ import Post from "@/app/blog/posts/[slug]/post";
 import Tag from "@/app/blog/tag";
 import { getAllPosts, getPost } from "@/lib/blog";
 
+import "@/app/blog/(components)/markdown.css";
+
 export async function generateStaticParams() {
   const posts = await getAllPosts();
 

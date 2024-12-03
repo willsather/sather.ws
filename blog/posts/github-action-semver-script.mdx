@@ -64,7 +64,7 @@ module.exports = async ({ github, context, core }) => {
 
 and can be used like this:
 
-```ymal lines={["8:12"]}
+```yaml
 on: push
 
 jobs:
@@ -72,11 +72,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/github-script@v7
-        with:
-          script: |
-            const script = require('./.github/workflows/scripts/create-release.js')
-            await script({github, context, core})
+      - uses: actions/github-script@v7                                                // [!code highlight]
+        with:                                                                         // [!code highlight]
+          script: |                                                                   // [!code highlight]
+            const script = require('./.github/workflows/scripts/create-release.js')   // [!code highlight]
+            await script({github, context, core})                                     // [!code highlight]
 ```
 
 This is all documented at [`actions/github-script`](https://github.com/actions/github-script).
