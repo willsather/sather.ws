@@ -28,7 +28,7 @@ Using the [Next.js documentation](https://nextjs.org/docs/app/api-reference/file
 I was able to customize it a little bit and come up with a generic/default Open Graph image for the entire site,
 located at the root of the App Router.
 
-```tsx fileName="/app/opengraph-image.tsx"
+```tsx title="/app/opengraph-image.tsx"
 import { ImageResponse } from "next/server";
 import Logo from "@/components/shared/logo";
 
@@ -64,7 +64,7 @@ image would include the title and date included in the `MDX` [FrontMatter](https
 So, nested in the `/blog/posts/opengraph-image.tsx` there is a second OpenGraph Image component that Next.js uses to
 generate the Open Graph image using the `params?.slug` to load the blog post and the frontmatter data to generate the correct image.
 
-```tsx fileName="/app/blog/posts/[slug]/opengraph-image.tsx"
+```tsx title="/app/blog/posts/[slug]/opengraph-image.tsx"
 import { ImageResponse } from "next/server";
 import { getPost } from "@/lib/blog/posts";
 import Logo from "@/components/shared/logo";

@@ -17,13 +17,13 @@ export default function PreBlock({ ...props }: PreBlockProps) {
   }
 
   const language = className?.match(/language-(\w+)/)?.[1];
-  const fileName = props?.fileName?.replaceAll('"', "");
+  const title = props?.title?.replaceAll('"', "");
 
   return (
     <div className="mb-4 overflow-hidden rounded-lg bg-gray-900 shadow-lg">
-      {fileName && (
+      {title && (
         <div className="flex items-center gap-2 bg-gray-800 px-4 py-2 text-gray-400 text-sm">
-          <span className="font-medium">{fileName}</span>
+          <span className="font-medium">{title}</span>
         </div>
       )}
 

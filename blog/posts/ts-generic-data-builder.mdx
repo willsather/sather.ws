@@ -14,7 +14,7 @@ types and for each integration point to properly handle the translation/data map
 Recently, I was working with a project where I wanted to translate the defined domain type (`order.ts`) to a third party integration type
 (`integration.ts`) for a generic Typescript function (`updateOrderEvent`). Looking at the code, it looked something like this:
 
-```ts fileName="order.ts"
+```ts title="order.ts"
 import { z } from "zod";
 
 export enum OrderEvent {
@@ -33,7 +33,7 @@ export interface OrderEventData {
 }
 ```
 
-```ts fileName="integration.ts"
+```ts title="integration.ts"
 import { OrderEvent, OrderEventData } from "./order.ts";
 
 export interface ThirdPartyOrderData {
@@ -67,7 +67,7 @@ as the function `buildThirdPartyOrderData` does not narrow `orderEventData` at a
 
 To show this, if you were to add a new event like this:
 
-```ts fileName="order.ts" lines={["5:5", "15:19", "23:23"]}
+```ts title="order.ts" lines={["5:5", "15:19", "23:23"]}
 import { z } from "zod";
 
 export enum OrderEvent {
@@ -94,7 +94,7 @@ export interface OrderEventData {
 }
 ```
 
-```ts fileName="integration.ts"
+```ts title="integration.ts"
 import { OrderEvent, OrderEventData } from "./order.ts";
 
 export interface ThirdPartyOrderData {
@@ -151,7 +151,7 @@ Typescript would complain with:
 
 So, after some thinking and some research, the best way I found to solve this is as follows.
 
-```ts fileName="integration.ts" lines={["19:21", "27:30"]}
+```ts title="integration.ts" lines={["19:21", "27:30"]}
 import { OrderEvent, OrderEventData } from "./order.ts";
 
 export interface ThirdPartyOrderData {

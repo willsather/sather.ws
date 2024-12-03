@@ -23,7 +23,7 @@ First thing I did was to create the GitHub action workflow:
   application
 </Info>
 
-```yaml fileName="deploy.yaml"
+```yaml title="deploy.yaml"
 name: dev
 on:
   push:
@@ -112,7 +112,7 @@ Once you have those two pieces of information, you need to configure the GitHub 
 
 You can also a Netlify configuration to specify configuration in `netlify.toml` file, like shown here:
 
-```toml fileName="netlify.toml"
+```toml title="netlify.toml"
 [build]
   base = "."
   publish = ".next"

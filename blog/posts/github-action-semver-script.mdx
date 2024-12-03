@@ -14,7 +14,7 @@ This code snippet generates:
 2. calculates the new version number dependent on an environment variable `RELEASE_TYPE` (options are `major`, `minor`, or `patch`)
 3. creates a new GitHub release using new version number
 
-```js fileName=".github/workflows/scripts/create-release.js"
+```js title=".github/workflows/scripts/create-release.js"
 module.exports = async ({ github, context, core }) => {
   console.log("Release Type: ", process.env.RELEASE_TYPE);
 

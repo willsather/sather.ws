@@ -18,7 +18,7 @@ write about it again.
 A `GET` API endpoint is actually quite simple using Next.js new App Router named functions, it essentially is just a function
 that returns stuff. Here is a simple example:
 
-```tsx fileName="/app/api/user/[userId]/route.ts"
+```tsx title="/app/api/user/[userId]/route.ts"
 import { NextResponse } from "next/server";
 import UserService from "@/services/UserService";
 
@@ -39,7 +39,7 @@ around our service and the HTTP Request and Response objects. This example below
 
 Here is how I tested this function:
 
-```tsx fileName="/app/api/user/[userId]/route.test.ts"
+```tsx title="/app/api/user/[userId]/route.test.ts"
 /**
  * @jest-environment node
  */
@@ -78,7 +78,7 @@ describe("api", () => {
 A very similar approach can be applied to a `POST` endpoint. The difference: this test will accept a `body` and will
 manipulate the User, rather than retrieve it.
 
-```tsx fileName="/app/api/user/route.ts"
+```tsx title="/app/api/user/route.ts"
 import { NextResponse } from "next/server";
 import UserService from "@/services/UserService";
 
@@ -93,7 +93,7 @@ export async function POST(request: Request) {
 
 and the test:
 
-```tsx fileName="/app/api/user/route.test.ts"
+```tsx title="/app/api/user/route.test.ts"
 /**
  * @jest-environment node
  */

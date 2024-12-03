@@ -140,7 +140,7 @@ export default function sayHello(say: "Hello" | "Goodbye"): SayHelloType {
 }
 ```
 
-```ts fileName="filename.ts"
+```ts title="filename.ts"
 export interface TypescriptTypeWithFileName {
   hello: "Will" | "Sather";
   user: {
@@ -149,13 +149,13 @@ export interface TypescriptTypeWithFileName {
 }
 ```
 
-```ts fileName="highlighted.ts"
+```ts title="highlighted.ts"
 function sayHello(name) {           
   console.log("Hello", name);       // [!code highlight]
 }                                   
 ```
 
-```ts fileName="diff.ts"
+```ts title="diff.ts"
 function sayHello(name) {           // [!code --]
   console.log("Hello", name);       // [!code --]
 }                                   // [!code --]
@@ -165,7 +165,7 @@ function sayGoodbye(name) {         // [!code ++]
 }                                   // [!code ++]
 ```
 
-```ts fileName="really-long-file-name-file.ts"
+```ts title="really-long-file-name-file.ts"
 export interface TypescriptReallyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyLonggggggggggggggggggggggggggggggggTypeeeeeeeeeeeeeeeeeeeeeeeeeee {
   hello: "Will" | "Sather";
   user: {
