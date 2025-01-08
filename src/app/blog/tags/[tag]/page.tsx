@@ -10,11 +10,13 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({
-  params: { tag },
-}: {
-  params: { tag: string };
+export async function generateMetadata(props: {
+  params: Promise<{ tag: string }>;
 }) {
+  const params = await props.params;
+
+  const { tag } = params;
+
   return {
     title: tag,
     description: `just another coding blog. an assortment of blog posts about ${tag} and my recent experience.`,
@@ -28,7 +30,10 @@ export function generateMetadata({
   } as Metadata;
 }
 
-export default function TagPage({ params }: { params: { tag: string } }) {
+export default async function TagPage(props: {
+  params: Promise<{ tag: string }>;
+}) {
+  const params = await props.params;
   const posts = getPostsDataByTag(params?.tag);
 
   return (

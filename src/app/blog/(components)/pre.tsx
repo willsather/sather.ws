@@ -14,6 +14,7 @@ export default function PreBlock({ ...props }: PreBlockProps) {
   let className: string | undefined = undefined;
 
   if (isReactElement(props.children)) {
+    // @ts-ignore
     className = props.children.props.className;
   }
 

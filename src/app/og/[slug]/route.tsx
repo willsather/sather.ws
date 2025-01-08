@@ -30,11 +30,12 @@ const jetBrainsMono = readFileSync(
 
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } },
+  props: { params: Promise<{ slug: string }> },
 ) {
+  const params = await props.params;
   const slug = params.slug;
 
-  const postData = await getPost(slug);
+  const postData = getPost(slug);
 
   if (postData == null) {
     return new Response("Not found", { status: 404 });
