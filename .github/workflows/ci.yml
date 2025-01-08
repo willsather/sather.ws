@@ -21,7 +21,7 @@ jobs:
 
       - uses: pnpm/action-setup@v3
         with:
-          version: 8
+          version: 9
           run_install: |
             - recursive: true
               args: [--frozen-lockfile, --strict-peer-dependencies]
@@ -39,7 +39,7 @@ jobs:
 
       - uses: pnpm/action-setup@v3
         with:
-          version: 8
+          version: 9
           run_install: |
             - recursive: true
               args: [--frozen-lockfile, --strict-peer-dependencies]
@@ -62,7 +62,7 @@ jobs:
 
       - uses: pnpm/action-setup@v3
         with:
-          version: 8
+          version: 9
           run_install: |
             - recursive: true
               args: [--frozen-lockfile, --strict-peer-dependencies]
@@ -100,7 +100,7 @@ jobs:
 
       - uses: pnpm/action-setup@v3
         with:
-          version: 8
+          version: 9
 
       - name: Install Vercel CLI
         run: pnpm install --global vercel@latest
@@ -130,7 +130,7 @@ jobs:
 
       - uses: pnpm/action-setup@v3
         with:
-          version: 8
+          version: 9
 
       - name: Draft new release
         uses: actions/github-script@v6
