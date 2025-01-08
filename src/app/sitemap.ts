@@ -1,13 +1,14 @@
-import { getAllPosts, getAllTags } from "@/lib/blog";
+import { getAllPosts, getAllTags } from "@/app/blog/posts/lib";
 
 export default async function sitemap() {
-  const posts = await getAllPosts();
+  const posts = getAllPosts();
+
   const blogPages = posts.map((post) => ({
     url: `https://www.sather.ws/blog/posts/${post.slug}`,
-    lastModified: post.data.date,
+    lastModified: post.date,
   }));
 
-  const tags = await getAllTags();
+  const tags = getAllTags();
   const tagPages = tags.map((tag) => ({
     url: `https://www.sather.ws/blog/tags/${tag.toLowerCase()}`,
     lastModified: new Date(),

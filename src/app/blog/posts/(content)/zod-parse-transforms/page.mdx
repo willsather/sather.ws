@@ -1,0 +1,64 @@
+import { getPostMetadata } from "@/app/blog/posts/lib"
+
+export const metadata = getPostMetadata("zod-parse-transforms")
+
+## Overview
+
+When I first started using [Zod](https://zod.dev/), I found that creating schemas, parsing data, and inferring types felt really natural. I
+wanted to write a few little snippets of how I have recently been using Zod to improve the data handling and type safety
+in a Typescript project.
+
+### Creating a Zod Schema
+
+```ts
+import { z } from "zod"
+
+export type MyData = z.infer<typeof myDataSchema>
+
+export const myDataSchema = z.object({
+  userId: z.string(),
+
+  name: z.string(),
+
+  signUpDate: z.coerce.datetime().optional(),
+
+  greeting: z
+    .string()
+    .transform((userName) => `Hi, ${userName}`)
+    .optional()
+```
+
+Most of this is straight forward Zod concepts, but what I thought was cool was the [transform](https://zod.dev/?id=transform) function.
+
+I also like this pattern of inferring the type from Zod schema as you don't need to duplicate type information in an interface
+and a schema, but rather just use Zod to do all the work for you.
+
+### Parsing a Zod Schema
+
+Given the schema, this pattern will greatly simplify parsing the data into a typed object... something like this:
+
+```ts
+// data coming from a third-party integration
+const someUnsafeData = {
+  id: "12345",
+  name: "Will Sather",
+  date: "2024-04-19T04:07:22+0000",
+};
+
+// data being used in the application
+const parsedData: MyData = myDataSchema.parse({
+  userId: someUnsafeData.id,
+  name: someUnsafeData.name,
+  signUpDate: someUnsafeData.date,
+  greeting: someUnsafeData.name,
+});
+```
+
+As shown in the example, this is a useful way to create type safe data when integrating with third party APIs, but also, it can be
+helpful in other scenarios. The ones that come to mind when you have a lot of JSON data that needs to be typed, where a `Date` or
+a `number` might be stored as a string.
+
+However, I found that Zod provides an even simpler API to handle that data casting called `coerce`. You'll see this on line 10
+where Zod is smart enough to automatically convert and type check the input type.
+
+Anyway, [Zod documentation](https://zod.dev/) contains more information, use cases/examples, and helpful tips - worth checking out!

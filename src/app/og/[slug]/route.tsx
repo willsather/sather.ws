@@ -1,11 +1,11 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { getAllPosts, getPost } from "@/app/blog/posts/lib";
 import Logo from "@/icons/Logo";
-import { getAllPosts, getPost } from "@/lib/blog";
 import { ImageResponse } from "next/og";
 
 export async function generateStaticParams() {
-  const posts = await getAllPosts();
+  const posts = getAllPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -34,9 +34,9 @@ export async function GET(
 ) {
   const slug = params.slug;
 
-  const post = await getPost(slug);
+  const postData = await getPost(slug);
 
-  if (post == null) {
+  if (postData == null) {
     return new Response("Not found", { status: 404 });
   }
 
@@ -54,7 +54,7 @@ export async function GET(
         tw="text-5xl font-bold leading-tight mb-4"
         style={font("Geist Bold")}
       >
-        {post.data.title}
+        {postData.title}
       </div>
 
       <div tw="text-3xl text-gray-400" style={font("Geist Bold")}>

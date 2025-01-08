@@ -1,4 +1,4 @@
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts } from "@/app/blog/posts/lib";
 import description from "@/metadata/description";
 import RSS from "rss";
 
@@ -15,16 +15,16 @@ export async function GET() {
     ttl: 60,
   });
 
-  const posts = await getAllPosts();
+  const allPostData = getAllPosts();
 
-  for (const post of posts) {
+  for (const postData of allPostData) {
     feed.item({
-      title: post.data.title,
-      description: post.data.summary,
-      url: `https://www.sather.ws/blog/posts/${post.slug}`,
-      categories: post.data.tags,
+      title: postData.title,
+      description: postData.summary,
+      url: `https://www.sather.ws/blog/posts/${postData.slug}`,
+      categories: postData.tags,
       author: "Will Sather",
-      date: post.data.date,
+      date: postData.date,
     });
   }
 

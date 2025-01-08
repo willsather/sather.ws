@@ -1,13 +1,12 @@
 import PostList from "@/app/blog/postList";
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts } from "@/app/blog/posts/lib";
 import blogMetadata from "@/metadata/blog";
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = blogMetadata;
 
-export default async function BlogPage() {
-  const posts = await getAllPosts();
+export default function BlogPage() {
+  const posts = getAllPosts();
 
   return (
     <div className="bg-secondary">

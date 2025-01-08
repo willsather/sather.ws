@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
+import { getAllTags } from "@/app/blog/posts/lib";
 import Tag from "@/app/blog/tag";
-import { getAllTags } from "@/lib/blog";
 import tagsMetadata from "@/metadata/tags";
 
 export const metadata: Metadata = tagsMetadata;
 
-export default async function TagsPage() {
-  const tags = await getAllTags();
+export default function TagsPage() {
+  const tags = getAllTags();
 
   return (
     <div className="bg-secondary">

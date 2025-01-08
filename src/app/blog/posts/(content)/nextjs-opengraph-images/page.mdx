@@ -1,0 +1,110 @@
+import { getPostMetadata } from "@/app/blog/posts/lib"
+
+export const metadata = getPostMetadata("nextjs-opengraph-images");
+
+## Overview
+
+Recently, I was looking to design my own Open Graph images for this very blog, and in doing so, I found out that Next.js
+supports dynamically generating images for SEO purposes. I figured this would be way faster than manually designing one each time,
+plus helps avoid needing to manually add and store all these images in a `/public` folder.
+
+For a quick background, Open Graph images are the image 'preview' when you see a link. These commonly are shown on social media,
+text messages, and other previews. You can read more about the protocol at [The Open Graph Protocol](https://ogp.me/). I also
+have used [Opengraph.xyz](https://www.opengraph.xyz/) to preview websites and also see some examples. For context, this is what a blog post on this
+site looks like at the time of writing it (using the code below).
+
+<Image
+  alt="Open Graph Preview"
+  src="/assets/blog/images/nextjs-open-graph-images/preview.png"
+/>
+
+### Generating the image
+
+Using the [Next.js documentation](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image),
+I was able to customize it a little bit and come up with a generic/default Open Graph image for the entire site,
+located at the root of the App Router.
+
+```tsx title="/app/opengraph-image.tsx"
+import { ImageResponse } from "next/server";
+import Logo from "@/components/shared/logo";
+
+export const size = {
+  width: 1200,
+  height: 630,
+};
+
+export const alt = "Will Sather";
+export const contentType = "image/png";
+
+export default async function DefaultOpengraphImage() {
+  return new ImageResponse(
+    (
+      <div tw="flex h-full w-full flex-col items-center justify-center bg-black">
+        <div tw="flex flex-none items-center justify-center h-[160px] w-[160px]">
+          <Logo width="64" height="58" fill="white" />
+        </div>
+        <div tw="flex items-center justify-center mt-12 mx-16">
+          <h1 tw="text-7xl text-center font-bold text-white font-sans font-bold">
+            Will Sather
+          </h1>
+        </div>
+      </div>
+    ),
+    size
+  );
+}
+```
+
+However, I wanted to take it one step further and actually create dynamic pages for each blog post page, so that the generated
+image would include the title and date included in the `MDX` [FrontMatter](https://www.npmjs.com/package/front-matter) data.
+So, nested in the `/blog/posts/opengraph-image.tsx` there is a second OpenGraph Image component that Next.js uses to
+generate the Open Graph image using the `params?.slug` to load the blog post and the frontmatter data to generate the correct image.
+
+```tsx title="/app/blog/posts/[slug]/opengraph-image.tsx"
+import { ImageResponse } from "next/server";
+import { getPost } from "@/lib/blog/posts";
+import Logo from "@/components/shared/logo";
+
+export const size = {
+  width: 1200,
+  height: 630,
+};
+
+export const alt = "Blog | Will Sather";
+export const contentType = "image/png";
+
+export default async function OpengraphImage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { frontMatter } = await getPost(params?.slug);
+
+  return new ImageResponse(
+    (
+      <div tw="flex h-full w-full flex-col items-center justify-center bg-black">
+        <div tw="flex flex-none items-center justify-center h-[160px] w-[160px]">
+          <Logo width="64" height="58" fill="white" />
+        </div>
+        <div tw="flex items-center justify-center mt-12 mx-16">
+          <h1 tw="text-7xl text-center font-bold text-white font-sans font-bold">
+            {frontMatter.title}
+          </h1>
+        </div>
+
+        <div tw="flex items-center justify-center mx-16">
+          <h2 tw="text-3xl text-center font-bold text-white font-sans font-bold">
+            {frontMatter.date.toLocaleDateString()}
+          </h2>
+        </div>
+      </div>
+    ),
+    size
+  );
+}
+```
+
+## Complete 🎉
+
+You can find all the code on this website's [GitHub repository](https://github.com/willsather/website),
+hopefully this is helpful - I thought this was so cool!

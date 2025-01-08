@@ -1,9 +1,9 @@
 import PostList from "@/app/blog/postList";
-import { getAllTags, getTagPosts } from "@/lib/blog";
+import { getAllTags, getPostsDataByTag } from "@/app/blog/posts/lib";
 import type { Metadata } from "next";
 
-export async function generateStaticParams() {
-  const tags = await getAllTags();
+export function generateStaticParams() {
+  const tags = getAllTags();
 
   return tags.map((tag) => ({
     slug: tag,
@@ -28,8 +28,8 @@ export function generateMetadata({
   } as Metadata;
 }
 
-export default async function TagPage({ params }: { params: { tag: string } }) {
-  const posts = await getTagPosts(params?.tag);
+export default function TagPage({ params }: { params: { tag: string } }) {
+  const posts = getPostsDataByTag(params?.tag);
 
   return (
     <div className="bg-secondary">

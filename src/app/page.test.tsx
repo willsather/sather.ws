@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 
 import Home from "@/app/page";
 
-// mock particle engine in jest
+// mock particle engine
 vi.mock("@/app/(layout)/particles", () => ({
   default: vi.fn().mockReturnValue(null),
 }));

@@ -1,0 +1,456 @@
+export const metadata = {
+  title: 'Playground',
+  description: 'A sample blog post using MDX that utilizes Tailwindcss to create custom components',
+  openGraph: {
+    title: 'Playground',
+    description: 'A sample blog post using MDX that utilizes Tailwindcss to create custom components',
+    images: [{ url: '/og/playground' }]
+  }
+}
+
+# Overview
+
+This is just a sample blog post that demonstrates and shows all the custom components this site uses. This
+is a cool demonstration as it renders all the custom components in a single blog, making it easy to share, test,
+and learn from.
+
+## Codebase 💻
+
+You can find the source code for this MDX blog post at [GitHub](https://github.com/willsather/website/blob/main/blog/posts/tailwind-sample.mdx)
+
+# Intrinsic Components
+
+# H1 Header
+
+## H2 Header
+
+### H3 Header
+
+#### H4 Header
+
+##### H5 Header
+
+paragraph
+
+[blog](https://sather.ws/blog)
+
+`Inline Code`
+
+**bold text**
+
+_italic text_
+
+**_bold and italic_**
+
+x<sup>12345</sup>
+
+x<sub>9876</sub>
+
+## Blockquote
+
+### Single
+
+> "The only way to do great work is to love what you do."
+>
+> Steve Jobs
+
+### Nested
+
+> "The only way to do great work is to love what you do."
+>
+> Steve Jobs
+>
+> > This is a cool quote!
+
+### Nested and Formatted
+
+> "The only way to do great work is to love what you do."
+>
+> Steve Jobs
+>
+> > # This is a header
+>
+> > 1. Item One
+> > 2. Item Two
+
+## Preformatted Text
+
+```
+This is preformatted text!
+```
+
+## Lists
+
+- unordered
+- list
+
+1. ordered
+2. list
+
+## Lines
+
+---
+
+## Notes
+
+<Note>Single line note</Note>
+
+<Note>
+  This is a really long note that goes for a really long time because it needs
+  to go all the way to the second line to demonstrate the line break
+</Note>
+
+<Info>Single line information block!</Info>
+<Success>Single line success block!</Success>
+<Warning>Single line warning block!</Warning>
+<Error>Single line error block!</Error>
+
+## Components
+
+This is a custom component to render, literally, types of components: <Component name="CustomComponent" />
+
+#### Example
+
+<Component name="Post" /> is child component of <Component name="Page" /> where <Component name="Page" /> is
+a server component and <Component name="Post" /> is a client component. This is useful
+to show when writing React components
+
+## Code Blocks
+
+#### Typescript
+
+```ts
+// comment about the type
+export interface SayHelloType {
+  say: "Hello" | "Goodbye";
+  user: {
+    firstName: string;
+    lastName: string;
+  };
+}
+
+/**
+ * @param {"Hello" | "Goodbye} say what you want to say
+ */
+export default function sayHello(say: "Hello" | "Goodbye"): SayHelloType {
+  return {
+    say: say,
+    user: {
+      firstName: "Will",
+      lastName: "Sather",
+    },
+  };
+}
+```
+
+```ts title="filename.ts"
+export interface TypescriptTypeWithFileName {
+  hello: "Will" | "Sather";
+  user: {
+    firstName: string;
+  };
+}
+```
+
+```ts title="highlighted.ts"
+function sayHello(name) {           
+  console.log("Hello", name);       // [!code highlight]
+}                                   
+```
+
+```ts title="diff.ts"
+function sayHello(name) {           // [!code --]
+  console.log("Hello", name);       // [!code --]
+}                                   // [!code --]
+
+function sayGoodbye(name) {         // [!code ++]
+  console.log("Goodbye", name);     // [!code ++]
+}                                   // [!code ++]
+```
+
+```ts title="really-long-file-name-file.ts"
+export interface TypescriptReallyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyLonggggggggggggggggggggggggggggggggTypeeeeeeeeeeeeeeeeeeeeeeeeeee {
+  hello: "Will" | "Sather";
+  user: {
+    firstName: string;
+  };
+}
+```
+
+```ts
+export interface TypescriptReallyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyLonggggggggggggggggggggggggggggggggTypeeeeeeeeeeeeeeeeeeeeeeeeeee {
+  hello: "Will" | "Sather";
+  user: {
+    firstName: string;
+  };
+}
+```
+
+#### Javascript
+
+```js
+export default function JavascriptFunction() {
+  return "Hello";
+}
+```
+
+#### Python
+
+```python
+def getFirstName():
+    return "Will"
+
+if __name__ == '__main__':
+    print(getFirstName())
+```
+
+### Commands
+
+#### Shell
+
+```bash
+git add .
+git commit -m "chore: fix git commit"
+```
+
+```zsh
+git push
+```
+
+### Data
+
+#### JSON
+
+```json
+{
+  "json": {
+    "hello": {
+      "firstName": "Will",
+      "lastName": "Sather"
+    }
+  }
+}
+```
+
+#### YAML
+
+```yaml
+name: Sample YAML File
+
+hello:
+  will: ${{ vars.SATHER }}
+
+on:
+  push:
+    branches:
+      - main
+```
+
+#### Text
+
+```text
+Hello Will,
+
+This is some random text
+```
+
+## Emojis
+
+## 🏓 🌁 🏖️ 🎉 ❤️ 🌎 💻
+
+### 🏓 🌁 🏖️ 🎉 ❤️ 🌎 💻
+
+🏓 🌁 🏖️ 🎉 ❤️ 🌎 💻
+
+## All Code Languages
+
+```bash
+echo "hello there"
+```
+
+```c
+#include <stdio.h>
+
+int main() {
+    printf("hello there\n");
+    return 0;
+}
+
+```
+
+```cpp
+#include <iostream>
+
+int main()
+{
+  std::cout << "hello there";
+  return 0;
+}
+```
+
+```csharp
+using System;
+using System.IO;
+using System.Text;
+
+namespace hello
+{
+    class there
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("hello there");
+
+        }
+    }
+}
+```
+
+```css
+.hello {
+  margin: 0;
+}
+```
+
+```erlang
+hello
+```
+
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("hello there")
+}
+```
+
+```rust
+fn main() {
+    println!("hello there");
+}
+```
+
+```html
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>hello there</p>
+  </body>
+</html>
+```
+
+```java
+public class Hello {
+    String hello = "there";
+}
+```
+
+```kotlin
+fun main() {
+    println("hello there")
+}
+```
+
+```js
+export const hello = "there";
+```
+
+```jsx
+export const hello = "there";
+```
+
+```json
+{
+  "hello": "there"
+}
+```
+
+```markdown
+# hello
+
+## there
+```
+
+```mysql
+SELECT * from TABLE
+```
+
+```objectivec
+hello
+```
+
+```ocaml
+let rec sort = function
+    | [] -> []
+    | x :: l -> insert x (sort l)
+and insert elem = function
+    | [] -> [elem]
+    | x :: l -> if elem < x then elem :: x :: l
+                else x :: insert elem l;;
+```
+
+```php
+<?php
+echo "hello there";
+?>
+```
+
+```python
+def function():
+    return "hello there"
+```
+
+```rb
+def say_hello
+  "hello there"
+end
+
+puts say_hello
+```
+
+```rust
+use std::io::{self, Write};
+
+print!("hello there");
+```
+
+```scala
+object HelloWorld {
+  def main(args: Array[String]): Unit = {
+    println("hello there")
+  }
+}
+```
+
+```shell
+echo "hello there"
+```
+
+```sql
+SELECT * from TABLE
+```
+
+```ts
+export const hello = "there";
+```
+
+```tsx
+export const hello = "there";
+```
+
+```xml
+<hello>
+    <there>Hi</there>
+</hello>
+```
+
+```yaml
+hello: "there"
+```
+
+```zsh
+echo "hello there"
+```

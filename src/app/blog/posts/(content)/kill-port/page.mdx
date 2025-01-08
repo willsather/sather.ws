@@ -1,0 +1,47 @@
+import { getPostMetadata } from "@/app/blog/posts/lib"
+
+export const metadata = getPostMetadata("kill-port");
+
+## Overview
+
+Whenever something bad happens (generally Intellij crashing), I find myself trying to restart applications and often seeing this error:
+
+<Error>
+  <span className="font-mono text-sm mb-0">
+    Failed to start server Error: listen EADDRINUSE: address already in use
+    :::3000 at Server.setupListenHandle [as _listen2] (node:net:1904:16) at
+    listenInCluster (node:net:1961:12) at Server.listen (node:net:2063:7) at
+    Server.listen (node:net:2063:7)
+  </span>
+</Error>
+
+
+Then, I'd proceed to google `How to find and kill port`, which always led me to the many responses on [Stack Overflow](https://stackoverflow.com/questions/3855127/find-and-kill-process-locking-port-3000-on-mac)
+
+### Solution
+
+I added this to my `~/.zshrc` and never looked back.
+
+```zshrc
+killport() {
+  for port in "$@"; do
+    lsof -ti:$port | xargs kill -9
+  done
+}
+
+alias kp="killport"
+```
+
+which means you can:
+
+```zsh
+killport 3000
+killport 3000 8080
+```
+
+or for brevity :)
+
+```zsh
+kp 3000
+kp 3000 8080
+```
