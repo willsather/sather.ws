@@ -11,7 +11,7 @@ function formatDate(date: Date): string {
 
 export default function PostList({ posts }: { posts: Post[] }) {
   return (
-    <div className="lg:space-y-2">
+    <div className="mb-16 lg:space-y-2">
       {posts.map((post) => (
         <Link
           key={post.slug}
