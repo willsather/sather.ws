@@ -1,6 +1,6 @@
 "use client";
 
-const Loading = () => {
+export default function Loading() {
   return (
     <div className="flex h-64 w-full flex-row items-center justify-center">
       <output>
@@ -24,6 +24,4 @@ const Loading = () => {
       </output>
     </div>
   );
-};
-
-export default Loading;
+}

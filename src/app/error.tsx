@@ -1,36 +1,29 @@
 "use client";
 
-import ArrowLeftIcon from "@/icons/ArrowLeft";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useEffect } from "react";
 
-const ErrorPage = ({ error }: { error: Error }) => {
-  const router = useRouter();
-
+export default function ErrorPage({ error }: { error: Error }) {
   useEffect(() => {
     console.error(error);
   }, [error]);
 
   return (
-    <div className="bg-secondary">
-      <div className="mx-4 mt-8 flex justify-center">
-        <h3 className="text-center">ugh, we had an error :(</h3>
-      </div>
-
-      <div className="mt-12 flex justify-center">
-        <button
-          type="button"
-          onClick={() => router.push("/")}
-          className="rounded-md border-2 border-primary p-2 hover:bg-gray-300"
-        >
-          <div className="flex flex-row justify-center gap-2">
-            <ArrowLeftIcon width={24} height={24} />
-            <p className="font-extrabold">home</p>
-          </div>
-        </button>
-      </div>
-    </div>
+    <main className="flex flex-grow flex-col items-center justify-center p-4">
+      <h1
+        className="my-8 font-bold font-mono text-[20vw] leading-none"
+        aria-label="404 error"
+      >
+        500
+      </h1>
+      <p className="mb-8 font-mono text-xl">oops an error.</p>
+      <Link
+        href="/"
+        className="border border-black px-4 py-2 transition-colors hover:bg-black/5"
+        aria-label="Return to home page"
+      >
+        go home
+      </Link>
+    </main>
   );
-};
-
-export default ErrorPage;
+}
