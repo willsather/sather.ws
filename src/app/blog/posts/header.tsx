@@ -37,6 +37,8 @@ export default function PostHeader({ posts }: { posts: Post[] }) {
           <Tag key={tag} tag={tag} />
         ))}
       </div>
+
+      <hr className="my-6" />
     </>
   );
 }
