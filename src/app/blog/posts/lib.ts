@@ -6,7 +6,7 @@ export function getPost(slug: string): Post {
   const data = posts.find((post) => post.slug === slug);
 
   if (data == null) {
-    throw new Error("Unable to find post");
+    throw new Error(`Unable to find post: ${slug}`);
   }
 
   return data;

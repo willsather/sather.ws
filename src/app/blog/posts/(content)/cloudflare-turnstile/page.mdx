@@ -1,0 +1,345 @@
+import { getPostMetadata } from "@/app/blog/posts/lib"
+
+export const metadata = getPostMetadata("cloudflare-turnstile");
+
+## Overview
+
+While building the [`www.mncivictech.org`](https://www.mncivictech.org) website, one of my goals was to directly
+integrate the Contact Us form (*along with a few other forms*) directly with Slack.  This seemed optimal in
+comparison to trying to configure email alerts or something else.
+
+Anyway, I was thinking about possibly securing the forms with a [CAPTCHA](http://www.captcha.net/) and decided on
+[Cloudflare Turnstile](https://www.cloudflare.com/application-services/products/turnstile/) because our site was
+already integrated with Cloudflare for DNS, CDN, and DDoS protection (*Cloudflare might be overkill for how we're using
+it, but the having it alongside all my other domains in Cloudflare is quite helpful*).
+
+At the highest of levels, Turnstile will generate a client-side token which needs to be verified on the server.  This
+interaction allows for Cloudflare to confirm real web visitors (*users*) and deny unwanted visitors (*bots*).
+
+## React Hook Form
+After a lot of research over my career and dealing with a various amount of forms and libraries, I have (*for now*) settled
+on using [React Hook Form (RHF)](https://www.react-hook-form.com/) for maintaining a form's context, errors, and
+validation.  Personally, now that I've used it a bit - I like it a lot and will keep using it.
+
+However, how do you integrate RFH with Cloudflare Turnstile? The code below isn't novel compared to some of the snippets
+online or in the [documentation](https://developers.cloudflare.com/turnstile/get-started/), but when trying to build this,
+I found it was a little more complicated than the examples I was seeing.
+
+## Client Side
+
+There are two files at play here, so let's break it down.
+
+First, the actual React Hook Form code.  I won't talk in too much detail about how the React Hook Form works, as I think
+that is less relevant to this piece of writing.
+
+
+#### Form
+
+In terms of Turnstile, a few things to look at:
+1. There is a `ref` which is used to render the `turnstile` widget
+2. There is a `useTurnstile` hook which provides an input to update form state (*more on this later*)
+3. There is a dedicated `FormField` for the Turnstile
+
+```tsx title="form.ts"
+"use client";
+
+// dependencies
+import Script from "next/script";
+import { useRef, useTransition } from "react";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+
+// form
+import { contactFormAction } from "@/app/about/contact-form-action";
+import useTurnstile from "@/hooks/useTurnstile";
+
+// shared components
+import { Button } from "@/ui/Button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/ui/Form";
+import { Input } from "@/ui/Input";
+import { Textarea } from "@/ui/Textarea";
+
+export const contactFormSchema = z.object({
+  email: z.string().email({ message: "Invalid email address" }),
+  message: z.string().min(1, { message: "Invalid message" }),
+  turnstileToken: z
+    .string()
+    .min(1, { message: "You must verify you're human" }),
+});
+
+export default function ContactForm() {
+  const ref = useRef<HTMLDivElement>(null);                              // [!code highlight]
+
+  const [isPending, startTransition] = useTransition();
+
+  const form = useForm<z.infer<typeof contactFormSchema>>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      email: "",
+      message: "",
+      turnstileToken: "",
+    },
+  });
+
+  // cloudflare turnstile hook (provides way to update form state)                      // [!code highlight]
+  const { buildTurnstile, resetTurnstile } = useTurnstile(ref, (token: string) =>       // [!code highlight]
+    form.setValue("turnstileToken", token),                                             // [!code highlight]
+  );                                                                                    // [!code highlight]
+
+  const onSubmit = form.handleSubmit((data) => {
+    startTransition(async () => {
+      try {
+        await contactFormAction(data);
+
+        alert(
+          "Thank you for reaching out! Your message has been successfully submitted. We will get back to you as soon as possible.",
+        );
+        form.reset();
+      } catch (error) {
+        alert(
+          "There was an error submitting your message. Please try again later.",
+        );
+
+        resetTurnstile(ref);
+      }
+    });
+  });
+
+  return (
+    <div className="mx-auto my-8">
+      <Script                                                           // [!code highlight]
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"     // [!code highlight]
+        async                                                           // [!code highlight]
+        defer                                                           // [!code highlight]
+        onReady={buildTurnstile}                                        // [!code highlight]
+      />                                                                // [!code highlight]
+
+      <Form {...form}>
+        <form onSubmit={onSubmit} className="max-w-2xl space-y-6">
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email *</FormLabel>
+                <FormControl>
+                  <Input
+                    type="email"
+                    placeholder="john@example.com"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="message"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Message *</FormLabel>
+                <FormControl>
+                  <Textarea {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          {/* Custom Form Element for Cloudflare Turnstile */}                                      // [!code highlight]
+          <FormField                                                                                // [!code highlight]
+            control={form.control}                                                                  // [!code highlight]
+            name="turnstileToken"                                                                   // [!code highlight]
+            render={() => (                                                                         // [!code highlight]
+              <FormItem>                                                                            // [!code highlight]
+                <FormControl>                                                                       // [!code highlight]
+                  <div ref={ref} data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}          // [!code highlight]
+                </FormControl>                                                                      // [!code highlight]
+                <FormMessage />                                                                     // [!code highlight]
+              </FormItem>                                                                           // [!code highlight]
+            )}                                                                                      // [!code highlight]
+          />                                                                                        // [!code highlight]
+
+          <Button
+            type="submit"
+            disabled={isPending}
+            variant="green"
+            className="w-full md:w-36"
+          >
+            Submit
+          </Button>
+        </form>
+      </Form>
+    </div>
+  );
+}
+```
+
+#### Hook
+
+Secondly, here is the magic of the Turnstile encapsulated in a React Hook.  This hook handles loading, rendering, and
+teardown of the Turnstile widget.
+
+It is worth noting that this hook accepts both a `ref` which is what Turnstile renders within and a `updateToken`
+function which helps us update the form state whenever the Turnstile state changes.  This ability to update the `token`
+whenever the state changes is quite helpful for integrating the token into React Hook Form's Zod validation and
+`handleSubmit` function.
+
+```ts title="useTurnstile.ts"
+import { type RefObject, useEffect, useState } from "react";
+
+declare const turnstile: {
+  render: (
+    element: string | HTMLElement,
+    options: {
+      sitekey: string;
+      language: string;
+      execution: "render" | "execute";
+      callback: (token: string) => void;
+      "expired-callback": (ref: RefObject<HTMLDivElement>) => void;
+    },
+  ) => string;
+  remove: (widgetId: string) => void;
+  execute: (element: string | HTMLElement) => void;
+  reset: (element: string | HTMLElement) => void;
+};
+
+export default function useTurnstile(
+  ref: RefObject<HTMLDivElement>,
+  updateToken: (token: string) => void,
+) {
+  const [turnstileWidgetId, setTurnstileWidgetId] = useState("");
+
+  // mount and render turnstile widget
+  function buildTurnstile() {
+    if (ref.current == null) {
+      return;
+    }
+
+    // render widget inside the ref (in our case, div inside a form field)
+    const widgetId = turnstile.render(ref.current, {
+      sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "",
+      language: "en",
+      execution: "render",
+      callback: (token: string) => {
+        updateToken(token); // update token
+      },
+      "expired-callback": (ref: RefObject<HTMLDivElement>) => {
+        updateToken(""); // reset token
+
+        if (ref.current == null) {
+          return;
+        }
+
+        turnstile.reset(ref.current);
+        turnstile.execute(ref.current);
+      },
+    });
+
+    setTurnstileWidgetId(widgetId);
+  }
+
+  // if validation failed, we can reset the turnstile widget
+  function resetTurnstile(ref: RefObject<HTMLDivElement>) {
+    if (ref.current == null) {
+      return;
+    }
+
+    turnstile.reset(ref.current);
+    turnstile.execute(ref.current);
+  }
+
+  // remove turnstile widget when component unmounts
+  useEffect(() => {
+    return () => {
+      if (turnstileWidgetId) {
+        turnstile.remove(turnstileWidgetId);
+      }
+    };
+  }, [turnstileWidgetId]);
+
+  return {
+    buildTurnstile,
+    resetTurnstile,
+  };
+}
+```
+
+## Server Side
+
+Now that we have all of that figured out, the only thing left is to validate the `turnstileToken` on our server to ensure
+the user (*or bot 🤖*) messed with the client-side token.
+
+```ts title="server-action.ts"
+"use server";
+
+import type { z } from "zod";
+import type { contactFormSchema } from "@/app/about/contact-form";
+
+import { verifyTurnstile } from "@/utils/turnstile";
+
+export async function contactFormAction(
+  formData: z.infer<typeof contactFormSchema>,
+) {
+  if (!(await verifyTurnstile(formData.turnstileToken))) {
+    throw new Error("Invalid Turnstile token");
+  }
+
+  // continue the rest of your logic after validation
+}
+```
+
+This `verifyTurnstile` function is very straightforward ... the
+[documentation](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/) does a great job outlining
+all of this as well.  However, simply put, we need to make a `POST` to Cloudflare's API that effectively validates the
+`turnstileToken` with our `TURNSTILE_SECRET_KEY`.
+
+```ts title="turnstile.ts"
+export async function verifyTurnstile(token: string): Promise<boolean> {
+  const secretKey = process.env.TURNSTILE_SECRET_KEY;
+
+  if (secretKey == null) {
+    console.error("Missing TURNSTILE_SECRET_KEY in environment variables");
+    return false;
+  }
+
+  try {
+    const response = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          secret: secretKey,
+          response: token,
+        }),
+      },
+    );
+
+    const data = await response.json();
+    return data.success;
+  } catch (error) {
+    console.error("Error verifying Turnstile token:", error);
+    return false;
+  }
+}
+
+```
+
+## Complete  🎉
+And there you have it — a quick integration of Cloudflare Turnstile with React Hook Form and Next.js!
+
+I found this to be a fun little challenge, but hopefully if you are running into issues, this gave you a little bit more
+of an idea on how to solve your problem!

@@ -10,6 +10,14 @@ export const posts: Post[] = [
       "A brief reflection on traveling to all 50 US States before turning 25 years old.",
   },
   {
+    slug: "cloudflare-turnstile",
+    title: "Cloudflare Turnstile with React Hook Form",
+    date: new Date("2025-01-28T12:00:00Z"),
+    tags: ["next.js", "typescript", "snippets"],
+    summary:
+      "How to integrate Cloudflare Turnstile into a React Hook Form inside a Next.js Typescript application.",
+  },
+  {
     slug: "estimating-pi",
     title: "Estimating Pi",
     date: new Date("2023-10-10T12:00:00Z"),
