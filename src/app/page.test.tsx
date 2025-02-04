@@ -14,6 +14,6 @@ describe("Home", () => {
 
   it("should render", () => {
     expect(screen.getByText("WILL SATHER")).toBeInTheDocument();
-    expect(screen.getByText("livin' the dream.")).toBeInTheDocument();
+    expect(screen.getByText("building software.")).toBeInTheDocument();
   });
 });
