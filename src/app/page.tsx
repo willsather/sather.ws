@@ -10,7 +10,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-5 flex justify-center">
-            <h2>livin&apos; the dream.</h2>
+            <h2>building software.</h2>
           </div>
         </>
       </ParticleProvider>
