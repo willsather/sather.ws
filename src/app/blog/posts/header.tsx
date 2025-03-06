@@ -1,8 +1,9 @@
 "use client";
 
+import { notFound, useSelectedLayoutSegments } from "next/navigation";
+
 import Tag from "@/app/blog/tag";
 import type { Post } from "@/types/post";
-import { notFound, useSelectedLayoutSegments } from "next/navigation";
 
 export default function PostHeader({ posts }: { posts: Post[] }) {
   const urlSegment = useSelectedLayoutSegments();

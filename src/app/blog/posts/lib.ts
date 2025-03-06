@@ -1,4 +1,5 @@
 import type { Post } from "@/types/post";
+
 import type { Metadata } from "next";
 import { posts } from "./posts";
 

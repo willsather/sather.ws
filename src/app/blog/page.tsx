@@ -1,7 +1,8 @@
+import type { Metadata } from "next";
+
 import PostList from "@/app/blog/postList";
 import { getAllPosts } from "@/app/blog/posts/lib";
 import blogMetadata from "@/metadata/blog";
-import type { Metadata } from "next";
 
 export const metadata: Metadata = blogMetadata;
 

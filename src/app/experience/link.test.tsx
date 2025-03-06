@@ -1,5 +1,6 @@
-import Link from "@/app/experience/link";
 import { render, screen } from "@testing-library/react";
+
+import Link from "@/app/experience/link";
 
 describe("link", () => {
   const mockHref = "https://fakeUrl.com";

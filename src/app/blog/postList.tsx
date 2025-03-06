@@ -1,5 +1,6 @@
-import type { Post } from "@/types/post";
 import Link from "next/link";
+
+import type { Post } from "@/types/post";
 
 function formatDate(date: Date): string {
   const options: Intl.DateTimeFormatOptions = {

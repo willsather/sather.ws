@@ -2,8 +2,9 @@ export const revalidate = 60;
 
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import Logo from "@/icons/Logo";
 import { ImageResponse } from "next/og";
+
+import Logo from "@/icons/Logo";
 
 const geistBold = readFileSync(
   join(

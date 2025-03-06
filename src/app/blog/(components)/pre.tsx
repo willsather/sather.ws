@@ -1,5 +1,6 @@
-import type { HTMLAttributes, ReactElement, ReactNode } from "react";
 import "@/app/blog/(components)/markdown.css";
+
+import type { HTMLAttributes, ReactElement, ReactNode } from "react";
 
 export interface PreBlockProps extends HTMLAttributes<HTMLPreElement> {
   children?: ReactNode;
