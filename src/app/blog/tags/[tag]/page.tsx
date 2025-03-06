@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+
 import PostList from "@/app/blog/postList";
 import { getAllTags, getPostsDataByTag } from "@/app/blog/posts/lib";
-import type { Metadata } from "next";
 
 export function generateStaticParams() {
   const tags = getAllTags();
@@ -14,8 +16,13 @@ export async function generateMetadata(props: {
   params: Promise<{ tag: string }>;
 }) {
   const params = await props.params;
-
   const { tag } = params;
+
+  const tags = getAllTags();
+
+  if (!tags.includes(tag)) {
+    notFound();
+  }
 
   return {
     title: tag,
