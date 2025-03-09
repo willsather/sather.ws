@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import PostList from "@/app/blog/postList";
+import PostList from "@/app/blog/post-list";
 import { getAllPosts } from "@/lib/blog";
 import blogMetadata from "@/metadata/blog";
 

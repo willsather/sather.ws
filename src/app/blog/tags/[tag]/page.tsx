@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import PostList from "@/app/blog/postList";
+import PostList from "@/app/blog/post-list";
 import { getAllTags, getPostsDataByTag } from "@/lib/blog";
 
 export function generateStaticParams() {

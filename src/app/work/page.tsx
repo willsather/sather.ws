@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import JobList from "@/app/work/jobList";
+import JobList from "@/app/work/job-list";
 import ExternalLink from "@/app/work/link";
 import workMetadata from "@/metadata/work";
 
