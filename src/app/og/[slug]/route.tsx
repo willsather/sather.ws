@@ -2,8 +2,8 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
-import { getAllPosts, getPost } from "@/app/blog/posts/lib";
 import Logo from "@/icons/Logo";
+import { getAllPosts, getPost } from "@/lib/blog";
 
 export async function generateStaticParams() {
   const posts = getAllPosts();

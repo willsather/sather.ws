@@ -3,7 +3,7 @@
 import { notFound, useSelectedLayoutSegments } from "next/navigation";
 
 import Tag from "@/app/blog/tag";
-import type { Post } from "@/types/post";
+import type { Post } from "@/lib/blog";
 
 export default function PostHeader({ posts }: { posts: Post[] }) {
   const urlSegment = useSelectedLayoutSegments();

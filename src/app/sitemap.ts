@@ -1,4 +1,4 @@
-import { getAllPosts, getAllTags } from "@/app/blog/posts/lib";
+import { getAllPosts, getAllTags } from "@/lib/blog";
 
 export default async function sitemap() {
   const posts = getAllPosts();
@@ -24,7 +24,7 @@ export default async function sitemap() {
       lastModified: new Date(),
     },
     {
-      url: "https://www.sather.ws/experience",
+      url: "https://www.sather.ws/work",
       lastModified: new Date(),
     },
     {

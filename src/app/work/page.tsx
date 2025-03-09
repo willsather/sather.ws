@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
-import JobList from "@/app/experience/jobList";
-import ExternalLink from "@/app/experience/link";
-import experienceMetadata from "@/metadata/experience";
+import JobList from "@/app/work/jobList";
+import ExternalLink from "@/app/work/link";
+import workMetadata from "@/metadata/work";
 
-export const metadata: Metadata = experienceMetadata;
+export const metadata: Metadata = workMetadata;
 
-export default function ExperiencePage() {
+export default function WorkPage() {
   return (
     <div className="bg-secondary">
       <div className="mt-10 flex justify-center">
-        <h1>EXPERIENCE</h1>
+        <h1>WORK</h1>
       </div>
 
       <div className="mt-5 flex justify-center">

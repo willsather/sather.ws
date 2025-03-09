@@ -1,7 +1,15 @@
-import type { Post } from "@/types/post";
-
 import type { Metadata } from "next";
-import { posts } from "./posts";
+
+import { posts } from "@/lib/posts";
+
+export type Post = {
+  slug: string;
+  title: string;
+  date: Date;
+  tags: string[];
+  draft?: boolean;
+  summary: string;
+};
 
 export function getPost(slug: string): Post {
   const data = posts.find((post) => post.slug === slug);

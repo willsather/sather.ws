@@ -1,6 +1,6 @@
 const menuLinks = {
   home: "/",
-  experience: "/experience",
+  work: "/work",
   blog: "/blog",
   about: "/about",
 };

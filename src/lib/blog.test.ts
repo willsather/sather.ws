@@ -1,11 +1,11 @@
-import type { Post } from "@/types/post";
 import {
+  type Post,
   getAllPosts,
   getAllTags,
   getPost,
   getPostMetadata,
   getPostsDataByTag,
-} from "./lib";
+} from "@/lib/blog";
 
 vi.mock("./posts", () => ({
   posts: [

@@ -1,6 +1,6 @@
 import RSS from "rss";
 
-import { getAllPosts } from "@/app/blog/posts/lib";
+import { getAllPosts } from "@/lib/blog";
 import description from "@/metadata/description";
 
 export async function GET() {

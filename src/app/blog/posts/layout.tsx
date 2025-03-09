@@ -1,8 +1,7 @@
 import type { ReactNode } from "react";
 
-import { getAllPosts } from "@/app/blog/posts/lib";
-
-import PostHeader from "./header";
+import PostHeader from "@/app/blog/posts/header";
+import { getAllPosts } from "@/lib/blog";
 
 export default function PostLayout({ children }: { children: ReactNode }) {
   const posts = getAllPosts();

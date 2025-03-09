@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import PostList from "@/app/blog/postList";
-import { getAllTags, getPostsDataByTag } from "@/app/blog/posts/lib";
+import { getAllTags, getPostsDataByTag } from "@/lib/blog";
 
 export function generateStaticParams() {
   const tags = getAllTags();

@@ -5,13 +5,11 @@ test.describe("Navigation", () => {
     await page.goto("/");
   });
 
-  test("should navigate to experience page", async ({ page }) => {
-    await page.getByRole("link", { name: "experience" }).click();
+  test("should navigate to work page", async ({ page }) => {
+    await page.getByRole("link", { name: "work" }).click();
 
-    await expect(page).toHaveTitle(/Experience/);
-    await expect(
-      page.getByRole("heading", { name: "Experience" }),
-    ).toBeVisible();
+    await expect(page).toHaveTitle(/Work/);
+    await expect(page.getByRole("heading", { name: "Work" })).toBeVisible();
   });
 
   test("should navigate to home page", async ({ page }) => {

@@ -13,7 +13,7 @@ describe("Header", () => {
     ).toBeInTheDocument();
 
     expect(screen.getAllByText("home")[0]).toBeInTheDocument();
-    expect(screen.getAllByText("experience")[0]).toBeInTheDocument();
+    expect(screen.getAllByText("work")[0]).toBeInTheDocument();
     expect(screen.getAllByText("blog")[0]).toBeInTheDocument();
     expect(screen.getAllByText("about")[0]).toBeInTheDocument();
   });
