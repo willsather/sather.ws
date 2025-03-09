@@ -13,6 +13,17 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+
+  // temporary redirect for any old, lingering urls pointing to /experience
+  async redirects() {
+    return [
+      {
+        source: "/experience/:path*",
+        destination: "/work/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const withMDX = createMDX({
