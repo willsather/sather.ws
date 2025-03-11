@@ -26,6 +26,7 @@ export const myDataSchema = z.object({
     .string()
     .transform((userName) => `Hi, ${userName}`)
     .optional()
+});
 ```
 
 Most of this is straight forward Zod concepts, but what I thought was cool was the [transform](https://zod.dev/?id=transform) function.
