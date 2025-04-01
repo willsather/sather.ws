@@ -10,9 +10,9 @@ export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <div className="bg-secondary">
-      <div className="mt-10 flex flex-col items-center justify-center gap-4 text-center">
-        <h1>BLOG</h1>
+    <div className="">
+      <div className="flex flex-col gap-2 text-center md:gap-4">
+        <h1>posts</h1>
         <h2 className="font-mono font-normal">stuff i wanted to write about</h2>
       </div>
 
