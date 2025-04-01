@@ -11,12 +11,9 @@ export default function BlogPage() {
 
   return (
     <div className="bg-secondary">
-      <div className="mt-8 flex flex-row justify-center">
+      <div className="mt-10 flex flex-col items-center justify-center gap-4 text-center">
         <h1>BLOG</h1>
-      </div>
-
-      <div className="mt-5 flex justify-center">
-        <h2>stuff i wanted to write about.</h2>
+        <h2 className="font-mono font-normal">stuff i wanted to write about</h2>
       </div>
 
       <hr className="my-6" />

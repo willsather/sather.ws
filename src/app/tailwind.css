@@ -4,27 +4,27 @@
 
 @layer base {
   h1 {
-    @apply text-4xl lg:text-6xl font-extrabold text-primary;
+    @apply text-4xl lg:text-6xl font-extrabold;
   }
 
   h2 {
-    @apply text-lg lg:text-xl font-bold text-primary;
+    @apply text-lg lg:text-xl font-bold;
   }
 
   h3 {
-    @apply text-lg lg:text-2xl font-semibold text-primary;
+    @apply text-lg lg:text-2xl font-semibold;
   }
 
   h4 {
-    @apply text-lg font-semibold text-primary;
+    @apply text-lg font-semibold;
   }
 
   h5 {
-    @apply font-semibold text-primary;
+    @apply font-semibold;
   }
 
   h6 {
-    @apply font-semibold text-primary;
+    @apply font-semibold;
   }
 
   strong {

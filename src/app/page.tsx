@@ -4,15 +4,10 @@ export default function HomePage() {
   return (
     <div className="bg-secondary">
       <ParticleProvider>
-        <>
-          <div className="mt-10 flex justify-center">
-            <h1>WILL SATHER</h1>
-          </div>
-
-          <div className="mt-5 flex justify-center">
-            <h2>building software.</h2>
-          </div>
-        </>
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 text-center">
+          <h1>WILL SATHER</h1>
+          <h2 className="font-mono font-normal">vibe coding.</h2>
+        </div>
       </ParticleProvider>
     </div>
   );

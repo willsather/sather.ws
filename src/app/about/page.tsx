@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import aboutMetadata from "@/metadata/about";
-import Image from "next/image";
+import ExternalLink from "@/ui/external-link";
 
 export const metadata: Metadata = aboutMetadata;
 
@@ -9,12 +10,9 @@ export default function AboutPage() {
   return (
     <>
       <div className="bg-secondary">
-        <div className="mt-10 flex justify-center">
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 text-center">
           <h1>ABOUT</h1>
-        </div>
-
-        <div className="mt-5 flex justify-center">
-          <h2>hi, i&apos;m will.</h2>
+          <h2 className="font-mono font-normal">hi, i&apos;m will.</h2>
         </div>
 
         <div className="mx-6 my-8 flex flex-col items-center justify-center gap-6 md:mx-8 md:my-10 md:flex-row-reverse">
@@ -46,9 +44,9 @@ export default function AboutPage() {
               given enough time, maybe writing about it.
               <br /> <br />
               anyways, welcome and feel free to say{" "}
-              <a href="mailto:hi@sather.ws" className="underline">
+              <ExternalLink href="mailto:hi@sather.ws" className="inline">
                 hi
-              </a>
+              </ExternalLink>
               !
             </p>
           </div>
