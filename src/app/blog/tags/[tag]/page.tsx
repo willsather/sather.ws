@@ -44,18 +44,15 @@ export default async function TagPage(props: {
   const posts = getPostsDataByTag(params?.tag);
 
   return (
-    <div className="bg-secondary">
-      <div className="mt-10 flex justify-center">
-        <h1>{params?.tag.toUpperCase()}</h1>
-      </div>
-
-      <div className="mt-5 flex justify-center">
-        <h2>a category i wrote about.</h2>
+    <>
+      <div className="flex flex-col gap-2 text-center md:gap-4">
+        <h1>{params?.tag.toLowerCase()}</h1>
+        <h2 className="font-mono font-normal">a category i wrote about.</h2>
       </div>
 
       <hr className="my-6" />
 
       <PostList posts={posts} />
-    </div>
+    </>
   );
 }

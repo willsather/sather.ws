@@ -20,7 +20,7 @@ export default function PostHeader({ posts }: { posts: Post[] }) {
   return (
     <>
       <div className="my-2 flex flex-row justify-center">
-        <h4 className="font-mono text-gray-400">
+        <h4 className="font-mono text-gray-500">
           {post.date.toLocaleDateString("default", {
             month: "long",
             day: "numeric",

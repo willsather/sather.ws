@@ -10,13 +10,12 @@ export default function TagsPage() {
   const tags = getAllTags();
 
   return (
-    <div className="bg-secondary">
-      <div className="mt-12 flex justify-center">
-        <h1>TAGS</h1>
-      </div>
-
-      <div className="mt-5 flex justify-center">
-        <h2>categories i want to write about</h2>
+    <>
+      <div className="flex flex-col gap-2 text-center md:gap-4">
+        <h1>tags</h1>
+        <h2 className="font-mono font-normal">
+          categories i want to write about.
+        </h2>
       </div>
 
       <hr className="my-6" />
@@ -26,6 +25,6 @@ export default function TagsPage() {
           return <Tag key={tag} tag={tag} />;
         })}
       </div>
-    </div>
+    </>
   );
 }
