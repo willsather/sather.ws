@@ -9,7 +9,7 @@ test.describe("Navigation", () => {
     await page.getByRole("link", { name: "work" }).click();
 
     await expect(page).toHaveTitle(/Work/);
-    await expect(page.getByRole("heading", { name: "Work" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "work" })).toBeVisible();
   });
 
   test("should navigate to home page", async ({ page }) => {
@@ -17,21 +17,21 @@ test.describe("Navigation", () => {
 
     await expect(page).toHaveTitle(/Will Sather/);
     await expect(
-      page.getByRole("heading", { name: "WILL SATHER" }),
+      page.getByRole("heading", { name: "will sather" }),
     ).toBeVisible();
   });
 
   test("should navigate to blog page", async ({ page }) => {
-    await page.getByRole("link", { name: "blog" }).click();
+    await page.getByRole("link", { name: "posts" }).click();
 
-    await expect(page).toHaveTitle(/Blog/);
-    await expect(page.getByRole("heading", { name: "BLOG" })).toBeVisible();
+    await expect(page).toHaveTitle(/Posts/);
+    await expect(page.getByRole("heading", { name: "posts" })).toBeVisible();
   });
 
   test("should navigate to about page", async ({ page }) => {
     await page.getByRole("link", { name: "about" }).click();
 
     await expect(page).toHaveTitle(/About/);
-    await expect(page.getByRole("heading", { name: "ABOUT" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "about" })).toBeVisible();
   });
 });

@@ -4,7 +4,7 @@ import icons from "@/metadata/icons";
 import manifest from "@/metadata/manifest";
 
 const blog: Metadata = {
-  title: "Blog",
+  title: "Posts",
   description:
     "just another coding blog. a random collection of blog posts i want to write about, primarily documenting problems i've solved recently.",
 
