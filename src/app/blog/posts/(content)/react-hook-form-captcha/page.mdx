@@ -1,6 +1,8 @@
-import { getPostMetadata } from "@/lib/blog"
+import Tweet from "@/ui/tweet";
 
-export const metadata = getPostMetadata("cloudflare-turnstile");
+import {getPostMetadata} from "@/lib/blog"
+
+export const metadata = getPostMetadata("react-hook-form-captcha");
 
 ## Overview
 
@@ -8,10 +10,18 @@ While building the [`www.mncivictech.org`](https://www.mncivictech.org) website,
 integrate the Contact Us form (*along with a few other forms*) directly with Slack.  This seemed optimal in
 comparison to trying to configure email alerts or something else.
 
-Anyway, I was thinking about possibly securing the forms with a [CAPTCHA](http://www.captcha.net/) and decided on
-[Cloudflare Turnstile](https://www.cloudflare.com/application-services/products/turnstile/) because our site was
-already integrated with Cloudflare for DNS, CDN, and DDoS protection (*Cloudflare might be overkill for how we're using
-it, but the having it alongside all my other domains in Cloudflare is quite helpful*).
+### CAPTCHA
+
+So, while building these forms, I was thinking about possibly securing the forms with a
+[CAPTCHA](http://www.captcha.net/).  If unfamiliar, here is a good [resource](https://support.google.com/a/answer/1217728) on what a CAPTCHA is.
+
+_For now,_ I decided on [Cloudflare Turnstile](https://www.cloudflare.com/application-services/products/turnstile/), but the general premise this post outlines should not vary too
+significantly if using a different Bot detection tool.
+
+_On a side note, the below tweet gets me excited and maybe what will come in the future (and maybe justifies a re-write
+for all of this :) )_
+
+<Tweet id="1888846335404609547"/>
 
 At the highest of levels, Turnstile will generate a client-side token which needs to be verified on the server.  This
 interaction allows for Cloudflare to confirm real web visitors (*users*) and deny unwanted visitors (*bots*).
@@ -339,7 +349,7 @@ export async function verifyTurnstile(token: string): Promise<boolean> {
 ```
 
 ## Complete  🎉
-And there you have it — a quick integration of Cloudflare Turnstile with React Hook Form and Next.js!
+And there you have it — a quick integration of a CAPTCHA with React Hook Form and Next.js!
 
 I found this to be a fun little challenge, but hopefully if you are running into issues, this gave you a little bit more
 of an idea on how to solve your problem!
