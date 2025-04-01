@@ -7,6 +7,11 @@ export type Job = {
 
 const jobs: Job[] = [
   {
+    company: "▲ Vercel",
+    role: "Sales Engineer",
+    description: "js/ts, next.js",
+  },
+  {
     company: "VMware Tanzu Labs",
     role: "Software Engineer",
     description: "java, react, js/ts, springboot, next.js",

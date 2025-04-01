@@ -23,17 +23,27 @@ export default function AboutPage() {
               width={0}
               height={0}
               sizes="100%"
-              className="w-full min-w-96"
+              className="w-full md:min-w-96"
             />
           </div>
 
           <div>
             <p className="text-primary" aria-label="about">
-              <strong className="font-bold">a little about me:</strong> i
-              graduated from university of minnesota with bachelors in computer
-              science and am currently working as a software engineer at vmware
-              tanzu labs. recently, been building and modernizing modern web
-              apps / cloud apps with a bunch of cool software.
+              <strong className="font-bold">a little about me:</strong> i was
+              born and raised in minnesota, where i graduated from university of
+              minnesota with bachelors in computer science. i'm currently a{" "}
+              <ExternalLink href="/work">sales engineer</ExternalLink> at{" "}
+              <ExternalLink href="https://www.vercel.com/home">
+                vercel
+              </ExternalLink>
+              . previously, i was a software engineer building and modernizing
+              web apps / cloud apps for{" "}
+              <ExternalLink href="https://www.vmware.com/solutions/app-platform/tanzu-labs">
+                vmware tanzu labs
+              </ExternalLink>{" "}
+              &{" "}
+              <ExternalLink href="https://www.ivanti.com/">ivanti</ExternalLink>
+              .
               <br /> <br />
               <strong className="font-bold">outside of work: </strong> i have
               always enjoyed working on various software projects (like this
@@ -55,7 +65,7 @@ export default function AboutPage() {
 
       <footer>
         <div className="relative bottom-0 left-0 mx-6 my-8 justify-end font-mono text-gray-400 md:fixed md:mx-8 md:my-10">
-          <p>Will Sather © 2020-{new Date().getFullYear()}</p>
+          <p>will sather © 2020-{new Date().getFullYear()}</p>
         </div>
       </footer>
     </>
