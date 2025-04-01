@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from "react";
 
-import { withHeadingId } from "@/app/blog/(components)/utils";
+import { withHeadingId } from "@/ui/blog/utils";
 
 export default function H5({
   children,

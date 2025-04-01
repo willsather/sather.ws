@@ -1,27 +1,26 @@
 import type { MDXComponents } from "mdx/types";
 
-import a from "@/app/blog/(components)/a";
-import blockquote from "@/app/blog/(components)/blockquote";
-import h1 from "@/app/blog/(components)/h1";
-import h2 from "@/app/blog/(components)/h2";
-import h3 from "@/app/blog/(components)/h3";
-import h4 from "@/app/blog/(components)/h4";
-import h5 from "@/app/blog/(components)/h5";
-import hr from "@/app/blog/(components)/hr";
-import img from "@/app/blog/(components)/img";
-import li from "@/app/blog/(components)/li";
-import ol from "@/app/blog/(components)/ol";
-import p from "@/app/blog/(components)/p";
-import pre from "@/app/blog/(components)/pre";
-import ul from "@/app/blog/(components)/ul";
-
-import Component from "@/app/blog/(components)/component";
+import a from "@/ui/blog/a";
+import blockquote from "@/ui/blog/blockquote";
+import Component from "@/ui/blog/component";
+import h1 from "@/ui/blog/h1";
+import h2 from "@/ui/blog/h2";
+import h3 from "@/ui/blog/h3";
+import h4 from "@/ui/blog/h4";
+import h5 from "@/ui/blog/h5";
+import hr from "@/ui/blog/hr";
+import img from "@/ui/blog/img";
+import li from "@/ui/blog/li";
 import Note, {
   ErrorBlock,
   InfoBlock,
   SuccessBlock,
   WarningBlock,
-} from "@/app/blog/(components)/note";
+} from "@/ui/blog/note";
+import ol from "@/ui/blog/ol";
+import p from "@/ui/blog/p";
+import pre from "@/ui/blog/pre";
+import ul from "@/ui/blog/ul";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {

@@ -1,4 +1,4 @@
-import "@/app/blog/(components)/markdown.css";
+import "@/ui/blog/markdown.css";
 
 import type { HTMLAttributes, ReactElement, ReactNode } from "react";
 
