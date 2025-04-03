@@ -8,7 +8,7 @@
           "value": "github.sather.ws"
         }
       ],
-      "destination": "https://github.com/willsather"
+      "destination": "/github/:path*"
     }
   ]
 }
