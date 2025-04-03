@@ -1,9 +1,14 @@
 {
-  "redirects": [
+  "rewrites": [
     {
-      "source": "github.sather.ws",
-      "destination": "https://github.com/willsather",
-      "permanent": true
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "app.acme.com"
+        }
+      ],
+      "destination": "https://github.com/willsather"
     }
   ]
 }
