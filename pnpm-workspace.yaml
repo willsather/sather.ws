@@ -1,7 +1,0 @@
-ignoredBuiltDependencies:
-  - '@biomejs/biome'
-  - '@swc/core'
-  - '@tsparticles/engine'
-  - '@vercel/speed-insights'
-  - esbuild
-  - sharp

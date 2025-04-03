@@ -5,7 +5,7 @@
       "has": [
         {
           "type": "host",
-          "value": "app.acme.com"
+          "value": "github.sather.ws"
         }
       ],
       "destination": "https://github.com/willsather"
