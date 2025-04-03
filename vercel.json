@@ -1,14 +1,8 @@
 {
-  "rewrites": [
+  "redirects": [
     {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "github.sather.ws"
-        }
-      ],
-      "destination": "/github/:path*"
+      "source": "/github",
+      "destination": "https://github.com/willsather"
     }
   ]
 }
