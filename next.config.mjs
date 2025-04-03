@@ -22,6 +22,11 @@ const nextConfig = {
         destination: "/work/:path*",
         permanent: true,
       },
+      {
+        source: "github.sather.ws",
+        destination: "https://github.com/willsather",
+        permanent: true,
+      },
     ];
   },
 };
