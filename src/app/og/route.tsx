@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
-import Logo from "@/icons/Logo";
+import Logo from "@/icons/logo";
 
 const geistBold = readFileSync(
   join(

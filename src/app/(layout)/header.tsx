@@ -1,7 +1,7 @@
 "use client";
 
 import NavigationBar from "@/app/(layout)/navigation-bar";
-import Logo from "@/icons/Logo";
+import Logo from "@/icons/logo";
 
 const Header = () => {
   return (
