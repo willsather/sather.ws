@@ -10,6 +10,46 @@
         }
       ],
       "destination": "https://github.com/willsather"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "linkedin.sather.ws"
+        }
+      ],
+      "destination": "https://www.linkedin.com/in/willsather"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "instagram.sather.ws"
+        }
+      ],
+      "destination": "https://www.instagram.com/will.sather"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "vsco.sather.ws"
+        }
+      ],
+      "destination": "https://vsco.co/willsather/gallery"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "resume.sather.ws"
+        }
+      ],
+      "destination": "/files/resume.pdf"
     }
   ]
 }
