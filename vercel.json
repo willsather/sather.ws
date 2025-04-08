@@ -26,6 +26,26 @@
       "has": [
         {
           "type": "host",
+          "value": "x.sather.ws"
+        }
+      ],
+      "destination": "https://x.com/willsather"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "twitter.sather.ws"
+        }
+      ],
+      "destination": "https://x.com/willsather"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
           "value": "instagram.sather.ws"
         }
       ],
