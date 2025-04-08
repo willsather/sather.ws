@@ -2,7 +2,13 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
-      "source": "/github",
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "github.sather.ws"
+        }
+      ],
       "destination": "https://github.com/willsather"
     }
   ]
