@@ -27,7 +27,7 @@ const ParticleOverlay = () => {
       },
       fullScreen: {
         enable: true,
-        zIndex: 0,
+        zIndex: -5,
       },
       detectRetina: true,
       duration: 0,
