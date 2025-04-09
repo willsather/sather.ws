@@ -97,6 +97,14 @@ export const posts: Post[] = [
       "Using a builder pattern to properly translate data between integration points when utilizing Typescript generic functions",
   },
   {
+    slug: "vercel-subdomain-redirects",
+    title: "Subdomain Redirects to External URL using Vercel DNS",
+    date: new Date("2025-04-08T12:00:00Z"),
+    tags: ["next.js", "deploy"],
+    summary:
+      "How to add subdomain redirects to a domain hosted in Vercel and using Vercel DNS to manage the DNS records.",
+  },
+  {
     slug: "vercel-deploy",
     title: "Deploy Next.js app to Vercel using GitHub Actions",
     date: new Date("2023-01-09T12:00:00Z"),

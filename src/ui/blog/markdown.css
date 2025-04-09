@@ -1,6 +1,15 @@
 /* inline code block */
 :not(pre) > code {
-  @apply rounded-md bg-gray-200 px-1 py-0.5 text-sm;
+  @apply rounded-md bg-gray-200 px-1 py-0.5 text-black;
+}
+
+/* size inline code text */
+:not(pre) > p > code {
+  @apply text-sm;
+}
+
+:not(pre) > a > code {
+  @apply text-sm;
 }
 
 /* pre code block */

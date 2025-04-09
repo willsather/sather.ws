@@ -1,0 +1,71 @@
+import { getPostMetadata } from "@/lib/blog"
+
+export const metadata = getPostMetadata("vercel-subdomain-redirects");
+
+## Overview
+
+While recently migrating from Cloudflare DNS to Vercel DNS _(obviously)_, I realized quickly I wasn't exactly sure how
+to redirect my subdomains (like [`linkedin.sather.ws`](https://linkedin.sather.ws) to an external URL like
+[`https://www.linkedin.com/in/willsather`](https://linkedin.sather.ws)) as I previously just relied on Cloudflare's
+rules.
+
+The reason I'm writing this today is that to achieve this exact behavior, I had to combine this
+[GitHub](https://github.com/vercel/vercel/discussions/5622) discussion answer with three different Vercel community
+guides ([one](https://vercel.com/guides/can-i-redirect-from-a-subdomain-to-a-subpath),
+[two](https://vercel.com/guides/does-vercel-support-permanent-redirects), and
+[three](https://vercel.com/guides/pointing-subdomains-to-external-services)).
+
+In retrospect, this really isn't that difficult but it took long enough to test that I wish someone had just explained
+it for me.
+
+### Vercel Configuration
+
+To define the redirects for Vercel, you can provide a `vercel.json` configuration file alongside your project
+just like this:
+
+```json title="vercel.json"
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "linkedin.sather.ws"
+        }
+      ],
+      "destination": "https://www.linkedin.com/in/willsather"
+    }
+  ]
+}
+```
+
+The documentation for this configuration file can be found [here](https://vercel.com/docs/project-configuration).
+
+### 2. Add Subdomain URL to Project
+
+Assuming this project is already pushed to Vercel, go to __Vercel Dashboard > _{`{Select your Project}`}_ > Settings >
+Domains > Add Domain__, you can add a new
+
+<Image alt="Vercel Add Subdomain" src="/assets/blog/images/vercel-subdomain-redirects/add-domain.png" />
+
+and after confirmation:
+
+<Image alt="Vercel Add Subdomain" src="/assets/blog/images/vercel-subdomain-redirects/subdomain-confirmation.png" />
+
+<br />
+
+### 3. Add `CNAME` Record to DNS
+
+1. Go to **Vercel Dashboard > Domains**.
+2. Select your domain (in my case, `sather.ws`).
+3. Create a new `CNAME` record with the `name` of your subdomain and `value` of `cname.vercel-dns.com` like this:
+
+    <Image alt="Vercel DNS Records" src="/assets/blog/images/vercel-subdomain-redirects/dns.png" />
+
+
+### 4. All Set!
+
+Now, when someone visits [`https://linkedin.sather.ws`](https://linkedin.sather.ws), they will be redirected to my
+LinkedIn profile, but this is applicable for any external url you would like!
