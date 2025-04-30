@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 
-import icons from "@/metadata/icons";
-import manifest from "@/metadata/manifest";
-
 const work: Metadata = {
   title: "Work",
   description:
@@ -19,8 +16,6 @@ const work: Metadata = {
   alternates: {
     canonical: "/work",
   },
-  icons,
-  manifest,
 };
 
 export default work;

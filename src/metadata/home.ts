@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 
 import description from "@/metadata/description";
-import icons from "@/metadata/icons";
-import manifest from "@/metadata/manifest";
 
 const home: Metadata = {
   metadataBase: new URL("https://www.sather.ws"),
@@ -44,8 +42,6 @@ const home: Metadata = {
   alternates: {
     canonical: "/",
   },
-  icons,
-  manifest,
 };
 
 export default home;

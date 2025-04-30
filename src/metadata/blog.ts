@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 
-import icons from "@/metadata/icons";
-import manifest from "@/metadata/manifest";
-
 const blog: Metadata = {
   title: "Posts",
   description:
@@ -23,8 +20,6 @@ const blog: Metadata = {
   alternates: {
     canonical: "/blog",
   },
-  icons,
-  manifest,
 };
 
 export default blog;

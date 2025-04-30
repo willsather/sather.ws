@@ -1,5 +1,3 @@
-import icons from "@/metadata/icons";
-import manifest from "@/metadata/manifest";
 import type { Metadata } from "next";
 
 const about: Metadata = {
@@ -22,8 +20,6 @@ const about: Metadata = {
   alternates: {
     canonical: "/about",
   },
-  icons,
-  manifest,
 };
 
 export default about;
