@@ -4,6 +4,7 @@ import {
   transformerNotationDiff,
   transformerNotationHighlight,
 } from "@shikijs/transformers";
+import withVercelToolbar from "@vercel/toolbar/plugins/next";
 import rehypeMdxCodeProps from "rehype-mdx-code-props";
 import rehypeSlug from "rehype-slug";
 
@@ -62,4 +63,7 @@ const withMDX = createMDX({
   },
 });
 
-export default withMDX(nextConfig);
+const configWithMDX = withMDX(nextConfig);
+const configWithVercelToolbar = withVercelToolbar()(configWithMDX);
+
+export default configWithVercelToolbar;

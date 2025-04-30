@@ -1,5 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { VercelToolbar } from "@vercel/toolbar/next";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
@@ -39,9 +40,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" className={fonts}>
       <body>
         <Header />
+
         {children}
+
         <Analytics />
         <SpeedInsights />
+        {process.env.NODE_ENV === "development" && <VercelToolbar />}
       </body>
     </html>
   );
