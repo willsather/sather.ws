@@ -6,17 +6,7 @@ import { ImageResponse } from "next/og";
 
 import Logo from "@/icons/logo";
 
-const geistBold = readFileSync(
-  join(
-    process.cwd(),
-    "node_modules",
-    "geist",
-    "dist",
-    "fonts",
-    "geist-sans",
-    "Geist-Bold.ttf",
-  ),
-);
+const geistBold = readFileSync(join(process.cwd(), "fonts", "Geist-Bold.ttf"));
 
 export async function GET() {
   return new ImageResponse(

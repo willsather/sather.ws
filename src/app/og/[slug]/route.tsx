@@ -13,20 +13,10 @@ export async function generateStaticParams() {
   }));
 }
 
-const geistBold = readFileSync(
-  join(
-    process.cwd(),
-    "node_modules",
-    "geist",
-    "dist",
-    "fonts",
-    "geist-sans",
-    "Geist-Bold.ttf",
-  ),
-);
+const geistBold = readFileSync(join(process.cwd(), "fonts", "Geist-Bold.ttf"));
 
 const jetBrainsMono = readFileSync(
-  join(process.cwd(), "public", "fonts", "JetBrainsMono-Regular.ttf"),
+  join(process.cwd(), "fonts", "JetBrainsMono-Regular.ttf"),
 );
 
 export async function GET(
