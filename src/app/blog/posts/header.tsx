@@ -39,7 +39,7 @@ export default function PostHeader({ posts }: { posts: Post[] }) {
         ))}
       </div>
 
-      <hr className="my-6" />
+      <hr className="my-6 border-gray-200" />
     </>
   );
 }

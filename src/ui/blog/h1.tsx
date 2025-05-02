@@ -7,6 +7,8 @@ export default function H1({
   children,
 }: HTMLAttributes<HTMLHeadingElement>) {
   return (
-    <h1 className="mb-4 text-2xl md:text-3xl">{withHeadingId(children, id)}</h1>
+    <h1 className="mb-4 font-extrabold text-2xl md:text-3xl">
+      {withHeadingId(children, id)}
+    </h1>
   );
 }

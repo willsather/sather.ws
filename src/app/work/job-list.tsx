@@ -42,7 +42,9 @@ export default function JobList() {
         {jobs.map((job) => (
           <div className="my-8 md:my-12" key={job.company}>
             <div className="flex items-center">
-              <h3 className="text-3xl md:text-5xl">{job.company}</h3>
+              <h3 className="font-extrabold text-2xl md:text-4xl">
+                {job.company}
+              </h3>
 
               {job?.tag != null && (
                 <div className="ml-4 rounded-lg bg-amber-500 p-1 px-2">

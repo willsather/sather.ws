@@ -1,5 +1,3 @@
-import "@/ui/blog/markdown.css";
-
 import type { HTMLAttributes, ReactElement, ReactNode } from "react";
 
 export interface PreBlockProps extends HTMLAttributes<HTMLPreElement> {
@@ -36,7 +34,7 @@ export default function PreBlock({ ...props }: PreBlockProps) {
         </pre>
 
         {language && (
-          <div className="absolute right-2 bottom-2 rounded bg-gray-800 px-2 py-1 font-medium text-gray-400 text-xs">
+          <div className="absolute right-2 bottom-2 rounded-sm bg-gray-800 px-2 py-1 font-medium text-gray-400 text-xs">
             {language.toLowerCase()}
           </div>
         )}

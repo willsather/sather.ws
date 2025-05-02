@@ -18,7 +18,7 @@ export default function TagsPage() {
         </h2>
       </div>
 
-      <hr className="my-6" />
+      <hr className="my-6 border-gray-200" />
 
       <div className="flex flex-row flex-wrap items-center justify-center gap-2 md:gap-4">
         {tags.map((tag) => {

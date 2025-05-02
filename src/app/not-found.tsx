@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function NotFoundPage() {
   return (
-    <main className="flex flex-grow flex-col items-center justify-center p-4">
+    <main className="flex grow flex-col items-center justify-center p-4">
       <h1
         className="my-8 font-bold font-mono text-[20vw] leading-none"
         aria-label="404 error"

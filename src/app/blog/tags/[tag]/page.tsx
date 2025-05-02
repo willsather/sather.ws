@@ -50,7 +50,7 @@ export default async function TagPage(props: {
         <h2 className="font-mono font-normal">a category i wrote about.</h2>
       </div>
 
-      <hr className="my-6" />
+      <hr className="my-6 border-gray-200" />
 
       <PostList posts={posts} />
     </>

@@ -16,7 +16,7 @@ export default function BlogPage() {
         <h2 className="font-mono font-normal">stuff i wanted to write about</h2>
       </div>
 
-      <hr className="my-6" />
+      <hr className="my-6 border-gray-200" />
 
       <PostList posts={posts} />
     </div>
