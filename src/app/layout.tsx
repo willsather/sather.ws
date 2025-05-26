@@ -5,10 +5,11 @@ import type { Metadata } from "next";
 import { Geist, JetBrains_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 
-import Header from "@/app/(layout)/header";
 import homeMetadata from "@/metadata/home";
+import Header from "@/ui/header";
 
-import "./tailwind.css";
+import "@/styles/tailwind.css";
+import "@/styles/mdx.css";
 
 export const metadata: Metadata = homeMetadata;
 

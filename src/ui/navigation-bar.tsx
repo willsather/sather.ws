@@ -3,9 +3,15 @@
 import Link from "next/link";
 import React, { useState } from "react";
 
-import menuLinks from "@/app/(layout)/menu-links";
 import CloseIcon from "@/icons/close";
 import MenuIcon from "@/icons/menu";
+
+const menuLinks = {
+  home: "/",
+  work: "/work",
+  posts: "/blog",
+  about: "/about",
+};
 
 const NavigationBar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
