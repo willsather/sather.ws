@@ -1,4 +1,6 @@
 {
+  "name": "sather.ws",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3333",
@@ -24,7 +26,7 @@
     "@vercel/speed-insights": "^1.2.0",
     "@vercel/toolbar": "^0.1.32",
     "clsx": "^2.1.1",
-    "next": "15.3.1",
+    "next": "15.4.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-tweet": "^3.2.2",
@@ -60,5 +62,9 @@
     "shiki": "^1.26.1",
     "typescript": "5.0.4",
     "vitest": "^3.1.1"
+  },
+  "packageManager": "pnpm@10.7.0",
+  "engines": {
+    "node": ">=22"
   }
 }
