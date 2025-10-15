@@ -39,7 +39,7 @@ const NavigationBar = () => {
               <Link
                 href={link}
                 target="_self"
-                className="text-right text-primary decoration-primary"
+                className="text-right text-secondary decoration-primary"
               >
                 <p>{text}</p>
               </Link>
@@ -60,7 +60,7 @@ const NavigationBar = () => {
             <Link
               href={link}
               target="_self"
-              className="text-primary no-underline"
+              className="text-secondary no-underline"
             >
               <p>{text}</p>
             </Link>

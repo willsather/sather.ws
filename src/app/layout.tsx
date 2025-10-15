@@ -28,7 +28,7 @@ const fonts = `${GeistSans.variable} ${JetBrainsFont.variable}`;
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={fonts}>
-      <body>
+      <body className="bg-primary text-secondary">
         <Header />
 
         {children}

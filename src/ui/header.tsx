@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div className="sticky m-4 flex justify-between">
       <a href="/">
-        <Logo width="100" height={100} />
+        <Logo className="size-24 fill-secondary" />
       </a>
 
       <NavigationBar />

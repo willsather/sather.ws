@@ -27,7 +27,7 @@ export default function AboutPage() {
         </div>
 
         <div className="flex w-full flex-col gap-4 md:w-1/2">
-          <p className="text-primary" aria-label="about">
+          <p className="text-secondary" aria-label="about">
             <strong className="font-bold">a little about me:</strong> i was born
             and raised in minnesota, where i graduated from university of
             minnesota with bachelors in computer science. i'm currently a{" "}

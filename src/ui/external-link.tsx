@@ -19,7 +19,7 @@ export default function ExternalLink({
     <Link
       href={href}
       className={cn(
-        "font-mono font-normal text-gray-500 underline decoration-dotted hover:text-black hover:decoration-solid",
+        "font-mono font-normal text-gray-400 underline decoration-dotted hover:text-gray-300 hover:decoration-solid",
         className,
       )}
     >

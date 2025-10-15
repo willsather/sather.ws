@@ -53,7 +53,7 @@ export default function JobList() {
               )}
             </div>
             <h4 className="text-xl md:text-2xl">{job.role}</h4>
-            <p className="font-mono text-gray-500">{job.description}</p>
+            <p className="font-mono text-gray-400">{job.description}</p>
           </div>
         ))}
       </ul>
