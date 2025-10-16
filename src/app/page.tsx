@@ -58,13 +58,7 @@ export default async function HomePage() {
             <h1 className="mb-2 font-bold text-4xl text-white">will sather</h1>
 
             <p className="flex items-center gap-1 font-mono text-gray-400 text-sm">
-              <span
-                className={
-                  status.text === "vibe engineering" ? "animate-spin" : ""
-                }
-              >
-                *
-              </span>
+              <span className="animate-spin">*</span>
               {status.text}
             </p>
           </div>
