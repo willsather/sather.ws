@@ -125,7 +125,7 @@ export default async function HomePage() {
               </span>
             </Link>
           </h2>
-          <ul className="space-y-2 text-gray-300">
+          <ul className="space-y-2 font-mono text-gray-300 text-sm">
             <li>* field eng @ vercel</li>
             <li>* software eng @ vmware</li>
             <li>* intern @ dell</li>
@@ -149,7 +149,7 @@ export default async function HomePage() {
               </span>
             </Link>
           </h2>
-          <ul className="space-y-2">
+          <ul className="space-y-2 font-mono text-sm">
             {featuredPosts.map((post) => (
               <li key={post.slug}>
                 {post.external ? (
@@ -200,7 +200,7 @@ export default async function HomePage() {
             </Link>
           </h2>
 
-          <ul className="space-y-2 text-gray-300">
+          <ul className="space-y-2 font-mono text-gray-300 text-sm">
             <li>
               <Link
                 href="https://github.com/willsather/ws-starter"
@@ -238,7 +238,7 @@ export default async function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                * workflows starter
+                • workflows starter
               </Link>
             </li>
           </ul>
