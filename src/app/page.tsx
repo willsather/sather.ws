@@ -111,7 +111,7 @@ export default async function HomePage() {
 
         {/* Work section */}
         <section className="mb-12 md:ml-26">
-          <h2 className="mb-4 flex items-center gap-3 font-bold text-xl text-white">
+          <h2 className="mb-4 flex items-center gap-3 font-bold text-white text-xl">
             work
             <Link
               href="https://linkedin.com/in/willsather"
@@ -120,7 +120,7 @@ export default async function HomePage() {
               rel="noopener noreferrer"
             >
               <LinkedInIcon className="h-2.5 w-2.5" fill="currentColor" />
-              <span className="font-mono font-light text-[10px]">
+              <span className="font-light font-mono text-[10px]">
                 @willsather
               </span>
             </Link>
@@ -135,7 +135,7 @@ export default async function HomePage() {
 
         {/* Writing section */}
         <section className="mb-12 md:ml-26">
-          <h2 className="mb-4 flex items-center gap-3 font-bold text-xl text-white">
+          <h2 className="mb-4 flex items-center gap-3 font-bold text-white text-xl">
             writing
             <Link
               href="https://x.com/willsather"
@@ -144,7 +144,7 @@ export default async function HomePage() {
               rel="noopener noreferrer"
             >
               <XIcon className="h-2.5 w-2.5" fill="currentColor" />
-              <span className="font-mono font-light text-[10px]">
+              <span className="font-light font-mono text-[10px]">
                 @willsather
               </span>
             </Link>
@@ -185,7 +185,7 @@ export default async function HomePage() {
 
         {/* Code section */}
         <section className="md:ml-26">
-          <h2 className="mb-4 flex items-center gap-3 font-bold text-xl text-white">
+          <h2 className="mb-4 flex items-center gap-3 font-bold text-white text-xl">
             code
             <Link
               href="https://github.com/willsather"
@@ -194,7 +194,7 @@ export default async function HomePage() {
               rel="noopener noreferrer"
             >
               <GitHubIcon className="h-2.5 w-2.5" fill="currentColor" />
-              <span className="font-mono font-light text-[10px]">
+              <span className="font-light font-mono text-[10px]">
                 @willsather
               </span>
             </Link>

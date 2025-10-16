@@ -60,7 +60,7 @@ export default function ArchivePage() {
 
               {post.tags.length > 0 && (
                 <div className="mt-2">
-                  <div className="flex flex-wrap gap-1">
+                  <div className="flex flex-wrap gap-2">
                     {post.tags.map((tag) => (
                       <span
                         key={tag}

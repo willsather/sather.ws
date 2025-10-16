@@ -5,7 +5,7 @@ export const posts: Post[] = [
     slug: "ai-powered-prototyping",
     title: "AI-Powered Prototyping with Design Systems",
     date: new Date("2025-08-22T12:00:00Z"),
-    tags: ["ai"],
+    tags: ["ai", "vercel"],
     summary:
       "Why AI-native design systems unlock brand-ready, production-aligned prototyping with v0",
     external:
@@ -57,7 +57,7 @@ export const posts: Post[] = [
     slug: "swift-exercises-hybrid-collaboration",
     title: "Conducting SWIFT Exercises through Hybrid Collaboration",
     date: new Date("2023-02-03T12:00:00Z"),
-    tags: ["vmware", "collaboration", "architecture"],
+    tags: ["vmware"],
     summary:
       "How to effectively conduct SWIFT (Structured What If Technique) exercises in hybrid work environments for better system design and risk assessment.",
     external:
@@ -82,7 +82,7 @@ export const posts: Post[] = [
     slug: "mysql-docker-container",
     title: "Running MySQL in a Docker Container",
     date: new Date("2024-03-23T12:00:00Z"),
-    tags: ["data", "setup"],
+    tags: ["setup", "snippets"],
     summary:
       "A super easy local setup to get a MySQL database up and running using a Docker container.",
   },
