@@ -6,6 +6,7 @@ import { Geist, JetBrains_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 
 import homeMetadata from "@/metadata/home";
+import WelcomeLog from "@/ui/welcome-log";
 
 import "@/styles/tailwind.css";
 import "@/styles/mdx.css";
@@ -29,6 +30,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" className={fonts}>
       <body className="bg-secondary font-sans">
         {children}
+
+        <WelcomeLog />
 
         <Analytics />
         <SpeedInsights />
