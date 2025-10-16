@@ -1,13 +1,13 @@
 import type { BlockquoteHTMLAttributes } from "react";
+import { Quote } from "lucide-react";
 
 export default function Blockquote({
   children,
 }: BlockquoteHTMLAttributes<HTMLQuoteElement>) {
   return (
-    <blockquote className="my-4 rounded-sm border border-gray-300 border-s-4 bg-gray-50 p-4 font-sans">
-      <div className="font-medium text-gray-900 italic leading-relaxed">
-        {children}
-      </div>
+    <blockquote className="flex gap-3 items-start my-3 rounded-xl border border-gray-500/30 bg-gray-500/10 text-gray-200 px-4 py-4">
+      {/*<Quote className="size-4 flex-shrink-0 mt-0.5" />*/}
+      <div className="font-mono text-xs leading-relaxed italic">{children}</div>
     </blockquote>
   );
 }
