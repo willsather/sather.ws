@@ -73,7 +73,7 @@ export default async function HomePage() {
         {/* Description */}
         <div className="mb-8 md:ml-26">
           <p className="text-gray-300 leading-relaxed">
-            field eng @ vercel. football watcher. star wars enjoyer.
+            software engineer. football watcher. star wars enjoyer.
             <br className="hidden md:block" /> divorced dad rock playlist
             curator. water drinker.
           </p>
