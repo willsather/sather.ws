@@ -36,7 +36,12 @@ export default function ArchivePage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {post.title} <ExternalLinkIcon className="inline size-3" />
+                    {post.title.split(" ").slice(0, -1).join(" ")}
+                    {post.title.split(" ").length > 1 ? " " : ""}
+                    <span className="whitespace-nowrap">
+                      {post.title.split(" ").slice(-1)[0]}{" "}
+                      <ExternalLinkIcon className="inline size-3" />
+                    </span>
                   </Link>
                 ) : (
                   <Link
