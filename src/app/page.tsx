@@ -1,6 +1,7 @@
 import ExternalLinkIcon from "@/icons/external-link";
 import Logo from "@/icons/logo";
 import { getFeaturedPosts } from "@/lib/blog";
+import { headers } from "next/headers";
 import Link from "next/link";
 
 export const revalidate = 3600; // 60 minutes in seconds
@@ -32,9 +33,13 @@ function getCurrentStatus(): StatusConfig {
   return status || statusConfigs[1];
 }
 
-export default function HomePage() {
+export default async function HomePage() {
   const featuredPosts = getFeaturedPosts();
   const status = getCurrentStatus();
+
+  const headersList = await headers();
+  const vercelId = headersList.get("x-vercel-id") || "local";
+  const gitHash = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) || "local";
 
   return (
     <main className="min-h-screen px-6 py-12 text-gray-100 md:px-24 md:py-16">
@@ -146,7 +151,7 @@ export default function HomePage() {
                     rel="noopener noreferrer"
                   >
                     * {post.title}{" "}
-                    <ExternalLinkIcon className="inline size-3" />
+                    <ExternalLinkIcon className="inline size-3 mb-1" />
                   </Link>
                 ) : (
                   <Link
@@ -226,6 +231,13 @@ export default function HomePage() {
             </li>
           </ul>
         </section>
+
+        {/* Footer with git hash and request ID */}
+        <footer className="mt-16 md:ml-26">
+          <div className="font-mono text-xs text-gray-600">
+            {gitHash} | {vercelId}
+          </div>
+        </footer>
       </div>
     </main>
   );

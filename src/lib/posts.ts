@@ -111,7 +111,7 @@ export const posts: Post[] = [
       "How to use a Next.js feature to dynamically generate Open Graph / Twitter images styled with Tailwind.",
   },
   {
-    slug: "ts-generic-data-builder",
+    slug: "generic-ts-data-builder",
     title: "Generic Typescript Data Builder",
     date: new Date("2024-07-25T12:00:00Z"),
     tags: ["typescript"],
