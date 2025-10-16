@@ -151,7 +151,7 @@ export default async function HomePage() {
                     rel="noopener noreferrer"
                   >
                     * {post.title}{" "}
-                    <ExternalLinkIcon className="inline size-3 mb-1" />
+                    <ExternalLinkIcon className="mb-1 inline size-3" />
                   </Link>
                 ) : (
                   <Link
@@ -234,7 +234,7 @@ export default async function HomePage() {
 
         {/* Footer with git hash and request ID */}
         <footer className="mt-16 md:ml-26">
-          <div className="font-mono text-xs text-gray-600">
+          <div className="font-mono text-gray-600 text-xs">
             {gitHash} | {vercelId}
           </div>
         </footer>
