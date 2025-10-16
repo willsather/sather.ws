@@ -229,16 +229,6 @@ export default async function HomePage() {
                 * agent starter
               </Link>
             </li>
-            <li>
-              <Link
-                href="https://github.com/willsather/workflows-starter"
-                className="transition-colors hover:text-white"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                • workflows starter
-              </Link>
-            </li>
           </ul>
         </section>
 
