@@ -1,5 +1,5 @@
-import Logo from "@/icons/logo";
 import ExternalLinkIcon from "@/icons/external-link";
+import Logo from "@/icons/logo";
 import { getFeaturedPosts } from "@/lib/blog";
 import Link from "next/link";
 
@@ -41,15 +41,15 @@ export default function HomePage() {
       <div className="max-w-2xl">
         {/* Logo and name/subtitle section */}
         <div className="mb-8 flex flex-col md:flex-row md:gap-6">
-          <div className="md:w-20 md:flex-shrink-0 md:-mt-2">
-            <a href="/" className="mb-4 md:mb-0 inline-block">
+          <div className="md:-mt-2 md:w-20 md:flex-shrink-0">
+            <a href="/" className="mb-4 inline-block md:mb-0">
               <Logo fill="white" width={80} height={80} />
             </a>
           </div>
           <div className="md:flex-1">
             <h1 className="mb-2 font-bold text-4xl text-white">will sather</h1>
 
-            <p className="font-mono text-gray-400 text-sm flex items-center gap-1">
+            <p className="flex items-center gap-1 font-mono text-gray-400 text-sm">
               <span
                 className={
                   status.text === "vibe engineering" ? "animate-spin" : ""
@@ -146,7 +146,7 @@ export default function HomePage() {
                     rel="noopener noreferrer"
                   >
                     * {post.title}{" "}
-                    <ExternalLinkIcon className="size-3 inline" />
+                    <ExternalLinkIcon className="inline size-3" />
                   </Link>
                 ) : (
                   <Link
@@ -161,7 +161,7 @@ export default function HomePage() {
             <li className="pt-2">
               <Link
                 href="/archive"
-                className="font-mono text-xs flex items-center gap-1 text-gray-400 transition-colors hover:text-white"
+                className="flex items-center gap-1 font-mono text-gray-400 text-xs transition-colors hover:text-white"
               >
                 <span>archive →</span>
               </Link>

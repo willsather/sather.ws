@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { getAllPosts } from "@/lib/blog";
 import ExternalLinkIcon from "@/icons/external-link";
+import { getAllPosts } from "@/lib/blog";
+import Link from "next/link";
 
 export default function ArchivePage() {
   const posts = getAllPosts();
@@ -27,28 +27,28 @@ export default function ArchivePage() {
         {/* Posts list */}
         <div className="space-y-6">
           {posts.map((post) => (
-            <div key={post.slug} className="border-b border-gray-800 pb-6">
+            <div key={post.slug} className="border-gray-800 border-b pb-6">
               <div className="mb-2">
                 {post.external ? (
                   <Link
                     href={post.external}
-                    className="text-white text-lg transition-colors hover:text-gray-300"
+                    className="text-lg text-white transition-colors hover:text-gray-300"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {post.title} <ExternalLinkIcon className="size-3 inline" />
+                    {post.title} <ExternalLinkIcon className="inline size-3" />
                   </Link>
                 ) : (
                   <Link
                     href={`/writings/${post.slug}`}
-                    className="text-white text-lg transition-colors hover:text-gray-300"
+                    className="text-lg text-white transition-colors hover:text-gray-300"
                   >
                     {post.title}
                   </Link>
                 )}
               </div>
 
-              <p className="text-gray-400 text-sm mb-2">
+              <p className="mb-2 text-gray-400 text-sm">
                 {post.date.toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",

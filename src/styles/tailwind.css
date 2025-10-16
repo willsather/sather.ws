@@ -1,44 +1,44 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #fff;
-    --color-secondary: #0a0a0a;
+  --color-primary: #fff;
+  --color-secondary: #0a0a0a;
 
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-jetbrains);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-jetbrains);
 }
 
 @layer base {
-    h1 {
-        @apply text-4xl lg:text-6xl font-extrabold;
-    }
+  h1 {
+    @apply text-4xl lg:text-6xl font-extrabold;
+  }
 
-    h2 {
-        @apply text-lg lg:text-xl font-bold;
-    }
+  h2 {
+    @apply text-lg lg:text-xl font-bold;
+  }
 
-    h3 {
-        @apply text-lg lg:text-2xl font-semibold;
-    }
+  h3 {
+    @apply text-lg lg:text-2xl font-semibold;
+  }
 
-    h4 {
-        @apply text-lg font-semibold;
-    }
+  h4 {
+    @apply text-lg font-semibold;
+  }
 
-    h5 {
-        @apply font-semibold;
-    }
+  h5 {
+    @apply font-semibold;
+  }
 
-    h6 {
-        @apply font-semibold;
-    }
+  h6 {
+    @apply font-semibold;
+  }
 
-    strong {
-        @apply font-semibold;
-    }
+  strong {
+    @apply font-semibold;
+  }
 
-    pre,
-    code {
-        @apply font-mono;
-    }
+  pre,
+  code {
+    @apply font-mono;
+  }
 }

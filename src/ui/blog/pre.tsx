@@ -23,13 +23,13 @@ export default function PreBlock({ ...props }: PreBlockProps) {
   return (
     <div className="my-3 overflow-hidden rounded-xl border border-gray-500/30 bg-gray-500/10">
       {title && (
-        <div className="flex items-center gap-2 border-b border-gray-500/30 px-4 py-2 text-gray-400 text-sm">
+        <div className="flex items-center gap-2 border-gray-500/30 border-b px-4 py-2 text-gray-400 text-sm">
           <span className="font-medium">{title}</span>
         </div>
       )}
 
       <div className="relative">
-        <pre className="flex overflow-x-auto text-gray-200 text-sm px-4 py-4">
+        <pre className="flex overflow-x-auto px-4 py-4 text-gray-200 text-sm">
           {props.children}
         </pre>
 

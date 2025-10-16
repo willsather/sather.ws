@@ -1,11 +1,11 @@
-import type { ReactNode } from "react";
 import {
-  Info,
   CheckCircle,
-  TriangleAlert,
-  OctagonAlert,
+  Info,
   Lightbulb,
+  OctagonAlert,
+  TriangleAlert,
 } from "lucide-react";
+import type { ReactNode } from "react";
 
 export type NoteType = "Note" | "Info" | "Success" | "Warning" | "Error";
 
@@ -36,10 +36,10 @@ export default function Note({
 
   return (
     <div
-      className={`flex gap-3 items-start my-3 rounded-xl border ${colorClasses[type]} px-4 py-4`}
+      className={`my-3 flex items-start gap-3 rounded-xl border ${colorClasses[type]} px-4 py-4`}
       role="alert"
     >
-      <IconComponent className="size-4 flex-shrink-0 mt-0.5" />
+      <IconComponent className="mt-0.5 size-4 flex-shrink-0" />
       <div className="font-mono text-xs leading-relaxed">{children}</div>
     </div>
   );
