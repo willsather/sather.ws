@@ -1,5 +1,8 @@
 import ExternalLinkIcon from "@/icons/external-link";
+import GitHubIcon from "@/icons/github";
+import LinkedInIcon from "@/icons/linkedin";
 import Logo from "@/icons/logo";
+import XIcon from "@/icons/x";
 import { getFeaturedPosts } from "@/lib/blog";
 import { headers } from "next/headers";
 import Link from "next/link";
@@ -108,15 +111,18 @@ export default async function HomePage() {
 
         {/* Work section */}
         <section className="mb-12 md:ml-26">
-          <h2 className="mb-4 flex items-center gap-3 font-bold text-lg text-white">
+          <h2 className="mb-4 flex items-center gap-3 font-bold text-xl text-white">
             work
             <Link
               href="https://linkedin.com/in/willsather"
-              className="text-gray-400 transition-colors hover:text-white"
+              className="inline-flex items-center gap-1 rounded border border-gray-700 px-2 py-0.5 text-gray-400 transition-colors hover:border-gray-500 hover:text-white"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="font-mono text-xs">@willsather</span>
+              <LinkedInIcon className="h-2.5 w-2.5" fill="currentColor" />
+              <span className="font-mono font-light text-[10px]">
+                @willsather
+              </span>
             </Link>
           </h2>
           <ul className="space-y-2 text-gray-300">
@@ -129,15 +135,18 @@ export default async function HomePage() {
 
         {/* Writing section */}
         <section className="mb-12 md:ml-26">
-          <h2 className="mb-4 flex items-center gap-3 font-bold text-lg text-white">
+          <h2 className="mb-4 flex items-center gap-3 font-bold text-xl text-white">
             writing
             <Link
               href="https://x.com/willsather"
-              className="text-gray-400 transition-colors hover:text-white"
+              className="inline-flex items-center gap-1 rounded border border-gray-700 px-2 py-0.5 text-gray-400 transition-colors hover:border-gray-500 hover:text-white"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="font-mono text-xs">@willsather</span>
+              <XIcon className="h-2.5 w-2.5" fill="currentColor" />
+              <span className="font-mono font-light text-[10px]">
+                @willsather
+              </span>
             </Link>
           </h2>
           <ul className="space-y-2">
@@ -176,15 +185,18 @@ export default async function HomePage() {
 
         {/* Code section */}
         <section className="md:ml-26">
-          <h2 className="mb-4 flex items-center gap-3 font-bold text-lg text-white">
+          <h2 className="mb-4 flex items-center gap-3 font-bold text-xl text-white">
             code
             <Link
               href="https://github.com/willsather"
-              className="text-gray-400 transition-colors hover:text-white"
+              className="inline-flex items-center gap-1 rounded border border-gray-700 px-2 py-0.5 text-gray-400 transition-colors hover:border-gray-500 hover:text-white"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="font-mono text-xs">@willsather</span>
+              <GitHubIcon className="h-2.5 w-2.5" fill="currentColor" />
+              <span className="font-mono font-light text-[10px]">
+                @willsather
+              </span>
             </Link>
           </h2>
 
