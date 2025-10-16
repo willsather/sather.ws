@@ -5,7 +5,7 @@ export default function P({
   ...props
 }: HTMLAttributes<HTMLParagraphElement>) {
   return (
-    <p className="mb-4" {...props}>
+    <p className="mb-4 leading-relaxed" {...props}>
       {children}
     </p>
   );

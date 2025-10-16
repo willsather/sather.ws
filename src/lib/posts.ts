@@ -2,12 +2,31 @@ import type { Post } from "@/lib/blog";
 
 export const posts: Post[] = [
   {
+    slug: "playground",
+    title: "Playground",
+    date: new Date(),
+    tags: ["test"],
+    summary: "Example blog post",
+  },
+  {
+    slug: "ai-powered-prototyping",
+    title: "AI-Powered Prototyping with Design Systems",
+    date: new Date("2025-08-22T12:00:00Z"),
+    tags: ["ai"],
+    summary:
+      "Why AI-native design systems unlock brand-ready, production-aligned prototyping with v0",
+    external:
+      "https://vercel.com/blog/ai-powered-prototyping-with-design-systems",
+    featured: true,
+  },
+  {
     slug: "50-states",
     title: "50 under 25",
     date: new Date("2024-05-20T12:00:00Z"),
     tags: ["travel"],
     summary:
       "A brief reflection on traveling to all 50 US States before turning 25 years old.",
+    featured: true,
   },
   {
     slug: "react-hook-form-captcha",
@@ -40,6 +59,16 @@ export const posts: Post[] = [
     tags: [],
     summary:
       "Welcome to my very first blog post. A very brief and unimportant post to kick things off.",
+  },
+  {
+    slug: "swift-exercises-hybrid-collaboration",
+    title: "Conducting SWIFT Exercises through Hybrid Collaboration",
+    date: new Date("2023-02-03T12:00:00Z"),
+    tags: ["vmware", "collaboration", "architecture"],
+    summary:
+      "How to effectively conduct SWIFT (Structured What If Technique) exercises in hybrid work environments for better system design and risk assessment.",
+    external:
+      "https://blogs.vmware.com/tanzu/conducting-swift-exercises-through-hybrid-collaboration/",
   },
   {
     slug: "kill-port",
@@ -90,11 +119,12 @@ export const posts: Post[] = [
   },
   {
     slug: "ts-generic-data-builder",
-    title: "Pattern for Building Data with Typescript Generics",
+    title: "Generic Typescript Data Builder",
     date: new Date("2024-07-25T12:00:00Z"),
     tags: ["typescript"],
     summary:
       "Using a builder pattern to properly translate data between integration points when utilizing Typescript generic functions",
+    featured: true,
   },
   {
     slug: "vercel-subdomain-redirects",

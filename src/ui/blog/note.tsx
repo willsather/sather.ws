@@ -1,4 +1,11 @@
 import type { ReactNode } from "react";
+import {
+  Info,
+  CheckCircle,
+  TriangleAlert,
+  OctagonAlert,
+  Lightbulb,
+} from "lucide-react";
 
 export type NoteType = "Note" | "Info" | "Success" | "Warning" | "Error";
 
@@ -10,20 +17,30 @@ export default function Note({
   children: ReactNode;
 }) {
   const colorClasses = {
-    Note: "border-gray-400 bg-gray-100 text-gray-700",
-    Info: "border-sky-400 bg-sky-100 text-sky-700",
-    Success: "border-green-400 bg-green-100 text-green-700",
-    Warning: "border-amber-400 bg-amber-100 text-amber-700",
-    Error: "border-red-400 bg-red-100 text-red-700",
+    Note: "border-sky-500/30 bg-sky-500/10 text-sky-200",
+    Info: "border-sky-500/30 bg-sky-500/10 text-sky-200",
+    Success: "border-emerald-500/30 bg-emerald-500/10 text-emerald-200",
+    Warning: "border-amber-500/30 bg-amber-500/10 text-amber-200",
+    Error: "border-red-500/30 bg-red-500/10 text-red-200",
   };
+
+  const icons = {
+    Note: Lightbulb,
+    Info: Info,
+    Success: CheckCircle,
+    Warning: TriangleAlert,
+    Error: OctagonAlert,
+  };
+
+  const IconComponent = icons[type];
 
   return (
     <div
-      className={`my-3 rounded-sm border border-s-4 ${colorClasses[type]} px-4 py-3`}
+      className={`flex gap-3 items-start my-3 rounded-xl border ${colorClasses[type]} px-4 py-4`}
       role="alert"
     >
-      <h5 className={`font-bold ${colorClasses[type]}`}>{type}</h5>
-      <div>{children}</div>
+      <IconComponent className="size-4 flex-shrink-0 mt-0.5" />
+      <div className="font-mono text-xs leading-relaxed">{children}</div>
     </div>
   );
 }

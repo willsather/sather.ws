@@ -15,7 +15,7 @@ export default function A({
     <Link
       href={href}
       className={cn(
-        "font-mono font-normal text-gray-500 underline decoration-dotted hover:text-black hover:decoration-solid",
+        "text-gray-400 transition-colors hover:text-white underline",
         props.className,
       )}
       {...props}

@@ -23,6 +23,16 @@ const nextConfig = {
         destination: "/work/:path*",
         permanent: true,
       },
+      {
+        source: "/blog/:path*",
+        destination: "/writings/:path*",
+        permanent: true,
+      },
+      {
+        source: "/blog",
+        destination: "/archive",
+        permanent: true,
+      },
     ];
   },
 };

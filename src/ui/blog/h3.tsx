@@ -6,5 +6,5 @@ export default function H3({
   children,
   id,
 }: HTMLAttributes<HTMLHeadingElement>) {
-  return <h3 className="mb-4 font-extrabold">{withHeadingId(children, id)}</h3>;
+  return <h3 className="mb-3 text-white">{withHeadingId(children, id)}</h3>;
 }
