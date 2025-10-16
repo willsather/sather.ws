@@ -25,7 +25,7 @@ const nextConfig = {
       },
       {
         source: "/blog/:path*",
-        destination: "/writings/:path*",
+        destination: "/writing/:path*",
         permanent: true,
       },
       {

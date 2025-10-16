@@ -2,13 +2,6 @@ import type { Post } from "@/lib/blog";
 
 export const posts: Post[] = [
   {
-    slug: "playground",
-    title: "Playground",
-    date: new Date(),
-    tags: ["test"],
-    summary: "Example blog post",
-  },
-  {
     slug: "ai-powered-prototyping",
     title: "AI-Powered Prototyping with Design Systems",
     date: new Date("2025-08-22T12:00:00Z"),

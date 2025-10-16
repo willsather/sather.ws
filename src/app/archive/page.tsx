@@ -21,7 +21,7 @@ export default function ArchivePage() {
         {/* Title */}
         <div className="mb-8">
           <h1 className="mb-2 font-normal text-2xl text-white">archive</h1>
-          <p className="font-mono text-gray-400 text-sm">all writings</p>
+          <p className="font-mono text-gray-400 text-sm">all writing</p>
         </div>
 
         {/* Posts list */}
@@ -40,7 +40,7 @@ export default function ArchivePage() {
                   </Link>
                 ) : (
                   <Link
-                    href={`/writings/${post.slug}`}
+                    href={`/writing/${post.slug}`}
                     className="text-lg text-white transition-colors hover:text-gray-300"
                   >
                     {post.title}

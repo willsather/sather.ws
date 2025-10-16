@@ -150,7 +150,7 @@ export default function HomePage() {
                   </Link>
                 ) : (
                   <Link
-                    href={`/writings/${post.slug}`}
+                    href={`/writing/${post.slug}`}
                     className="text-gray-300 transition-colors hover:text-white"
                   >
                     * {post.title}
