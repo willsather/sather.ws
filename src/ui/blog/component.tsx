@@ -1,6 +1,6 @@
 export default function Component({ name }: { name: string }) {
   return (
-    <code className="rounded-md border-2 border-gray-300 bg-white! text-gray-500 text-sm">
+    <code className="rounded-md border border-gray-500/30 bg-gray-500/10 text-gray-200 text-sm px-2 py-1">
       {"<"}
       {name}
       {"/>"}
