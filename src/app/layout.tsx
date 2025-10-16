@@ -6,7 +6,6 @@ import { Geist, JetBrains_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 
 import homeMetadata from "@/metadata/home";
-import Header from "@/ui/header";
 
 import "@/styles/tailwind.css";
 import "@/styles/mdx.css";
@@ -28,7 +27,7 @@ const fonts = `${GeistSans.variable} ${JetBrainsFont.variable}`;
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={fonts}>
-      <body className="bg-secondary">
+      <body className="bg-secondary font-sans">
         {children}
 
         <Analytics />

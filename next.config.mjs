@@ -10,9 +10,6 @@ import rehypeSlug from "rehype-slug";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 
   // temporary redirect for any old, lingering urls pointing to /experience
@@ -20,7 +17,7 @@ const nextConfig = {
     return [
       {
         source: "/experience/:path*",
-        destination: "/work/:path*",
+        destination: "/",
         permanent: true,
       },
       {

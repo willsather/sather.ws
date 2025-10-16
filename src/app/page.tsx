@@ -108,7 +108,7 @@ export default async function HomePage() {
 
         {/* Work section */}
         <section className="mb-12 md:ml-26">
-          <h2 className="mb-4 flex items-center gap-3 text-lg text-white">
+          <h2 className="mb-4 flex items-center gap-3 font-bold text-lg text-white">
             work
             <Link
               href="https://linkedin.com/in/willsather"
@@ -129,7 +129,7 @@ export default async function HomePage() {
 
         {/* Writing section */}
         <section className="mb-12 md:ml-26">
-          <h2 className="mb-4 flex items-center gap-3 text-lg text-white">
+          <h2 className="mb-4 flex items-center gap-3 font-bold text-lg text-white">
             writing
             <Link
               href="https://x.com/willsather"
@@ -176,7 +176,7 @@ export default async function HomePage() {
 
         {/* Code section */}
         <section className="md:ml-26">
-          <h2 className="mb-4 flex items-center gap-3 text-lg text-white">
+          <h2 className="mb-4 flex items-center gap-3 font-bold text-lg text-white">
             code
             <Link
               href="https://github.com/willsather"
