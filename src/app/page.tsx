@@ -238,7 +238,7 @@ export default async function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                • workflows starter
+                * workflows starter
               </Link>
             </li>
           </ul>
