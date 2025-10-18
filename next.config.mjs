@@ -12,7 +12,7 @@ import rehypeSlug from "rehype-slug";
 const nextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 
-  // temporary redirect for any old, lingering urls pointing to /experience
+  // temporary redirect for any old, lingering urls
   async redirects() {
     return [
       {
@@ -21,12 +21,17 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/blog/:path*",
+        source: "/blog/posts/:path*",
         destination: "/writing/:path*",
         permanent: true,
       },
       {
         source: "/blog",
+        destination: "/archive",
+        permanent: true,
+      },
+      {
+        source: "/blog/tags/:path*",
         destination: "/archive",
         permanent: true,
       },
