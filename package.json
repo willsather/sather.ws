@@ -10,9 +10,7 @@
     "lint:fix": "biome check --write",
     "test": "vitest run",
     "test:ui": "vitest run --ui",
-    "test:watch": "vitest watch",
-    "test:e2e": "playwright test --ui --trace on",
-    "test:e2e:ci": "playwright test --trace on"
+    "test:watch": "vitest watch"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
@@ -40,7 +38,6 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@playwright/test": "^1.49.1",
     "@shikijs/rehype": "^1.26.1",
     "@shikijs/transformers": "^1.26.1",
     "@tailwindcss/nesting": "0.0.0-insiders.565cd3e",

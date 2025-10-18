@@ -1,6 +1,6 @@
 # Website
 
-This is the Next.js application that supports my website. You can find it deployed at 
+This is the Next.js application that supports my website. You can find it deployed at
 [`www.sather.ws`](https://www.sather.ws).
 
 ## Local Setup
@@ -30,22 +30,6 @@ pnpm test
 ```
 
 The Vitest configuration can be found [here](./vitest.config.ts).
-
-#### E2E Tests
-
-You can run the [Playwright](https://playwright.dev/) End to End tests using:
-
-```bash
-pnpm test:e2e
-```
-
-(or headless):
-
-```bash
-pnpm test:e2e:ci
-```
-
-The Playwright configuration can be found [here](./playwright.config.ts).
 
 ## Linting
 
