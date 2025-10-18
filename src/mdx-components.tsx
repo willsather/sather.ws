@@ -1,26 +1,26 @@
 import type { MDXComponents } from "mdx/types";
 
-import a from "@/ui/blog/a";
-import blockquote from "@/ui/blog/blockquote";
-import Component from "@/ui/blog/component";
-import h1 from "@/ui/blog/h1";
-import h2 from "@/ui/blog/h2";
-import h3 from "@/ui/blog/h3";
-import h4 from "@/ui/blog/h4";
-import h5 from "@/ui/blog/h5";
-import hr from "@/ui/blog/hr";
-import img from "@/ui/blog/img";
-import li from "@/ui/blog/li";
+import a from "@/components/blog/a";
+import blockquote from "@/components/blog/blockquote";
+import Component from "@/components/blog/component";
+import h1 from "@/components/blog/h1";
+import h2 from "@/components/blog/h2";
+import h3 from "@/components/blog/h3";
+import h4 from "@/components/blog/h4";
+import h5 from "@/components/blog/h5";
+import hr from "@/components/blog/hr";
+import img from "@/components/blog/img";
+import li from "@/components/blog/li";
 import Note, {
   ErrorBlock,
   InfoBlock,
   SuccessBlock,
   WarningBlock,
-} from "@/ui/blog/note";
-import ol from "@/ui/blog/ol";
-import p from "@/ui/blog/p";
-import pre from "@/ui/blog/pre";
-import ul from "@/ui/blog/ul";
+} from "@/components/blog/note";
+import ol from "@/components/blog/ol";
+import p from "@/components/blog/p";
+import pre from "@/components/blog/pre";
+import ul from "@/components/blog/ul";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {

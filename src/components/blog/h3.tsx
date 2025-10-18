@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from "react";
 
-import { withHeadingId } from "@/ui/blog/utils";
+import { withHeadingId } from "@/components/blog/utils";
 
 export default function H3({
   children,
