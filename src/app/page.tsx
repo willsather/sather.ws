@@ -27,10 +27,14 @@ const statusConfigs: StatusConfig[] = [
 
 function getCurrentStatus(): StatusConfig {
   const now = new Date();
-  const hour = now.getHours();
+  // convert to UTC-5 (us central time)
+  const utcHour = now.getUTCHours();
+  const centralTimeHour = (utcHour - 5 + 24) % 24;
 
   const status = statusConfigs.find(
-    (config) => hour >= config.timeRange.start && hour < config.timeRange.end,
+    (config) =>
+      centralTimeHour >= config.timeRange.start &&
+      centralTimeHour < config.timeRange.end,
   );
 
   return status || statusConfigs[1];
