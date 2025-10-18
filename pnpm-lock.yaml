@@ -12,27 +12,6 @@ importers:
 
   .:
     dependencies:
-      '@mdx-js/loader':
-        specifier: ^3.1.0
-        version: 3.1.0(acorn@8.11.3)
-      '@mdx-js/react':
-        specifier: ^3.1.0
-        version: 3.1.0(@types/react@19.2.2)(react@19.2.0)
-      '@next/mdx':
-        specifier: 16.0.0-beta.0
-        version: 16.0.0-beta.0(@mdx-js/loader@3.1.0(acorn@8.11.3))(@mdx-js/react@3.1.0(@types/react@19.2.2)(react@19.2.0))
-      '@tsparticles/engine':
-        specifier: ^3.8.1
-        version: 3.8.1
-      '@tsparticles/react':
-        specifier: ^3.0.0
-        version: 3.0.0(@tsparticles/engine@3.8.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      '@tsparticles/slim':
-        specifier: ^3.8.1
-        version: 3.8.1
-      '@types/mdx':
-        specifier: ^2.0.13
-        version: 2.0.13
       '@vercel/analytics':
         specifier: ^1.5.0
         version: 1.5.0(next@16.0.0-beta.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.60.0))(react@19.2.0)
@@ -82,12 +61,6 @@ importers:
       '@biomejs/biome':
         specifier: 1.9.4
         version: 1.9.4
-      '@shikijs/rehype':
-        specifier: ^1.26.1
-        version: 1.26.1
-      '@shikijs/transformers':
-        specifier: ^1.26.1
-        version: 1.26.1
       '@tailwindcss/nesting':
         specifier: 0.0.0-insiders.565cd3e
         version: 0.0.0-insiders.565cd3e(postcss@8.4.49)
@@ -112,6 +85,9 @@ importers:
       '@types/jsdom':
         specifier: ^21.1.7
         version: 21.1.7
+      '@types/mdx':
+        specifier: ^2.0.13
+        version: 2.0.13
       '@types/node':
         specifier: ^22.10.5
         version: 22.10.5
@@ -133,15 +109,6 @@ importers:
       postcss:
         specifier: ^8.4.49
         version: 8.4.49
-      rehype-mdx-code-props:
-        specifier: ^3.0.1
-        version: 3.0.1
-      rehype-slug:
-        specifier: ^6.0.0
-        version: 6.0.0
-      shiki:
-        specifier: ^1.26.1
-        version: 1.26.1
       turbopack-mdx-loader:
         specifier: file:./loader
         version: file:loader(acorn@8.11.3)
@@ -531,36 +498,11 @@ packages:
   '@jridgewell/sourcemap-codec@1.5.0':
     resolution: {integrity: sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==}
 
-  '@mdx-js/loader@3.1.0':
-    resolution: {integrity: sha512-xU/lwKdOyfXtQGqn3VnJjlDrmKXEvMi1mgYxVmukEUtVycIz1nh7oQ40bKTd4cA7rLStqu0740pnhGYxGoqsCg==}
-    peerDependencies:
-      webpack: '>=5'
-    peerDependenciesMeta:
-      webpack:
-        optional: true
-
   '@mdx-js/mdx@3.1.0':
     resolution: {integrity: sha512-/QxEhPAvGwbQmy1Px8F899L5Uc2KZ6JtXwlCgJmjSTBedwOZkByYcBG4GceIGPXRDsmfxhHazuS+hlOShRLeDw==}
 
-  '@mdx-js/react@3.1.0':
-    resolution: {integrity: sha512-QjHtSaoameoalGnKDT3FoIl4+9RwyTmo9ZJGBdLOks/YOiWHoRDI3PUwEzOE7kEmGcV3AFcp9K6dYu9rEuKLAQ==}
-    peerDependencies:
-      '@types/react': 19.2.2
-      react: '>=16'
-
   '@next/env@16.0.0-beta.0':
     resolution: {integrity: sha512-OWeEhUmIxA9zuQansxKXHWTszsPcvSvar8ym1BOElhU6Lgnb4yLXGshKSoPXoHOHRFcxuYmhI86OA+5Z9TvSSQ==}
-
-  '@next/mdx@16.0.0-beta.0':
-    resolution: {integrity: sha512-RdeGCzANRJG7rL1/ozMexdLeYUUFuR/n/busiDYaoIJyYXLexViS5NT8hIEQlfIuPRyFnsBe0bssK3TDlzQOvA==}
-    peerDependencies:
-      '@mdx-js/loader': '>=0.15.0'
-      '@mdx-js/react': '>=0.15.0'
-    peerDependenciesMeta:
-      '@mdx-js/loader':
-        optional: true
-      '@mdx-js/react':
-        optional: true
 
   '@next/swc-darwin-arm64@16.0.0-beta.0':
     resolution: {integrity: sha512-8IdA5j+xOGQNP+4yBqG5pvNhrDrVp/IMyJSn38t2h3XOhw+BZ63j+m0SyJuj2OKgIBgJLvkHUXEWiSD9u5nfBw==}
@@ -1081,13 +1023,6 @@ packages:
 
   '@tsparticles/plugin-rgb-color@3.8.1':
     resolution: {integrity: sha512-xNLqnaFUYjU+7dCHQXjZdM4UojUAVorPVmXlYmkh1xmujLljEaFTwCg1UJVlNq+fXENIFkeaf3/XT0U/q0ZBTA==}
-
-  '@tsparticles/react@3.0.0':
-    resolution: {integrity: sha512-hjGEtTT1cwv6BcjL+GcVgH++KYs52bIuQGW3PWv7z3tMa8g0bd6RI/vWSLj7p//NZ3uTjEIeilYIUPBh7Jfq/Q==}
-    peerDependencies:
-      '@tsparticles/engine': ^3.0.2
-      react: '>=16.8.0'
-      react-dom: '>=16.8.0'
 
   '@tsparticles/shape-circle@3.8.1':
     resolution: {integrity: sha512-dM/f+qcpd8/KfviuVuKiTS8KLDE/T7xxHK7EI2S49yPW6yrJJBXdL7T4N9/n/6PF+Wslcl+kf/eTDjEAI3WjNQ==}
@@ -3339,14 +3274,6 @@ snapshots:
 
   '@jridgewell/sourcemap-codec@1.5.0': {}
 
-  '@mdx-js/loader@3.1.0(acorn@8.11.3)':
-    dependencies:
-      '@mdx-js/mdx': 3.1.0(acorn@8.11.3)
-      source-map: 0.7.4
-    transitivePeerDependencies:
-      - acorn
-      - supports-color
-
   '@mdx-js/mdx@3.1.0(acorn@8.11.3)':
     dependencies:
       '@types/estree': 1.0.6
@@ -3377,20 +3304,7 @@ snapshots:
       - acorn
       - supports-color
 
-  '@mdx-js/react@3.1.0(@types/react@19.2.2)(react@19.2.0)':
-    dependencies:
-      '@types/mdx': 2.0.13
-      '@types/react': 19.2.2
-      react: 19.2.0
-
   '@next/env@16.0.0-beta.0': {}
-
-  '@next/mdx@16.0.0-beta.0(@mdx-js/loader@3.1.0(acorn@8.11.3))(@mdx-js/react@3.1.0(@types/react@19.2.2)(react@19.2.0))':
-    dependencies:
-      source-map: 0.7.4
-    optionalDependencies:
-      '@mdx-js/loader': 3.1.0(acorn@8.11.3)
-      '@mdx-js/react': 3.1.0(@types/react@19.2.2)(react@19.2.0)
 
   '@next/swc-darwin-arm64@16.0.0-beta.0':
     optional: true
@@ -3879,12 +3793,6 @@ snapshots:
   '@tsparticles/plugin-rgb-color@3.8.1':
     dependencies:
       '@tsparticles/engine': 3.8.1
-
-  '@tsparticles/react@3.0.0(@tsparticles/engine@3.8.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
-    dependencies:
-      '@tsparticles/engine': 3.8.1
-      react: 19.2.0
-      react-dom: 19.2.0(react@19.2.0)
 
   '@tsparticles/shape-circle@3.8.1':
     dependencies:

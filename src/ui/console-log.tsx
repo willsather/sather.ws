@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-export default function WelcomeLog() {
+export default function ConsoleLog() {
   useEffect(() => {
     const art = `
 
