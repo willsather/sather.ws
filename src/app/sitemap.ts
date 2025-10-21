@@ -4,14 +4,8 @@ export default async function sitemap() {
   const posts = getAllPosts();
 
   const blogPages = posts.map((post) => ({
-    url: `https://www.sather.ws/blog/posts/${post.slug}`,
+    url: `https://www.sather.ws/writing/${post.slug}`,
     lastModified: post.date,
-  }));
-
-  const tags = getAllTags();
-  const tagPages = tags.map((tag) => ({
-    url: `https://www.sather.ws/blog/tags/${tag.toLowerCase()}`,
-    lastModified: new Date(),
   }));
 
   return [
@@ -20,22 +14,9 @@ export default async function sitemap() {
       lastModified: new Date(),
     },
     {
-      url: "https://www.sather.ws/about",
-      lastModified: new Date(),
-    },
-    {
-      url: "https://www.sather.ws/work",
-      lastModified: new Date(),
-    },
-    {
-      url: "https://www.sather.ws/blog",
-      lastModified: new Date(),
-    },
-    {
-      url: "https://www.sather.ws/blog/tags",
+      url: "https://www.sather.ws/archive",
       lastModified: new Date(),
     },
     ...blogPages,
-    ...tagPages,
   ];
 }

@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
 import ExternalLinkIcon from "@/icons/external-link";
 import { getAllPosts } from "@/lib/blog";
-import Link from "next/link";
+import archiveMetadata from "@/metadata/archive";
+
+export const metadata: Metadata = archiveMetadata;
 
 export default function ArchivePage() {
   const posts = getAllPosts();
