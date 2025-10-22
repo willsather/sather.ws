@@ -9,7 +9,7 @@ import rehypeSlug from "rehype-slug";
 
 const DEFAULT_RENDERER = `import React from 'react'`;
 
-// custom shiki configuration matching next.config.mjs
+// custom shiki configuration matching next.config.ts
 const rehypeShikiOptions = {
   themes: { light: "one-dark-pro", dark: "one-dark-pro" },
   addLanguageClass: true,

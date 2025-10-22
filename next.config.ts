@@ -1,7 +1,12 @@
 import withVercelToolbar from "@vercel/toolbar/plugins/next";
+import type { NextConfig } from "next";
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
+  cacheComponents: true,
+  experimental: {
+    turbopackFileSystemCacheForDev: true,
+  },
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   turbopack: {
     rules: {

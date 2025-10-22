@@ -6,15 +6,9 @@ import XIcon from "@/icons/x";
 import { getFeaturedPosts } from "@/lib/blog";
 import { headers } from "next/headers";
 import Link from "next/link";
+import { connection } from "next/server";
 
-export const revalidate = 3600; // 60 minutes in seconds
-
-interface StatusConfig {
-  text: string;
-  timeRange: { start: number; end: number };
-}
-
-const statusConfigs: StatusConfig[] = [
+const statusConfigs = [
   {
     text: "sleeping",
     timeRange: { start: 1, end: 7 }, // 1am to 7am
@@ -25,11 +19,12 @@ const statusConfigs: StatusConfig[] = [
   },
 ];
 
-function getCurrentStatus(): StatusConfig {
+async function getCurrentStatus() {
+  await connection();
   const now = new Date();
-  // convert to UTC-5 (us central time)
+
   const utcHour = now.getUTCHours();
-  const centralTimeHour = (utcHour - 5 + 24) % 24;
+  const centralTimeHour = (utcHour - 5 + 24) % 24; // convert to UTC-5 (us central time)
 
   const status = statusConfigs.find(
     (config) =>
@@ -37,16 +32,17 @@ function getCurrentStatus(): StatusConfig {
       centralTimeHour < config.timeRange.end,
   );
 
-  return status || statusConfigs[1];
+  return <>{status?.text ?? statusConfigs[1].text}</>;
 }
 
 export default async function HomePage() {
   const featuredPosts = getFeaturedPosts();
-  const status = getCurrentStatus();
 
   const headersList = await headers();
   const vercelId = headersList.get("x-vercel-id") || "local";
   const gitHash = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) || "local";
+
+  const status = await getCurrentStatus();
 
   return (
     <main className="min-h-screen px-6 py-12 text-gray-100 md:px-24 md:py-16">
@@ -63,7 +59,7 @@ export default async function HomePage() {
 
             <p className="flex items-center gap-1 font-mono text-gray-400 text-sm">
               <span className="animate-spin">*</span>
-              {status.text}
+              {status}
             </p>
           </div>
         </div>
