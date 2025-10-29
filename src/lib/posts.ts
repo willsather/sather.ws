@@ -2,6 +2,15 @@ import type { Post } from "@/lib/blog";
 
 export const posts: Post[] = [
   {
+    slug: "shiki-code-blocks-turbopack",
+    title: "Shiki Code Blocks with Turbopack",
+    date: new Date("2025-10-28T12:00:00Z"),
+    tags: ["next.js", "typescript"],
+    summary:
+      "How to setup custom MDX loader with Shiki for enhanced code block highlighting, diffs, and transformers in Next.js with Turbopack.",
+    featured: true,
+  },
+  {
     slug: "ai-powered-prototyping",
     title: "AI-Powered Prototyping with Design Systems",
     date: new Date("2025-08-22T12:00:00Z"),

@@ -1,0 +1,171 @@
+import { getPostMetadata } from "@/lib/blog"
+
+export const metadata = getPostMetadata("shiki-code-blocks-turbopack");
+
+## Overview
+
+When building this blog, I wanted to have beautiful, syntax-highlighted code blocks with support for diff highlighting, line highlighting, and other visual enhancements. While Next.js has built-in MDX support, I had some problems getting custom Shiki configuration working properly with [Turbopack](https://nextjs.org/docs/app/api-reference/turbopack), especially when configuring in `next.config.ts` due to Turbopack being written in Rust.
+
+## The Problem
+
+Out of the box, Next.js MDX support doesn't include advanced code highlighting features like:
+- Syntax highlighting with custom themes
+- Custom transformers for enhanced code blocks like Diff highlighting (`// [!code ++]` and `// [!code --]`) and line highlighting (`// [!code highlight]`)
+
+## The Solution
+
+This walks through how I moved my custom Shiki configuration from `next.config.ts` into a custom [Next.js Webpack loader](https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#configuring-webpack-loaders) to solve the issues with Turbopack. Here's how I set it up:
+
+### 1. Custom MDX Loader
+
+First, I created a custom loader in the `loader/` directory:
+
+```json title="loader/package.json"
+{
+  "name": "turbopack-mdx-loader",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "index.mjs",
+  "exports": {
+    ".": "./index.mjs"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^3.1.0",
+    "@shikijs/rehype": "^1.26.1",
+    "@shikijs/transformers": "^1.26.1",
+    "rehype-mdx-code-props": "^3.0.1",
+    "rehype-slug": "^6.0.0"
+  }
+}
+```
+
+The main loader logic handles MDX compilation with Shiki:
+
+```js title="loader/index.mjs"
+import * as mdx from "@mdx-js/mdx";
+import rehypeShiki from "@shikijs/rehype";
+import {
+  transformerNotationDiff,
+  transformerNotationHighlight,
+} from "@shikijs/transformers";
+import rehypeMdxCodeProps from "rehype-mdx-code-props";
+import rehypeSlug from "rehype-slug";
+
+const DEFAULT_RENDERER = `import React from 'react'`;
+
+// custom shiki configuration matching next.config.ts
+const rehypeShikiOptions = {
+  themes: { light: "one-dark-pro", dark: "one-dark-pro" },
+  addLanguageClass: true,
+  transformers: [transformerNotationDiff(), transformerNotationHighlight()],
+
+  // hack to pass data props through shiki
+  // https://github.com/shikijs/shiki/issues/629
+  parseMetaString: (str) => {
+    return Object.fromEntries(
+      str.split(" ").reduce((prev, curr) => {
+        const [key, value] = curr.split("=");
+        const isNormalKey = /^[A-Z0-9]+$/i.test(key);
+        if (isNormalKey) {
+          prev.push([key, value || true]);
+        }
+        return prev;
+      }, []),
+    );
+  },
+};
+
+const loader = async function (content) {
+  const callback = this.async();
+  const isDev = this.mode === "development";
+
+  const options = {
+    development: isDev,
+    providerImportSource: "@/mdx-components",
+    remarkPlugins: [],
+    rehypePlugins: [
+      [rehypeShiki, rehypeShikiOptions],
+      rehypeSlug, // add `id` to all headings
+      rehypeMdxCodeProps, // provide custom props on `code` and `pre` blocks
+    ],
+  };
+
+  let result;
+
+  try {
+    result = await mdx.compile(content, options);
+  } catch (err) {
+    return callback(err);
+  }
+
+  const { renderer = DEFAULT_RENDERER } = options;
+
+  const code = `${renderer}\n${result}`;
+  return callback(null, code);
+};
+
+export default loader;
+```
+
+### 2. Install the Loader Package
+
+Add the custom loader to your main app's dependencies:
+
+```json title="package.json"
+{
+  "dependencies": {
+    ...
+    "turbopack-mdx-loader": "file:./loader"
+  }
+}
+```
+
+### 3. Next.js Configuration
+
+The key is configuring Turbopack to use our custom loader for MDX files:
+
+```ts title="next.config.ts"
+const nextConfig: NextConfig = {
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  turbopack: {
+    rules: {
+      "*.mdx": {
+        loaders: ["turbopack-mdx-loader"],
+        as: "*.tsx",
+      },
+    },
+  },
+  // ... rest of config
+};
+```
+
+This tells Turbopack to:
+- Use our custom `turbopack-mdx-loader` for all `.mdx` files
+- Treat the output as TypeScript JSX (`.tsx`)
+
+### 4. Shiki Features
+
+With this setup, I continue to get several powerful features while still using Turbopack:
+
+**Diff Highlighting:**
+```js title="example.js"
+function example() {
+  const oldValue = "hello"; // [!code --]
+  const newValue = "world"; // [!code ++]
+  return newValue;
+}
+```
+
+**Line Highlighting:**
+```js title="example.js"
+function example() {
+  const highlighted = "this line is highlighted"; // [!code highlight]
+  const normal = "this line is normal";
+}
+```
+
+
+## Complete 🎉
+
+You can find all the code for this setup in this website's [GitHub repository](https://github.com/willsather/sather.ws). The custom loader approach works great with Turbopack and provides excellent performance in development!
