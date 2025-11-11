@@ -4,59 +4,59 @@
 
 /* inline code block */
 :not(pre) > code {
-  @apply rounded-md px-1 py-0.5;
+    @apply rounded-md px-1 py-0.5 border border-gray-600 font-mono text-sm;
 }
 
 /* size inline code text */
 :not(pre) > p > code {
-  @apply text-sm;
+    @apply text-sm;
 }
 
 :not(pre) > a > code {
-  @apply text-sm;
+    @apply text-sm;
 }
 
 /* pre code block */
 pre {
-  /* ensure code block is flex for highlighting */
-  & > code {
-    @apply flex flex-col flex-grow;
-  }
+    /* ensure code block is flex for highlighting */
+    & > code {
+        @apply flex flex-col flex-grow;
+    }
 
-  /* add padding if no syntax highlighting */
-  & > code:not(:has(.line)) {
-    @apply p-3;
-  }
+    /* add padding if no syntax highlighting */
+    & > code:not(:has(.line)) {
+        @apply p-3;
+    }
 
-  /* add minimal left spacing when code block contains diff lines */
-  &:has(.add, .remove) .line {
-    @apply pl-3;
-  }
+    /* add minimal left spacing when code block contains diff lines */
+    &:has(.add, .remove) .line {
+        @apply pl-3;
+    }
 }
 
 .line {
-  /* grow width and min height for empty lines */
-  @apply flex grow min-h-3;
+    /* grow width and min height for empty lines */
+    @apply flex grow min-h-3;
 
-  &.highlighted {
-    @apply border-l-4 border-blue-800 bg-blue-800/25 -mx-4 px-4;
-  }
-
-  &.add {
-    @apply border-l-4 border-green-800 bg-green-800/25 text-green-500 -mx-4 px-4;
-
-    &::before {
-      content: "+";
-      @apply pr-2.5 -ml-2 pl-0.5 select-none text-xs;
+    &.highlighted {
+        @apply border-l-4 border-blue-800 bg-blue-800/25 -mx-4 px-4;
     }
-  }
 
-  &.remove {
-    @apply border-l-4 border-red-800 bg-red-800/25 text-red-500 -mx-4 px-4;
+    &.add {
+        @apply border-l-4 border-green-800 bg-green-800/25 text-green-500 -mx-4 px-4;
 
-    &::before {
-      content: "-";
-      @apply pr-2.5 -ml-2 pl-0.5 select-none text-xs;
+        &::before {
+            content: "+";
+            @apply pr-2.5 -ml-2 pl-0.5 select-none text-xs;
+        }
     }
-  }
+
+    &.remove {
+        @apply border-l-4 border-red-800 bg-red-800/25 text-red-500 -mx-4 px-4;
+
+        &::before {
+            content: "-";
+            @apply pr-2.5 -ml-2 pl-0.5 select-none text-xs;
+        }
+    }
 }
