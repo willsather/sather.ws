@@ -37,7 +37,7 @@ export async function GET(
       <Logo fill="white" style={{ marginBottom: 50 }} />
 
       {/* Website Domain */}
-      <div tw="text-xl text-gray-400 mb-4" style={font("JetBrains Mono")}>
+      <div tw="text-xl text-neutral-400 mb-4" style={font("JetBrains Mono")}>
         sather.ws
       </div>
 
@@ -49,7 +49,7 @@ export async function GET(
         {postData.title}
       </div>
 
-      <div tw="text-3xl text-gray-400" style={font("Geist Bold")}>
+      <div tw="text-3xl text-neutral-400" style={font("Geist Bold")}>
         Will Sather
       </div>
     </div>,

@@ -11,7 +11,7 @@ export default function NotFoundPage() {
       >
         404
       </h1>
-      <p className="mb-8 font-mono text-gray-400 text-xl">page not found.</p>
+      <p className="mb-8 font-mono text-neutral-400 text-xl">page not found.</p>
     </main>
   );
 }

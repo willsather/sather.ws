@@ -23,7 +23,7 @@ export default function PostHeader({ posts }: { posts: Post[] }) {
       <div className="mb-8">
         <Link
           href="/"
-          className="text-gray-400 text-sm transition-colors hover:text-white"
+          className="text-neutral-400 text-sm transition-colors hover:text-white"
         >
           ← back
         </Link>
@@ -32,7 +32,7 @@ export default function PostHeader({ posts }: { posts: Post[] }) {
       {/* Title and metadata */}
       <div className="mb-8">
         <h1 className="mb-2 font-bold text-2xl text-white">{post.title}</h1>
-        <p className="font-mono text-gray-400 text-sm">
+        <p className="font-mono text-neutral-400 text-sm">
           {post.date.toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
@@ -46,7 +46,7 @@ export default function PostHeader({ posts }: { posts: Post[] }) {
         <div className="mb-8">
           <div className="flex flex-wrap gap-2">
             {tags.map((tag) => (
-              <span key={tag} className="font-mono text-gray-500 text-xs">
+              <span key={tag} className="font-mono text-neutral-500 text-xs">
                 #{tag}
               </span>
             ))}

@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 import { Geist, JetBrains_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 
-import homeMetadata from "@/metadata/home";
 import ConsoleLog from "@/components/console-log";
+import homeMetadata from "@/metadata/home";
 
 import "@/styles/tailwind.css";
 import "@/styles/mdx.css";

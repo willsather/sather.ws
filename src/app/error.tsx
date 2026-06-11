@@ -17,7 +17,7 @@ export default function ErrorPage({ error }: { error: Error }) {
         500
       </h1>
 
-      <p className="mb-8 font-mono text-gray-400 text-xl">oops an error.</p>
+      <p className="mb-8 font-mono text-neutral-400 text-xl">oops an error.</p>
     </main>
   );
 }

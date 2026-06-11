@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export function withHeadingId(children: ReactNode, id?: string) {
   const anchor =
-    "absolute px-3 -left-[2rem] invisible [span:hover_&]:visible font-mono font-normal text-gray-300 hover:text-gray-400";
+    "absolute px-3 -left-[2rem] invisible [span:hover_&]:visible font-mono font-normal text-neutral-300 hover:text-neutral-400";
 
   return (
     <span className="relative">
