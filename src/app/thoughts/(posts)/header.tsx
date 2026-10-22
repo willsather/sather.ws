@@ -1,11 +1,15 @@
 "use client";
 
-import Link from "next/link";
-import { notFound, useSelectedLayoutSegments } from "next/navigation";
+import {
+  notFound,
+  useRouter,
+  useSelectedLayoutSegments,
+} from "next/navigation";
 
 import type { Post } from "@/lib/blog";
 
 export default function PostHeader({ posts }: { posts: Post[] }) {
+  const router = useRouter();
   const urlSegment = useSelectedLayoutSegments();
   const slug = urlSegment[urlSegment.length - 1];
 
@@ -19,14 +23,14 @@ export default function PostHeader({ posts }: { posts: Post[] }) {
 
   return (
     <>
-      {/* Back to home */}
       <div className="mb-8">
-        <Link
-          href="/"
-          className="text-muted-light text-sm transition-colors hover:text-white"
+        <button
+          type="button"
+          onClick={() => router.back()}
+          className="cursor-pointer text-muted-light text-sm transition-colors hover:text-white"
         >
           ← back
-        </Link>
+        </button>
       </div>
 
       {/* Title and metadata */}
