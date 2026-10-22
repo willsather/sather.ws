@@ -1,10 +1,10 @@
 import {
-  type Post,
   getAllPosts,
   getAllTags,
   getPost,
   getPostMetadata,
   getPostsDataByTag,
+  type Post,
 } from "@/lib/blog";
 
 vi.mock("./posts", () => ({
@@ -74,14 +74,14 @@ describe("blog lib", () => {
         description: "A fake description of a fake blog post.",
         openGraph: {
           title: "Fake Title",
-          url: "/blog/posts/fake-slug",
+          url: "/writing/fake-slug",
           images: ["/og/fake-slug"],
         },
         twitter: {
           images: ["/og/fake-slug"],
         },
         alternates: {
-          canonical: "/blog/posts/fake-slug",
+          canonical: "/writing/fake-slug",
         },
       });
     });

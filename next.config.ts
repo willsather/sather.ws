@@ -4,6 +4,7 @@ import type { NextConfig } from "next";
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
   cacheComponents: true,
+  partialPrefetching: false,
   experimental: {
     turbopackFileSystemCacheForDev: true,
   },

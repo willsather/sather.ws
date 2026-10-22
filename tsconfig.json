@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -14,11 +14,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@/e2e*": ["e2e/*"],
-      "@/public/*": ["public/*"]
+      "@/*": ["./src/*"],
+      "@/e2e*": ["./e2e/*"],
+      "@/public/*": ["./public/*"]
     },
     "plugins": [
       {

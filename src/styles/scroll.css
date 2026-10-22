@@ -3,7 +3,7 @@
 /* For Firefox */
 .scrollbar-custom {
   scrollbar-width: thin;
-  scrollbar-color: #6b7280 transparent;
+  scrollbar-color: #A1A1A1 transparent;
 }
 
 .scrollbar-custom::-webkit-scrollbar {
@@ -15,7 +15,7 @@
 }
 
 .scrollbar-custom::-webkit-scrollbar-thumb {
-  background-color: #6b7280; /* Color of the scrollbar thumb */
+  background-color: #A1A1A1; /* Color of the scrollbar thumb */
   border-radius: 6px; /* Roundness of the scrollbar thumb */
   border: 3px solid transparent; /* Border of the scrollbar thumb */
 }

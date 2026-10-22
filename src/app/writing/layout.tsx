@@ -7,11 +7,11 @@ export default function PostLayout({ children }: { children: ReactNode }) {
   const posts = getAllPosts();
 
   return (
-    <main className="min-h-screen px-6 py-12 text-neutral-100 md:px-24 md:py-16">
+    <main className="min-h-screen px-6 py-12 text-muted-light md:px-24 md:py-16">
       <div className="mx-auto max-w-2xl">
         <PostHeader posts={posts} />
 
-        <article className="prose prose-neutral max-w-none text-neutral-300">
+        <article className="prose max-w-none text-muted-light">
           {children}
         </article>
       </div>

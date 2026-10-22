@@ -21,20 +21,20 @@ export default function PreBlock({ ...props }: PreBlockProps) {
   const title = props?.title?.replaceAll('"', "");
 
   return (
-    <div className="my-3 overflow-hidden rounded-xl border border-neutral-500/30 bg-neutral-500/10">
+    <div className="my-3 overflow-hidden rounded-xl border border-muted bg-muted">
       {title && (
-        <div className="flex items-center gap-2 border-neutral-500/30 border-b px-4 py-2 text-neutral-400 text-sm">
+        <div className="flex items-center gap-2 border-muted border-b px-4 py-2 text-muted-light text-sm">
           <span className="font-medium">{title}</span>
         </div>
       )}
 
       <div className="relative">
-        <pre className="flex overflow-x-auto px-4 py-4 text-neutral-200 text-sm">
+        <pre className="flex overflow-x-auto px-4 py-4 text-muted-light text-sm">
           {props.children}
         </pre>
 
         {language && (
-          <div className="absolute right-2 bottom-2 rounded-md border border-neutral-500/30 bg-neutral-500/10 px-2 py-1 font-mono text-neutral-200 text-xs">
+          <div className="absolute right-2 bottom-2 rounded-md border border-muted bg-muted px-2 py-1 font-mono text-muted-light text-xs">
             {language.toLowerCase()}
           </div>
         )}

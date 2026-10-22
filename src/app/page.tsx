@@ -1,5 +1,6 @@
 import ExternalLinkIcon from "@/icons/external-link";
 import Logo from "@/icons/logo";
+import XIcon from "@/icons/x";
 import { getFeaturedPosts } from "@/lib/blog";
 import { headers } from "next/headers";
 import Link from "next/link";
@@ -42,7 +43,7 @@ export default async function HomePage() {
   const status = await getCurrentStatus();
 
   return (
-    <main className="min-h-screen px-6 py-12 text-neutral-100 md:px-24 md:py-16">
+    <main className="min-h-screen px-6 py-12 text-muted-light md:px-24 md:py-16">
       <div className="max-w-2xl">
         {/* Logo and name/subtitle section */}
         <div className="mb-8 flex flex-col md:flex-row md:gap-6">
@@ -54,7 +55,7 @@ export default async function HomePage() {
           <div className="md:flex-1">
             <h1 className="mb-2 font-bold text-4xl text-white">will sather</h1>
 
-            <p className="flex items-center gap-1 font-mono text-neutral-400 text-sm">
+            <p className="flex items-center gap-1 font-mono text-muted-light text-sm">
               <span className="animate-spin">*</span>
               {status}
             </p>
@@ -63,7 +64,7 @@ export default async function HomePage() {
 
         {/* Description */}
         <div className="mb-8 md:ml-26">
-          <p className="text-neutral-300 leading-relaxed">
+          <p className="text-muted-light leading-relaxed">
             software engineer. football watcher. star wars enjoyer.
             <br className="hidden md:block" /> divorced dad rock playlist
             curator. water drinker.
@@ -73,7 +74,7 @@ export default async function HomePage() {
         {/*<div className="mb-12 space-y-3 md:ml-24">
           <Link
             href="https://x.com/willsather"
-            className="flex items-center gap-2 text-neutral-400 transition-colors hover:text-white"
+            className="flex items-center gap-2 text-muted-light transition-colors hover:text-white"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -82,7 +83,7 @@ export default async function HomePage() {
           </Link>
           <Link
             href="https://github.com/willsather"
-            className="flex items-center gap-2 text-neutral-400 transition-colors hover:text-white"
+            className="flex items-center gap-2 text-muted-light transition-colors hover:text-white"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -91,7 +92,7 @@ export default async function HomePage() {
           </Link>
           <Link
             href="https://linkedin.com/in/willsather"
-            className="flex items-center gap-2 text-neutral-400 transition-colors hover:text-white"
+            className="flex items-center gap-2 text-muted-light transition-colors hover:text-white"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -104,20 +105,22 @@ export default async function HomePage() {
         <section className="mb-12 md:ml-26">
           <h2 className="mb-4 flex items-baseline gap-3 font-bold text-white text-xl">
             work
-            <Link
-              href="https://linkedin.com/in/willsather"
-              className="-top-px relative font-light font-mono text-[10px] text-neutral-400 transition-colors hover:text-white"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @willsather
-            </Link>
           </h2>
-          <ul className="space-y-2 font-mono text-neutral-300 text-sm">
+          <ul className="space-y-2 font-mono text-muted-light text-sm">
             <li>* field eng @ vercel</li>
             <li>* software eng @ vmware</li>
             <li>* intern @ dell</li>
             <li>* intern @ ivanti</li>
+            <li className="pt-2">
+              <Link
+                href="https://linkedin.com/in/willsather"
+                className="flex items-center gap-1 font-mono text-muted text-xs transition-colors hover:text-white"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>linkedin →</span>
+              </Link>
+            </li>
           </ul>
         </section>
 
@@ -125,14 +128,6 @@ export default async function HomePage() {
         <section className="mb-12 md:ml-26">
           <h2 className="mb-4 flex items-baseline gap-3 font-bold text-white text-xl">
             writing
-            <Link
-              href="https://x.com/willsather"
-              className="-top-px relative font-light font-mono text-[10px] text-neutral-400 transition-colors hover:text-white"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @willsather
-            </Link>
           </h2>
           <ul className="space-y-2 font-mono text-sm">
             {featuredPosts.map((post) => (
@@ -140,7 +135,7 @@ export default async function HomePage() {
                 {post.external ? (
                   <Link
                     href={post.external}
-                    className="text-neutral-300 transition-colors hover:text-white"
+                    className="text-muted-light transition-colors hover:text-white"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -154,19 +149,29 @@ export default async function HomePage() {
                 ) : (
                   <Link
                     href={`/writing/${post.slug}`}
-                    className="text-neutral-300 transition-colors hover:text-white"
+                    className="text-muted-light transition-colors hover:text-white"
                   >
                     * {post.title}
                   </Link>
                 )}
               </li>
             ))}
-            <li className="pt-2">
+            <li className="flex items-center gap-4 pt-2">
               <Link
                 href="/archive"
-                className="flex items-center gap-1 font-mono text-neutral-400 text-xs transition-colors hover:text-white"
+                className="flex items-center gap-1 font-mono text-muted text-xs transition-colors hover:text-white"
               >
                 <span>archive →</span>
+              </Link>
+              <Link
+                href="https://x.com/willsather"
+                className="flex items-center gap-1 font-mono text-muted text-xs transition-colors hover:text-white"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Will Sather on X"
+              >
+                <XIcon className="size-3" fill="currentColor" aria-hidden="true" />
+                <span aria-hidden="true">→</span>
               </Link>
             </li>
           </ul>
@@ -176,25 +181,17 @@ export default async function HomePage() {
         <section className="md:ml-26">
           <h2 className="mb-4 flex items-baseline gap-3 font-bold text-white text-xl">
             code
-            <Link
-              href="https://github.com/willsather"
-              className="-top-0.5 relative font-light font-mono text-[10px] text-neutral-400 transition-colors hover:text-white"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @willsather
-            </Link>
           </h2>
 
-          <ul className="space-y-2 font-mono text-neutral-300 text-sm">
+          <ul className="space-y-2 font-mono text-muted-light text-sm">
             <li>
               <Link
-                href="https://github.com/vercel-labs/open-agents"
+                href="https://sather.wedding"
                 className="transition-colors hover:text-white"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                * open-agents
+                * sather.wedding
               </Link>
             </li>
             <li>
@@ -209,16 +206,6 @@ export default async function HomePage() {
             </li>
             <li>
               <Link
-                href="https://github.com/vercel/registry-starter"
-                className="transition-colors hover:text-white"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                * registry-starter
-              </Link>
-            </li>
-            <li>
-              <Link
                 href="https://github.com/willsather/ai-agent-starter"
                 className="transition-colors hover:text-white"
                 target="_blank"
@@ -227,12 +214,32 @@ export default async function HomePage() {
                 * agent-starter
               </Link>
             </li>
+            <li>
+              <Link
+                href="https://github.com/vercel-labs/open-agents"
+                className="transition-colors hover:text-white"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                * open-agents
+              </Link>
+            </li>
+            <li className="pt-2">
+              <Link
+                href="https://github.com/willsather"
+                className="flex items-center gap-1 font-mono text-muted text-xs transition-colors hover:text-white"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>github →</span>
+              </Link>
+            </li>
           </ul>
         </section>
 
         {/* Footer with git hash and request ID */}
         <footer className="mt-16 md:ml-26">
-          <div className="font-mono text-neutral-600 text-xs">
+          <div className="font-mono text-muted text-xs">
             {gitHash} | {vercelId}
           </div>
         </footer>

@@ -5,6 +5,9 @@ This is the Next.js application that supports my website. You can find it deploy
 
 ## Local Setup
 
+Use Node.js 24 LTS (the version in `.node-version`) and pnpm 12.15.0 (pinned in
+`package.json`). If you use fnm, run `fnm install` and `fnm use` from this directory.
+
 You can run this locally by:
 
 1. Install Dependencies
