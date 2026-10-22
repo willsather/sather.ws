@@ -2,6 +2,15 @@ import type { Post } from "@/lib/blog";
 
 export const posts: Post[] = [
   {
+    slug: "supabase-select",
+    title: "Supabase Select",
+    date: new Date("2026-10-22T12:00:00Z"),
+    tags: ["supabase"],
+    summary: "Supabase Select on YouTube.",
+    external: "https://www.youtube.com/watch?v=avwWS9nwMNg",
+    featured: true,
+  },
+  {
     slug: "shiki-code-blocks-turbopack",
     title: "Shiki Code Blocks with Turbopack",
     date: new Date("2025-10-28T12:00:00Z"),

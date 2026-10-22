@@ -124,10 +124,10 @@ export default async function HomePage() {
           </ul>
         </section>
 
-        {/* Writing section */}
+        {/* thoughts section */}
         <section className="mb-12 md:ml-26">
           <h2 className="mb-4 flex items-baseline gap-3 font-bold text-white text-xl">
-            writing
+            thoughts
           </h2>
           <ul className="space-y-2 font-mono text-sm">
             {featuredPosts.map((post) => (
