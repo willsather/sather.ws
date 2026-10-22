@@ -3,11 +3,11 @@ import Link from "next/link";
 
 import ExternalLinkIcon from "@/icons/external-link";
 import { getAllPosts } from "@/lib/blog";
-import archiveMetadata from "@/metadata/archive";
+import thoughtsMetadata from "@/metadata/thoughts";
 
-export const metadata: Metadata = archiveMetadata;
+export const metadata: Metadata = thoughtsMetadata;
 
-export default function ArchivePage() {
+export default function ThoughtsPage() {
   const posts = getAllPosts();
 
   return (
@@ -25,8 +25,10 @@ export default function ArchivePage() {
 
         {/* Title */}
         <div className="mb-8">
-          <h1 className="mb-2 font-normal text-2xl text-white">archive</h1>
-          <p className="font-mono text-muted-light text-sm">all writing</p>
+          <h1 className="mb-2 font-normal text-2xl text-white">thoughts</h1>
+          <p className="font-mono text-muted-light text-sm">
+            all my random thoughts, talks, posts, and more
+          </p>
         </div>
 
         {/* Posts list */}
@@ -50,7 +52,7 @@ export default function ArchivePage() {
                   </Link>
                 ) : (
                   <Link
-                    href={`/writing/${post.slug}`}
+                    href={`/thoughts/${post.slug}`}
                     className="text-lg text-white transition-colors hover:text-muted-light"
                   >
                     {post.title}
@@ -58,29 +60,28 @@ export default function ArchivePage() {
                 )}
               </div>
 
-              <p className="mb-2 text-muted-light text-sm">
-                {post.date.toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </p>
+              <div className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+                <time
+                  dateTime={post.date.toISOString()}
+                  className="text-muted text-sm"
+                >
+                  {post.date.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </time>
+                {post.tags.map((tag) => (
+                  <span key={tag} className="font-mono text-muted text-xs">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
 
-              <p className="text-muted-light leading-relaxed">{post.summary}</p>
-
-              {post.tags.length > 0 && (
-                <div className="mt-2">
-                  <div className="flex flex-wrap gap-2">
-                    {post.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="font-mono text-muted-light text-xs"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              {post.summary && (
+                <p className="text-muted-light leading-relaxed">
+                  {post.summary}
+                </p>
               )}
             </div>
           ))}

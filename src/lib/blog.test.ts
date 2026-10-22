@@ -74,14 +74,14 @@ describe("blog lib", () => {
         description: "A fake description of a fake blog post.",
         openGraph: {
           title: "Fake Title",
-          url: "/writing/fake-slug",
+          url: "/thoughts/fake-slug",
           images: ["/og/fake-slug"],
         },
         twitter: {
           images: ["/og/fake-slug"],
         },
         alternates: {
-          canonical: "/writing/fake-slug",
+          canonical: "/thoughts/fake-slug",
         },
       });
     });

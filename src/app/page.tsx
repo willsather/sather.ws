@@ -109,8 +109,8 @@ export default async function HomePage() {
           <ul className="space-y-2 font-mono text-muted-light text-sm">
             <li>* field eng @ vercel</li>
             <li>* software eng @ vmware</li>
-            <li>* intern @ dell</li>
             <li>* intern @ ivanti</li>
+            <li>* intern @ dell</li>
             <li className="pt-2">
               <Link
                 href="https://linkedin.com/in/willsather"
@@ -148,7 +148,7 @@ export default async function HomePage() {
                   </Link>
                 ) : (
                   <Link
-                    href={`/writing/${post.slug}`}
+                    href={`/thoughts/${post.slug}`}
                     className="text-muted-light transition-colors hover:text-white"
                   >
                     * {post.title}
@@ -158,10 +158,10 @@ export default async function HomePage() {
             ))}
             <li className="flex items-center gap-4 pt-2">
               <Link
-                href="/archive"
+                href="/thoughts"
                 className="flex items-center gap-1 font-mono text-muted text-xs transition-colors hover:text-white"
               >
-                <span>archive →</span>
+                <span>more thoughts →</span>
               </Link>
               <Link
                 href="https://x.com/willsather"

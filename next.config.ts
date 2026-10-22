@@ -32,18 +32,33 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/archive",
+        destination: "/thoughts",
+        permanent: true,
+      },
+      {
+        source: "/writing/:path*",
+        destination: "/thoughts/:path*",
+        permanent: true,
+      },
+      {
         source: "/blog/posts/:path*",
-        destination: "/writing/:path*",
+        destination: "/thoughts/:path*",
+        permanent: true,
+      },
+      {
+        source: "/blog/rss.xml",
+        destination: "/thoughts/rss.xml",
         permanent: true,
       },
       {
         source: "/blog",
-        destination: "/archive",
+        destination: "/thoughts",
         permanent: true,
       },
       {
         source: "/blog/tags/:path*",
-        destination: "/archive",
+        destination: "/thoughts",
         permanent: true,
       },
     ];

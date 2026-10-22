@@ -8,8 +8,8 @@ export async function GET() {
     title: "Will Sather",
     description,
     generator: "Next.js",
-    feed_url: "https://www.sather.ws/blog/rss.xml",
-    site_url: "https://www.sather.ws/blog",
+    feed_url: "https://www.sather.ws/thoughts/rss.xml",
+    site_url: "https://www.sather.ws/thoughts",
     copyright: `Copyright ${new Date().getFullYear().toString()}, Will Sather`,
     language: "en-US",
     pubDate: new Date().toUTCString(),
@@ -22,7 +22,8 @@ export async function GET() {
     feed.item({
       title: postData.title,
       description: postData.summary,
-      url: `https://www.sather.ws/blog/posts/${postData.slug}`,
+      url:
+        postData.external ?? `https://www.sather.ws/thoughts/${postData.slug}`,
       categories: postData.tags,
       author: "Will Sather",
       date: postData.date,

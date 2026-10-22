@@ -48,14 +48,14 @@ export function getPostMetadata(slug: string): Metadata {
     description: post.summary,
     openGraph: {
       title: post.title,
-      url: `/writing/${post.slug}`,
+      url: `/thoughts/${post.slug}`,
       images: [`/og/${post.slug}`],
     },
     twitter: {
       images: [`/og/${post.slug}`],
     },
     alternates: {
-      canonical: `/writing/${post.slug}`,
+      canonical: `/thoughts/${post.slug}`,
     },
   };
 }
